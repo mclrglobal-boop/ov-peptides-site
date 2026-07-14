@@ -13,5 +13,5 @@
   Voir GUIDE-ESPACE-CLIENT.md pour la procédure complète.
 */
 
-const SUPABASE_URL = "VOTRE_URL_SUPABASE";
-const SUPABASE_ANON_KEY = "VOTRE_CLE_ANON_SUPABASE";
+const SUPABASE_URL = "https://hhtwuaehgkwueyfiixyw.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhodHd1YWVoZ2t3dWV5ZmlpeHl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQwMjgxMjgsImV4cCI6MjA5OTYwNDEyOH0.Mcy11IWD-HdhZ5hDljE5BY8gRRGpOCIzhGSZdqWkf6M";
