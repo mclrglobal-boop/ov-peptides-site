@@ -293,7 +293,7 @@
   }
   .testi-photos{display:grid;grid-template-columns:1fr 1fr;}
   .testi-photo{
-    aspect-ratio:1/1;
+    aspect-ratio:3/4;
     background:repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 10px, transparent 10px 20px), linear-gradient(135deg,#1a1f27,#10121a);
     border:1px dashed var(--border);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
@@ -301,7 +301,7 @@
   }
   .testi-photo .icon{font-size:20px;opacity:.6;}
   .testi-photo{position:relative;}
-  .testi-photo-img{aspect-ratio:1/1;width:100%;height:100%;object-fit:cover;display:block;}
+  .testi-photo-img{width:100%;height:100%;object-fit:contain;display:block;background:#0b0d13;}
   .testi-body{padding:22px;}
   .testi-body h3{font-size:17px;color:var(--muted);font-style:italic;}
   .testi-quote{color:var(--accent);font-size:14px;margin-top:12px;}
@@ -526,7 +526,7 @@
   <div class="container">
     <div class="section-head">
       <h2>Ils ont testé OV</h2>
-      <p>Emplacements réservés pour vos témoignages clients réels — à remplacer par des photos et retours authentiques, avec consentement écrit.</p>
+      <p>Témoignages clients</p>
     </div>
     <div class="grid-3">
       <div class="testi-card">
