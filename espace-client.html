@@ -203,7 +203,11 @@
   <form id="signup-form" class="auth-form card">
     <div id="signup-msg" class="msg"></div>
     <div class="field">
-      <label for="signup-email">Adresse email</label>
+      <label for="signup-code">Code d'accès</label>
+      <input type="text" id="signup-code" required autocomplete="off" placeholder="Reçu par email après votre commande" style="text-transform:uppercase;letter-spacing:2px;">
+    </div>
+    <div class="field">
+      <label for="signup-email">Adresse email (utilisée lors de votre commande)</label>
       <input type="email" id="signup-email" required autocomplete="email">
     </div>
     <div class="field">
@@ -215,6 +219,7 @@
       <input type="password" id="signup-password2" required minlength="6" autocomplete="new-password">
     </div>
     <button type="submit" class="btn btn-primary" id="signup-submit">Créer mon compte</button>
+    <p style="font-size:12px;margin-top:12px;text-align:center;">Pas encore de code ? Il est envoyé par email juste après votre commande.</p>
   </form>
 </section>
 
@@ -425,24 +430,51 @@
     e.preventDefault();
     hideMsg('signup-msg');
     var pw1 = $('signup-password').value, pw2 = $('signup-password2').value;
+    var code = $('signup-code').value.trim();
+    var email = $('signup-email').value.trim();
     if(pw1 !== pw2){
       showMsg('signup-msg', "Les deux mots de passe ne correspondent pas.", 'error');
       return;
     }
+    if(!code){
+      showMsg('signup-msg', "Le code d'accès est obligatoire pour créer un compte.", 'error');
+      return;
+    }
     var btn = $('signup-submit');
     btn.disabled = true;
-    supabase.auth.signUp({
-      email: $('signup-email').value.trim(),
-      password: pw1
-    }).then(function(res){
-      btn.disabled = false;
-      if(res.error){
-        showMsg('signup-msg', "Inscription impossible : " + res.error.message, 'error');
-      } else if(res.data && res.data.session){
-        showMsg('signup-msg', "Compte créé ! Connexion en cours...", 'success');
-      } else {
-        showMsg('signup-msg', "Compte créé. Vérifiez votre boîte mail pour confirmer votre adresse avant de vous connecter.", 'success');
+
+    // 1) Vérifier que le code d'accès est valide pour cette adresse email.
+    supabase.rpc('check_access_code', { p_code: code, p_email: email }).then(function(checkRes){
+      if(checkRes.error){
+        btn.disabled = false;
+        showMsg('signup-msg', "Erreur de vérification du code : " + checkRes.error.message, 'error');
+        return;
       }
+      if(!checkRes.data){
+        btn.disabled = false;
+        showMsg('signup-msg', "Code d'accès invalide, déjà utilisé, ou ne correspond pas à cette adresse email. Vérifiez le code reçu par email lors de votre commande.", 'error');
+        return;
+      }
+
+      // 2) Code valide -> création du compte.
+      supabase.auth.signUp({
+        email: email,
+        password: pw1
+      }).then(function(res){
+        btn.disabled = false;
+        if(res.error){
+          showMsg('signup-msg', "Inscription impossible : " + res.error.message, 'error');
+          return;
+        }
+        // 3) Marquer le code comme utilisé (ne bloque pas l'inscription en cas d'échec).
+        supabase.rpc('mark_code_used', { p_code: code, p_email: email });
+
+        if(res.data && res.data.session){
+          showMsg('signup-msg', "Compte créé ! Connexion en cours...", 'success');
+        } else {
+          showMsg('signup-msg', "Compte créé. Vérifiez votre boîte mail pour confirmer votre adresse avant de vous connecter.", 'success');
+        }
+      });
     });
   });
 

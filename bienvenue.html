@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merci pour votre commande — OV Peptides</title>
+<meta name="description" content="Votre commande est confirmée. Récupérez votre code d'accès pour créer votre espace client.">
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --bg:#0a0e14;
+    --bg-alt:#0f141c;
+    --card:#141a24;
+    --text:#f2f4f7;
+    --muted:#98a1b0;
+    --accent:#3f7fee;
+    --accent-2:#2f66c9;
+    --accent-red:#c23a5e;
+    --border:#232a38;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{max-width:100%;display:block;}
+  #dna-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+  .page{position:relative;z-index:1;}
+  .container{max-width:1120px;margin:0 auto;padding:0 24px;}
+  h1,h2,h3{line-height:1.2;font-weight:700;}
+  h2{font-size:clamp(26px,4vw,36px);margin-bottom:12px;}
+  h3{font-size:18px;margin-bottom:8px;}
+  p{color:var(--muted);}
+
+  .logo-mark{height:36px;width:auto;flex-shrink:0;display:block;}
+  .logo-wrap{display:flex;align-items:center;gap:10px;}
+  .logo-word{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--text);}
+  .logo-word span{background:linear-gradient(120deg,var(--accent),var(--accent-red));-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,14,20,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;max-width:1120px;margin:0 auto;
+  }
+
+  .btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:10px;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent-red));color:#fff;}
+  .btn-primary:hover{filter:brightness(1.08);}
+  .btn-outline{border-color:var(--border);color:var(--text);}
+  .btn-outline:hover{border-color:var(--accent);}
+
+  .confirm-wrap{max-width:560px;margin:0 auto;padding:64px 24px 100px;text-align:center;}
+  .check-badge{
+    width:64px;height:64px;border-radius:50%;margin:0 auto 24px;
+    background:linear-gradient(120deg,var(--accent),var(--accent-red));
+    display:flex;align-items:center;justify-content:center;font-size:30px;
+  }
+  .card{
+    background:rgba(20,26,36,.92);border:1px solid var(--border);
+    border-radius:var(--radius);padding:28px;text-align:left;margin-top:32px;
+  }
+  .code-box{
+    margin:20px 0;padding:20px;border-radius:12px;
+    background:var(--bg-alt);border:1px dashed var(--accent);
+    text-align:center;
+  }
+  .code-box .code{
+    font-size:30px;font-weight:800;letter-spacing:4px;color:var(--text);
+    font-family:'Courier New',monospace;
+  }
+  .copy-btn{margin-top:14px;}
+  .steps{margin-top:8px;padding-left:20px;color:var(--muted);font-size:14px;}
+  .steps li{margin-bottom:8px;}
+  .msg{font-size:14px;padding:12px 14px;border-radius:8px;margin-top:16px;}
+  .msg.error{background:rgba(194,58,94,.12);border:1px solid rgba(194,58,94,.35);color:#ff9ab0;}
+  .msg.info{background:rgba(63,127,238,.12);border:1px solid rgba(63,127,238,.35);color:#8fb4ff;}
+  .actions{margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+  footer{border-top:1px solid var(--border);padding:32px 0;text-align:center;}
+  footer p{font-size:13px;}
+</style>
+</head>
+<body>
+
+<canvas id="dna-bg"></canvas>
+
+<div class="page">
+
+<header>
+  <div class="nav">
+    <a class="logo-wrap" href="index.html">
+      <img class="logo-mark" src="assets/logo-mark.png" alt="OV Peptides">
+      <span class="logo-word">OV <span>Peptides</span></span>
+    </a>
+  </div>
+</header>
+
+<section class="confirm-wrap">
+  <div class="check-badge">✓</div>
+  <h2>Merci pour votre commande !</h2>
+  <p>Votre paiement a bien été confirmé. Un email de confirmation contenant votre code d'accès vous a été envoyé.</p>
+
+  <div class="card">
+    <h3>Votre code d'accès</h3>
+    <p style="font-size:14px;">Ce code est nécessaire pour créer votre espace client et suivre votre cure. Conservez-le précieusement.</p>
+
+    <div id="loading-msg" class="msg info">Récupération de votre code en cours…</div>
+    <div id="error-msg" class="msg error" style="display:none;"></div>
+
+    <div id="code-wrap" style="display:none;">
+      <div class="code-box">
+        <div class="code" id="access-code">— — — — — — — —</div>
+      </div>
+      <button type="button" class="btn btn-outline copy-btn" id="copy-btn">📋 Copier le code</button>
+
+      <ol class="steps">
+        <li>Rendez-vous dans votre <strong>Espace client</strong>.</li>
+        <li>Cliquez sur « Créer un compte ».</li>
+        <li>Utilisez la <strong>même adresse email</strong> que lors de votre commande, choisissez un mot de passe et saisissez ce code.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a href="espace-client.html" class="btn btn-primary">Créer mon espace client</a>
+    <a href="index.html" class="btn btn-outline">Retour à l'accueil</a>
+  </div>
+</section>
+
+</div>
+
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/supabase-config.js"></script>
+
+<!-- Fond ADN animé -->
+<script>
+(function(){
+  var canvas = document.getElementById('dna-bg');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H;
+  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  function colorFor(depth, alpha){
+    var m = (depth+1)/2;
+    var r = Math.round(63 + (194-63)*m);
+    var g = Math.round(127 + (58-127)*m);
+    var b = Math.round(238 + (94-238)*m);
+    return 'rgba('+r+','+g+','+b+','+alpha.toFixed(2)+')';
+  }
+  function drawStrand(pts){
+    for(var i=0;i<pts.length-1;i++){
+      var p = pts[i], q = pts[i+1];
+      var alpha = 0.10 + 0.16*((p.d+1)/2);
+      ctx.strokeStyle = colorFor(p.d, alpha);
+      ctx.lineWidth = 1.4;
+      ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke();
+    }
+  }
+  function drawHelix(cx, phase){
+    var amp = 34, freqY = 0.045, step = 10, rungEvery = 3;
+    var pts1 = [], pts2 = [];
+    for(var y=-step; y<H+step*2; y+=step){
+      var angle = y*freqY + phase;
+      var depth = Math.cos(angle);
+      pts1.push({x: cx + Math.sin(angle)*amp, y:y, d: depth});
+      pts2.push({x: cx + Math.sin(angle+Math.PI)*amp, y:y, d: -depth});
+    }
+    for(var i=0;i<pts1.length;i+=rungEvery){
+      var a = pts1[i], b = pts2[i];
+      var alpha = 0.06 + 0.10*((a.d+1)/2);
+      ctx.strokeStyle = colorFor(a.d, alpha);
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+    }
+    drawStrand(pts1);
+    drawStrand(pts2);
+    [pts1,pts2].forEach(function(pts){
+      pts.forEach(function(p,i){
+        if(i % rungEvery !== 0) return;
+        var r = 1 + 1.3*((p.d+1)/2);
+        ctx.fillStyle = colorFor(p.d, 0.2 + 0.25*((p.d+1)/2));
+        ctx.beginPath(); ctx.arc(p.x,p.y,r,0,Math.PI*2); ctx.fill();
+      });
+    });
+  }
+  var t = 0;
+  var colGap = 240;
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    t += 0.01;
+    for(var cx = colGap/2; cx < W + colGap; cx += colGap){
+      drawHelix(cx, t + cx*0.008);
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+
+<!-- Récupération du code d'accès -->
+<script>
+(function(){
+  function $(id){ return document.getElementById(id); }
+
+  function showError(text){
+    $('loading-msg').style.display = 'none';
+    var el = $('error-msg');
+    el.style.display = 'block';
+    el.textContent = text;
+  }
+
+  var params = new URLSearchParams(window.location.search);
+  var sessionId = params.get('session_id');
+
+  if(!sessionId){
+    showError("Aucune commande trouvée dans le lien. Si vous venez de payer, vérifiez votre email : votre code d'accès y a été envoyé.");
+    return;
+  }
+
+  var configReady = typeof SUPABASE_URL !== 'undefined' && typeof SUPABASE_ANON_KEY !== 'undefined'
+    && SUPABASE_URL.indexOf('VOTRE_') !== 0 && SUPABASE_ANON_KEY.indexOf('VOTRE_') !== 0;
+
+  if(!configReady){
+    showError("Configuration indisponible pour le moment. Votre code d'accès vous a été envoyé par email.");
+    return;
+  }
+
+  var supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  function attempt(triesLeft){
+    supabase.rpc('get_code_by_session', { p_session_id: sessionId }).then(function(res){
+      if(res.error){
+        showError("Impossible de récupérer votre code pour le moment. Votre code d'accès vous a été envoyé par email.");
+        return;
+      }
+      var code = res.data;
+      if(code){
+        $('loading-msg').style.display = 'none';
+        $('access-code').textContent = code;
+        $('code-wrap').style.display = 'block';
+        return;
+      }
+      if(triesLeft > 0){
+        // Le webhook Stripe peut mettre quelques secondes à traiter le paiement.
+        setTimeout(function(){ attempt(triesLeft - 1); }, 2000);
+      } else {
+        showError("Votre commande est confirmée mais le code n'est pas encore disponible ici. Il vous a été envoyé par email — vérifiez aussi vos spams.");
+      }
+    });
+  }
+  attempt(6);
+
+  $('copy-btn') && $('copy-btn').addEventListener('click', function(){
+    var code = $('access-code').textContent.trim();
+    if(!code) return;
+    navigator.clipboard && navigator.clipboard.writeText(code).then(function(){
+      $('copy-btn').textContent = '✅ Copié !';
+      setTimeout(function(){ $('copy-btn').textContent = '📋 Copier le code'; }, 2000);
+    });
+  });
+})();
+</script>
+
+<footer>
+  <div class="container">
+    <p>© 2026 OV Peptides. Besoin d'aide ? Écrivez-nous à mclr.global@gmail.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
