@@ -321,6 +321,11 @@
   .price-card ul{list-style:none;margin:20px 0;}
   .price-card li{padding:8px 0;border-top:1px solid var(--border);font-size:14px;color:var(--text);}
   .price-card li:first-child{border-top:none;}
+  .stock-badge{font-size:12px;font-weight:600;margin-bottom:10px;color:var(--muted);}
+  .stock-badge.in-stock{color:#3fbf7f;}
+  .stock-badge.low-stock{color:#e0a530;}
+  .stock-badge.out-of-stock{color:var(--accent-red);}
+  .price-card a.btn.disabled{opacity:.45;pointer-events:none;cursor:not-allowed;}
   .trust-row{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:40px;color:var(--muted);font-size:13px;}
 
   .faq-item{border-bottom:1px solid var(--border);padding:20px 0;cursor:pointer;}
@@ -591,7 +596,8 @@
           <li data-field="pricing.0.feature2">Guide d'utilisation inclus</li>
           <li data-field="pricing.0.feature3">Accès espace membre</li>
         </ul>
-        <a href="https://buy.stripe.com/14A28r3lc71J6Jk5VWcQU03" data-field-href="pricing.0.stripe_link" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;text-align:center;">Je choisis cette formule</a>
+        <p class="stock-badge" data-stock-id="decouverte">Vérification du stock…</p>
+        <a id="buy-decouverte" href="https://buy.stripe.com/14A28r3lc71J6Jk5VWcQU03" data-field-href="pricing.0.stripe_link" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;text-align:center;">Je choisis cette formule</a>
       </div>
       <div class="price-card featured">
         <span class="badge">⭐ Le plus populaire</span>
@@ -604,7 +610,8 @@
           <li data-field="pricing.1.feature2">Suivi personnalisé inclus</li>
           <li data-field="pricing.1.feature3">Accès espace membre privé</li>
         </ul>
-        <a href="https://buy.stripe.com/8x2eVd2h84TB4Bc3NOcQU04" data-field-href="pricing.1.stripe_link" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;text-align:center;">Je choisis cette formule</a>
+        <p class="stock-badge" data-stock-id="intermediaire">Vérification du stock…</p>
+        <a id="buy-intermediaire" href="https://buy.stripe.com/8x2eVd2h84TB4Bc3NOcQU04" data-field-href="pricing.1.stripe_link" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;text-align:center;">Je choisis cette formule</a>
       </div>
       <div class="price-card">
         <h3 data-field="pricing.2.name">Formule Pro</h3>
@@ -616,7 +623,8 @@
           <li data-field="pricing.2.feature2">Suivi personnalisé inclus</li>
           <li data-field="pricing.2.feature3">Support prioritaire</li>
         </ul>
-        <a href="https://buy.stripe.com/3cI14n4pg5XF1p0ckkcQU05" data-field-href="pricing.2.stripe_link" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;text-align:center;">Je choisis cette formule</a>
+        <p class="stock-badge" data-stock-id="pro">Vérification du stock…</p>
+        <a id="buy-pro" href="https://buy.stripe.com/3cI14n4pg5XF1p0ckkcQU05" data-field-href="pricing.2.stripe_link" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;text-align:center;">Je choisis cette formule</a>
       </div>
     </div>
     <div class="trust-row">
@@ -748,6 +756,44 @@
       // Si le fichier n'est pas accessible (ouverture locale du fichier sans serveur),
       // le site garde simplement son contenu par défaut écrit dans le HTML.
     });
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/supabase-config.js"></script>
+<script>
+(function(){
+  // Affiche le stock disponible par formule (table Supabase "stock_cures").
+  // Se met à jour automatiquement à chaque vente via un webhook Stripe côté serveur.
+  if(typeof SUPABASE_URL === 'undefined' || typeof SUPABASE_ANON_KEY === 'undefined' || !window.supabase){ return; }
+  var badges = document.querySelectorAll('.stock-badge[data-stock-id]');
+  if(!badges.length) return;
+  var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  sb.from('stock_cures').select('id, stock_qty').then(function(res){
+    if(res.error || !res.data){
+      badges.forEach(function(b){ b.style.display = 'none'; });
+      return;
+    }
+    res.data.forEach(function(row){
+      var badge = document.querySelector('.stock-badge[data-stock-id="'+row.id+'"]');
+      var link = document.getElementById('buy-'+row.id);
+      if(!badge) return;
+      var qty = row.stock_qty;
+      if(qty <= 0){
+        badge.textContent = '❌ Rupture de stock';
+        badge.className = 'stock-badge out-of-stock';
+        if(link){ link.classList.add('disabled'); link.textContent = 'Rupture de stock'; link.removeAttribute('href'); }
+      } else if(qty <= 5){
+        badge.textContent = '⚠️ Plus que ' + qty + ' en stock';
+        badge.className = 'stock-badge low-stock';
+      } else {
+        badge.textContent = '✅ En stock';
+        badge.className = 'stock-badge in-stock';
+      }
+    });
+  }).catch(function(){
+    badges.forEach(function(b){ b.style.display = 'none'; });
+  });
 })();
 </script>
 
