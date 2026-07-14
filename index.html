@@ -60,7 +60,7 @@
   .btn-outline{border-color:var(--border);color:var(--text);}
   .btn-outline:hover{border-color:var(--accent);}
 
-  .logo-mark{width:34px;height:34px;flex-shrink:0;}
+  .logo-mark{height:36px;width:auto;flex-shrink:0;display:block;}
   .logo-wrap{display:flex;align-items:center;gap:10px;}
   .logo-word{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--text);}
   .logo-word span{background:linear-gradient(120deg,var(--accent),var(--accent-red));-webkit-background-clip:text;background-clip:text;color:transparent;}
@@ -351,19 +351,7 @@
 <header>
   <div class="nav">
     <a class="logo-wrap" href="#">
-      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#3f7fee"/>
-            <stop offset="100%" stop-color="#c23a5e"/>
-          </linearGradient>
-        </defs>
-        <path d="M50 12 C27 12 12 28 12 50 C12 72 27 88 48 88 C40 78 35 65 35 50 C35 35 40 22 48 12 Z" fill="url(#lg1)"/>
-        <path d="M46 22 L64 78 L74 78 L92 22 L82 22 L69 64 L56 22 Z" fill="url(#lg1)"/>
-        <circle cx="82" cy="26" r="5" fill="#c23a5e"/>
-        <circle cx="70" cy="40" r="3.4" fill="#3f7fee"/>
-        <line x1="82" y1="26" x2="70" y2="40" stroke="#8fa9e8" stroke-width="2"/>
-      </svg>
+      <img class="logo-mark" src="assets/logo-mark.png" alt="OV Peptides">
       <span class="logo-word">OV <span>Peptides</span></span>
     </a>
     <nav class="nav-links">
@@ -683,13 +671,7 @@
     <div class="foot-grid">
       <div>
         <a class="logo-wrap" href="#">
-          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 12 C27 12 12 28 12 50 C12 72 27 88 48 88 C40 78 35 65 35 50 C35 35 40 22 48 12 Z" fill="url(#lg1)"/>
-            <path d="M46 22 L64 78 L74 78 L92 22 L82 22 L69 64 L56 22 Z" fill="url(#lg1)"/>
-            <circle cx="82" cy="26" r="5" fill="#c23a5e"/>
-            <circle cx="70" cy="40" r="3.4" fill="#3f7fee"/>
-            <line x1="82" y1="26" x2="70" y2="40" stroke="#8fa9e8" stroke-width="2"/>
-          </svg>
+          <img class="logo-mark" src="assets/logo-mark.png" alt="OV Peptides">
           <span class="logo-word">OV</span>
         </a>
         <p style="margin-top:12px;" data-field="footer.tagline">Bien-être, forme et sérénité au quotidien.</p>
