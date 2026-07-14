@@ -300,6 +300,8 @@
     color:var(--muted);font-size:12px;text-align:center;padding:10px;
   }
   .testi-photo .icon{font-size:20px;opacity:.6;}
+  .testi-photo{position:relative;}
+  .testi-photo-img{aspect-ratio:1/1;width:100%;height:100%;object-fit:cover;display:block;}
   .testi-body{padding:22px;}
   .testi-body h3{font-size:17px;color:var(--muted);font-style:italic;}
   .testi-quote{color:var(--accent);font-size:14px;margin-top:12px;}
@@ -528,39 +530,57 @@
     </div>
     <div class="grid-3">
       <div class="testi-card">
-        <span class="testi-badge">Exemple à remplacer</span>
+        <span class="testi-badge" data-testi-badge="0">Exemple à remplacer</span>
         <div class="testi-photos">
-          <div class="testi-photo"><span class="icon">📷</span><span>Photo AVANT<br>à ajouter</span></div>
-          <div class="testi-photo"><span class="icon">📷</span><span>Photo APRÈS<br>à ajouter</span></div>
+          <div class="testi-photo" data-photo-slot="testimonials.0.photo_before">
+            <span class="icon">📷</span><span>Photo AVANT<br>à ajouter</span>
+            <img class="testi-photo-img" style="display:none;" alt="Avant">
+          </div>
+          <div class="testi-photo" data-photo-slot="testimonials.0.photo_after">
+            <span class="icon">📷</span><span>Photo APRÈS<br>à ajouter</span>
+            <img class="testi-photo-img" style="display:none;" alt="Après">
+          </div>
         </div>
         <div class="testi-body">
-          <h3>[Prénom du client], [âge] ans — [ville]</h3>
-          <p>[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]</p>
-          <p class="testi-quote">"[Remplacer par une citation réelle et authentique du client]"</p>
+          <h3 data-field="testimonials.0.name_line">[Prénom du client], [âge] ans — [ville]</h3>
+          <p data-field="testimonials.0.story">[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]</p>
+          <p class="testi-quote">"<span data-field="testimonials.0.quote">Remplacer par une citation réelle et authentique du client</span>"</p>
         </div>
       </div>
       <div class="testi-card">
-        <span class="testi-badge">Exemple à remplacer</span>
+        <span class="testi-badge" data-testi-badge="1">Exemple à remplacer</span>
         <div class="testi-photos">
-          <div class="testi-photo"><span class="icon">📷</span><span>Photo AVANT<br>à ajouter</span></div>
-          <div class="testi-photo"><span class="icon">📷</span><span>Photo APRÈS<br>à ajouter</span></div>
+          <div class="testi-photo" data-photo-slot="testimonials.1.photo_before">
+            <span class="icon">📷</span><span>Photo AVANT<br>à ajouter</span>
+            <img class="testi-photo-img" style="display:none;" alt="Avant">
+          </div>
+          <div class="testi-photo" data-photo-slot="testimonials.1.photo_after">
+            <span class="icon">📷</span><span>Photo APRÈS<br>à ajouter</span>
+            <img class="testi-photo-img" style="display:none;" alt="Après">
+          </div>
         </div>
         <div class="testi-body">
-          <h3>[Prénom du client], [âge] ans — [ville]</h3>
-          <p>[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]</p>
-          <p class="testi-quote">"[Remplacer par une citation réelle et authentique du client]"</p>
+          <h3 data-field="testimonials.1.name_line">[Prénom du client], [âge] ans — [ville]</h3>
+          <p data-field="testimonials.1.story">[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]</p>
+          <p class="testi-quote">"<span data-field="testimonials.1.quote">Remplacer par une citation réelle et authentique du client</span>"</p>
         </div>
       </div>
       <div class="testi-card">
-        <span class="testi-badge">Exemple à remplacer</span>
+        <span class="testi-badge" data-testi-badge="2">Exemple à remplacer</span>
         <div class="testi-photos">
-          <div class="testi-photo"><span class="icon">📷</span><span>Photo AVANT<br>à ajouter</span></div>
-          <div class="testi-photo"><span class="icon">📷</span><span>Photo APRÈS<br>à ajouter</span></div>
+          <div class="testi-photo" data-photo-slot="testimonials.2.photo_before">
+            <span class="icon">📷</span><span>Photo AVANT<br>à ajouter</span>
+            <img class="testi-photo-img" style="display:none;" alt="Avant">
+          </div>
+          <div class="testi-photo" data-photo-slot="testimonials.2.photo_after">
+            <span class="icon">📷</span><span>Photo APRÈS<br>à ajouter</span>
+            <img class="testi-photo-img" style="display:none;" alt="Après">
+          </div>
         </div>
         <div class="testi-body">
-          <h3>[Prénom du client], [âge] ans — [ville]</h3>
-          <p>[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]</p>
-          <p class="testi-quote">"[Remplacer par une citation réelle et authentique du client]"</p>
+          <h3 data-field="testimonials.2.name_line">[Prénom du client], [âge] ans — [ville]</h3>
+          <p data-field="testimonials.2.story">[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]</p>
+          <p class="testi-quote">"<span data-field="testimonials.2.quote">Remplacer par une citation réelle et authentique du client</span>"</p>
         </div>
       </div>
     </div>
@@ -726,6 +746,21 @@
       document.querySelectorAll('[data-field-href]').forEach(function(el){
         var val = getPath(data, el.getAttribute('data-field-href'));
         if(val !== undefined && val !== null){ el.setAttribute('href', val); }
+      });
+      document.querySelectorAll('[data-photo-slot]').forEach(function(el){
+        var val = getPath(data, el.getAttribute('data-photo-slot'));
+        if(val){
+          var img = el.querySelector('img');
+          img.src = val;
+          img.style.display = 'block';
+          el.querySelectorAll(':scope > span').forEach(function(s){ s.style.display = 'none'; });
+        }
+      });
+      (data.testimonials || []).forEach(function(t, i){
+        if(t && t.photo_before && t.photo_after){
+          var badge = document.querySelector('[data-testi-badge="'+i+'"]');
+          if(badge){ badge.style.display = 'none'; }
+        }
       });
     })
     .catch(function(){
