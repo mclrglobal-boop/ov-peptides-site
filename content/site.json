@@ -63,11 +63,11 @@
   },
   "testimonials": [
     {
-      "name_line": "[Prénom du client], [âge] ans — [ville]",
-      "story": "[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]",
-      "quote": "Remplacer par une citation réelle et authentique du client",
-      "photo_before": "",
-      "photo_after": ""
+      "name_line": "omar, 32 ans — Grenoble",
+      "story": "Je suis passé de 108 kg à 100 kg en 8 semaines. J’ai retrouvé un meilleur contrôle de mon appétit, plus d’énergie au quotidien et une vraie motivation pour continuer mes objectifs",
+      "quote": "Après quelques semaines d’utilisation, j’ai déjà perdu 8 kg et je me sens beaucoup mieux au quotidien. J’ai retrouvé une meilleure maîtrise de mon appétit et une vraie motivation pour continuer mes objectifs. Une expérience qui a changé ma façon d’aborder ma perte de poids",
+      "photo_before": "/images/uploads/capture-d-écran-2026-07-14-163134.png",
+      "photo_after": "/images/uploads/capture-d-écran-2026-07-14-163146.png"
     },
     {
       "name_line": "[Prénom du client], [âge] ans — [ville]",
