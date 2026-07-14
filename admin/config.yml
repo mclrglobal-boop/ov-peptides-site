@@ -109,6 +109,16 @@ collections:
               - { label: "Paragraphe 3", name: "paragraph3", widget: "text" }
               - { label: "Avertissement", name: "disclaimer", widget: "text" }
 
+          - label: "Témoignages clients (avant/après)"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Prénom, âge et ville (ex: Marie, 34 ans — Lyon)", name: "name_line", widget: "string" }
+              - { label: "Parcours du client", name: "story", widget: "text" }
+              - { label: "Citation du client (sans les guillemets)", name: "quote", widget: "text" }
+              - { label: "Photo AVANT", name: "photo_before", widget: "image", required: false }
+              - { label: "Photo APRÈS", name: "photo_after", widget: "image", required: false }
+
           - label: "Formules (tarifs)"
             name: "pricing"
             widget: "list"
