@@ -51,6 +51,29 @@
     "paragraph3": "C'est cette expérience personnelle qui m'a donné envie de partager OV avec d'autres actifs dans la même situation que moi.",
     "disclaimer": "⚠️ Mon expérience est individuelle et ne constitue pas une garantie de résultat. Les résultats varient selon les personnes, l'alimentation et le mode de vie."
   },
+  "testimonials": [
+    {
+      "name_line": "[Prénom du client], [âge] ans — [ville]",
+      "story": "[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]",
+      "quote": "Remplacer par une citation réelle et authentique du client",
+      "photo_before": "",
+      "photo_after": ""
+    },
+    {
+      "name_line": "[Prénom du client], [âge] ans — [ville]",
+      "story": "[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]",
+      "quote": "Remplacer par une citation réelle et authentique du client",
+      "photo_before": "",
+      "photo_after": ""
+    },
+    {
+      "name_line": "[Prénom du client], [âge] ans — [ville]",
+      "story": "[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]",
+      "quote": "Remplacer par une citation réelle et authentique du client",
+      "photo_before": "",
+      "photo_after": ""
+    }
+  ],
   "pricing": [
     {
       "name": "Formule Découverte",
