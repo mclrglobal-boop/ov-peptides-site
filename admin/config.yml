@@ -1,6 +1,30 @@
+# Auth via DecapBridge (remplace Netlify Identity, devenu obsolete)
 backend:
   name: git-gateway
+  repo: mclrglobal-boop/ov-peptides-site
   branch: main
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/df169527-7217-401c-adf1-f07bd858a622/pkce
+  auth_token_endpoint: /sites/df169527-7217-401c-adf1-f07bd858a622/token
+  gateway_url: https://gateway.decapbridge.com
+
+commit_messages:
+  create: 'Create "{{collection}}" "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge'
+  update: 'Update "{{collection}}" "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge'
+  delete: 'Delete "{{collection}}" "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge'
+  uploadMedia: 'Upload "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge'
+  deleteMedia: 'Delete "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge'
+  openAuthoring: '{{message}} - {{author-name}} <{{author-login}}> via DecapBridge'
+
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+site_url: https://ov-peptides.netlify.app
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
