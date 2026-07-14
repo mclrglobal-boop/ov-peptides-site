@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Espace Client — OV Peptides</title>
+<meta name="description" content="Connectez-vous à votre espace personnel pour suivre votre cure : poids, évolution et historique.">
+<style>
+  :root{
+    --bg:#0a0e14;
+    --bg-alt:#0f141c;
+    --card:#141a24;
+    --text:#f2f4f7;
+    --muted:#98a1b0;
+    --accent:#3f7fee;
+    --accent-2:#2f66c9;
+    --accent-red:#c23a5e;
+    --border:#232a38;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{max-width:100%;display:block;}
+  #dna-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+  .page{position:relative;z-index:1;}
+  .container{max-width:1120px;margin:0 auto;padding:0 24px;}
+  h1,h2,h3{line-height:1.2;font-weight:700;}
+  h2{font-size:clamp(26px,4vw,36px);margin-bottom:12px;}
+  h3{font-size:18px;margin-bottom:8px;}
+  p{color:var(--muted);}
+  .eyebrow{
+    display:inline-block;
+    font-size:13px;
+    letter-spacing:.04em;
+    color:var(--accent);
+    background:rgba(63,127,238,.1);
+    border:1px solid rgba(63,127,238,.3);
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:20px;
+  }
+  .btn{
+    display:inline-block;
+    padding:13px 26px;
+    border-radius:10px;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    border:1px solid transparent;
+    background:none;
+    font-family:inherit;
+  }
+  .btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent-red));color:#fff;width:100%;}
+  .btn-primary:hover{filter:brightness(1.08);}
+  .btn-primary:disabled{opacity:.6;cursor:not-allowed;}
+  .btn-outline{border-color:var(--border);color:var(--text);}
+  .btn-outline:hover{border-color:var(--accent);}
+  .btn-small{padding:7px 14px;font-size:13px;}
+
+  .logo-mark{width:34px;height:34px;flex-shrink:0;}
+  .logo-wrap{display:flex;align-items:center;gap:10px;}
+  .logo-word{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--text);}
+  .logo-word span{background:linear-gradient(120deg,var(--accent),var(--accent-red));-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,14,20,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;max-width:1120px;margin:0 auto;
+  }
+  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--muted);}
+  .nav-links a:hover,.nav-links a.active{color:var(--text);}
+  .nav-right{display:flex;align-items:center;gap:16px;font-size:14px;}
+  @media (max-width:860px){ .nav-links{display:none;} }
+
+  .hero{padding:64px 0 12px;text-align:center;}
+  .hero .container{max-width:640px;}
+
+  .card{
+    background:rgba(20,26,36,.92);border:1px solid var(--border);
+    border-radius:var(--radius);padding:28px;
+  }
+
+  /* --- Auth --- */
+  .auth-wrap{max-width:420px;margin:0 auto;padding:24px 24px 100px;}
+  .tabs{display:flex;gap:8px;margin-bottom:24px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:4px;}
+  .tab-btn{flex:1;text-align:center;padding:10px;border-radius:9px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;border:none;background:none;font-family:inherit;}
+  .tab-btn.active{background:var(--accent);color:#fff;}
+  .auth-form{display:none;}
+  .auth-form.active{display:block;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;}
+  .field input,.field textarea{
+    width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--border);
+    background:var(--bg-alt);color:var(--text);font-size:15px;font-family:inherit;
+  }
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);}
+  .msg{font-size:13px;padding:10px 12px;border-radius:8px;margin-bottom:16px;display:none;}
+  .msg.error{display:block;background:rgba(194,58,94,.12);border:1px solid rgba(194,58,94,.35);color:#ff9ab0;}
+  .msg.success{display:block;background:rgba(63,127,238,.12);border:1px solid rgba(63,127,238,.35);color:#8fb4ff;}
+  .config-warning{max-width:640px;margin:0 auto;padding:0 24px 40px;}
+
+  /* --- Dashboard --- */
+  #dashboard-section{padding:20px 0 100px;}
+  .dash-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:32px;}
+  .dash-head h2{margin-bottom:2px;}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px;}
+  @media (max-width:760px){ .stat-grid{grid-template-columns:repeat(2,1fr);} }
+  .stat-card{text-align:center;padding:20px;}
+  .stat-card .val{font-size:26px;font-weight:800;color:var(--text);}
+  .stat-card .val.down{color:#5fd88a;}
+  .stat-card .val.up{color:var(--accent-red);}
+  .stat-card .lbl{font-size:12px;color:var(--muted);margin-top:4px;}
+
+  .dash-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:24px;align-items:start;}
+  @media (max-width:900px){ .dash-grid{grid-template-columns:1fr;} }
+
+  #chart-canvas{width:100%;height:200px;display:block;margin-top:12px;}
+
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th{text-align:left;color:var(--muted);font-weight:600;font-size:12px;padding:8px;border-bottom:1px solid var(--border);}
+  td{padding:10px 8px;border-bottom:1px solid var(--border);}
+  tr:last-child td{border-bottom:none;}
+  .del-btn{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:4px 8px;cursor:pointer;font-size:12px;}
+  .del-btn:hover{border-color:var(--accent-red);color:var(--accent-red);}
+  .empty-row{text-align:center;color:var(--muted);padding:20px 8px;font-size:13px;}
+
+  footer{border-top:1px solid var(--border);padding:32px 0;text-align:center;}
+  footer p{font-size:13px;}
+</style>
+</head>
+<body>
+
+<canvas id="dna-bg"></canvas>
+
+<div class="page">
+
+<header>
+  <div class="nav">
+    <a class="logo-wrap" href="index.html">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3f7fee"/>
+            <stop offset="100%" stop-color="#c23a5e"/>
+          </linearGradient>
+        </defs>
+        <path d="M50 12 C27 12 12 28 12 50 C12 72 27 88 48 88 C40 78 35 65 35 50 C35 35 40 22 48 12 Z" fill="url(#lg1)"/>
+        <path d="M46 22 L64 78 L74 78 L92 22 L82 22 L69 64 L56 22 Z" fill="url(#lg1)"/>
+        <circle cx="82" cy="26" r="5" fill="#c23a5e"/>
+        <circle cx="70" cy="40" r="3.4" fill="#3f7fee"/>
+        <line x1="82" y1="26" x2="70" y2="40" stroke="#8fa9e8" stroke-width="2"/>
+      </svg>
+      <span class="logo-word">OV <span>Peptides</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="outils-gratuits.html">Outils gratuits</a>
+      <a href="index.html#cure">La Cure</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <span>🇫🇷 FR</span>
+      <a href="espace-client.html" class="btn btn-outline active" style="padding:8px 16px;">👤 Espace client</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Espace personnel</span>
+    <h2>Suivez votre cure au fil des semaines</h2>
+    <p>Connectez-vous pour enregistrer votre poids, voir votre évolution et garder un historique complet de votre cure.</p>
+  </div>
+</section>
+
+<!-- Message si Supabase n'est pas encore configuré -->
+<div id="config-warning" class="config-warning" style="display:none;">
+  <div class="card" style="border-color:rgba(194,58,94,.4);">
+    <h3>⚠️ Espace client pas encore activé</h3>
+    <p>La configuration Supabase n'a pas encore été renseignée dans <code>assets/supabase-config.js</code>. Suivez les instructions du fichier <code>GUIDE-ESPACE-CLIENT.md</code> pour activer les comptes clients.</p>
+  </div>
+</div>
+
+<!-- Connexion / Inscription -->
+<section id="auth-section" class="auth-wrap">
+  <div class="tabs">
+    <button type="button" class="tab-btn active" data-tab="login">Connexion</button>
+    <button type="button" class="tab-btn" data-tab="signup">Créer un compte</button>
+  </div>
+
+  <form id="login-form" class="auth-form active card">
+    <div id="login-msg" class="msg"></div>
+    <div class="field">
+      <label for="login-email">Adresse email</label>
+      <input type="email" id="login-email" required autocomplete="email">
+    </div>
+    <div class="field">
+      <label for="login-password">Mot de passe</label>
+      <input type="password" id="login-password" required autocomplete="current-password">
+    </div>
+    <button type="submit" class="btn btn-primary" id="login-submit">Se connecter</button>
+  </form>
+
+  <form id="signup-form" class="auth-form card">
+    <div id="signup-msg" class="msg"></div>
+    <div class="field">
+      <label for="signup-email">Adresse email</label>
+      <input type="email" id="signup-email" required autocomplete="email">
+    </div>
+    <div class="field">
+      <label for="signup-password">Mot de passe (6 caractères min.)</label>
+      <input type="password" id="signup-password" required minlength="6" autocomplete="new-password">
+    </div>
+    <div class="field">
+      <label for="signup-password2">Confirmer le mot de passe</label>
+      <input type="password" id="signup-password2" required minlength="6" autocomplete="new-password">
+    </div>
+    <button type="submit" class="btn btn-primary" id="signup-submit">Créer mon compte</button>
+  </form>
+</section>
+
+<!-- Tableau de bord (visible une fois connecté) -->
+<section id="dashboard-section" class="container" style="display:none;">
+  <div class="dash-head">
+    <div>
+      <h2>Bonjour 👋</h2>
+      <p id="dash-email" style="font-size:14px;"></p>
+    </div>
+    <button type="button" class="btn btn-outline btn-small" id="logout-btn">Se déconnecter</button>
+  </div>
+
+  <div class="stat-grid">
+    <div class="card stat-card">
+      <div class="val" id="stat-start">—</div>
+      <div class="lbl">Poids de départ</div>
+    </div>
+    <div class="card stat-card">
+      <div class="val" id="stat-current">—</div>
+      <div class="lbl">Poids actuel</div>
+    </div>
+    <div class="card stat-card">
+      <div class="val" id="stat-diff">—</div>
+      <div class="lbl">Évolution</div>
+    </div>
+    <div class="card stat-card">
+      <div class="val" id="stat-days">—</div>
+      <div class="lbl">Jours de suivi</div>
+    </div>
+  </div>
+
+  <div class="dash-grid">
+    <div class="card">
+      <h3>Ajouter une mesure</h3>
+      <form id="entry-form">
+        <div id="entry-msg" class="msg"></div>
+        <div class="field">
+          <label for="entry-date">Date</label>
+          <input type="date" id="entry-date" required>
+        </div>
+        <div class="field">
+          <label for="entry-weight">Poids (kg)</label>
+          <input type="number" id="entry-weight" step="0.1" min="20" max="400" required>
+        </div>
+        <div class="field">
+          <label for="entry-note">Note (optionnel)</label>
+          <input type="text" id="entry-note" maxlength="140" placeholder="Ex : semaine 3, énergie en hausse">
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer la mesure</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3>Évolution du poids</h3>
+      <canvas id="chart-canvas"></canvas>
+      <div style="margin-top:24px;max-height:260px;overflow-y:auto;">
+        <table>
+          <thead>
+            <tr><th>Date</th><th>Poids</th><th>Note</th><th></th></tr>
+          </thead>
+          <tbody id="entries-body">
+            <tr><td colspan="4" class="empty-row">Aucune mesure enregistrée pour l'instant.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 OV Peptides. Vos données de suivi sont privées et visibles uniquement par vous.</p>
+  </div>
+</footer>
+
+</div>
+
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/supabase-config.js"></script>
+
+<!-- Fond ADN animé -->
+<script>
+(function(){
+  var canvas = document.getElementById('dna-bg');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H;
+  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  function colorFor(depth, alpha){
+    var m = (depth+1)/2;
+    var r = Math.round(63 + (194-63)*m);
+    var g = Math.round(127 + (58-127)*m);
+    var b = Math.round(238 + (94-238)*m);
+    return 'rgba('+r+','+g+','+b+','+alpha.toFixed(2)+')';
+  }
+  function drawStrand(pts){
+    for(var i=0;i<pts.length-1;i++){
+      var p = pts[i], q = pts[i+1];
+      var alpha = 0.10 + 0.16*((p.d+1)/2);
+      ctx.strokeStyle = colorFor(p.d, alpha);
+      ctx.lineWidth = 1.4;
+      ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke();
+    }
+  }
+  function drawHelix(cx, phase){
+    var amp = 34, freqY = 0.045, step = 10, rungEvery = 3;
+    var pts1 = [], pts2 = [];
+    for(var y=-step; y<H+step*2; y+=step){
+      var angle = y*freqY + phase;
+      var depth = Math.cos(angle);
+      pts1.push({x: cx + Math.sin(angle)*amp, y:y, d: depth});
+      pts2.push({x: cx + Math.sin(angle+Math.PI)*amp, y:y, d: -depth});
+    }
+    for(var i=0;i<pts1.length;i+=rungEvery){
+      var a = pts1[i], b = pts2[i];
+      var alpha = 0.06 + 0.10*((a.d+1)/2);
+      ctx.strokeStyle = colorFor(a.d, alpha);
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+    }
+    drawStrand(pts1);
+    drawStrand(pts2);
+    [pts1,pts2].forEach(function(pts){
+      pts.forEach(function(p,i){
+        if(i % rungEvery !== 0) return;
+        var r = 1 + 1.3*((p.d+1)/2);
+        ctx.fillStyle = colorFor(p.d, 0.2 + 0.25*((p.d+1)/2));
+        ctx.beginPath(); ctx.arc(p.x,p.y,r,0,Math.PI*2); ctx.fill();
+      });
+    });
+  }
+  var t = 0;
+  var colGap = 240;
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    t += 0.01;
+    for(var cx = colGap/2; cx < W + colGap; cx += colGap){
+      drawHelix(cx, t + cx*0.008);
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+
+<!-- Logique Espace Client -->
+<script>
+(function(){
+  function $(id){ return document.getElementById(id); }
+
+  var configReady = typeof SUPABASE_URL !== 'undefined' && typeof SUPABASE_ANON_KEY !== 'undefined'
+    && SUPABASE_URL.indexOf('VOTRE_') !== 0 && SUPABASE_ANON_KEY.indexOf('VOTRE_') !== 0;
+
+  if(!configReady){
+    $('config-warning').style.display = 'block';
+    $('auth-section').style.display = 'none';
+    return;
+  }
+
+  var supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  var TABLE = 'suivi_poids';
+  var currentUser = null;
+
+  // --- Onglets connexion / inscription ---
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.auth-form').forEach(function(f){ f.classList.remove('active'); });
+      btn.classList.add('active');
+      $(btn.getAttribute('data-tab') + '-form').classList.add('active');
+    });
+  });
+
+  function showMsg(id, text, type){
+    var el = $(id);
+    el.textContent = text;
+    el.className = 'msg ' + type;
+  }
+  function hideMsg(id){
+    var el = $(id);
+    el.className = 'msg';
+    el.textContent = '';
+  }
+
+  // --- Connexion ---
+  $('login-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    hideMsg('login-msg');
+    var btn = $('login-submit');
+    btn.disabled = true;
+    supabase.auth.signInWithPassword({
+      email: $('login-email').value.trim(),
+      password: $('login-password').value
+    }).then(function(res){
+      btn.disabled = false;
+      if(res.error){
+        showMsg('login-msg', "Connexion impossible : " + res.error.message, 'error');
+      }
+    });
+  });
+
+  // --- Inscription ---
+  $('signup-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    hideMsg('signup-msg');
+    var pw1 = $('signup-password').value, pw2 = $('signup-password2').value;
+    if(pw1 !== pw2){
+      showMsg('signup-msg', "Les deux mots de passe ne correspondent pas.", 'error');
+      return;
+    }
+    var btn = $('signup-submit');
+    btn.disabled = true;
+    supabase.auth.signUp({
+      email: $('signup-email').value.trim(),
+      password: pw1
+    }).then(function(res){
+      btn.disabled = false;
+      if(res.error){
+        showMsg('signup-msg', "Inscription impossible : " + res.error.message, 'error');
+      } else if(res.data && res.data.session){
+        showMsg('signup-msg', "Compte créé ! Connexion en cours...", 'success');
+      } else {
+        showMsg('signup-msg', "Compte créé. Vérifiez votre boîte mail pour confirmer votre adresse avant de vous connecter.", 'success');
+      }
+    });
+  });
+
+  // --- Déconnexion ---
+  $('logout-btn').addEventListener('click', function(){
+    supabase.auth.signOut();
+  });
+
+  // --- Bascule connecté / non connecté ---
+  function renderLoggedOut(){
+    $('auth-section').style.display = 'block';
+    $('dashboard-section').style.display = 'none';
+  }
+  function renderLoggedIn(user){
+    $('auth-section').style.display = 'none';
+    $('dashboard-section').style.display = 'block';
+    $('dash-email').textContent = user.email;
+    var today = new Date().toISOString().slice(0,10);
+    $('entry-date').value = today;
+    loadEntries();
+  }
+
+  supabase.auth.onAuthStateChange(function(event, session){
+    currentUser = session ? session.user : null;
+    if(currentUser){ renderLoggedIn(currentUser); } else { renderLoggedOut(); }
+  });
+  supabase.auth.getSession().then(function(res){
+    currentUser = res.data.session ? res.data.session.user : null;
+    if(currentUser){ renderLoggedIn(currentUser); } else { renderLoggedOut(); }
+  });
+
+  // --- Ajout d'une mesure ---
+  $('entry-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    hideMsg('entry-msg');
+    if(!currentUser) return;
+    var row = {
+      user_id: currentUser.id,
+      date_mesure: $('entry-date').value,
+      poids: parseFloat($('entry-weight').value),
+      note: $('entry-note').value.trim() || null
+    };
+    supabase.from(TABLE).insert(row).then(function(res){
+      if(res.error){
+        showMsg('entry-msg', "Erreur : " + res.error.message, 'error');
+      } else {
+        $('entry-weight').value = '';
+        $('entry-note').value = '';
+        loadEntries();
+      }
+    });
+  });
+
+  // --- Suppression d'une mesure ---
+  function deleteEntry(id){
+    supabase.from(TABLE).delete().eq('id', id).then(function(){ loadEntries(); });
+  }
+
+  // --- Chargement + affichage des mesures ---
+  function loadEntries(){
+    supabase.from(TABLE).select('*').order('date_mesure', {ascending:true}).then(function(res){
+      if(res.error){ return; }
+      var entries = res.data || [];
+      renderStats(entries);
+      renderTable(entries);
+      renderChart(entries);
+    });
+  }
+
+  function renderStats(entries){
+    if(entries.length === 0){
+      $('stat-start').textContent = '—';
+      $('stat-current').textContent = '—';
+      $('stat-diff').textContent = '—';
+      $('stat-days').textContent = '—';
+      return;
+    }
+    var first = entries[0];
+    var last = entries[entries.length - 1];
+    var diff = last.poids - first.poids;
+    var days = Math.round((new Date(last.date_mesure) - new Date(first.date_mesure)) / 86400000);
+    $('stat-start').textContent = first.poids.toFixed(1) + ' kg';
+    $('stat-current').textContent = last.poids.toFixed(1) + ' kg';
+    var diffEl = $('stat-diff');
+    diffEl.textContent = (diff > 0 ? '+' : '') + diff.toFixed(1) + ' kg';
+    diffEl.className = 'val ' + (diff < 0 ? 'down' : (diff > 0 ? 'up' : ''));
+    $('stat-days').textContent = days;
+  }
+
+  function renderTable(entries){
+    var body = $('entries-body');
+    if(entries.length === 0){
+      body.innerHTML = '<tr><td colspan="4" class="empty-row">Aucune mesure enregistrée pour l\'instant.</td></tr>';
+      return;
+    }
+    var rows = entries.slice().reverse().map(function(e){
+      var d = new Date(e.date_mesure);
+      var dateStr = d.toLocaleDateString('fr-FR');
+      var note = e.note ? e.note.replace(/</g,'&lt;') : '';
+      return '<tr>' +
+        '<td>' + dateStr + '</td>' +
+        '<td>' + e.poids.toFixed(1) + ' kg</td>' +
+        '<td style="color:var(--muted);font-size:13px;">' + note + '</td>' +
+        '<td><button type="button" class="del-btn" data-id="' + e.id + '">Supprimer</button></td>' +
+        '</tr>';
+    });
+    body.innerHTML = rows.join('');
+    body.querySelectorAll('.del-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){ deleteEntry(btn.getAttribute('data-id')); });
+    });
+  }
+
+  function renderChart(entries){
+    var canvas = $('chart-canvas');
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width = canvas.clientWidth;
+    var H = canvas.height = 200;
+    ctx.clearRect(0,0,W,H);
+    if(entries.length < 1) return;
+    var pad = 24;
+    var weights = entries.map(function(e){ return e.poids; });
+    var min = Math.min.apply(null, weights) - 1;
+    var max = Math.max.apply(null, weights) + 1;
+    if(max === min){ max += 1; }
+    function xAt(i){ return pad + (entries.length === 1 ? 0 : i * (W - pad*2) / (entries.length - 1)); }
+    function yAt(w){ return H - pad - ((w - min) / (max - min)) * (H - pad*2); }
+
+    // grille
+    ctx.strokeStyle = 'rgba(255,255,255,.06)';
+    ctx.lineWidth = 1;
+    for(var g=0; g<=2; g++){
+      var gy = pad + g * (H - pad*2) / 2;
+      ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(W,gy); ctx.stroke();
+    }
+
+    // ligne
+    ctx.beginPath();
+    entries.forEach(function(e,i){
+      var x = xAt(i), y = yAt(e.poids);
+      if(i === 0){ ctx.moveTo(x,y); } else { ctx.lineTo(x,y); }
+    });
+    var grad = ctx.createLinearGradient(0,0,W,0);
+    grad.addColorStop(0, '#3f7fee');
+    grad.addColorStop(1, '#c23a5e');
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = 2.5;
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+
+    // points
+    entries.forEach(function(e,i){
+      var x = xAt(i), y = yAt(e.poids);
+      ctx.beginPath();
+      ctx.arc(x,y,3.5,0,Math.PI*2);
+      ctx.fillStyle = '#f2f4f7';
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = '#3f7fee';
+      ctx.stroke();
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
