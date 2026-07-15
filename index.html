@@ -5,20 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OV Peptides — La cure bien-être pensée pour les actifs</title>
 <meta name="description" content="Une cure bien-être d'un mois pour les actifs. 1 prise par semaine, une routine simple, sans régime ni contrainte quotidienne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0a0e14;
-    --bg-alt:#0f141c;
-    --card:#141a24;
-    --text:#f2f4f7;
-    --muted:#98a1b0;
-    --accent:#3f7fee;
-    --accent-2:#2f66c9;
-    --accent-red:#c23a5e;
-    --accent-red-text:#ce617e;
-    --border:#232a38;
+    --bg:#050810;
+    --bg-alt:#080b15;
+    --card:#0d1220;
+    --card-2:#111827;
+    --text:#f5f7fb;
+    --muted:#8b93a8;
+    --muted-2:#5b6478;
+    --accent:#4f7fff;
+    --accent-2:#8b6bff;
+    --accent-red:#ef4a72;
+    --accent-red-text:#ff7fa0;
+    --green:#3ddc84;
+    --amber:#e6a93f;
+    --border:#1b2333;
+    --border-soft:rgba(255,255,255,.07);
+    --radius-sm:10px;
     --radius:16px;
+    --radius-lg:26px;
+    --shadow-sm:0 4px 18px -6px rgba(0,0,0,.35);
+    --shadow-md:0 16px 40px -12px rgba(0,0,0,.5);
+    --shadow-lg:0 40px 80px -24px rgba(0,0,0,.65);
+    --shadow-glow:0 0 0 1px rgba(79,127,255,.18), 0 20px 60px -18px rgba(79,127,255,.35);
+    --ease:cubic-bezier(.16,1,.3,1);
+    --maxw:1180px;
   }
+
   /* Accessibilite : etats de focus visibles + respect du mouvement reduit */
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible,
   select:focus-visible, [tabindex]:focus-visible{
@@ -37,334 +54,365 @@
       transition-duration:0.01ms !important;
       scroll-behavior:auto !important;
     }
+    .reveal{opacity:1 !important;transform:none !important;}
   }
+
   *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
   body{
-    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
     background:var(--bg);
     color:var(--text);
     line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
   a{color:inherit;text-decoration:none;}
   img,svg{max-width:100%;display:block;}
-  #dna-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+  button{font-family:inherit;}
+  #dna-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.5;}
   .page{position:relative;z-index:1;}
-  .container{max-width:1120px;margin:0 auto;padding:0 24px;}
-  section{padding:80px 0;}
-  h1,h2,h3{line-height:1.2;font-weight:700;}
-  h2{font-size:clamp(28px,4vw,40px);margin-bottom:16px;}
-  h3{font-size:20px;margin-bottom:10px;}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  section{padding:120px 0;position:relative;}
+  @media (max-width:860px){ section{padding:72px 0;} }
+
+  h1,h2,h3,h4{line-height:1.15;font-weight:700;letter-spacing:-.02em;}
+  h2{font-size:clamp(30px,4.2vw,44px);margin-bottom:16px;}
+  h3{font-size:19px;margin-bottom:10px;letter-spacing:-.01em;}
   p{color:var(--muted);}
+
   .eyebrow{
-    display:inline-block;
-    font-size:13px;
-    letter-spacing:.04em;
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:13px;font-weight:600;letter-spacing:.02em;
     color:var(--accent);
-    background:rgba(63,127,238,.1);
-    border:1px solid rgba(63,127,238,.3);
-    padding:6px 14px;
+    background:rgba(79,127,255,.1);
+    border:1px solid rgba(79,127,255,.28);
+    padding:7px 16px 7px 12px;
     border-radius:999px;
-    margin-bottom:20px;
+    margin-bottom:22px;
   }
+  .eyebrow svg{width:14px;height:14px;flex-shrink:0;}
+
+  /* --- Boutons --- */
   .btn{
-    display:inline-block;
-    padding:14px 28px;
-    border-radius:10px;
+    position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:15px 30px;
+    border-radius:12px;
     font-weight:600;
     font-size:15px;
     cursor:pointer;
     border:1px solid transparent;
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease), filter .25s ease, border-color .25s ease, background .25s ease;
+    will-change:transform;
   }
-  .btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent-red));color:#fff;}
-  .btn-primary:hover{filter:brightness(1.08);}
-  .btn-outline{border-color:var(--border);color:var(--text);}
-  .btn-outline:hover{border-color:var(--accent);}
+  .btn svg{width:17px;height:17px;}
+  .btn-primary{
+    background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    color:#fff;
+    box-shadow:0 12px 30px -10px rgba(79,127,255,.55);
+  }
+  .btn-primary::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+    background:linear-gradient(120deg,rgba(255,255,255,.5),rgba(255,255,255,0));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+  }
+  .btn-primary:hover{filter:brightness(1.1);box-shadow:0 16px 36px -8px rgba(79,127,255,.65);}
+  .btn-outline{
+    border-color:var(--border-soft);color:var(--text);
+    background:rgba(255,255,255,.02);
+    backdrop-filter:blur(6px);
+  }
+  .btn-outline:hover{border-color:rgba(79,127,255,.5);background:rgba(79,127,255,.06);}
+  .btn-block{width:100%;}
+  @media (hover:hover){ .magnetic{transition:transform .25s var(--ease);} }
 
-  .logo-mark{height:36px;width:auto;flex-shrink:0;display:block;}
+  /* --- Glass / cards --- */
+  .glass{
+    background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));
+    border:1px solid var(--border-soft);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+  }
+  .card{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:30px;
+    overflow:hidden;
+    transition:border-color .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .card::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;
+    background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%), rgba(79,127,255,.14), transparent 60%);
+    transition:opacity .4s ease;
+  }
+  .card:hover{border-color:rgba(79,127,255,.35);transform:translateY(-4px);box-shadow:var(--shadow-md);}
+  .card:hover::before{opacity:1;}
+  .icon-box{
+    width:44px;height:44px;border-radius:12px;
+    background:linear-gradient(135deg,rgba(79,127,255,.16),rgba(139,107,255,.1));
+    border:1px solid rgba(79,127,255,.22);
+    color:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:18px;
+  }
+  .icon-box svg{width:21px;height:21px;}
+
+  /* --- Reveal on scroll --- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease), transform .8s var(--ease);transition-delay:var(--d,0s);}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media (max-width:860px){ .grid-3,.grid-4{grid-template-columns:1fr;} }
+
+  .section-head{max-width:640px;margin:0 auto 56px;text-align:center;}
+  .section-head p{font-size:16px;}
+  .bg-alt{background:var(--bg-alt);}
+  .bg-alt::before, .bg-alt::after{
+    content:"";position:absolute;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle, rgba(79,127,255,.07), transparent 70%);
+    pointer-events:none;z-index:0;
+  }
+  .bg-alt::before{top:-160px;left:-160px;}
+  .bg-alt::after{bottom:-160px;right:-160px;background:radial-gradient(circle, rgba(239,74,114,.06), transparent 70%);}
+  .bg-alt .container{position:relative;z-index:1;}
+
+  /* --- Header / nav --- */
+  .logo-mark{height:34px;width:auto;flex-shrink:0;display:block;}
   .logo-wrap{display:flex;align-items:center;gap:10px;}
-  .logo-word{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--text);}
+  .logo-word{font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--text);}
   .logo-word span{background:linear-gradient(120deg,var(--accent),var(--accent-red));-webkit-background-clip:text;background-clip:text;color:transparent;}
 
   header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(10,14,20,.82);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
+    position:sticky;top:0;z-index:100;
+    background:rgba(5,8,16,.72);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border-soft);
+    transition:background .3s ease, border-color .3s ease;
   }
   .nav{
     display:flex;align-items:center;justify-content:space-between;
-    padding:16px 24px;max-width:1120px;margin:0 auto;
+    padding:15px 24px;max-width:var(--maxw);margin:0 auto;
   }
-  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--muted);}
-  .nav-links a:hover{color:var(--text);}
-  .nav-right{display:flex;align-items:center;gap:16px;font-size:14px;}
-  @media (max-width:860px){ .nav-links{display:none;} }
+  .nav-links{display:flex;gap:8px;font-size:14px;color:var(--muted);}
+  .nav-links a{position:relative;padding:8px 14px;border-radius:8px;transition:color .2s ease, background .2s ease;}
+  .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.04);}
+  .nav-right{display:flex;align-items:center;gap:10px;font-size:14px;}
+  .nav-right .lang{color:var(--muted);font-size:13px;padding:0 4px;}
+  .btn-nav{padding:9px 18px;font-size:14px;}
+  .nav-toggle{
+    display:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--border-soft);
+    background:rgba(255,255,255,.02);align-items:center;justify-content:center;cursor:pointer;color:var(--text);
+  }
+  .nav-toggle svg{width:20px;height:20px;}
+  .mobile-panel{
+    display:none;flex-direction:column;gap:4px;
+    padding:12px 24px 20px;border-top:1px solid var(--border-soft);
+  }
+  .mobile-panel a{padding:12px 8px;font-size:15px;color:var(--muted);border-radius:8px;}
+  .mobile-panel a:hover{color:var(--text);background:rgba(255,255,255,.04);}
+  .mobile-panel .btn{margin-top:8px;}
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .nav-right .btn-outline.hide-mobile{display:none;}
+    .nav-toggle{display:flex;}
+    header.menu-open .mobile-panel{display:flex;}
+  }
 
-  .hero{padding:72px 0 88px;position:relative;overflow:hidden;}
+  /* --- Hero --- */
+  .hero{padding:88px 0 96px;position:relative;overflow:hidden;}
   .hero::before{
-    content:"";position:absolute;top:-120px;left:50%;transform:translateX(-50%);
-    width:900px;height:560px;z-index:0;pointer-events:none;
-    background:radial-gradient(circle at 30% 30%, rgba(63,127,238,.16), transparent 60%),
-               radial-gradient(circle at 75% 60%, rgba(194,58,94,.12), transparent 55%);
+    content:"";position:absolute;top:-220px;left:50%;transform:translateX(-50%);
+    width:1100px;height:680px;z-index:0;pointer-events:none;
+    background:radial-gradient(circle at 30% 30%, rgba(79,127,255,.18), transparent 60%),
+               radial-gradient(circle at 75% 60%, rgba(239,74,114,.12), transparent 55%);
   }
   .hero .container{position:relative;z-index:1;}
-  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;}
   .hero-copy{text-align:left;}
-  .hero-copy h1{font-size:clamp(34px,4.6vw,50px);letter-spacing:-.02em;margin-bottom:20px;}
-  .hero-copy h1 .accent-text{background:linear-gradient(120deg,var(--accent),var(--accent-red));-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .hero-copy p.lead{max-width:520px;margin:0 0 32px;font-size:17px;}
-  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:32px;}
-  .btn-primary{box-shadow:0 8px 24px -8px rgba(63,127,238,.5);}
-  .hero-stats{
-    display:flex;gap:12px;flex-wrap:wrap;
-  }
+  .hero-copy h1{font-size:clamp(38px,5vw,58px);letter-spacing:-.03em;margin-bottom:22px;}
+  .hero-copy h1 .accent-text{background:linear-gradient(120deg,var(--accent),var(--accent-2),var(--accent-red));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% auto;animation:gradientShift 6s ease-in-out infinite;}
+  @keyframes gradientShift{0%,100%{background-position:0% center;}50%{background-position:100% center;}}
+  .hero-copy p.lead{max-width:520px;margin:0 0 34px;font-size:18px;color:var(--muted);}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:36px;}
+  .hero-stats{display:flex;gap:10px;flex-wrap:wrap;}
   .hero-stats span{
-    display:flex;align-items:center;gap:6px;
-    background:rgba(255,255,255,.03);border:1px solid var(--border);
-    padding:7px 14px;border-radius:999px;font-size:13px;color:var(--muted);
+    display:flex;align-items:center;gap:7px;
+    background:rgba(255,255,255,.03);border:1px solid var(--border-soft);
+    padding:8px 15px;border-radius:999px;font-size:13px;color:var(--muted);
   }
+  .hero-stats svg{width:14px;height:14px;color:var(--accent);flex-shrink:0;}
+
   .hero-visual{
-    height:380px;border-radius:24px;
-    background:linear-gradient(135deg,#131c2a,#0a0e14 60%);
-    border:1px solid var(--border);
+    height:420px;border-radius:var(--radius-lg);
+    background:linear-gradient(150deg,#0c1120,#050810 65%);
+    border:1px solid var(--border-soft);
     display:flex;align-items:center;justify-content:center;
-    color:var(--muted);font-size:14px;
     position:relative;overflow:hidden;
-    box-shadow:0 30px 60px -30px rgba(0,0,0,.6);
+    box-shadow:var(--shadow-lg);
   }
   .hero-visual::before{
     content:"";position:absolute;inset:0;z-index:0;
-    background:radial-gradient(circle at 30% 20%, rgba(63,127,238,.18), transparent 60%),
-               radial-gradient(circle at 75% 80%, rgba(194,58,94,.14), transparent 55%);
+    background:radial-gradient(circle at 30% 20%, rgba(79,127,255,.2), transparent 60%),
+               radial-gradient(circle at 75% 80%, rgba(239,74,114,.16), transparent 55%);
   }
   .hero-visual canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
-  .hero-visual .visual-label{position:relative;z-index:2;pointer-events:none;opacity:.55;}
+  .hero-logo-display{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:20px;}
+  .hero-logo-float{display:flex;align-items:center;justify-content:center;width:100%;height:100%;animation:logoFloat 5s ease-in-out infinite;}
+  .hero-logo-img{display:block;width:60%;height:60%;object-fit:contain;filter:drop-shadow(0 30px 55px rgba(0,0,0,.6));}
+  @keyframes logoFloat{ 0%,100%{ transform:translateY(0) rotate(0deg); } 50%{ transform:translateY(-12px) rotate(1deg); } }
+  .float-chip{
+    position:absolute;z-index:3;display:flex;align-items:center;gap:8px;
+    padding:10px 14px;border-radius:12px;font-size:12.5px;font-weight:600;color:var(--text);
+    background:rgba(13,18,32,.75);border:1px solid var(--border-soft);backdrop-filter:blur(10px);
+    box-shadow:var(--shadow-sm);animation:chipFloat 6s ease-in-out infinite;
+  }
+  .float-chip svg{width:15px;height:15px;color:var(--green);flex-shrink:0;}
+  .chip-1{top:14%;left:8%;animation-delay:0s;}
+  .chip-2{bottom:16%;right:8%;animation-delay:1.4s;}
+  @keyframes chipFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-9px); } }
+
   @media (max-width:860px){
     .hero{padding:56px 0 60px;text-align:center;}
-    .hero-grid{grid-template-columns:1fr;gap:36px;}
+    .hero-grid{grid-template-columns:1fr;gap:40px;}
     .hero-copy{text-align:center;}
-    .hero-copy p.lead{margin:0 auto 28px;}
+    .hero-copy p.lead{margin:0 auto 30px;}
     .hero-ctas{justify-content:center;}
     .hero-stats{justify-content:center;}
     .hero-visual{height:300px;}
+    .float-chip{display:none;}
   }
 
-  /* Fiole 3D interactive */
-  .vial-scene{
-    position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;
-    perspective:1000px;cursor:grab;
+  /* --- Steps (comment ca marche) --- */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:step;position:relative;}
+  @media (max-width:860px){ .steps{grid-template-columns:1fr;} }
+  .step{position:relative;}
+  .step-num{
+    font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.04em;
+    margin-bottom:14px;display:flex;align-items:center;gap:8px;
   }
-  .vial-scene:active{cursor:grabbing;}
-  .vial-float{animation:vialFloat 4.5s ease-in-out infinite;}
-  .vial{
-    position:relative;width:110px;height:172px;transform-style:preserve-3d;
-    animation:vialSpin 11s linear infinite;
-  }
-  .vial-slice{
-    position:absolute;top:0;left:50%;width:15px;height:172px;margin-left:-7.5px;
-    background:linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(220,226,235,.32) 22%, rgba(180,190,205,.24) 40%, rgba(120,132,155,.26) 60%, rgba(63,127,238,.16) 82%, rgba(150,55,105,.16) 100%);
-  }
-  .vial-highlight{
-    position:absolute;top:6px;left:50%;width:8px;height:158px;margin-left:-4px;
-    background:linear-gradient(180deg, transparent 0%, rgba(255,255,255,.85) 15%, rgba(255,255,255,.55) 45%, rgba(255,255,255,.2) 70%, transparent 100%);
-    border-radius:50%;
-  }
-  .vial-shoulder{
-    position:absolute;top:0;left:50%;width:110px;height:22px;margin-left:-55px;
-    border-radius:50%/16px;
-    background:radial-gradient(ellipse at 35% 30%, rgba(255,255,255,.8), rgba(200,210,222,.3) 55%, rgba(120,132,155,.25) 100%);
-  }
-  .vial-base{
-    position:absolute;bottom:0;left:50%;width:110px;height:20px;margin-left:-55px;
-    border-radius:50%/14px;
-    background:radial-gradient(ellipse at 50% 60%, rgba(150,55,105,.28), rgba(63,127,238,.2) 60%, rgba(90,100,120,.3) 100%);
-  }
-  .vial-label{
-    position:absolute;left:50%;top:50%;width:74px;height:88px;margin-left:-37px;margin-top:-32px;
-    background:rgba(248,250,255,.97);border-radius:4px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-    box-shadow:0 3px 10px rgba(0,0,0,.3);
-  }
-  .vial-label svg{width:26px;height:26px;}
-  .vial-label-text{font-size:8px;font-weight:800;color:#1a2440;text-align:center;line-height:1.25;letter-spacing:.01em;}
-  .vial-label-text span{display:block;font-size:7px;font-weight:600;color:#6a7590;margin-top:2px;}
-  .vial-cap{
-    position:absolute;left:50%;top:-60px;width:52px;height:34px;margin-left:-26px;
-    background:repeating-linear-gradient(90deg,
-      #c9cdd3 0px, #eef0f3 2px, #c9cdd3 4px, #a8adb5 6px);
-    border-radius:4px 4px 10px 10px;
-    box-shadow:inset 0 -6px 8px rgba(0,0,0,.2), inset 0 3px 4px rgba(255,255,255,.5), 0 3px 6px rgba(0,0,0,.4);
-  }
-  .vial-cap::before{
-    content:"";position:absolute;left:50%;top:-8px;width:44px;height:14px;margin-left:-22px;
-    border-radius:50%;
-    background:linear-gradient(180deg,#dfe3e8,#aeb4bc);
-    box-shadow:inset 0 -3px 4px rgba(0,0,0,.15);
-  }
-  .vial-cap::after{
-    content:"";position:absolute;left:7px;right:7px;bottom:6px;height:3px;
-    background:rgba(255,255,255,.6);border-radius:2px;
-  }
-  .vial-neck{
-    position:absolute;left:50%;top:-26px;width:30px;height:26px;margin-left:-15px;
-    background:linear-gradient(180deg, rgba(255,255,255,.55), rgba(190,198,210,.35));
-  }
-  .vial-shadow{
-    position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
-    width:96px;height:16px;border-radius:50%;
-    background:radial-gradient(ellipse at center, rgba(0,0,0,.5), transparent 72%);
-    filter:blur(2px);z-index:0;
-  }
-  @keyframes vialSpin{ from{ transform:rotateY(0deg); } to{ transform:rotateY(360deg); } }
-  @keyframes vialFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+  .step-num .line{flex:1;height:1px;background:var(--border);}
 
-  /* Logo mis en avant dans le hero */
-  .hero-logo-display{
-    position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;
-    padding:20px;
-  }
-  .hero-logo-float{
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    width:100%;height:100%;
-    animation:logoFloat 4.5s ease-in-out infinite;
-  }
-  .hero-logo-card{
-    width:100%;height:100%;
-    display:flex;align-items:center;justify-content:center;
-    overflow:hidden;
-  }
-  .hero-logo-img{display:block;width:65%;height:65%;object-fit:contain;filter:drop-shadow(0 25px 50px rgba(0,0,0,.55));}
-  @keyframes logoFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
+  /* --- Stat strip --- */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center;}
+  @media (max-width:860px){ .stats{grid-template-columns:1fr;gap:40px;} }
+  .stat-num{font-size:48px;font-weight:800;letter-spacing:-.03em;background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat-label{color:var(--muted);font-size:14.5px;max-width:260px;margin:10px auto 0;}
 
-  /* Photo carousel (illustrations animées) */
-  .photo-carousel{position:absolute;inset:0;z-index:2;}
-  .carousel-slide{
-    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    opacity:0;animation:carouselFade 20s infinite;
-  }
-  .carousel-slide:nth-child(1){animation-delay:0s;}
-  .carousel-slide:nth-child(2){animation-delay:-5s;}
-  .carousel-slide:nth-child(3){animation-delay:-10s;}
-  .carousel-slide:nth-child(4){animation-delay:-15s;}
-  .carousel-slide .slide-inner{
-    width:78%;height:82%;animation:kenburns 9s ease-in-out infinite;
-  }
-  .carousel-slide svg{width:100%;height:100%;}
-  @keyframes carouselFade{
-    0%{opacity:0;}
-    2%{opacity:1;}
-    23%{opacity:1;}
-    27%{opacity:0;}
-    100%{opacity:0;}
-  }
-  @keyframes kenburns{
-    0%{transform:scale(1) translateY(0);}
-    50%{transform:scale(1.06) translateY(-4px);}
-    100%{transform:scale(1) translateY(0);}
-  }
-
-  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-  @media (max-width:860px){ .grid-3,.grid-4{grid-template-columns:1fr;} }
-  .card{
-    background:rgba(20,26,36,.92);border:1px solid var(--border);
-    border-radius:var(--radius);padding:28px;
-  }
-  .num{
-    width:36px;height:36px;border-radius:10px;
-    background:rgba(63,127,238,.12);color:var(--accent);
-    display:flex;align-items:center;justify-content:center;
-    font-weight:700;margin-bottom:16px;
-  }
-  .section-head{max-width:660px;margin:0 auto 48px;text-align:center;}
-  .bg-alt{background:rgba(15,20,28,.88);}
-
-  .dashboard{
-    display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;
-  }
+  /* --- Bilan / dashboard mock --- */
+  .dashboard{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;}
   @media (max-width:860px){ .dashboard{grid-template-columns:1fr;} }
   .mock{
-    background:rgba(20,26,36,.92);border:1px solid var(--border);border-radius:var(--radius);
-    padding:24px;
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+    padding:26px;box-shadow:var(--shadow-md);
   }
-  .mock-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;}
+  .mock-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--border);font-size:14px;}
   .mock-row:last-child{border-bottom:none;}
   .mock-row b{color:var(--text);}
-  .bar{height:8px;background:var(--border);border-radius:99px;overflow:hidden;margin-top:6px;}
-  .bar span{display:block;height:100%;background:var(--accent);}
-  .tag{display:inline-block;font-size:11px;padding:3px 9px;border-radius:999px;background:rgba(63,127,238,.12);color:var(--accent);margin-right:6px;}
+  .bar{height:7px;background:var(--border);border-radius:99px;overflow:hidden;margin-top:7px;}
+  .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:99px;}
+  .tag{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;padding:4px 11px;border-radius:999px;background:rgba(79,127,255,.12);color:var(--accent);margin-right:6px;font-weight:600;}
+  .tag svg{width:12px;height:12px;}
 
-  .stats{display:flex;justify-content:space-around;flex-wrap:wrap;gap:32px;text-align:center;}
-  .stat-num{font-size:44px;font-weight:800;background:linear-gradient(120deg,var(--accent),var(--accent-red));-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .stat-label{color:var(--muted);font-size:14px;max-width:240px;margin:8px auto 0;}
+  /* --- Founder --- */
+  .founder{max-width:760px;margin:0 auto;text-align:center;}
+  .founder-avatar{
+    width:64px;height:64px;border-radius:50%;margin:0 auto 22px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-red));
+    display:flex;align-items:center;justify-content:center;color:#fff;
+  }
+  .founder-avatar svg{width:28px;height:28px;}
+  .founder p{margin-bottom:16px;color:var(--text);text-align:left;font-size:15.5px;}
+  .founder .signature{color:var(--muted);font-style:italic;margin-top:22px;text-align:center;}
+  .founder .small-note{text-align:center;}
 
-  .founder{max-width:760px;margin:0 auto;}
-  .founder p{margin-bottom:16px;color:var(--text);}
-  .founder .signature{color:var(--muted);font-style:italic;margin-top:24px;}
-
-  .testi-card{background:rgba(20,26,36,.92);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative;}
+  /* --- Testimonials --- */
+  .testi-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative;transition:transform .35s var(--ease), border-color .35s var(--ease);}
+  .testi-card:hover{transform:translateY(-4px);border-color:rgba(79,127,255,.3);}
   .testi-badge{
-    position:absolute;top:10px;right:10px;z-index:2;
-    background:rgba(194,58,94,.16);color:var(--accent-red-text);border:1px solid rgba(194,58,94,.45);
-    font-size:10px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
-    padding:4px 10px;border-radius:999px;
+    position:absolute;top:12px;right:12px;z-index:2;
+    background:rgba(239,74,114,.14);color:var(--accent-red-text);border:1px solid rgba(239,74,114,.35);
+    font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;
   }
   .testi-photos{display:grid;grid-template-columns:1fr 1fr;}
   .testi-photo{
     aspect-ratio:3/4;
-    background:repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 10px, transparent 10px 20px), linear-gradient(135deg,#1a1f27,#10121a);
+    background:repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 10px, transparent 10px 20px), linear-gradient(135deg,#10141f,#0a0c14);
     border:1px dashed var(--border);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
-    color:var(--muted);font-size:12px;text-align:center;padding:10px;
+    color:var(--muted);font-size:12px;text-align:center;padding:10px;position:relative;
   }
-  .testi-photo .icon{font-size:20px;opacity:.6;}
-  .testi-photo{position:relative;}
-  .testi-photo-img{width:100%;height:100%;object-fit:contain;display:block;background:#0b0d13;}
-  .testi-body{padding:22px;}
-  .testi-body h3{font-size:17px;color:var(--muted);font-style:italic;}
-  .testi-quote{color:var(--accent);font-size:14px;margin-top:12px;}
+  .testi-photo svg{width:22px;height:22px;opacity:.5;}
+  .testi-photo-img{width:100%;height:100%;object-fit:contain;display:block;background:#08090f;}
+  .testi-body{padding:24px;}
+  .testi-body h3{font-size:16px;color:var(--muted);font-weight:600;}
+  .testi-quote{color:var(--text);font-size:14.5px;margin-top:14px;position:relative;padding-left:22px;}
+  .testi-quote svg{position:absolute;left:0;top:2px;width:15px;height:15px;color:var(--accent);}
 
+  /* --- Pricing --- */
   .price-card{
-    background:rgba(20,26,36,.92);border:1px solid var(--border);border-radius:var(--radius);
-    padding:32px;position:relative;
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+    padding:34px;position:relative;transition:transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
   }
-  .price-card.featured{border-color:var(--accent);}
+  .price-card:hover{transform:translateY(-6px);}
+  .price-card.featured{border-color:rgba(79,127,255,.45);box-shadow:var(--shadow-glow);}
   .badge{
-    position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-    background:linear-gradient(120deg,var(--accent),var(--accent-red));color:#fff;font-size:12px;font-weight:700;
-    padding:6px 14px;border-radius:999px;
+    position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+    display:inline-flex;align-items:center;gap:6px;
+    background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#fff;font-size:12px;font-weight:700;
+    padding:7px 16px;border-radius:999px;box-shadow:var(--shadow-sm);
   }
-  .price{font-size:34px;font-weight:800;margin:12px 0 4px;}
-  .price-sub{color:var(--muted);font-size:13px;margin-bottom:20px;}
-  .price-card ul{list-style:none;margin:20px 0;}
-  .price-card li{padding:8px 0;border-top:1px solid var(--border);font-size:14px;color:var(--text);}
+  .badge svg{width:13px;height:13px;}
+  .price{font-size:38px;font-weight:800;margin:14px 0 4px;letter-spacing:-.02em;}
+  .price-sub{color:var(--muted);font-size:13.5px;margin-bottom:22px;}
+  .price-card ul{list-style:none;margin:22px 0;}
+  .price-card li{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-top:1px solid var(--border);font-size:14.5px;color:var(--text);}
   .price-card li:first-child{border-top:none;}
-  .stock-badge{font-size:12px;font-weight:600;margin-bottom:10px;color:var(--muted);}
-  .stock-badge.in-stock{color:#3fbf7f;}
-  .stock-badge.low-stock{color:#e0a530;}
+  .price-card li svg{width:16px;height:16px;color:var(--green);flex-shrink:0;margin-top:2px;}
+  .stock-badge{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;margin-bottom:12px;color:var(--muted);}
+  .stock-badge svg{width:14px;height:14px;flex-shrink:0;}
+  .stock-badge.in-stock{color:var(--green);}
+  .stock-badge.low-stock{color:var(--amber);}
   .stock-badge.out-of-stock{color:var(--accent-red-text);}
   .price-card a.btn.disabled{opacity:.45;pointer-events:none;cursor:not-allowed;}
-  .trust-row{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:40px;color:var(--muted);font-size:13px;}
+  .trust-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:48px;}
+  .trust-row span{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;background:rgba(255,255,255,.02);border:1px solid var(--border-soft);padding:9px 16px;border-radius:999px;}
+  .trust-row svg{width:15px;height:15px;color:var(--accent);flex-shrink:0;}
 
-  .faq-item{border-bottom:1px solid var(--border);padding:20px 0;cursor:pointer;}
-  .faq-q{display:flex;justify-content:space-between;align-items:center;font-weight:600;}
-  .faq-a{max-height:0;overflow:hidden;color:var(--muted);font-size:14px;transition:max-height .25s ease;}
-  .faq-item.open .faq-a{max-height:220px;padding-top:12px;}
-  .faq-item.open .faq-q .chev{transform:rotate(45deg);}
-  .chev{transition:transform .2s ease;color:var(--accent);font-size:20px;}
+  /* --- FAQ --- */
+  .faq-item{border-bottom:1px solid var(--border);padding:22px 0;cursor:pointer;}
+  .faq-q{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:15.5px;gap:16px;}
+  .faq-a{max-height:0;overflow:hidden;color:var(--muted);font-size:14.5px;transition:max-height .3s var(--ease), padding .3s var(--ease);}
+  .faq-item.open .faq-a{max-height:240px;padding-top:14px;}
+  .faq-item.open .chev{transform:rotate(180deg);}
+  .chev{transition:transform .3s var(--ease);color:var(--accent);flex-shrink:0;width:20px;height:20px;}
 
-  .final-cta{text-align:center;}
+  /* --- Final CTA --- */
+  .final-cta{text-align:center;position:relative;}
+  .final-cta::before{
+    content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:600px;height:600px;border-radius:50%;
+    background:radial-gradient(circle, rgba(79,127,255,.14), transparent 68%);
+    pointer-events:none;z-index:0;
+  }
+  .final-cta .container{position:relative;z-index:1;}
   .final-cta .hero-ctas{justify-content:center;}
 
-  footer{border-top:1px solid var(--border);padding:56px 0 32px;color:var(--muted);font-size:14px;}
-  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+  /* --- Footer --- */
+  footer{border-top:1px solid var(--border-soft);padding:64px 0 32px;color:var(--muted);font-size:14px;}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:44px;}
   @media (max-width:860px){ .foot-grid{grid-template-columns:1fr 1fr;} }
-  .foot-grid h4{color:var(--text);font-size:14px;margin-bottom:14px;}
+  .foot-grid h4{color:var(--text);font-size:13.5px;margin-bottom:16px;letter-spacing:.02em;}
   .foot-grid ul{list-style:none;}
-  .foot-grid li{margin-bottom:8px;}
+  .foot-grid li{margin-bottom:10px;}
   .foot-grid a:hover{color:var(--text);}
-  .disclaimer{font-size:12px;border-top:1px solid var(--border);padding-top:24px;}
-  .small-note{font-size:12px;color:#6b7080;margin-top:8px;}
+  .disclaimer{font-size:12.5px;border-top:1px solid var(--border-soft);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .small-note{font-size:12px;color:var(--muted-2);margin-top:10px;}
 </style>
 </head>
 <body>
@@ -373,7 +421,7 @@
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 <div class="page">
 
-<header>
+<header id="site-header">
   <div class="nav">
     <a class="logo-wrap" href="#">
       <img class="logo-mark" src="assets/logo-mark.png" alt="OV Peptides">
@@ -381,16 +429,29 @@
     </a>
     <nav class="nav-links">
       <a href="#accueil">Accueil</a>
-      <a href="outils-gratuits.html">Outils gratuits</a>
-      <a href="#cure">La Cure</a>
-      <a href="#qualite">Notre engagement</a>
+      <a href="#pourquoi">Pourquoi nous</a>
+      <a href="#comment">Comment ça marche</a>
+      <a href="#formules">Formules</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-right">
-      <span>FR</span>
-      <a href="espace-client.html" class="btn btn-outline" style="padding:8px 16px;">👤 Espace client</a>
-      <a href="/admin/" class="btn btn-outline" style="padding:8px 16px;">🔒 Admin</a>
+      <span class="lang">FR</span>
+      <a href="espace-client.html" class="btn btn-outline btn-nav hide-mobile magnetic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Espace client
+      </a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-panel" aria-label="Ouvrir le menu">
+        <svg id="nav-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+      </button>
     </div>
+  </div>
+  <div class="mobile-panel" id="mobile-panel">
+    <a href="#accueil">Accueil</a>
+    <a href="#pourquoi">Pourquoi nous</a>
+    <a href="#comment">Comment ça marche</a>
+    <a href="#formules">Formules</a>
+    <a href="#faq">FAQ</a>
+    <a href="espace-client.html" class="btn btn-primary btn-block">Espace client</a>
   </div>
 </header>
 <a id="main-content" tabindex="-1"></a>
@@ -398,52 +459,59 @@
 <section class="hero" id="accueil">
   <div class="container">
     <div class="hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow" data-field="hero.eyebrow">✨ Conçu pour les actifs</span>
+    <div class="hero-copy reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 5.8L20 9.5l-5.8 1.9L12 17l-1.9-5.6L4 9.5l6.1-1.7L12 2z"/></svg>
+        <span data-field="hero.eyebrow">Conçu pour les actifs</span>
+      </span>
       <h1><span data-field="hero.title_line">Une routine. Une cure.</span> <span class="accent-text" data-field="hero.title_accent">Un mois.</span></h1>
       <p class="lead" data-field="hero.lead">OV, la cure bien-être pensée pour les actifs qui n'ont plus de temps à perdre. Une prise hebdomadaire, un accompagnement sérieux, une routine simple à tenir.</p>
       <div class="hero-ctas">
-        <a href="#formules" class="btn btn-primary" data-field="hero.cta_primary">Découvrir la cure</a>
-        <a href="outils-gratuits.html" class="btn btn-outline" data-field="hero.cta_secondary">Faire mon bilan gratuit</a>
+        <a href="#formules" class="btn btn-primary magnetic" data-field="hero.cta_primary">Découvrir la cure</a>
+        <a href="outils-gratuits.html" class="btn btn-outline magnetic" data-field="hero.cta_secondary">Faire mon bilan gratuit</a>
       </div>
       <div class="hero-stats">
-        <span data-field="hero.stat1">🇪🇺 Distribué en Europe</span>
-        <span data-field="hero.stat2">📅 1 prise / semaine</span>
-        <span data-field="hero.stat3">⏱️ Cure de 4 semaines</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span data-field="hero.stat1">Distribué en Europe</span></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span data-field="hero.stat2">1 prise / semaine</span></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-field="hero.stat3">Cure de 4 semaines</span></span>
       </div>
     </div>
-    <div class="hero-visual">
+    <div class="hero-visual reveal" style="--d:.15s;">
       <canvas id="chain-bg"></canvas>
       <div class="hero-logo-display">
         <div class="hero-logo-float">
-          <div class="hero-logo-card">
-            <img src="assets/logo-mark.png" alt="OV Peptides" class="hero-logo-img">
-          </div>
+          <img src="assets/logo-mark.png" alt="OV Peptides" class="hero-logo-img">
         </div>
       </div>
+      <div class="float-chip chip-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Livraison 3-7 jours</div>
+      <div class="float-chip chip-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Suivi inclus</div>
     </div>
     </div>
   </div>
 </section>
 
-<section class="bg-alt">
+<section class="bg-alt" id="pourquoi">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        Pourquoi nous
+      </span>
       <h2 data-field="problem.title">Pourquoi les méthodes classiques ne tiennent pas dans un emploi du temps chargé</h2>
     </div>
     <div class="grid-3">
-      <div class="card">
-        <div class="num">1</div>
+      <div class="card reveal" style="--d:0s;">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></div>
         <h3 data-field="problem.card1_title">Les régimes restrictifs</h3>
         <p data-field="problem.card1_text">Planifier chaque repas de la semaine demande un temps que peu de gens ont réellement. Après une longue journée, la volonté s'épuise avant le dîner.</p>
       </div>
-      <div class="card">
-        <div class="num">2</div>
+      <div class="card reveal" style="--d:.1s;">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5 17.5 17.5"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div>
         <h3 data-field="problem.card2_title">Les séances intensives</h3>
         <p data-field="problem.card2_text">S'astreindre à plusieurs entraînements par semaine est difficile à tenir sur la durée entre obligations professionnelles et vie de famille.</p>
       </div>
-      <div class="card">
-        <div class="num">3</div>
+      <div class="card reveal" style="--d:.2s;">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="10" y1="16" x2="10.01" y2="16"/></svg></div>
         <h3 data-field="problem.card3_title">Les compléments du quotidien</h3>
         <p data-field="problem.card3_text">Une prise à ne pas oublier chaque jour finit souvent par être délaissée après quelques semaines, faute de routine stable.</p>
       </div>
@@ -451,91 +519,73 @@
   </div>
 </section>
 
-<section>
+<section id="comment">
   <div class="container">
-    <div class="section-head">
-      <h2>Ils ont testé OV</h2>
-      <p>Témoignages clients</p>
+    <div class="section-head reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        Comment ça marche
+      </span>
+      <h2>Quatre étapes, aucune complexité</h2>
+      <p>De la commande au suivi, tout est pensé pour être simple.</p>
     </div>
-    <div class="grid-3">
-      <div class="testi-card">
-        <span class="testi-badge" data-testi-badge="0">Exemple à remplacer</span>
-        <div class="testi-photos">
-          <div class="testi-photo" data-photo-slot="testimonials.0.photo_before">
-            <span class="icon">📷</span><span>Photo AVANT<br>à ajouter</span>
-            <img class="testi-photo-img" style="display:none;" alt="Avant">
-          </div>
-          <div class="testi-photo" data-photo-slot="testimonials.0.photo_after">
-            <span class="icon">📷</span><span>Photo APRÈS<br>à ajouter</span>
-            <img class="testi-photo-img" style="display:none;" alt="Après">
-          </div>
-        </div>
-        <div class="testi-body">
-          <h3 data-field="testimonials.0.name_line">[Prénom du client], [âge] ans — [ville]</h3>
-          <p data-field="testimonials.0.story">[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]</p>
-          <p class="testi-quote">"<span data-field="testimonials.0.quote">Remplacer par une citation réelle et authentique du client</span>"</p>
-        </div>
+    <div class="steps">
+      <div class="step card reveal" style="--d:0s;">
+        <div class="step-num">01<span class="line"></span></div>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+        <h3>Choisissez votre formule</h3>
+        <p>Découverte, Intermédiaire ou Pro selon la durée de cure souhaitée.</p>
       </div>
-      <div class="testi-card">
-        <span class="testi-badge" data-testi-badge="1">Exemple à remplacer</span>
-        <div class="testi-photos">
-          <div class="testi-photo" data-photo-slot="testimonials.1.photo_before">
-            <span class="icon">📷</span><span>Photo AVANT<br>à ajouter</span>
-            <img class="testi-photo-img" style="display:none;" alt="Avant">
-          </div>
-          <div class="testi-photo" data-photo-slot="testimonials.1.photo_after">
-            <span class="icon">📷</span><span>Photo APRÈS<br>à ajouter</span>
-            <img class="testi-photo-img" style="display:none;" alt="Après">
-          </div>
-        </div>
-        <div class="testi-body">
-          <h3 data-field="testimonials.1.name_line">[Prénom du client], [âge] ans — [ville]</h3>
-          <p data-field="testimonials.1.story">[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]</p>
-          <p class="testi-quote">"<span data-field="testimonials.1.quote">Remplacer par une citation réelle et authentique du client</span>"</p>
-        </div>
+      <div class="step card reveal" style="--d:.1s;">
+        <div class="step-num">02<span class="line"></span></div>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <h3>Recevez votre kit</h3>
+        <p>Livraison discrète en 3 à 7 jours ouvrés partout en Union Européenne.</p>
       </div>
-      <div class="testi-card">
-        <span class="testi-badge" data-testi-badge="2">Exemple à remplacer</span>
-        <div class="testi-photos">
-          <div class="testi-photo" data-photo-slot="testimonials.2.photo_before">
-            <span class="icon">📷</span><span>Photo AVANT<br>à ajouter</span>
-            <img class="testi-photo-img" style="display:none;" alt="Avant">
-          </div>
-          <div class="testi-photo" data-photo-slot="testimonials.2.photo_after">
-            <span class="icon">📷</span><span>Photo APRÈS<br>à ajouter</span>
-            <img class="testi-photo-img" style="display:none;" alt="Après">
-          </div>
-        </div>
-        <div class="testi-body">
-          <h3 data-field="testimonials.2.name_line">[Prénom du client], [âge] ans — [ville]</h3>
-          <p data-field="testimonials.2.story">[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]</p>
-          <p class="testi-quote">"<span data-field="testimonials.2.quote">Remplacer par une citation réelle et authentique du client</span>"</p>
-        </div>
+      <div class="step card reveal" style="--d:.2s;">
+        <div class="step-num">03<span class="line"></span></div>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg></div>
+        <h3>1 prise chaque semaine</h3>
+        <p>Une routine simple à retenir, par exemple chaque dimanche soir.</p>
+      </div>
+      <div class="step card reveal" style="--d:.3s;">
+        <div class="step-num">04<span class="line"></span></div>
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+        <h3>Suivez votre évolution</h3>
+        <p>Espace membre privé avec bilan personnalisé et suivi hebdomadaire.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="cure">
+<section class="bg-alt" id="cure">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+        La formule
+      </span>
       <h2 data-field="cure.title">Une seule prise par semaine. Une cure d'un mois. Une routine qui tient dans le temps.</h2>
       <p data-field="cure.subtitle">Notre formule a été pensée pour s'intégrer à une vie déjà bien remplie, pas pour la bouleverser.</p>
     </div>
     <div class="grid-4">
-      <div class="card">
+      <div class="card reveal" style="--d:0s;">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <h3 data-field="cure.feature1_title">1 prise / semaine</h3>
         <p data-field="cure.feature1_text">Une routine simple à retenir, par exemple chaque dimanche soir.</p>
       </div>
-      <div class="card">
+      <div class="card reveal" style="--d:.1s;">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg></div>
         <h3 data-field="cure.feature2_title">Formule dosée</h3>
         <p data-field="cure.feature2_text">Une composition pensée pour accompagner votre routine bien-être sur la durée.</p>
       </div>
-      <div class="card">
+      <div class="card reveal" style="--d:.2s;">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
         <h3 data-field="cure.feature3_title">Sans contrainte excessive</h3>
         <p data-field="cure.feature3_text">Conçue pour rester compatible avec une vie sociale et professionnelle normale.</p>
       </div>
-      <div class="card">
+      <div class="card reveal" style="--d:.3s;">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3 data-field="cure.feature4_title">Accompagnement inclus</h3>
         <p data-field="cure.feature4_text">Espace membre, bilan personnalisé et suivi hebdomadaire, dès le premier jour.</p>
       </div>
@@ -543,54 +593,136 @@
   </div>
 </section>
 
-<section class="bg-alt" id="bilan">
+<section id="bilan">
   <div class="container dashboard">
-    <div>
-      <span class="eyebrow" data-field="bilan.eyebrow">Bilan</span>
+    <div class="reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <span data-field="bilan.eyebrow">Bilan</span>
+      </span>
       <h2 data-field="bilan.title">Un accompagnement, pas seulement un produit</h2>
       <p data-field="bilan.text">Bilan personnalisé, espace membre privé, suivi hebdomadaire et journal de cure : tout est inclus dès le premier jour, sans option payante additionnelle.</p>
     </div>
-    <div class="mock">
+    <div class="mock reveal" style="--d:.15s;">
       <h3 style="font-size:15px;">Votre bilan personnalisé</h3>
       <p class="small-note">Exemple d'aperçu — espace membre</p>
-      <div class="mock-row"><span>Objectif</span><b>Vitalité &amp; tonus</b></div>
+      <div class="mock-row" style="margin-top:14px;"><span>Objectif</span><b>Vitalité &amp; tonus</b></div>
       <div class="mock-row"><span>Suivi</span><b>Hebdomadaire</b></div>
       <div>
         <div class="mock-row" style="border:none;padding-bottom:0;"><span>Régularité</span><b>82%</b></div>
         <div class="bar"><span style="width:82%;"></span></div>
       </div>
-      <div style="margin-top:14px;">
+      <div style="margin-top:16px;">
         <div class="mock-row" style="border:none;padding-bottom:0;"><span>Hydratation</span><b>2,5L/j</b></div>
         <div class="bar"><span style="width:60%;"></span></div>
       </div>
-      <div style="margin-top:10px;">
-        <span class="tag">Bilan gratuit</span>
-        <span class="tag">Sans engagement</span>
+      <div style="margin-top:16px;">
+        <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Bilan gratuit</span>
+        <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Sans engagement</span>
       </div>
     </div>
   </div>
 </section>
 
-<section id="qualite">
-  <div class="container stats">
-    <div>
-      <div class="stat-num" data-field="stats.stat1_number">1</div>
-      <p class="stat-label" data-field="stats.stat1_label">prise par semaine, sur 4 semaines de cure complète</p>
+<section class="bg-alt" id="resultats">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Résultats
+      </span>
+      <h2>Une méthode simple à mesurer</h2>
     </div>
-    <div>
-      <div class="stat-num" data-field="stats.stat2_number">100%</div>
-      <p class="stat-label" data-field="stats.stat2_label">de l'accompagnement inclus dans le prix de la cure</p>
+    <div class="stats">
+      <div class="reveal" style="--d:0s;">
+        <div class="stat-num" data-countup data-field="stats.stat1_number">1</div>
+        <p class="stat-label" data-field="stats.stat1_label">prise par semaine, sur 4 semaines de cure complète</p>
+      </div>
+      <div class="reveal" style="--d:.1s;">
+        <div class="stat-num" data-countup data-suffix="%" data-field="stats.stat2_number">100%</div>
+        <p class="stat-label" data-field="stats.stat2_label">de l'accompagnement inclus dans le prix de la cure</p>
+      </div>
+      <div class="reveal" style="--d:.2s;">
+        <div class="stat-num" data-countup data-field="stats.stat3_number">4</div>
+        <p class="stat-label" data-field="stats.stat3_label">langues disponibles sur l'espace membre</p>
+      </div>
     </div>
-    <div>
-      <div class="stat-num" data-field="stats.stat3_number">4</div>
-      <p class="stat-label" data-field="stats.stat3_label">langues disponibles sur l'espace membre</p>
+    <p style="text-align:center;font-size:12px;color:var(--muted-2);margin-top:32px;">Chiffres à mettre à jour avec vos données réelles avant publication.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+        Avis clients
+      </span>
+      <h2>Ils ont testé OV</h2>
+      <p>Témoignages clients</p>
+    </div>
+    <div class="grid-3">
+      <div class="testi-card reveal" style="--d:0s;">
+        <span class="testi-badge" data-testi-badge="0">Exemple à remplacer</span>
+        <div class="testi-photos">
+          <div class="testi-photo" data-photo-slot="testimonials.0.photo_before">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span>Photo AVANT<br>à ajouter</span>
+            <img class="testi-photo-img" style="display:none;" alt="Avant">
+          </div>
+          <div class="testi-photo" data-photo-slot="testimonials.0.photo_after">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span>Photo APRÈS<br>à ajouter</span>
+            <img class="testi-photo-img" style="display:none;" alt="Après">
+          </div>
+        </div>
+        <div class="testi-body">
+          <h3 data-field="testimonials.0.name_line">[Prénom du client], [âge] ans — [ville]</h3>
+          <p data-field="testimonials.0.story">[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]</p>
+          <p class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg><span data-field="testimonials.0.quote">Remplacer par une citation réelle et authentique du client</span></p>
+        </div>
+      </div>
+      <div class="testi-card reveal" style="--d:.1s;">
+        <span class="testi-badge" data-testi-badge="1">Exemple à remplacer</span>
+        <div class="testi-photos">
+          <div class="testi-photo" data-photo-slot="testimonials.1.photo_before">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span>Photo AVANT<br>à ajouter</span>
+            <img class="testi-photo-img" style="display:none;" alt="Avant">
+          </div>
+          <div class="testi-photo" data-photo-slot="testimonials.1.photo_after">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span>Photo APRÈS<br>à ajouter</span>
+            <img class="testi-photo-img" style="display:none;" alt="Après">
+          </div>
+        </div>
+        <div class="testi-body">
+          <h3 data-field="testimonials.1.name_line">[Prénom du client], [âge] ans — [ville]</h3>
+          <p data-field="testimonials.1.story">[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]</p>
+          <p class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg><span data-field="testimonials.1.quote">Remplacer par une citation réelle et authentique du client</span></p>
+        </div>
+      </div>
+      <div class="testi-card reveal" style="--d:.2s;">
+        <span class="testi-badge" data-testi-badge="2">Exemple à remplacer</span>
+        <div class="testi-photos">
+          <div class="testi-photo" data-photo-slot="testimonials.2.photo_before">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span>Photo AVANT<br>à ajouter</span>
+            <img class="testi-photo-img" style="display:none;" alt="Avant">
+          </div>
+          <div class="testi-photo" data-photo-slot="testimonials.2.photo_after">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span>Photo APRÈS<br>à ajouter</span>
+            <img class="testi-photo-img" style="display:none;" alt="Après">
+          </div>
+        </div>
+        <div class="testi-body">
+          <h3 data-field="testimonials.2.name_line">[Prénom du client], [âge] ans — [ville]</h3>
+          <p data-field="testimonials.2.story">[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]</p>
+          <p class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg><span data-field="testimonials.2.quote">Remplacer par une citation réelle et authentique du client</span></p>
+        </div>
+      </div>
     </div>
   </div>
-  <p style="text-align:center;font-size:12px;color:#6b7080;">Chiffres à mettre à jour avec vos données réelles avant publication.</p>
 </section>
 
 <section class="bg-alt">
-  <div class="container founder">
+  <div class="container founder reveal">
+    <div class="founder-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
     <span class="eyebrow">Le mot du fondateur</span>
     <h2 style="margin-bottom:24px;">Pourquoi OV existe</h2>
     <p data-field="founder.paragraph1">J'ai testé la cure moi-même avant de la proposer à qui que ce soit. En deux mois, en la combinant à une attention plus régulière à mon alimentation, je suis passé de 117 kg à 107 kg.</p>
@@ -601,82 +733,90 @@
   </div>
 </section>
 
-<section class="bg-alt" id="formules">
+<section id="formules">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        Formules
+      </span>
       <h2>Choisissez votre formule</h2>
     </div>
     <div class="grid-3">
-      <div class="price-card">
+      <div class="price-card reveal" style="--d:0s;">
         <h3 data-field="pricing.0.name">Formule Découverte</h3>
         <p class="price-sub" data-field="pricing.0.subtitle">Idéal pour commencer</p>
         <div class="price" data-field="pricing.0.price">60 €</div>
         <p class="price-sub" data-field="pricing.0.note">+ frais de port</p>
         <ul>
-          <li data-field="pricing.0.feature1">1 kit cure complet</li>
-          <li data-field="pricing.0.feature2">Guide d'utilisation inclus</li>
-          <li data-field="pricing.0.feature3">Accès espace membre</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.0.feature1">1 kit cure complet</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.0.feature2">Guide d'utilisation inclus</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.0.feature3">Accès espace membre</span></li>
         </ul>
         <p class="stock-badge" data-stock-id="decouverte">Vérification du stock…</p>
-        <a id="buy-decouverte" href="https://buy.stripe.com/14A28r3lc71J6Jk5VWcQU03" data-field-href="pricing.0.stripe_link" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;text-align:center;">Je choisis cette formule</a>
+        <a id="buy-decouverte" href="https://buy.stripe.com/14A28r3lc71J6Jk5VWcQU03" data-field-href="pricing.0.stripe_link" target="_blank" rel="noopener" class="btn btn-outline btn-block magnetic">Je choisis cette formule</a>
       </div>
-      <div class="price-card featured">
-        <span class="badge">⭐ Le plus populaire</span>
+      <div class="price-card featured reveal" style="--d:.1s;">
+        <span class="badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26L21 9.27l-4.5 4.39L17.8 21 12 17.77 6.2 21l1.3-7.34L3 9.27l6.1-1.01z"/></svg>Le plus populaire</span>
         <h3 data-field="pricing.1.name">Formule Intermédiaire</h3>
         <p class="price-sub" data-field="pricing.1.subtitle">Le choix le plus équilibré</p>
         <div class="price" data-field="pricing.1.price">180 €</div>
         <p class="price-sub" data-field="pricing.1.note">Frais de port offerts</p>
         <ul>
-          <li data-field="pricing.1.feature1">3 kits cure complets</li>
-          <li data-field="pricing.1.feature2">Suivi personnalisé inclus</li>
-          <li data-field="pricing.1.feature3">Accès espace membre privé</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.1.feature1">3 kits cure complets</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.1.feature2">Suivi personnalisé inclus</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.1.feature3">Accès espace membre privé</span></li>
         </ul>
         <p class="stock-badge" data-stock-id="intermediaire">Vérification du stock…</p>
-        <a id="buy-intermediaire" href="https://buy.stripe.com/8x2eVd2h84TB4Bc3NOcQU04" data-field-href="pricing.1.stripe_link" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;text-align:center;">Je choisis cette formule</a>
+        <a id="buy-intermediaire" href="https://buy.stripe.com/8x2eVd2h84TB4Bc3NOcQU04" data-field-href="pricing.1.stripe_link" target="_blank" rel="noopener" class="btn btn-primary btn-block magnetic">Je choisis cette formule</a>
       </div>
-      <div class="price-card">
+      <div class="price-card reveal" style="--d:.2s;">
         <h3 data-field="pricing.2.name">Formule Pro</h3>
         <p class="price-sub" data-field="pricing.2.subtitle">Pour anticiper sereinement</p>
         <div class="price" data-field="pricing.2.price">300 €</div>
         <p class="price-sub" data-field="pricing.2.note">Frais de port offerts</p>
         <ul>
-          <li data-field="pricing.2.feature1">5 kits cure complets</li>
-          <li data-field="pricing.2.feature2">Suivi personnalisé inclus</li>
-          <li data-field="pricing.2.feature3">Support prioritaire</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.2.feature1">5 kits cure complets</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.2.feature2">Suivi personnalisé inclus</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.2.feature3">Support prioritaire</span></li>
         </ul>
         <p class="stock-badge" data-stock-id="pro">Vérification du stock…</p>
-        <a id="buy-pro" href="https://buy.stripe.com/3cI14n4pg5XF1p0ckkcQU05" data-field-href="pricing.2.stripe_link" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;text-align:center;">Je choisis cette formule</a>
+        <a id="buy-pro" href="https://buy.stripe.com/3cI14n4pg5XF1p0ckkcQU05" data-field-href="pricing.2.stripe_link" target="_blank" rel="noopener" class="btn btn-outline btn-block magnetic">Je choisis cette formule</a>
       </div>
     </div>
-    <div class="trust-row">
-      <span>🚚 Livraison discrète</span>
-      <span>🔒 Paiement sécurisé</span>
-      <span>↩️ Rétractation 14j</span>
-      <span>📧 Support direct</span>
+    <div class="trust-row reveal">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Livraison discrète</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Paiement sécurisé</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>Rétractation 14j</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>Support direct</span>
     </div>
   </div>
 </section>
 
 <section id="faq">
   <div class="container" style="max-width:760px;">
-    <div class="section-head">
+    <div class="section-head reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        FAQ
+      </span>
       <h2>Vos questions, nos réponses</h2>
     </div>
-    <div class="faq">
+    <div class="faq reveal">
       <div class="faq-item">
-        <div class="faq-q"><span data-field="faq.0.question">Combien de temps avant de voir des résultats ?</span><span class="chev">+</span></div>
+        <div class="faq-q"><span data-field="faq.0.question">Combien de temps avant de voir des résultats ?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="faq-a" data-field="faq.0.answer">[À compléter avec une réponse précise et honnête basée sur vos données produit.]</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span data-field="faq.1.question">Comment se déroule la cure au quotidien ?</span><span class="chev">+</span></div>
+        <div class="faq-q"><span data-field="faq.1.question">Comment se déroule la cure au quotidien ?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="faq-a" data-field="faq.1.answer">[À compléter avec le déroulé réel de la cure — fréquence, mode d'emploi, durée.]</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span data-field="faq.2.question">Est-ce compatible avec ma vie professionnelle ?</span><span class="chev">+</span></div>
+        <div class="faq-q"><span data-field="faq.2.question">Est-ce compatible avec ma vie professionnelle ?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="faq-a" data-field="faq.2.answer">[À compléter.]</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span data-field="faq.3.question">Que se passe-t-il si la cure ne me convient pas ?</span><span class="chev">+</span></div>
+        <div class="faq-q"><span data-field="faq.3.question">Que se passe-t-il si la cure ne me convient pas ?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="faq-a" data-field="faq.3.answer">[À compléter avec votre politique de retours/remboursement réelle.]</div>
       </div>
     </div>
@@ -684,12 +824,12 @@
 </section>
 
 <section class="bg-alt final-cta">
-  <div class="container">
+  <div class="container reveal">
     <h2 data-field="final_cta.title">Reprenez le contrôle, dès maintenant.</h2>
     <p style="max-width:480px;margin:0 auto 28px;" data-field="final_cta.text">1 prise par semaine. 1 mois de cure. Un accompagnement complet.</p>
     <div class="hero-ctas">
-      <a href="#formules" class="btn btn-primary" data-field="final_cta.cta_primary">Choisir ma formule</a>
-      <a href="outils-gratuits.html" class="btn btn-outline" data-field="final_cta.cta_secondary">Faire mon bilan gratuit</a>
+      <a href="#formules" class="btn btn-primary magnetic" data-field="final_cta.cta_primary">Choisir ma formule</a>
+      <a href="outils-gratuits.html" class="btn btn-outline magnetic" data-field="final_cta.cta_secondary">Faire mon bilan gratuit</a>
     </div>
   </div>
 </section>
@@ -716,7 +856,8 @@
         <h4>Espace</h4>
         <ul>
           <li><a href="outils-gratuits.html">Bilan gratuit</a></li>
-          <li><a href="#connexion">Espace Membre</a></li>
+          <li><a href="espace-client.html">Espace Membre</a></li>
+          <li><a href="/admin/">Administration</a></li>
         </ul>
       </div>
       <div>
@@ -731,13 +872,14 @@
     </div>
     <div class="disclaimer">
       <p data-field="footer.disclaimer">Les compléments alimentaires ne se substituent pas à une alimentation variée et équilibrée ni à un mode de vie sain.</p>
-      <p style="margin-top:8px;" data-field="footer.copyright">© 2026 OV. Tous droits réservés.</p>
+      <p data-field="footer.copyright">© 2026 OV. Tous droits réservés.</p>
     </div>
   </div>
 </footer>
 
 </div>
 
+<!-- Contenu editable (CMS) -->
 <script>
 (function(){
   function getPath(obj, path){
@@ -763,7 +905,7 @@
           var img = el.querySelector('img');
           img.src = val;
           img.style.display = 'block';
-          el.querySelectorAll(':scope > span').forEach(function(s){ s.style.display = 'none'; });
+          el.querySelectorAll(':scope > span, :scope > svg').forEach(function(s){ s.style.display = 'none'; });
         }
       });
       (data.testimonials || []).forEach(function(t, i){
@@ -775,17 +917,21 @@
     })
     .catch(function(){
       // Si le fichier n'est pas accessible (ouverture locale du fichier sans serveur),
-      // le site garde simplement son contenu par défaut écrit dans le HTML.
+      // le site garde simplement son contenu par defaut ecrit dans le HTML.
     });
 })();
 </script>
 
+<!-- Stock en temps reel (Supabase) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="assets/supabase-config.js"></script>
 <script>
 (function(){
-  // Affiche le stock disponible par formule (table Supabase "stock_cures").
-  // Se met à jour automatiquement à chaque vente via un webhook Stripe côté serveur.
+  var ICONS = {
+    check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+    warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+    x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'
+  };
   if(typeof SUPABASE_URL === 'undefined' || typeof SUPABASE_ANON_KEY === 'undefined' || !window.supabase){ return; }
   var badges = document.querySelectorAll('.stock-badge[data-stock-id]');
   if(!badges.length) return;
@@ -801,14 +947,14 @@
       if(!badge) return;
       var qty = row.stock_qty;
       if(qty <= 0){
-        badge.textContent = '❌ Rupture de stock';
+        badge.innerHTML = ICONS.x + 'Rupture de stock';
         badge.className = 'stock-badge out-of-stock';
         if(link){ link.classList.add('disabled'); link.textContent = 'Rupture de stock'; link.removeAttribute('href'); }
       } else if(qty <= 5){
-        badge.textContent = '⚠️ Plus que ' + qty + ' en stock';
+        badge.innerHTML = ICONS.warn + 'Plus que ' + qty + ' en stock';
         badge.className = 'stock-badge low-stock';
       } else {
-        badge.textContent = '✅ En stock';
+        badge.innerHTML = ICONS.check + 'En stock';
         badge.className = 'stock-badge in-stock';
       }
     });
@@ -818,6 +964,7 @@
 })();
 </script>
 
+<!-- FAQ accordeon -->
 <script>
   document.querySelectorAll('.faq-item').forEach(function(item){
     item.addEventListener('click', function(){
@@ -826,10 +973,115 @@
   });
 </script>
 
+<!-- Navigation mobile -->
+<script>
+(function(){
+  var header = document.getElementById('site-header');
+  var toggle = document.getElementById('nav-toggle');
+  var panel = document.getElementById('mobile-panel');
+  if(!toggle || !panel) return;
+  function close(){
+    header.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click', function(){
+    var open = header.classList.toggle('menu-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 860) close(); });
+})();
+</script>
+
+<!-- Reveal au scroll -->
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if(reduced || !('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<!-- Compteurs animes (statistiques) -->
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nums = document.querySelectorAll('[data-countup]');
+  if(!nums.length) return;
+  function animate(el){
+    var raw = el.textContent.trim();
+    var match = raw.match(/[\d.,]+/);
+    if(!match){ return; }
+    var target = parseFloat(match[0].replace(',', '.'));
+    var suffix = el.getAttribute('data-suffix') || raw.replace(match[0], '');
+    if(reduced || isNaN(target)){ return; }
+    var start = null, duration = 1100;
+    function step(ts){
+      if(!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var value = Math.round(target * eased);
+      el.textContent = value + suffix;
+      if(progress < 1){ requestAnimationFrame(step); } else { el.textContent = target + suffix; }
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ animate(entry.target); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.6 });
+    nums.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+
+<!-- Boutons magnetiques + glow sur les cartes (desktop uniquement) -->
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canHover = window.matchMedia('(hover:hover)').matches;
+  if(reduced || !canHover) return;
+
+  document.querySelectorAll('.magnetic').forEach(function(btn){
+    btn.addEventListener('mousemove', function(e){
+      var r = btn.getBoundingClientRect();
+      var x = e.clientX - r.left - r.width/2;
+      var y = e.clientY - r.top - r.height/2;
+      btn.style.transform = 'translate(' + (x*0.18) + 'px,' + (y*0.35) + 'px)';
+    });
+    btn.addEventListener('mouseleave', function(){ btn.style.transform = 'translate(0,0)'; });
+  });
+
+  document.querySelectorAll('.card').forEach(function(card){
+    card.addEventListener('mousemove', function(e){
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+})();
+</script>
+
+<!-- Reseau de particules (visuel hero) -->
 <script>
 (function(){
   var canvas = document.getElementById('chain-bg');
   if(!canvas) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ctx = canvas.getContext('2d');
   var wrap = canvas.parentElement;
   var W, H, nodes = [];
@@ -855,20 +1107,14 @@
   }
 
   function colorMix(t){
-    var r = Math.round(63 + (194-63)*t);
-    var g = Math.round(127 + (58-127)*t);
-    var b = Math.round(238 + (94-238)*t);
+    var r = Math.round(79 + (239-79)*t);
+    var g = Math.round(127 + (74-127)*t);
+    var b = Math.round(255 + (114-255)*t);
     return r+','+g+','+b;
   }
 
-  function step(){
+  function draw(){
     ctx.clearRect(0,0,W,H);
-    for(var i=0;i<nodes.length;i++){
-      var n = nodes[i];
-      n.x += n.vx; n.y += n.vy;
-      if(n.x < 0 || n.x > W) n.vx *= -1;
-      if(n.y < 0 || n.y > H) n.vy *= -1;
-    }
     for(var i=0;i<nodes.length;i++){
       for(var j=i+1;j<nodes.length;j++){
         var a = nodes[i], b = nodes[j];
@@ -894,23 +1140,36 @@
       ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
       ctx.fill();
     }
+  }
+
+  function step(){
+    for(var i=0;i<nodes.length;i++){
+      var n = nodes[i];
+      n.x += n.vx; n.y += n.vy;
+      if(n.x < 0 || n.x > W) n.vx *= -1;
+      if(n.y < 0 || n.y > H) n.vy *= -1;
+    }
+    draw();
     requestAnimationFrame(step);
   }
 
   resize();
   makeNodes();
-  requestAnimationFrame(step);
+  if(reduced){ draw(); } else { requestAnimationFrame(step); }
   window.addEventListener('resize', function(){
     resize();
     makeNodes();
+    if(reduced) draw();
   });
 })();
 </script>
 
+<!-- Fond ADN anime (arriere-plan global) -->
 <script>
 (function(){
   var canvas = document.getElementById('dna-bg');
   if(!canvas) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ctx = canvas.getContext('2d');
   var W, H;
 
@@ -923,9 +1182,9 @@
 
   function colorFor(depth, alpha){
     var m = (depth+1)/2;
-    var r = Math.round(63 + (194-63)*m);
-    var g = Math.round(127 + (58-127)*m);
-    var b = Math.round(238 + (94-238)*m);
+    var r = Math.round(79 + (239-79)*m);
+    var g = Math.round(127 + (74-127)*m);
+    var b = Math.round(255 + (114-255)*m);
     return 'rgba('+r+','+g+','+b+','+alpha.toFixed(2)+')';
   }
 
@@ -943,7 +1202,7 @@
     }
     for(var i=0;i<pts1.length;i+=rungEvery){
       var a = pts1[i], b = pts2[i];
-      var alpha = 0.06 + 0.10*((a.d+1)/2);
+      var alpha = 0.05 + 0.09*((a.d+1)/2);
       ctx.strokeStyle = colorFor(a.d, alpha);
       ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,a.y); ctx.stroke();
@@ -951,7 +1210,7 @@
     function drawStrand(pts){
       for(var i=0;i<pts.length-1;i++){
         var p = pts[i], q = pts[i+1];
-        var alpha = 0.10 + 0.16*((p.d+1)/2);
+        var alpha = 0.08 + 0.13*((p.d+1)/2);
         ctx.strokeStyle = colorFor(p.d, alpha);
         ctx.lineWidth = 1.4;
         ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke();
@@ -963,7 +1222,7 @@
       pts.forEach(function(p,i){
         if(i % rungEvery !== 0) return;
         var r = 1 + 1.3*((p.d+1)/2);
-        ctx.fillStyle = colorFor(p.d, 0.2 + 0.25*((p.d+1)/2));
+        ctx.fillStyle = colorFor(p.d, 0.16 + 0.2*((p.d+1)/2));
         ctx.beginPath(); ctx.arc(p.x,p.y,r,0,Math.PI*2); ctx.fill();
       });
     });
@@ -971,15 +1230,18 @@
 
   var t = 0;
   var colGap = 240;
-  function frame(){
+  function draw(){
     ctx.clearRect(0,0,W,H);
-    t += 0.01;
     for(var cx = colGap/2; cx < W + colGap; cx += colGap){
       drawHelix(cx, t + cx*0.008);
     }
+  }
+  function frame(){
+    t += 0.01;
+    draw();
     requestAnimationFrame(frame);
   }
-  requestAnimationFrame(frame);
+  if(reduced){ draw(); } else { requestAnimationFrame(frame); }
 })();
 </script>
 
