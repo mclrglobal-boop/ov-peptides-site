@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="ovRing" x1="30" y1="40" x2="170" y2="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6f9dff"/>
+      <stop offset="0.55" stop-color="#4f7fff"/>
+      <stop offset="1" stop-color="#2f4fc9"/>
+    </linearGradient>
+    <linearGradient id="ovCheck" x1="60" y1="90" x2="175" y2="55" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4f7fff"/>
+      <stop offset="0.55" stop-color="#8b6bff"/>
+      <stop offset="1" stop-color="#ef4a72"/>
+    </linearGradient>
+    <radialGradient id="ovDot" cx="0.35" cy="0.3" r="0.85">
+      <stop offset="0" stop-color="#ff7a97"/>
+      <stop offset="1" stop-color="#ef4a72"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Ring ("O") : anneau ouvert, brosse epaisse -->
+  <path d="M 55.1 147.5 A 62 62 0 1 1 153.3 121.2"
+        stroke="url(#ovRing)" stroke-width="22" stroke-linecap="round" fill="none"/>
+
+  <!-- Coche ("V") : deux branches epaisses -->
+  <path d="M 76 118 L 116 176 L 146 96"
+        stroke="url(#ovCheck)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Chaine moleculaire reliant la coche au point rouge -->
+  <path d="M 146 96 L 154 78 L 158 62" stroke="#8b6bff" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="154" cy="78" r="5.5" fill="#0d1220" stroke="#8b6bff" stroke-width="3"/>
+
+  <!-- Point d'accent rouge -->
+  <circle cx="160" cy="58" r="15" fill="url(#ovDot)"/>
+  <circle cx="155.5" cy="53" r="4" fill="#fff" opacity="0.35"/>
+
+  <!-- Micro-noeuds decoratifs (motif reseau/peptide) -->
+  <circle cx="52" cy="152" r="4.5" fill="#4f7fff" opacity="0.9"/>
+  <circle cx="172" cy="132" r="3.5" fill="#8b6bff" opacity="0.8"/>
+</svg>
