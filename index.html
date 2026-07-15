@@ -1613,14 +1613,12 @@
   var running = true;
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
+      var wasRunning = running;
       running = entries[0].isIntersecting;
-      if(running && !reduced) requestAnimationFrame(animate);
+      if(running && !wasRunning && !reduced) requestAnimationFrame(animate);
     }, { threshold:0.05 });
     io.observe(box);
   }
-  document.addEventListener('visibilitychange', function(){
-    if(!document.hidden && running && !reduced) requestAnimationFrame(animate);
-  });
 
   var clock = new THREE.Clock();
   var looping = false;
@@ -1628,7 +1626,7 @@
     if(looping) return;
     looping = true;
     (function frame(){
-      if(!running || document.hidden){ looping = false; return; }
+      if(!running){ looping = false; return; }
       var t = clock.getElapsedTime();
       group.rotation.y = t * 0.55;
       group.rotation.x = -0.15 + Math.sin(t*0.6)*0.08;
