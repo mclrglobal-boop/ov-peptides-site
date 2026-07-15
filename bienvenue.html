@@ -115,7 +115,7 @@
 <section class="confirm-wrap">
   <div class="check-badge">✓</div>
   <h2>Merci pour votre commande !</h2>
-  <p>Votre paiement a bien été confirmé. Un email de confirmation contenant votre code d'accès vous a été envoyé.</p>
+  <p>Votre paiement a bien été confirmé. Votre code d'accès personnel s'affiche ci-dessous.</p>
 
   <div class="card">
     <h3>Votre code d'accès</h3>
@@ -233,7 +233,7 @@
   var sessionId = params.get('session_id');
 
   if(!sessionId){
-    showError("Aucune commande trouvée dans le lien. Si vous venez de payer, vérifiez votre email : votre code d'accès y a été envoyé.");
+    showError("Aucune commande trouvée dans le lien. Si vous venez de payer, retournez dans votre boîte de réception Stripe/votre historique de commande, ou contactez-nous à mclr.global@gmail.com avec votre email de commande.");
     return;
   }
 
@@ -241,7 +241,7 @@
     && SUPABASE_URL.indexOf('VOTRE_') !== 0 && SUPABASE_ANON_KEY.indexOf('VOTRE_') !== 0;
 
   if(!configReady){
-    showError("Configuration indisponible pour le moment. Votre code d'accès vous a été envoyé par email.");
+    showError("Configuration indisponible pour le moment. Contactez-nous à mclr.global@gmail.com avec votre email de commande pour récupérer votre code.");
     return;
   }
 
@@ -250,7 +250,7 @@
   function attempt(triesLeft){
     supabase.rpc('get_code_by_session', { p_session_id: sessionId }).then(function(res){
       if(res.error){
-        showError("Impossible de récupérer votre code pour le moment. Votre code d'accès vous a été envoyé par email.");
+        showError("Impossible de récupérer votre code pour le moment. Rafraîchissez cette page dans quelques instants, ou contactez-nous à mclr.global@gmail.com avec votre email de commande.");
         return;
       }
       var code = res.data;
@@ -264,7 +264,7 @@
         // Le webhook Stripe peut mettre quelques secondes à traiter le paiement.
         setTimeout(function(){ attempt(triesLeft - 1); }, 2000);
       } else {
-        showError("Votre commande est confirmée mais le code n'est pas encore disponible ici. Il vous a été envoyé par email — vérifiez aussi vos spams.");
+        showError("Votre commande est confirmée mais le code met un peu plus de temps que prévu à s'afficher. Rafraîchissez cette page dans une minute, ou contactez-nous à mclr.global@gmail.com avec votre email de commande.");
       }
     });
   }
