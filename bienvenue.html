@@ -6,114 +6,94 @@
 <title>Merci pour votre commande — OV Peptides</title>
 <meta name="description" content="Votre commande est confirmée. Récupérez votre code d'accès pour créer votre espace client.">
 <meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0a0e14;
-    --bg-alt:#0f141c;
-    --card:#141a24;
-    --text:#f2f4f7;
-    --muted:#98a1b0;
-    --accent:#3f7fee;
-    --accent-2:#2f66c9;
-    --accent-red:#c23a5e;
-    --border:#232a38;
-    --radius:16px;
+    --bg:#050810; --bg-alt:#080b15; --card:#0d1220; --card-2:#111827;
+    --text:#f5f7fb; --muted:#8b93a8; --muted-2:#5b6478;
+    --accent:#4f7fff; --accent-2:#8b6bff; --accent-red:#ef4a72; --accent-red-text:#ff7fa0;
+    --green:#3ddc84;
+    --border:#1b2333; --border-soft:rgba(255,255,255,.07);
+    --radius:16px; --radius-lg:26px;
+    --ease:cubic-bezier(.16,1,.3,1); --maxw:1180px;
   }
-  /* Accessibilite : etats de focus visibles + respect du mouvement reduit */
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible,
-  select:focus-visible, [tabindex]:focus-visible{
-    outline:2px solid var(--accent);outline-offset:2px;border-radius:4px;
-  }
-  .skip-link{
-    position:absolute;left:-9999px;top:0;z-index:9999;
-    background:var(--accent);color:#fff;padding:10px 18px;
-    border-radius:0 0 8px 0;font-size:14px;font-weight:600;
-  }
+  select:focus-visible, [tabindex]:focus-visible{ outline:2px solid var(--accent);outline-offset:2px;border-radius:4px; }
+  .skip-link{ position:absolute;left:-9999px;top:0;z-index:9999;background:var(--accent);color:#fff;padding:10px 18px;border-radius:0 0 8px 0;font-size:14px;font-weight:600; }
   .skip-link:focus{left:0;}
   @media (prefers-reduced-motion: reduce){
-    *,*::before,*::after{
-      animation-duration:0.01ms !important;
-      animation-iteration-count:1 !important;
-      transition-duration:0.01ms !important;
-      scroll-behavior:auto !important;
-    }
+    *,*::before,*::after{ animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important; }
+    .reveal{opacity:1 !important;transform:none !important;}
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{
-    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
-  }
+  body{ font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden; }
   a{color:inherit;text-decoration:none;}
   img,svg{max-width:100%;display:block;}
-  #dna-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+  #dna-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.5;}
   .page{position:relative;z-index:1;}
-  .container{max-width:1120px;margin:0 auto;padding:0 24px;}
-  h1,h2,h3{line-height:1.2;font-weight:700;}
-  h2{font-size:clamp(26px,4vw,36px);margin-bottom:12px;}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  h1,h2,h3{line-height:1.2;font-weight:700;letter-spacing:-.02em;}
+  h2{font-size:clamp(26px,4vw,34px);margin-bottom:12px;}
   h3{font-size:18px;margin-bottom:8px;}
   p{color:var(--muted);}
 
-  .logo-mark{height:36px;width:auto;flex-shrink:0;display:block;}
+  .logo-mark{height:34px;width:auto;flex-shrink:0;display:block;}
   .logo-wrap{display:flex;align-items:center;gap:10px;}
-  .logo-word{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--text);}
+  .logo-word{font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--text);}
   .logo-word span{background:linear-gradient(120deg,var(--accent),var(--accent-red));-webkit-background-clip:text;background-clip:text;color:transparent;}
 
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(10,14,20,.82);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-  }
-  .nav{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:16px 24px;max-width:1120px;margin:0 auto;
-  }
+  header{position:sticky;top:0;z-index:100;background:rgba(5,8,16,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-soft);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:15px 24px;max-width:var(--maxw);margin:0 auto;}
 
-  .btn{
-    display:inline-block;
-    padding:14px 28px;
-    border-radius:10px;
-    font-weight:600;
-    font-size:15px;
-    cursor:pointer;
-    border:1px solid transparent;
-  }
-  .btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent-red));color:#fff;}
-  .btn-primary:hover{filter:brightness(1.08);}
-  .btn-outline{border-color:var(--border);color:var(--text);}
-  .btn-outline:hover{border-color:var(--accent);}
+  .btn{ display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 28px;border-radius:12px;font-weight:600;font-size:15px;cursor:pointer;border:1px solid transparent;transition:transform .25s var(--ease), filter .25s ease, border-color .25s ease, background .25s ease; }
+  .btn svg{width:16px;height:16px;}
+  .btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 12px 28px -10px rgba(79,127,255,.5);}
+  .btn-primary:hover{filter:brightness(1.1);}
+  .btn-outline{border-color:var(--border-soft);color:var(--text);background:rgba(255,255,255,.02);}
+  .btn-outline:hover{border-color:rgba(79,127,255,.5);background:rgba(79,127,255,.06);}
 
-  .confirm-wrap{max-width:560px;margin:0 auto;padding:64px 24px 100px;text-align:center;}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease), transform .7s var(--ease);transition-delay:var(--d,0s);}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  .confirm-wrap{max-width:560px;margin:0 auto;padding:72px 24px 100px;text-align:center;}
   .check-badge{
-    width:64px;height:64px;border-radius:50%;margin:0 auto 24px;
-    background:linear-gradient(120deg,var(--accent),var(--accent-red));
-    display:flex;align-items:center;justify-content:center;font-size:30px;
+    width:72px;height:72px;border-radius:50%;margin:0 auto 26px;
+    background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 16px 40px -10px rgba(79,127,255,.55);
+    animation:pop .6s var(--ease) both;
   }
+  @keyframes pop{ 0%{transform:scale(.4);opacity:0;} 100%{transform:scale(1);opacity:1;} }
+  .check-badge svg{width:34px;height:34px;color:#fff;}
   .card{
-    background:rgba(20,26,36,.92);border:1px solid var(--border);
-    border-radius:var(--radius);padding:28px;text-align:left;margin-top:32px;
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius-lg);padding:30px;text-align:left;margin-top:32px;
   }
   .code-box{
-    margin:20px 0;padding:20px;border-radius:12px;
-    background:var(--bg-alt);border:1px dashed var(--accent);
-    text-align:center;
+    margin:20px 0;padding:22px;border-radius:14px;
+    background:var(--bg-alt);border:1px dashed rgba(79,127,255,.5);
+    text-align:center;position:relative;overflow:hidden;
+  }
+  .code-box::before{
+    content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(79,127,255,.14), transparent 70%);pointer-events:none;
   }
   .code-box .code{
-    font-size:30px;font-weight:800;letter-spacing:4px;color:var(--text);
-    font-family:'Courier New',monospace;
+    font-size:28px;font-weight:800;letter-spacing:4px;color:var(--text);
+    font-family:'Courier New',monospace;position:relative;
   }
-  .copy-btn{margin-top:14px;}
+  .copy-btn{margin-top:16px;}
   .steps{margin-top:8px;padding-left:20px;color:var(--muted);font-size:14px;}
   .steps li{margin-bottom:8px;}
-  .msg{font-size:14px;padding:12px 14px;border-radius:8px;margin-top:16px;}
-  .msg.error{background:rgba(194,58,94,.12);border:1px solid rgba(194,58,94,.35);color:#ff9ab0;}
-  .msg.info{background:rgba(63,127,238,.12);border:1px solid rgba(63,127,238,.35);color:#8fb4ff;}
+  .msg{font-size:14px;padding:12px 14px;border-radius:10px;margin-top:16px;display:flex;align-items:flex-start;gap:10px;}
+  .msg svg{width:17px;height:17px;flex-shrink:0;margin-top:1px;}
+  .msg.error{background:rgba(239,74,114,.12);border:1px solid rgba(239,74,114,.35);color:var(--accent-red-text);}
+  .msg.info{background:rgba(79,127,255,.12);border:1px solid rgba(79,127,255,.35);color:#a7c0ff;}
   .actions{margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
 
-  footer{border-top:1px solid var(--border);padding:32px 0;text-align:center;}
-  footer p{font-size:13px;}
+  footer{border-top:1px solid var(--border-soft);padding:32px 0;text-align:center;}
+  footer p{font-size:13px;color:var(--muted);}
 </style>
 </head>
 <body>
@@ -134,22 +114,31 @@
 <a id="main-content" tabindex="-1"></a>
 
 <section class="confirm-wrap">
-  <div class="check-badge">✓</div>
-  <h2>Merci pour votre commande !</h2>
-  <p>Votre paiement a bien été confirmé. Votre code d'accès personnel s'affiche ci-dessous.</p>
+  <div class="check-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+  <h2 class="reveal">Merci pour votre commande !</h2>
+  <p class="reveal" style="--d:.05s;">Votre paiement a bien été confirmé. Votre code d'accès personnel s'affiche ci-dessous.</p>
 
-  <div class="card">
+  <div class="card reveal" style="--d:.1s;">
     <h3>Votre code d'accès</h3>
     <p style="font-size:14px;">Ce code est nécessaire pour créer votre espace client et suivre votre cure. Conservez-le précieusement.</p>
 
-    <div id="loading-msg" class="msg info">Récupération de votre code en cours…</div>
-    <div id="error-msg" class="msg error" style="display:none;"></div>
+    <div id="loading-msg" class="msg info">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Récupération de votre code en cours…
+    </div>
+    <div id="error-msg" class="msg error" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span id="error-text"></span>
+    </div>
 
     <div id="code-wrap" style="display:none;">
       <div class="code-box">
         <div class="code" id="access-code">— — — — — — — —</div>
       </div>
-      <button type="button" class="btn btn-outline copy-btn" id="copy-btn">📋 Copier le code</button>
+      <button type="button" class="btn btn-outline copy-btn" id="copy-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span id="copy-btn-text">Copier le code</span>
+      </button>
 
       <ol class="steps">
         <li>Rendez-vous dans votre <strong>Espace client</strong>.</li>
@@ -159,7 +148,7 @@
     </div>
   </div>
 
-  <div class="actions">
+  <div class="actions reveal" style="--d:.15s;">
     <a href="espace-client.html" class="btn btn-primary">Créer mon espace client</a>
     <a href="index.html" class="btn btn-outline">Retour à l'accueil</a>
   </div>
@@ -171,11 +160,27 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="assets/supabase-config.js"></script>
 
+<!-- Reveal au scroll -->
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if(reduced || !('IntersectionObserver' in window)){ els.forEach(function(el){ el.classList.add('in-view'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
 <!-- Fond ADN animé -->
 <script>
 (function(){
   var canvas = document.getElementById('dna-bg');
   if(!canvas) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ctx = canvas.getContext('2d');
   var W, H;
   function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
@@ -183,15 +188,15 @@
   window.addEventListener('resize', resize);
   function colorFor(depth, alpha){
     var m = (depth+1)/2;
-    var r = Math.round(63 + (194-63)*m);
-    var g = Math.round(127 + (58-127)*m);
-    var b = Math.round(238 + (94-238)*m);
+    var r = Math.round(79 + (239-79)*m);
+    var g = Math.round(127 + (74-127)*m);
+    var b = Math.round(255 + (114-255)*m);
     return 'rgba('+r+','+g+','+b+','+alpha.toFixed(2)+')';
   }
   function drawStrand(pts){
     for(var i=0;i<pts.length-1;i++){
       var p = pts[i], q = pts[i+1];
-      var alpha = 0.10 + 0.16*((p.d+1)/2);
+      var alpha = 0.08 + 0.13*((p.d+1)/2);
       ctx.strokeStyle = colorFor(p.d, alpha);
       ctx.lineWidth = 1.4;
       ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke();
@@ -208,7 +213,7 @@
     }
     for(var i=0;i<pts1.length;i+=rungEvery){
       var a = pts1[i], b = pts2[i];
-      var alpha = 0.06 + 0.10*((a.d+1)/2);
+      var alpha = 0.05 + 0.09*((a.d+1)/2);
       ctx.strokeStyle = colorFor(a.d, alpha);
       ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
@@ -219,22 +224,19 @@
       pts.forEach(function(p,i){
         if(i % rungEvery !== 0) return;
         var r = 1 + 1.3*((p.d+1)/2);
-        ctx.fillStyle = colorFor(p.d, 0.2 + 0.25*((p.d+1)/2));
+        ctx.fillStyle = colorFor(p.d, 0.16 + 0.2*((p.d+1)/2));
         ctx.beginPath(); ctx.arc(p.x,p.y,r,0,Math.PI*2); ctx.fill();
       });
     });
   }
   var t = 0;
   var colGap = 240;
-  function frame(){
+  function draw(){
     ctx.clearRect(0,0,W,H);
-    t += 0.01;
-    for(var cx = colGap/2; cx < W + colGap; cx += colGap){
-      drawHelix(cx, t + cx*0.008);
-    }
-    requestAnimationFrame(frame);
+    for(var cx = colGap/2; cx < W + colGap; cx += colGap){ drawHelix(cx, t + cx*0.008); }
   }
-  requestAnimationFrame(frame);
+  function frame(){ t += 0.01; draw(); requestAnimationFrame(frame); }
+  if(reduced){ draw(); } else { requestAnimationFrame(frame); }
 })();
 </script>
 
@@ -246,8 +248,8 @@
   function showError(text){
     $('loading-msg').style.display = 'none';
     var el = $('error-msg');
-    el.style.display = 'block';
-    el.textContent = text;
+    el.style.display = 'flex';
+    $('error-text').textContent = text;
   }
 
   var params = new URLSearchParams(window.location.search);
@@ -295,8 +297,8 @@
     var code = $('access-code').textContent.trim();
     if(!code) return;
     navigator.clipboard && navigator.clipboard.writeText(code).then(function(){
-      $('copy-btn').textContent = '✅ Copié !';
-      setTimeout(function(){ $('copy-btn').textContent = '📋 Copier le code'; }, 2000);
+      $('copy-btn-text').textContent = 'Copié !';
+      setTimeout(function(){ $('copy-btn-text').textContent = 'Copier le code'; }, 2000);
     });
   });
 })();
