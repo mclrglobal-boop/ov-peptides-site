@@ -164,6 +164,57 @@
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease), transform .8s var(--ease);transition-delay:var(--d,0s);}
   .reveal.in-view{opacity:1;transform:translateY(0);}
 
+  /* --- Scroll progress bar --- */
+  #scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;z-index:200;background:linear-gradient(90deg,var(--accent),var(--accent-2),var(--accent-red));box-shadow:0 0 12px rgba(79,127,255,.6);transition:width .1s linear;}
+
+  /* --- Hero staggered text reveal (children of .hero-copy fade in one by one) --- */
+  .hero-copy > *{opacity:0;transform:translateY(18px);}
+  .hero-copy.in-view > *{animation:heroChildIn .8s var(--ease) forwards;}
+  .hero-copy.in-view > *:nth-child(1){animation-delay:.05s;}
+  .hero-copy.in-view > *:nth-child(2){animation-delay:.16s;}
+  .hero-copy.in-view > *:nth-child(3){animation-delay:.27s;}
+  .hero-copy.in-view > *:nth-child(4){animation-delay:.38s;}
+  .hero-copy.in-view > *:nth-child(5){animation-delay:.49s;}
+  @keyframes heroChildIn{ to{opacity:1;transform:translateY(0);} }
+
+  /* --- Shiny sweep on primary buttons (pseudo-element, safe with data-field textContent swaps) --- */
+  .btn-primary{position:relative;overflow:hidden;}
+  .btn-primary::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);pointer-events:none;transition:left .9s var(--ease);}
+  .btn-primary:hover::after{left:130%;}
+
+  /* --- Floating ambient blobs --- */
+  .floating-blob{position:fixed;z-index:0;border-radius:50%;filter:blur(70px);pointer-events:none;opacity:.35;will-change:transform;}
+  .blob-1{width:420px;height:420px;top:8%;left:-8%;background:radial-gradient(circle,var(--accent),transparent 70%);animation:blobFloat1 22s ease-in-out infinite;}
+  .blob-2{width:360px;height:360px;top:55%;right:-6%;background:radial-gradient(circle,var(--accent-red),transparent 70%);animation:blobFloat2 26s ease-in-out infinite;}
+  .blob-3{width:300px;height:300px;bottom:4%;left:38%;background:radial-gradient(circle,var(--accent-2),transparent 70%);animation:blobFloat3 19s ease-in-out infinite;}
+  @keyframes blobFloat1{ 0%,100%{transform:translate(0,0);} 50%{transform:translate(60px,80px);} }
+  @keyframes blobFloat2{ 0%,100%{transform:translate(0,0);} 50%{transform:translate(-70px,-50px);} }
+  @keyframes blobFloat3{ 0%,100%{transform:translate(0,0);} 50%{transform:translate(50px,-60px);} }
+  @media (max-width:860px){ .floating-blob{display:none;} }
+
+  /* --- Slides / gallery carousel --- */
+  .slides-wrap{position:relative;max-width:920px;margin:0 auto;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--border-soft);}
+  .slides-track{display:flex;transition:transform .6s var(--ease);}
+  .slide{min-width:100%;position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:0;background:linear-gradient(135deg,#0c1120,#050810 70%);min-height:360px;}
+  @media (max-width:760px){ .slide{grid-template-columns:1fr;} }
+  .slide-art{position:relative;height:100%;min-height:280px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .slide-art::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 40%, var(--slide-glow, rgba(79,127,255,.25)), transparent 65%);}
+  .slide-art svg{width:62%;height:62%;position:relative;z-index:1;animation:slideArtFloat 5s ease-in-out infinite;}
+  @keyframes slideArtFloat{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+  .slide-copy{padding:40px 44px;}
+  .slide-copy .eyebrow{margin-bottom:14px;}
+  .slide-copy h3{font-size:23px;margin-bottom:10px;}
+  .slide-copy p{font-size:14.5px;}
+  .slide-dots{display:flex;justify-content:center;gap:8px;padding:18px 0 4px;}
+  .slide-dot{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:background .25s ease, transform .25s ease;padding:0;}
+  .slide-dot.active{background:var(--accent);transform:scale(1.3);}
+  .slide-arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(8,11,21,.7);border:1px solid var(--border-soft);color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;backdrop-filter:blur(6px);transition:background .2s ease, border-color .2s ease;}
+  .slide-arrow:hover{background:rgba(79,127,255,.25);border-color:rgba(79,127,255,.5);}
+  .slide-arrow svg{width:18px;height:18px;}
+  .slide-prev{left:14px;}
+  .slide-next{right:14px;}
+  @media (max-width:600px){ .slide-arrow{display:none;} }
+
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
   .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
   @media (max-width:860px){ .grid-3,.grid-4{grid-template-columns:1fr;} }
@@ -417,7 +468,11 @@
 </head>
 <body>
 
+<div id="scroll-progress"></div>
 <canvas id="dna-bg"></canvas>
+<div class="floating-blob blob-1"></div>
+<div class="floating-blob blob-2"></div>
+<div class="floating-blob blob-3"></div>
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 <div class="page">
 
@@ -554,6 +609,117 @@
         <h3>Suivez votre évolution</h3>
         <p>Espace membre privé avec bilan personnalisé et suivi hebdomadaire.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        L'expérience OV
+      </span>
+      <h2>Une routine pensée dans chaque détail</h2>
+      <p>De la formule à votre suivi personnel, un aperçu de ce qui vous attend.</p>
+    </div>
+    <div class="slides-wrap reveal">
+      <button type="button" class="slide-arrow slide-prev" id="slide-prev" aria-label="Slide précédente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button type="button" class="slide-arrow slide-next" id="slide-next" aria-label="Slide suivante">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <div class="slides-track" id="slides-track">
+
+        <div class="slide">
+          <div class="slide-art" style="--slide-glow:rgba(79,127,255,.28);">
+            <svg viewBox="0 0 200 200" fill="none">
+              <ellipse cx="100" cy="172" rx="46" ry="8" fill="#4f7fff" opacity=".12"/>
+              <rect x="72" y="46" width="56" height="112" rx="14" fill="#0d1220" stroke="#4f7fff" stroke-width="2.5"/>
+              <rect x="80" y="60" width="40" height="70" rx="4" fill="url(#g1)"/>
+              <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8b6bff"/><stop offset="1" stop-color="#4f7fff"/></linearGradient></defs>
+              <rect x="88" y="30" width="24" height="20" rx="4" fill="#1b2333" stroke="#4f7fff" stroke-width="2"/>
+              <circle cx="100" cy="95" r="5" fill="#f5f7fb"/>
+              <circle cx="100" cy="115" r="5" fill="#f5f7fb" opacity=".7"/>
+              <circle cx="140" cy="70" r="4" fill="#ef4a72"/>
+              <circle cx="55" cy="120" r="3" fill="#4f7fff"/>
+              <circle cx="150" cy="130" r="3" fill="#8b6bff"/>
+            </svg>
+          </div>
+          <div class="slide-copy">
+            <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>La formule</span>
+            <h3>Une formule dosée avec soin</h3>
+            <p>Chaque kit de cure est préparé selon un dosage précis, pensé pour accompagner votre routine bien-être sans complexité, semaine après semaine.</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-art" style="--slide-glow:rgba(139,107,255,.28);">
+            <svg viewBox="0 0 200 200" fill="none">
+              <rect x="30" y="40" width="140" height="110" rx="12" fill="#0d1220" stroke="#8b6bff" stroke-width="2.5"/>
+              <line x1="30" y1="66" x2="170" y2="66" stroke="#1b2333" stroke-width="2"/>
+              <circle cx="46" cy="53" r="3" fill="#ef4a72"/>
+              <circle cx="58" cy="53" r="3" fill="#e6a93f"/>
+              <circle cx="70" cy="53" r="3" fill="#3ddc84"/>
+              <polyline points="46,120 70,100 92,112 116,78 140,88 154,64" fill="none" stroke="url(#g2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4f7fff"/><stop offset="1" stop-color="#8b6bff"/></linearGradient></defs>
+              <circle cx="154" cy="64" r="5" fill="#8b6bff"/>
+              <rect x="46" y="130" width="108" height="8" rx="4" fill="#1b2333"/>
+              <rect x="46" y="130" width="70" height="8" rx="4" fill="#4f7fff"/>
+            </svg>
+          </div>
+          <div class="slide-copy">
+            <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>Suivi</span>
+            <h3>Votre progression, visualisée</h3>
+            <p>Espace membre privé avec bilan personnalisé, courbe d'évolution et suivi hebdomadaire pour garder le cap sur votre objectif.</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-art" style="--slide-glow:rgba(239,74,114,.26);">
+            <svg viewBox="0 0 200 200" fill="none">
+              <path d="M100 30c28 26 46 52 46 80a46 46 0 0 1-92 0c0-28 18-54 46-80z" fill="url(#g3)" opacity=".18"/>
+              <defs><linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f7fff"/><stop offset="1" stop-color="#ef4a72"/></linearGradient></defs>
+              <circle cx="100" cy="112" r="34" fill="none" stroke="#4f7fff" stroke-width="2.5"/>
+              <circle cx="100" cy="112" r="34" fill="none" stroke="#ef4a72" stroke-width="2.5" stroke-dasharray="14 200" stroke-linecap="round" transform="rotate(-90 100 112)"/>
+              <path d="M84 112h32M100 96v32" stroke="#f5f7fb" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="60" cy="60" r="4" fill="#8b6bff"/>
+              <circle cx="146" cy="58" r="3" fill="#ef4a72"/>
+              <circle cx="150" cy="150" r="3" fill="#4f7fff"/>
+            </svg>
+          </div>
+          <div class="slide-copy">
+            <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Livraison</span>
+            <h3>Discrète, partout en Europe</h3>
+            <p>Colis neutre, sans mention du contenu, livré en 3 à 7 jours ouvrés où que vous soyez dans l'Union européenne.</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-art" style="--slide-glow:rgba(61,220,132,.22);">
+            <svg viewBox="0 0 200 200" fill="none">
+              <rect x="40" y="36" width="120" height="120" rx="14" fill="#0d1220" stroke="#3ddc84" stroke-width="2.5"/>
+              <line x1="40" y1="66" x2="160" y2="66" stroke="#1b2333" stroke-width="2"/>
+              <g fill="#3ddc84">
+                <circle cx="62" cy="90" r="7"/><path d="M58 90l3 3 6-6" stroke="#0d1220" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="100" cy="90" r="7"/><path d="M96 90l3 3 6-6" stroke="#0d1220" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="138" cy="90" r="7" opacity=".35"/>
+                <circle cx="62" cy="122" r="7" opacity=".35"/>
+                <circle cx="100" cy="122" r="7" opacity=".35"/>
+                <circle cx="138" cy="122" r="7" opacity=".35"/>
+              </g>
+            </svg>
+          </div>
+          <div class="slide-copy">
+            <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>Routine</span>
+            <h3>1 prise, chaque semaine</h3>
+            <p>Une routine simple à retenir — par exemple chaque dimanche soir — pensée pour tenir dans la durée sans y penser.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="slide-dots" id="slide-dots"></div>
     </div>
   </div>
 </section>
@@ -1242,6 +1408,114 @@
     requestAnimationFrame(frame);
   }
   if(reduced){ draw(); } else { requestAnimationFrame(frame); }
+})();
+</script>
+
+<!-- Barre de progression de scroll -->
+<script>
+(function(){
+  var bar = document.getElementById('scroll-progress');
+  if(!bar) return;
+  function update(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    bar.style.width = pct + '%';
+  }
+  document.addEventListener('scroll', update, { passive:true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+<!-- Carrousel "L'experience OV" -->
+<script>
+(function(){
+  var track = document.getElementById('slides-track');
+  var dotsWrap = document.getElementById('slide-dots');
+  var prevBtn = document.getElementById('slide-prev');
+  var nextBtn = document.getElementById('slide-next');
+  if(!track || !dotsWrap) return;
+  var slides = track.querySelectorAll('.slide');
+  var count = slides.length;
+  var index = 0;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var autoplayMs = 5500;
+  var timer = null;
+
+  for(var i=0;i<count;i++){
+    var dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'slide-dot' + (i===0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Aller à la slide ' + (i+1));
+    (function(idx){ dot.addEventListener('click', function(){ goTo(idx); restart(); }); })(i);
+    dotsWrap.appendChild(dot);
+  }
+  var dots = dotsWrap.querySelectorAll('.slide-dot');
+
+  function render(){
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    dots.forEach(function(d,i){ d.classList.toggle('active', i === index); });
+  }
+  function goTo(i){ index = (i + count) % count; render(); }
+  function next(){ goTo(index + 1); }
+  function prev(){ goTo(index - 1); }
+
+  function start(){
+    if(reduced) return;
+    stop();
+    timer = setInterval(next, autoplayMs);
+  }
+  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+  function restart(){ stop(); start(); }
+
+  nextBtn && nextBtn.addEventListener('click', function(){ next(); restart(); });
+  prevBtn && prevBtn.addEventListener('click', function(){ prev(); restart(); });
+
+  var wrap = track.closest('.slides-wrap');
+  if(wrap){
+    wrap.addEventListener('mouseenter', stop);
+    wrap.addEventListener('mouseleave', start);
+    wrap.addEventListener('focusin', stop);
+    wrap.addEventListener('focusout', start);
+
+    // Support tactile (swipe)
+    var startX = null;
+    wrap.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; stop(); }, { passive:true });
+    wrap.addEventListener('touchend', function(e){
+      if(startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if(Math.abs(dx) > 40){ dx < 0 ? next() : prev(); }
+      startX = null;
+      start();
+    }, { passive:true });
+  }
+
+  render();
+  start();
+})();
+</script>
+
+<!-- Effet tilt 3D (cartes formules et temoignages, desktop uniquement) -->
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canHover = window.matchMedia('(hover:hover)').matches;
+  if(reduced || !canHover) return;
+
+  var tiltEls = document.querySelectorAll('.price-card, .testi-card');
+  tiltEls.forEach(function(el){
+    el.style.transformStyle = 'preserve-3d';
+    el.addEventListener('mousemove', function(e){
+      var r = el.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - 0.5;
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      var rx = (py * -6).toFixed(2);
+      var ry = (px * 8).toFixed(2);
+      el.style.transform = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(-4px)';
+    });
+    el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
+  });
 })();
 </script>
 
