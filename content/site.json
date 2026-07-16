@@ -1,16 +1,79 @@
 {
-  "cure": {
-    "feature4_text": "Espace membre, bilan personnalisé et suivi hebdomadaire, dès le premier jour.",
-    "feature3_text": "Conçue pour rester compatible avec une vie sociale et professionnelle normale.",
-    "feature2_text": "Une composition pensée pour accompagner votre routine bien-être sur la durée.",
-    "feature1_text": "Une routine simple à retenir, par exemple chaque dimanche soir.",
-    "feature1_title": "1 prise / semaine",
-    "feature2_title": "Formule dosée",
-    "feature3_title": "Sans contrainte excessive",
-    "feature4_title": "Accompagnement inclus",
-    "subtitle": "Notre formule a été pensée pour s'intégrer à une vie déjà bien remplie, pas pour la bouleverser.",
-    "title": "Une seule prise par semaine. Une cure d'un mois. Une routine qui tient dans le temps."
+  "hero": {
+    "eyebrow": "Conçu pour les actifs",
+    "title_line": "Une routine. Une cure.",
+    "title_accent": "Un mois.",
+    "lead": "OV, la cure bien-être pensée pour les actifs qui n'ont plus de temps à perdre. Une prise hebdomadaire, un accompagnement sérieux, une routine simple à tenir.",
+    "cta_primary": "Découvrir la cure",
+    "cta_secondary": "Faire mon bilan gratuit",
+    "stat1": "Distribué en Europe",
+    "stat2": "1 prise / semaine",
+    "stat3": "Cure de 4 semaines"
   },
+  "problem": {
+    "title": "Pourquoi les méthodes classiques ne tiennent pas dans un emploi du temps chargé",
+    "card1_title": "Les régimes restrictifs",
+    "card1_text": "Planifier chaque repas de la semaine demande un temps que peu de gens ont réellement. Après une longue journée, la volonté s'épuise avant le dîner.",
+    "card2_title": "Les séances intensives",
+    "card2_text": "S'astreindre à plusieurs entraînements par semaine est difficile à tenir sur la durée entre obligations professionnelles et vie de famille.",
+    "card3_title": "Les compléments du quotidien",
+    "card3_text": "Une prise à ne pas oublier chaque jour finit souvent par être délaissée après quelques semaines, faute de routine stable."
+  },
+  "cure": {
+    "title": "Une seule prise par semaine. Une cure d'un mois. Une routine qui tient dans le temps.",
+    "subtitle": "Notre formule a été pensée pour s'intégrer à une vie déjà bien remplie, pas pour la bouleverser.",
+    "feature1_title": "1 prise / semaine",
+    "feature1_text": "Une routine simple à retenir, par exemple chaque dimanche soir.",
+    "feature2_title": "Formule dosée",
+    "feature2_text": "Une composition pensée pour accompagner votre routine bien-être sur la durée.",
+    "feature3_title": "Sans contrainte excessive",
+    "feature3_text": "Conçue pour rester compatible avec une vie sociale et professionnelle normale.",
+    "feature4_title": "Accompagnement inclus",
+    "feature4_text": "Espace membre, bilan personnalisé et suivi hebdomadaire, dès le premier jour."
+  },
+  "bilan": {
+    "eyebrow": "Bilan",
+    "title": "Un accompagnement, pas seulement un produit",
+    "text": "Bilan personnalisé, espace membre privé, suivi hebdomadaire et journal de cure : tout est inclus dès le premier jour, sans option payante additionnelle."
+  },
+  "stats": {
+    "stat1_number": "1",
+    "stat1_label": "prise par semaine, sur 4 semaines de cure complète",
+    "stat2_number": "100%",
+    "stat2_label": "de l'accompagnement inclus dans le prix de la cure",
+    "stat3_number": "4",
+    "stat3_label": "langues disponibles sur l'espace membre"
+  },
+  "founder": {
+    "name": "Olivier Valin",
+    "paragraph1": "J'ai testé la cure moi-même avant de la proposer à qui que ce soit. En deux mois, en la combinant à une attention plus régulière à mon alimentation, je suis passé de 117 kg à 107 kg.",
+    "paragraph2": "Ce n'est pas la cure seule qui a tout fait : c'est la routine hebdomadaire, associée à des choix alimentaires plus simples et plus réguliers, qui m'a permis de tenir dans la durée — là où j'avais échoué avec d'autres méthodes plus contraignantes.",
+    "paragraph3": "C'est cette expérience personnelle qui m'a donné envie de partager OV avec d'autres actifs dans la même situation que moi.",
+    "disclaimer": "⚠️ Mon expérience est individuelle et ne constitue pas une garantie de résultat. Les résultats varient selon les personnes, l'alimentation et le mode de vie."
+  },
+  "testimonials": [
+    {
+      "name_line": "omar, 32 ans — Grenoble",
+      "story": "Je suis passé de 108 kg à 100 kg en 8 semaines. J’ai retrouvé un meilleur contrôle de mon appétit, plus d’énergie au quotidien et une vraie motivation pour continuer mes objectifs",
+      "quote": "C'est carré tout est pro, le suivis, l'expédition, l'emballage. Merci OV",
+      "photo_before": "/images/uploads/capture-d-écran-2026-07-14-163134.png",
+      "photo_after": "/images/uploads/capture-d-écran-2026-07-14-163146.png"
+    },
+    {
+      "name_line": "Amélie, 29 ans — Cassis",
+      "story": "En 11 semaines, j’ai perdu 12 kg. Je me sens vraiment mieux dans mon corps, j’ai retrouvé confiance en moi et surtout j’ai enfin réussi à mieux gérer mes envies au quotidien. Je suis trop contente du chemin parcouru.",
+      "quote": "franchement la cure est au top avec peu d'effet secondaires pour ma part.",
+      "photo_before": "/images/uploads/capture-d-écran-2026-07-14-163202.png",
+      "photo_after": "/images/uploads/capture-d-écran-2026-07-14-163213.png"
+    },
+    {
+      "name_line": "nelson, 34 ans — paris 11",
+      "story": "En l'espace de 4 semaines J'ai perdu 10 kilos Avec beaucoup de rigueur Une Diet propre Et du sport 2 fois par semaine. J'ai surtout arrêté De penser qu'à mon frigo Toute la journée.",
+      "quote": "Franchement j'y croyais pas au début J'étais Sceptique Il faut reconnaître que les résultats sont vraiment là. INCROYABLE.",
+      "photo_before": "/images/uploads/capture-d-écran-2026-07-14-173709.png",
+      "photo_after": "/images/uploads/capture-d-écran-2026-07-14-173724.png"
+    }
+  ],
   "pricing": [
     {
       "name": "Formule Découverte",
@@ -43,96 +106,33 @@
       "stripe_link": "https://buy.stripe.com/3cI14n4pg5XF1p0ckkcQU05"
     }
   ],
+  "faq": [
+    {
+      "question": "Combien de temps avant de voir des résultats ?",
+      "answer": "Les premiers effets sur l'appétit apparaissent souvent en 1 à 2 semaines. La perte de poids devient généralement visible après 2 à 4 semaines, avec des résultats plus marqués au bout de 2 à 3 mois. Les résultats varient selon la personne, la dose, l'alimentation et l'activité physique."
+    },
+    {
+      "question": "Comment se déroule la cure au quotidien ?",
+      "answer": "La cure s'administre généralement par une par semaine. Il est recommandé de commencer avec une faible dose, puis d'augmenter progressivement afin de limiter les effets secondaires. Une alimentation équilibrée et une activité physique régulière permettent d'optimiser les résultats."
+    },
+    {
+      "question": "Est-ce compatible avec ma vie professionnelle ?",
+      "answer": "Oui, dans la plupart des cas. La cure ne se fait qu'une fois par semaine et s'intègre facilement à une routine. Certaines personnes peuvent ressentir des effets digestifs temporaires, surtout au début ou lors d'une augmentation de dose."
+    },
+    {
+      "question": "Que se passe-t-il si la cure ne me convient pas ?",
+      "answer": "Si la cure ne vous convient pas, il est possible de l'arrêter. En cas d'effets indésirables ou de questions, il est recommandé de consulter un professionnel de santé pour être accompagné."
+    }
+  ],
   "final_cta": {
     "title": "Reprenez le contrôle, dès maintenant.",
     "text": "1 prise par semaine. 1 mois de cure. Un accompagnement complet.",
     "cta_primary": "Choisir ma formule",
     "cta_secondary": "Faire mon bilan gratuit"
   },
-  "founder": {
-    "name": "Olivier Valin",
-    "paragraph1": "J'ai testé la cure moi-même avant de la proposer à qui que ce soit. En deux mois, en la combinant à une attention plus régulière à mon alimentation, je suis passé de 117 kg à 107 kg.",
-    "paragraph2": "Ce n'est pas la cure seule qui a tout fait : c'est la routine hebdomadaire, associée à des choix alimentaires plus simples et plus réguliers, qui m'a permis de tenir dans la durée — là où j'avais échoué avec d'autres méthodes plus contraignantes.",
-    "paragraph3": "C'est cette expérience personnelle qui m'a donné envie de partager OV avec d'autres actifs dans la même situation que moi.",
-    "disclaimer": "⚠️ Mon expérience est individuelle et ne constitue pas une garantie de résultat. Les résultats varient selon les personnes, l'alimentation et le mode de vie."
-  },
-  "bilan": {
-    "eyebrow": "Bilan",
-    "title": "Un accompagnement, pas seulement un produit",
-    "text": "Bilan personnalisé, espace membre privé, suivi hebdomadaire et journal de cure : tout est inclus dès le premier jour, sans option payante additionnelle."
-  },
-  "testimonials": [
-    {
-      "name_line": "nelson, 34 ans, paris 11",
-      "story": "[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]",
-      "quote": "Remplacer par une citation réelle et authentique du client",
-      "photo_before": "",
-      "photo_after": ""
-    },
-    {
-      "name_line": "[Prénom du client], [âge] ans — [ville]",
-      "story": "[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]",
-      "quote": "Remplacer par une citation réelle et authentique du client",
-      "photo_before": "",
-      "photo_after": ""
-    },
-    {
-      "name_line": "[Prénom du client], [âge] ans — [ville]",
-      "story": "[Remplacer par le vrai parcours du client : point de départ, ce qui a changé, sur quelle durée.]",
-      "quote": "Remplacer par une citation réelle et authentique du client",
-      "photo_before": "",
-      "photo_after": ""
-    }
-  ],
-  "faq": [
-    {
-      "question": "Combien de temps avant de voir des résultats ?",
-      "answer": "[À compléter avec une réponse précise et honnête basée sur vos données produit.]"
-    },
-    {
-      "question": "Comment se déroule la cure au quotidien ?",
-      "answer": "[À compléter avec le déroulé réel de la cure — fréquence, mode d'emploi, durée.]"
-    },
-    {
-      "question": "Est-ce compatible avec ma vie professionnelle ?",
-      "answer": "[À compléter.]"
-    },
-    {
-      "question": "Que se passe-t-il si la cure ne me convient pas ?",
-      "answer": "[À compléter avec votre politique de retours/remboursement réelle.]"
-    }
-  ],
-  "hero": {
-    "cta_secondary": "Faire mon bilan gratuit",
-    "eyebrow": "Conçu pour les actifs",
-    "title_accent": "Un mois.",
-    "cta_primary": "Découvrir la cure",
-    "title_line": "Une routine. Une cure.",
-    "lead": "OV, la cure bien-être pensée pour les actifs qui n'ont plus de temps à perdre. Une prise hebdomadaire, un accompagnement sérieux, une routine simple à tenir.",
-    "stat1": "Distribué en Europe",
-    "stat2": "1 prise / semaine",
-    "stat3": "Cure de 4 semaines"
-  },
   "footer": {
     "tagline": "Bien-être, forme et sérénité au quotidien.",
     "disclaimer": "Les compléments alimentaires ne se substituent pas à une alimentation variée et équilibrée ni à un mode de vie sain.",
     "copyright": "© 2026 OV. Tous droits réservés."
-  },
-  "stats": {
-    "stat1_number": "1",
-    "stat1_label": "prise par semaine, sur 4 semaines de cure complète",
-    "stat2_number": "100%",
-    "stat2_label": "de l'accompagnement inclus dans le prix de la cure",
-    "stat3_number": "4",
-    "stat3_label": "langues disponibles sur l'espace membre"
-  },
-  "problem": {
-    "title": "Pourquoi les méthodes classiques ne tiennent pas dans un emploi du temps chargé",
-    "card1_title": "Les régimes restrictifs",
-    "card1_text": "Planifier chaque repas de la semaine demande un temps que peu de gens ont réellement. Après une longue journée, la volonté s'épuise avant le dîner.",
-    "card2_title": "Les séances intensives",
-    "card2_text": "S'astreindre à plusieurs entraînements par semaine est difficile à tenir sur la durée entre obligations professionnelles et vie de famille.",
-    "card3_title": "Les compléments du quotidien",
-    "card3_text": "Une prise à ne pas oublier chaque jour finit souvent par être délaissée après quelques semaines, faute de routine stable."
   }
 }
