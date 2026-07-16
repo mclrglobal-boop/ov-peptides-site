@@ -1,0 +1,24 @@
+# OV Peptides
+
+> Cure de bien-être hebdomadaire pensée pour les actifs qui manquent de temps : 1 prise par semaine, 4 semaines de cure, accompagnement personnalisé inclus.
+
+## Offre
+
+- 1 prise par semaine, cure complète sur 4 semaines.
+- Accompagnement inclus dès le premier jour : bilan personnalisé, espace membre privé, suivi hebdomadaire.
+- Livraison discrète depuis l'Union Européenne en 3 à 7 jours ouvrés.
+- Droit de rétractation de 14 jours.
+- 3 formules disponibles : Découverte (60 €, 1 kit), Intermédiaire (180 €, 3 kits), Pro (300 €, 5 kits). Détail complet : /pricing.md
+
+## Pages clés
+
+- [Accueil](https://ov-peptides.netlify.app/) — présentation de la cure, formules, FAQ, témoignages.
+- [Tarifs détaillés](https://ov-peptides.netlify.app/pricing.md) — fichier structuré pour agents IA.
+- [Outils gratuits](https://ov-peptides.netlify.app/outils-gratuits) — calculateurs bien-être (IMC, besoins caloriques, hydratation, etc.), gratuits et sans inscription.
+- [Conditions Générales de Vente](https://ov-peptides.netlify.app/cgv)
+- [Politique de confidentialité](https://ov-peptides.netlify.app/confidentialite)
+- [Mentions légales](https://ov-peptides.netlify.app/mentions-legales)
+
+## À propos
+
+OV Peptides est édité par MC LR LLC. Fondateur : Olivier Valin.
