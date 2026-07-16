@@ -7,16 +7,18 @@
 <meta name="description" content="Politique de confidentialité et protection des données personnelles du site OV Peptides (RGPD).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#050810; --bg-alt:#080b15; --card:#0d1220; --card-2:#111827;
     --text:#f5f7fb; --muted:#8b93a8; --muted-2:#5b6478;
-    --accent:#4f7fff; --accent-2:#8b6bff; --accent-red:#ef4a72; --accent-red-text:#ff7fa0;
+    --accent:#4f7fff; --accent-2:#8b6bff; --accent-cyan:#2ee6d6; --accent-red:#ef4a72; --accent-red-text:#ff7fa0;
     --border:#1b2333; --border-soft:rgba(255,255,255,.07);
     --radius:16px; --radius-lg:26px;
-    --ease:cubic-bezier(.16,1,.3,1); --maxw:1180px;
+    --ease:cubic-bezier(.16,1,.3,1); --font-display:'Space Grotesk',Inter,system-ui,sans-serif; --maxw:1180px;
   }
+  #cursor-glow{position:fixed;top:0;left:0;width:640px;height:640px;border-radius:50%;pointer-events:none;z-index:0;opacity:0;transition:opacity .5s ease;background:radial-gradient(circle, rgba(46,230,214,.10), rgba(79,127,255,.07) 38%, transparent 70%);transform:translate(-50%,-50%);will-change:transform;mix-blend-mode:screen;}
+  @media (hover:none), (max-width:860px){ #cursor-glow{display:none;} }
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible,
   select:focus-visible, [tabindex]:focus-visible{ outline:2px solid var(--accent);outline-offset:2px;border-radius:4px; }
   .skip-link{ position:absolute;left:-9999px;top:0;z-index:9999;background:var(--accent);color:#fff;padding:10px 18px;border-radius:0 0 8px 0;font-size:14px;font-weight:600; }
@@ -34,10 +36,10 @@
   .page{position:relative;z-index:1;}
   .container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
   section{padding:64px 0;}
-  h1,h2,h3{line-height:1.2;font-weight:700;letter-spacing:-.02em;}
+  h1,h2,h3{font-family:var(--font-display);line-height:1.2;font-weight:700;letter-spacing:-.02em;}
   h1{font-size:clamp(30px,4.4vw,42px);}
   p{color:var(--muted);}
-  .eyebrow{ display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--accent);background:rgba(79,127,255,.1);border:1px solid rgba(79,127,255,.28);padding:7px 16px 7px 12px;border-radius:999px;margin-bottom:20px; }
+  .eyebrow{ display:inline-flex;align-items:center;gap:7px;font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--accent-cyan);background:rgba(46,230,214,.08);border:1px solid rgba(46,230,214,.28);padding:7px 16px 7px 12px;border-radius:999px;margin-bottom:20px; }
   .eyebrow svg{width:14px;height:14px;}
   .btn{ display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:12px;font-weight:600;font-size:14px;cursor:pointer;border:1px solid transparent;transition:transform .3s var(--ease), border-color .25s ease, background .25s ease; }
   .btn svg{width:16px;height:16px;}
@@ -106,6 +108,7 @@
 <body>
 
 <canvas id="dna-bg"></canvas>
+<div id="cursor-glow" aria-hidden="true"></div>
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 <div class="page">
 
@@ -368,6 +371,26 @@
   }
   function frame(){ t += 0.01; draw(); requestAnimationFrame(frame); }
   if(reduced){ draw(); } else { requestAnimationFrame(frame); }
+})();
+</script>
+<script>
+(function(){
+  var glow = document.getElementById('cursor-glow');
+  if(!glow) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hoverCapable = window.matchMedia('(hover: hover)').matches;
+  if(reduced || !hoverCapable) return;
+  var tx = 0, ty = 0, cx = 0, cy = 0, active = false;
+  window.addEventListener('mousemove', function(e){
+    tx = e.clientX; ty = e.clientY;
+    if(!active){ active = true; cx = tx; cy = ty; glow.style.opacity = '1'; requestAnimationFrame(loop); }
+  });
+  function loop(){
+    cx += (tx - cx) * 0.14;
+    cy += (ty - cy) * 0.14;
+    glow.style.transform = 'translate(' + cx + 'px,' + cy + 'px) translate(-50%,-50%)';
+    requestAnimationFrame(loop);
+  }
 })();
 </script>
 
