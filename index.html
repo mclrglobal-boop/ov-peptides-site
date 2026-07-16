@@ -375,13 +375,7 @@
                radial-gradient(circle at 75% 80%, rgba(239,74,114,.16), transparent 55%);
   }
   .hero-visual canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
-  .hero-logo-display{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:20px;}
-  .hero-logo-float{display:flex;align-items:center;justify-content:center;width:100%;height:100%;animation:logoFloat 5s ease-in-out infinite;}
-  .hero-logo-img{display:block;width:60%;height:60%;object-fit:contain;filter:drop-shadow(0 30px 55px rgba(0,0,0,.6));}
-  #logo3d{display:none;width:82%;height:82%;filter:drop-shadow(0 30px 55px rgba(0,0,0,.6));}
-  #logo3d.is-active{display:block;}
-  #logo3d.is-active + .hero-logo-img{display:none;}
-  @keyframes logoFloat{ 0%,100%{ transform:translateY(0) rotate(0deg); } 50%{ transform:translateY(-12px) rotate(1deg); } }
+  .hero-product-video{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:cover;display:block;}
   .float-chip{
     position:absolute;z-index:3;display:flex;align-items:center;gap:8px;
     padding:10px 14px;border-radius:12px;font-size:12.5px;font-weight:600;color:var(--text);
@@ -628,12 +622,9 @@
     </div>
     <div class="hero-visual reveal" style="--d:.15s;">
       <canvas id="chain-bg"></canvas>
-      <div class="hero-logo-display">
-        <div class="hero-logo-float">
-          <canvas id="logo3d" aria-hidden="true"></canvas>
-          <img src="assets/logo-mark.svg" alt="OV Peptides" class="hero-logo-img">
-        </div>
-      </div>
+      <video class="hero-product-video" autoplay muted loop playsinline poster="assets/hero-product-poster.jpg" aria-hidden="true">
+        <source src="assets/hero-product.mp4" type="video/mp4">
+      </video>
       <div class="float-chip chip-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Livraison 3-7 jours</div>
       <div class="float-chip chip-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Suivi inclus</div>
     </div>
@@ -1741,124 +1732,19 @@
 })();
 </script>
 
-<!-- Logo 3D rotatif (hero) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Video produit (hero) -->
 <script>
 (function(){
-  var canvas = document.getElementById('logo3d');
-  if(!canvas || typeof THREE === 'undefined') return;
-
+  var v = document.querySelector('.hero-product-video');
+  if(!v) return;
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var box = canvas.closest('.hero-logo-float');
-  var renderer;
-  try{
-    renderer = new THREE.WebGLRenderer({canvas:canvas, alpha:true, antialias:true});
-  }catch(e){ return; }
-
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-
-  var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-  camera.position.set(0, 0, 4.3);
-
-  function resize(){
-    var w = box.clientWidth || 1, h = box.clientHeight || 1;
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-  }
-
-  scene.add(new THREE.AmbientLight(0x28314a, 1.1));
-  var lBlue = new THREE.PointLight(0x6f9dff, 3.2, 12); lBlue.position.set(-2.5, 1.8, 2.5); scene.add(lBlue);
-  var lPurple = new THREE.PointLight(0x9b7bff, 2.6, 12); lPurple.position.set(2.2, -1.5, 2.0); scene.add(lPurple);
-  var lRed = new THREE.PointLight(0xff5f85, 3.0, 10); lRed.position.set(1.6, 1.6, 1.8); scene.add(lRed);
-  var lRim = new THREE.PointLight(0xffffff, 1.4, 10); lRim.position.set(0, -1, -3); scene.add(lRim);
-
-  var group = new THREE.Group();
-  scene.add(group);
-
-  var ringMat = new THREE.MeshPhysicalMaterial({ color:0x1c2540, metalness:0.75, roughness:0.22, clearcoat:0.7, clearcoatRoughness:0.18, reflectivity:0.6 });
-  var ring = new THREE.Mesh(new THREE.TorusGeometry(1, 0.155, 48, 128, Math.PI*1.55), ringMat);
-  ring.rotation.z = Math.PI*0.62;
-  ring.position.set(-0.05, -0.02, 0);
-  group.add(ring);
-
-  var checkMat = new THREE.MeshPhysicalMaterial({ color:0x22224a, metalness:0.7, roughness:0.25, clearcoat:0.6, clearcoatRoughness:0.2 });
-  var checkCurve = new THREE.CatmullRomCurve3([
-    new THREE.Vector3(-0.58, 0.20, 0.05),
-    new THREE.Vector3(-0.10, -0.80, 0.06),
-    new THREE.Vector3(0.62, 0.42, 0.07)
-  ]);
-  var check = new THREE.Mesh(new THREE.TubeGeometry(checkCurve, 64, 0.135, 16, false), checkMat);
-  group.add(check);
-
-  var connCurve = new THREE.CatmullRomCurve3([
-    new THREE.Vector3(0.62, 0.42, 0.07),
-    new THREE.Vector3(0.78, 0.62, 0.10),
-    new THREE.Vector3(0.88, 0.80, 0.12)
-  ]);
-  var connMat = new THREE.MeshStandardMaterial({ color:0x8b6bff, roughness:0.4, metalness:0.4, emissive:0x2a1a55, emissiveIntensity:0.4 });
-  group.add(new THREE.Mesh(new THREE.TubeGeometry(connCurve, 20, 0.028, 8, false), connMat));
-
-  var nodeMat = new THREE.MeshStandardMaterial({ color:0x0d1220, metalness:0.6, roughness:0.35, emissive:0x1a1030, emissiveIntensity:0.5 });
-  var node = new THREE.Mesh(new THREE.SphereGeometry(0.075, 24, 24), nodeMat);
-  node.position.set(0.78, 0.62, 0.10);
-  group.add(node);
-
-  var dotMat = new THREE.MeshStandardMaterial({ color:0xef4a72, roughness:0.35, metalness:0.25, emissive:0x8a0f2c, emissiveIntensity:0.85 });
-  var dot = new THREE.Mesh(new THREE.SphereGeometry(0.20, 32, 32), dotMat);
-  dot.position.set(0.94, 0.86, 0.13);
-  group.add(dot);
-
-  var microMat1 = new THREE.MeshStandardMaterial({ color:0x4f7fff, emissive:0x2244aa, emissiveIntensity:0.7, roughness:0.4 });
-  var micro1 = new THREE.Mesh(new THREE.SphereGeometry(0.055, 16, 16), microMat1);
-  micro1.position.set(-0.92, -0.78, -0.05);
-  group.add(micro1);
-
-  var microMat2 = new THREE.MeshStandardMaterial({ color:0x8b6bff, emissive:0x4a2f9c, emissiveIntensity:0.7, roughness:0.4 });
-  var micro2 = new THREE.Mesh(new THREE.SphereGeometry(0.045, 16, 16), microMat2);
-  micro2.position.set(1.0, -0.28, -0.15);
-  group.add(micro2);
-
-  group.scale.set(1.05, 1.05, 1.05);
-  group.rotation.x = -0.15;
-
-  resize();
-  window.addEventListener('resize', resize);
-
-  canvas.classList.add('is-active');
-
-  var running = true;
+  if(reduced){ v.removeAttribute('autoplay'); v.pause(); return; }
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
-      var wasRunning = running;
-      running = entries[0].isIntersecting;
-      if(running && !wasRunning && !reduced) requestAnimationFrame(animate);
-    }, { threshold:0.05 });
-    io.observe(box);
-  }
-
-  var clock = new THREE.Clock();
-  var looping = false;
-  function animate(){
-    if(looping) return;
-    looping = true;
-    (function frame(){
-      if(!running){ looping = false; return; }
-      var t = clock.getElapsedTime();
-      group.rotation.y = t * 0.55;
-      group.rotation.x = -0.15 + Math.sin(t*0.6)*0.08;
-      group.position.y = Math.sin(t*0.8)*0.06;
-      renderer.render(scene, camera);
-      requestAnimationFrame(frame);
-    })();
-  }
-
-  if(reduced){
-    group.rotation.y = 0.6;
-    renderer.render(scene, camera);
-  } else {
-    animate();
+      if(entries[0].isIntersecting){ v.play().catch(function(){}); }
+      else{ v.pause(); }
+    }, { threshold:0.1 });
+    io.observe(v);
   }
 })();
 </script>
