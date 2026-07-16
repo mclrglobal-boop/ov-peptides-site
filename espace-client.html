@@ -140,6 +140,7 @@
 </style>
 <link rel="canonical" href="https://ov-peptides.netlify.app/espace-client">
 <meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
 </head>
 <body>
 
@@ -585,12 +586,16 @@
 
   // --- Suppression d'une mesure ---
   function deleteEntry(id){
-    supabase.from(TABLE).delete().eq('id', id).then(function(){ loadEntries(); });
+    if(!currentUser) return;
+    // Filtre user_id en defense en profondeur (la RLS Supabase doit deja l'imposer cote serveur).
+    supabase.from(TABLE).delete().eq('id', id).eq('user_id', currentUser.id).then(function(){ loadEntries(); });
   }
 
   // --- Chargement + affichage des mesures ---
   function loadEntries(){
-    supabase.from(TABLE).select('*').order('date_mesure', {ascending:true}).then(function(res){
+    if(!currentUser) return;
+    // Filtre user_id en defense en profondeur (la RLS Supabase doit deja l'imposer cote serveur).
+    supabase.from(TABLE).select('*').eq('user_id', currentUser.id).order('date_mesure', {ascending:true}).then(function(res){
       if(res.error){ return; }
       var entries = res.data || [];
       renderStats(entries);
@@ -625,20 +630,33 @@
       body.innerHTML = '<tr><td colspan="4" class="empty-row">Aucune mesure enregistrée pour l\'instant.</td></tr>';
       return;
     }
-    var rows = entries.slice().reverse().map(function(e){
+    body.textContent = '';
+    entries.slice().reverse().forEach(function(e){
       var d = new Date(e.date_mesure);
       var dateStr = d.toLocaleDateString('fr-FR');
-      var note = e.note ? e.note.replace(/</g,'&lt;') : '';
-      return '<tr>' +
-        '<td>' + dateStr + '</td>' +
-        '<td>' + e.poids.toFixed(1) + ' kg</td>' +
-        '<td style="color:var(--muted);font-size:13px;">' + note + '</td>' +
-        '<td><button type="button" class="del-btn" data-id="' + e.id + '">Supprimer</button></td>' +
-        '</tr>';
-    });
-    body.innerHTML = rows.join('');
-    body.querySelectorAll('.del-btn').forEach(function(btn){
-      btn.addEventListener('click', function(){ deleteEntry(btn.getAttribute('data-id')); });
+      var tr = document.createElement('tr');
+
+      var tdDate = document.createElement('td');
+      tdDate.textContent = dateStr;
+      var tdPoids = document.createElement('td');
+      tdPoids.textContent = e.poids.toFixed(1) + ' kg';
+      var tdNote = document.createElement('td');
+      tdNote.style.color = 'var(--muted)';
+      tdNote.style.fontSize = '13px';
+      tdNote.textContent = e.note || '';
+      var tdBtn = document.createElement('td');
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'del-btn';
+      btn.textContent = 'Supprimer';
+      btn.addEventListener('click', function(){ deleteEntry(e.id); });
+      tdBtn.appendChild(btn);
+
+      tr.appendChild(tdDate);
+      tr.appendChild(tdPoids);
+      tr.appendChild(tdNote);
+      tr.appendChild(tdBtn);
+      body.appendChild(tr);
     });
   }
 
