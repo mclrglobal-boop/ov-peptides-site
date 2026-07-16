@@ -7,7 +7,7 @@
 <meta name="description" content="Une cure bien-être d'un mois pour les actifs. 1 prise par semaine, une routine simple, sans régime ni contrainte quotidienne.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#050810;
@@ -19,6 +19,7 @@
     --muted-2:#5b6478;
     --accent:#4f7fff;
     --accent-2:#8b6bff;
+    --accent-cyan:#2ee6d6;
     --accent-red:#ef4a72;
     --accent-red-text:#ff7fa0;
     --green:#3ddc84;
@@ -33,6 +34,7 @@
     --shadow-lg:0 40px 80px -24px rgba(0,0,0,.65);
     --shadow-glow:0 0 0 1px rgba(79,127,255,.18), 0 20px 60px -18px rgba(79,127,255,.35);
     --ease:cubic-bezier(.16,1,.3,1);
+    --font-display:'Space Grotesk',Inter,system-ui,sans-serif;
     --maxw:1180px;
   }
 
@@ -76,17 +78,18 @@
   section{padding:120px 0;position:relative;}
   @media (max-width:860px){ section{padding:72px 0;} }
 
-  h1,h2,h3,h4{line-height:1.15;font-weight:700;letter-spacing:-.02em;}
+  h1,h2,h3,h4{font-family:var(--font-display);line-height:1.15;font-weight:700;letter-spacing:-.02em;}
   h2{font-size:clamp(30px,4.2vw,44px);margin-bottom:16px;}
-  h3{font-size:19px;margin-bottom:10px;letter-spacing:-.01em;}
+  h3{font-size:19px;margin-bottom:10px;letter-spacing:-.01em;font-weight:600;}
   p{color:var(--muted);}
 
   .eyebrow{
     display:inline-flex;align-items:center;gap:7px;
-    font-size:13px;font-weight:600;letter-spacing:.02em;
-    color:var(--accent);
-    background:rgba(79,127,255,.1);
-    border:1px solid rgba(79,127,255,.28);
+    font-family:var(--font-display);
+    font-size:13px;font-weight:600;letter-spacing:.03em;
+    color:var(--accent-cyan);
+    background:rgba(46,230,214,.08);
+    border:1px solid rgba(46,230,214,.28);
     padding:7px 16px 7px 12px;
     border-radius:999px;
     margin-bottom:22px;
@@ -192,6 +195,15 @@
   @keyframes blobFloat3{ 0%,100%{transform:translate(0,0);} 50%{transform:translate(50px,-60px);} }
   @media (max-width:860px){ .floating-blob{display:none;} }
 
+  /* --- Halo curseur ambiant (spotlight qui suit la souris) --- */
+  #cursor-glow{
+    position:fixed;top:0;left:0;width:640px;height:640px;border-radius:50%;
+    pointer-events:none;z-index:0;opacity:0;transition:opacity .5s ease;
+    background:radial-gradient(circle, rgba(46,230,214,.10), rgba(79,127,255,.07) 38%, transparent 70%);
+    transform:translate(-50%,-50%);will-change:transform;mix-blend-mode:screen;
+  }
+  @media (hover:none), (max-width:860px){ #cursor-glow{display:none;} }
+
   /* --- Slides / gallery carousel --- */
   .slides-wrap{position:relative;max-width:920px;margin:0 auto;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--border-soft);}
   .slides-track{display:flex;transition:transform .6s var(--ease);}
@@ -219,6 +231,39 @@
   .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
   @media (max-width:860px){ .grid-3,.grid-4{grid-template-columns:1fr;} }
 
+  /* --- Comparatif OV vs methodes classiques --- */
+  .compare-card{
+    max-width:880px;margin:0 auto;border-radius:var(--radius-lg);
+    background:var(--card);border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow-md);
+  }
+  .compare-row{display:grid;grid-template-columns:1.3fr 1fr 1fr;align-items:center;}
+  .compare-row + .compare-row{border-top:1px solid var(--border-soft);}
+  .compare-head .compare-col{
+    font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:.01em;
+    color:var(--muted);padding:18px 14px;text-align:center;
+  }
+  .compare-head .compare-col-ov{color:var(--accent-cyan);}
+  .compare-label{padding:16px 22px;font-size:14.5px;color:var(--text);font-weight:500;}
+  .compare-col{padding:16px 14px;text-align:center;display:flex;align-items:center;justify-content:center;gap:7px;font-size:13.5px;color:var(--muted);}
+  .compare-col svg{width:18px;height:18px;flex-shrink:0;}
+  .compare-no svg{color:var(--accent-red-text);}
+  .compare-yes svg{color:var(--green);}
+  .compare-col-ov{background:linear-gradient(180deg,rgba(46,230,214,.08),rgba(79,127,255,.05));color:var(--text);font-weight:600;position:relative;}
+  .compare-row:first-child .compare-col-ov{border-radius:0;}
+  @media (max-width:640px){
+    .compare-label{font-size:13px;padding:14px 10px;}
+    .compare-col{font-size:12px;padding:14px 6px;}
+    .compare-col svg{width:15px;height:15px;}
+  }
+
+  /* --- Qualite & confiance --- */
+  .trust-card{position:relative;text-align:center;padding:34px 24px;}
+  .trust-card::after{content:"";position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,var(--card-accent,var(--accent-cyan)),transparent);opacity:.6;}
+  .trust-card .icon-box{margin:0 auto 18px;width:52px;height:52px;border-radius:14px;}
+  .trust-card .icon-box svg{width:24px;height:24px;}
+  .trust-card h3{font-size:16.5px;}
+  .trust-card p{font-size:13.5px;}
+
   .section-head{max-width:640px;margin:0 auto 56px;text-align:center;}
   .section-head p{font-size:16px;}
   .bg-alt{background:var(--bg-alt);}
@@ -235,7 +280,7 @@
   .logo-mark{height:34px;width:auto;flex-shrink:0;display:block;}
   .logo-wrap{display:flex;align-items:center;gap:10px;}
   .logo-word{font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--text);}
-  .logo-word span{background:linear-gradient(120deg,var(--accent),var(--accent-red));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .logo-word span{background:linear-gradient(120deg,var(--accent-cyan),var(--accent-red));-webkit-background-clip:text;background-clip:text;color:transparent;}
 
   header{
     position:sticky;top:0;z-index:100;
@@ -274,6 +319,21 @@
     header.menu-open .mobile-panel{display:flex;}
   }
 
+  /* --- Barre CTA sticky (mobile/tablette) --- */
+  #sticky-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:150;
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:12px 18px;padding-bottom:calc(12px + env(safe-area-inset-bottom));
+    background:rgba(8,11,21,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-top:1px solid var(--border-soft);box-shadow:0 -12px 30px -12px rgba(0,0,0,.5);
+    transform:translateY(100%);transition:transform .4s var(--ease);
+  }
+  #sticky-cta.is-visible{transform:translateY(0);}
+  #sticky-cta .btn{padding:11px 20px;font-size:14px;white-space:nowrap;}
+  .sticky-cta-info{display:flex;flex-direction:column;font-size:12px;color:var(--muted);line-height:1.3;}
+  .sticky-cta-info strong{font-family:var(--font-display);font-size:14px;color:var(--text);}
+  @media (min-width:861px){ #sticky-cta{display:none;} }
+
   /* --- Hero --- */
   .hero{padding:88px 0 96px;position:relative;overflow:hidden;}
   .hero::before{
@@ -286,7 +346,7 @@
   .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;}
   .hero-copy{text-align:left;}
   .hero-copy h1{font-size:clamp(38px,5vw,58px);letter-spacing:-.03em;margin-bottom:22px;}
-  .hero-copy h1 .accent-text{background:linear-gradient(120deg,var(--accent),var(--accent-2),var(--accent-red));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% auto;animation:gradientShift 6s ease-in-out infinite;}
+  .hero-copy h1 .accent-text{background:linear-gradient(120deg,var(--accent-cyan),var(--accent-2),var(--accent-red),var(--accent-cyan));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:300% auto;animation:gradientShift 8s ease-in-out infinite;}
   @keyframes gradientShift{0%,100%{background-position:0% center;}50%{background-position:100% center;}}
   .hero-copy p.lead{max-width:520px;margin:0 0 34px;font-size:18px;color:var(--muted);}
   .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:36px;}
@@ -354,7 +414,7 @@
   /* --- Stat strip --- */
   .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center;}
   @media (max-width:860px){ .stats{grid-template-columns:1fr;gap:40px;} }
-  .stat-num{font-size:48px;font-weight:800;letter-spacing:-.03em;background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat-num{font-family:var(--font-display);font-size:48px;font-weight:700;letter-spacing:-.03em;background:linear-gradient(120deg,var(--accent-cyan),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
   .stat-label{color:var(--muted);font-size:14.5px;max-width:260px;margin:10px auto 0;}
 
   /* --- Bilan / dashboard mock --- */
@@ -373,25 +433,29 @@
   .tag svg{width:12px;height:12px;}
 
   /* --- Founder --- */
-  .founder{max-width:760px;margin:0 auto;text-align:center;}
+  .founder{max-width:760px;margin:0 auto;text-align:center;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:52px 44px;box-shadow:var(--shadow-md);}
+  @media (max-width:640px){ .founder{padding:38px 24px;} }
   .founder-avatar{
-    width:64px;height:64px;border-radius:50%;margin:0 auto 22px;
-    background:linear-gradient(135deg,var(--accent),var(--accent-red));
+    width:68px;height:68px;border-radius:50%;margin:0 auto 22px;position:relative;
+    background:linear-gradient(135deg,var(--accent-cyan),var(--accent),var(--accent-red));
     display:flex;align-items:center;justify-content:center;color:#fff;
+    box-shadow:0 0 0 4px var(--card), 0 0 30px -4px rgba(46,230,214,.5);
   }
   .founder-avatar svg{width:28px;height:28px;}
+  .founder h2{font-size:clamp(26px,3.4vw,34px);}
   .founder p{margin-bottom:16px;color:var(--text);text-align:left;font-size:15.5px;}
-  .founder .signature{color:var(--muted);font-style:italic;margin-top:22px;text-align:center;}
+  .founder .signature{font-family:var(--font-display);color:var(--muted);font-style:italic;margin-top:22px;text-align:center;}
   .founder .small-note{text-align:center;}
 
   /* --- Testimonials --- */
-  .testi-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative;transition:transform .35s var(--ease), border-color .35s var(--ease);}
-  .testi-card:hover{transform:translateY(-4px);border-color:rgba(79,127,255,.3);}
+  .testi-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative;transition:transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);}
+  .testi-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent-cyan),var(--accent-2),var(--accent-red));opacity:.7;z-index:2;}
+  .testi-card:hover{transform:translateY(-5px);border-color:rgba(46,230,214,.35);box-shadow:var(--shadow-md);}
   .testi-badge{
-    position:absolute;top:12px;right:12px;z-index:2;
-    background:rgba(239,74,114,.14);color:var(--accent-red-text);border:1px solid rgba(239,74,114,.35);
-    font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
-    padding:5px 11px;border-radius:999px;
+    position:absolute;top:14px;right:14px;z-index:2;
+    background:rgba(239,74,114,.16);color:var(--accent-red-text);border:1px solid rgba(239,74,114,.35);
+    font-family:var(--font-display);font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+    padding:5px 12px;border-radius:999px;backdrop-filter:blur(6px);
   }
   .testi-photos{display:grid;grid-template-columns:1fr 1fr;}
   .testi-photo{
@@ -414,7 +478,14 @@
     padding:34px;position:relative;transition:transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
   }
   .price-card:hover{transform:translateY(-6px);}
-  .price-card.featured{border-color:rgba(79,127,255,.45);box-shadow:var(--shadow-glow);}
+  .price-card.featured{border-color:transparent;box-shadow:var(--shadow-glow);}
+  .price-card.featured::after{
+    content:"";position:absolute;inset:-2px;z-index:-1;border-radius:calc(var(--radius-lg) + 2px);
+    background:conic-gradient(from 0deg,var(--accent-cyan),var(--accent-2),var(--accent-red),var(--accent),var(--accent-cyan));
+    filter:blur(2px);opacity:.85;animation:rotateBorder 7s linear infinite;
+  }
+  @keyframes rotateBorder{ to{ transform:rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce){ .price-card.featured::after{ animation:none; } }
   .badge{
     position:absolute;top:-15px;left:50%;transform:translateX(-50%);
     display:inline-flex;align-items:center;gap:6px;
@@ -422,7 +493,7 @@
     padding:7px 16px;border-radius:999px;box-shadow:var(--shadow-sm);
   }
   .badge svg{width:13px;height:13px;}
-  .price{font-size:38px;font-weight:800;margin:14px 0 4px;letter-spacing:-.02em;}
+  .price{font-family:var(--font-display);font-size:38px;font-weight:700;margin:14px 0 4px;letter-spacing:-.02em;}
   .price-sub{color:var(--muted);font-size:13.5px;margin-bottom:22px;}
   .price-card ul{list-style:none;margin:22px 0;}
   .price-card li{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-top:1px solid var(--border);font-size:14.5px;color:var(--text);}
@@ -476,6 +547,7 @@
 <div class="floating-blob blob-1"></div>
 <div class="floating-blob blob-2"></div>
 <div class="floating-blob blob-3"></div>
+<div id="cursor-glow" aria-hidden="true"></div>
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 <div class="page">
 
@@ -498,6 +570,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         Espace client
       </a>
+      <a href="#formules" class="btn btn-primary btn-nav hide-mobile magnetic">Choisir ma formule</a>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-panel" aria-label="Ouvrir le menu">
         <svg id="nav-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
       </button>
@@ -509,9 +582,18 @@
     <a href="#comment">Comment ça marche</a>
     <a href="#formules">Formules</a>
     <a href="#faq">FAQ</a>
-    <a href="espace-client.html" class="btn btn-primary btn-block">Espace client</a>
+    <a href="#formules" class="btn btn-primary btn-block">Choisir ma formule</a>
+    <a href="espace-client.html" class="btn btn-outline btn-block" style="margin-top:8px;">Espace client</a>
   </div>
 </header>
+
+<div id="sticky-cta" aria-hidden="true">
+  <div class="sticky-cta-info">
+    <strong>OV Peptides</strong>
+    <span>À partir de <span data-field="pricing.0.price">60&nbsp;€</span></span>
+  </div>
+  <a href="#formules" class="btn btn-primary magnetic">Choisir ma formule</a>
+</div>
 <a id="main-content" tabindex="-1"></a>
 
 <section class="hero" id="accueil">
@@ -573,6 +655,56 @@
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="10" y1="16" x2="10.01" y2="16"/></svg></div>
         <h3 data-field="problem.card3_title">Les compléments du quotidien</h3>
         <p data-field="problem.card3_text">Une prise à ne pas oublier chaque jour finit souvent par être délaissée après quelques semaines, faute de routine stable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="comparatif">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="13" width="3" height="5"/><rect x="12" y="9" width="3" height="9"/><rect x="17" y="5" width="3" height="13"/></svg>
+        Comparatif
+      </span>
+      <h2>OV face aux méthodes classiques</h2>
+      <p>Même objectif, une routine radicalement plus simple à tenir dans la durée.</p>
+    </div>
+    <div class="compare-card reveal">
+      <div class="compare-row compare-head">
+        <div class="compare-label"></div>
+        <div class="compare-col">Méthodes classiques</div>
+        <div class="compare-col compare-col-ov">OV Peptides</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-label">Fréquence de prise</div>
+        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Quotidienne</div>
+        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>1x / semaine</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-label">Planification des repas</div>
+        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Nécessaire</div>
+        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Aucune</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-label">Séances sportives imposées</div>
+        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Plusieurs / semaine</div>
+        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Aucune</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-label">Accompagnement personnalisé</div>
+        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Rarement inclus</div>
+        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Inclus dès le 1er jour</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-label">Compatible vie professionnelle chargée</div>
+        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Difficilement</div>
+        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Oui</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-label">Durée avant abandon (moyenne observée)</div>
+        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Quelques semaines</div>
+        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Routine tenue sur la cure</div>
       </div>
     </div>
   </div>
@@ -903,6 +1035,41 @@
   </div>
 </section>
 
+<section id="confiance" class="bg-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><polyline points="9 12 11 14 15 10"/></svg>
+        Qualité &amp; confiance
+      </span>
+      <h2>Une exigence de laboratoire, à chaque étape</h2>
+      <p>De la formulation à la livraison, chaque étape est pensée pour votre tranquillité.</p>
+    </div>
+    <div class="grid-4">
+      <div class="card trust-card reveal" style="--d:0s;--card-accent:var(--accent-cyan);">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6L4 20a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2L15 8V2"/><path d="M9 2h6"/><path d="M8.5 13h7"/></svg></div>
+        <h3>Fabrication contrôlée</h3>
+        <p>Formules élaborées et conditionnées dans des installations respectant les normes en vigueur.</p>
+      </div>
+      <div class="card trust-card reveal" style="--d:.1s;--card-accent:var(--accent);">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3>Ingrédients tracés</h3>
+        <p>Chaque lot est documenté afin d'assurer une traçabilité complète, du fournisseur au kit final.</p>
+      </div>
+      <div class="card trust-card reveal" style="--d:.2s;--card-accent:var(--accent-2);">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <h3>Expédition depuis l'UE</h3>
+        <p>Colis discrets, expédiés depuis l'Union Européenne et livrés en 3 à 7 jours ouvrés.</p>
+      </div>
+      <div class="card trust-card reveal" style="--d:.3s;--card-accent:var(--accent-red);">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Support réactif</h3>
+        <p>Une équipe joignable pour répondre à vos questions avant, pendant et après votre cure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="formules">
   <div class="container">
     <div class="section-head reveal">
@@ -1216,6 +1383,47 @@
     }, { threshold: 0.6 });
     nums.forEach(function(el){ io.observe(el); });
   }
+})();
+</script>
+
+<!-- Barre CTA sticky (apparait apres le hero, mobile/tablette) -->
+<script>
+(function(){
+  var bar = document.getElementById('sticky-cta');
+  var hero = document.getElementById('accueil');
+  var formules = document.getElementById('formules');
+  if(!bar || !hero) return;
+
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      var heroVisible = entries[0].isIntersecting;
+      bar.classList.toggle('is-visible', !heroVisible);
+    }, { threshold: 0 });
+    io.observe(hero);
+  }
+})();
+</script>
+
+<!-- Halo curseur ambiant (desktop uniquement) -->
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canHover = window.matchMedia('(hover:hover)').matches;
+  var glow = document.getElementById('cursor-glow');
+  if(reduced || !canHover || !glow) return;
+
+  var tx = 0, ty = 0, cx = 0, cy = 0, raf = null, shown = false;
+  function loop(){
+    cx += (tx - cx) * 0.14;
+    cy += (ty - cy) * 0.14;
+    glow.style.transform = 'translate(' + cx + 'px,' + cy + 'px)';
+    raf = requestAnimationFrame(loop);
+  }
+  window.addEventListener('mousemove', function(e){
+    tx = e.clientX; ty = e.clientY;
+    if(!shown){ shown = true; glow.style.opacity = '1'; cx = tx; cy = ty; loop(); }
+  }, { passive:true });
+  document.addEventListener('mouseleave', function(){ glow.style.opacity = '0'; });
 })();
 </script>
 
