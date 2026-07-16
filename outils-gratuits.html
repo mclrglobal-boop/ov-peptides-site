@@ -64,6 +64,8 @@
   .nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,.04);}
   .nav-right{display:flex;align-items:center;gap:10px;font-size:14px;}
   .nav-right .lang{color:var(--muted);font-size:13px;}
+  .admin-link{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;color:var(--muted);opacity:.5;transition:opacity .25s ease,color .25s ease,background .25s ease;flex:0 0 auto;}
+  .admin-link:hover{opacity:1;color:var(--accent-cyan);background:rgba(255,255,255,.06);}
   .btn-nav{padding:9px 18px;font-size:14px;}
   .nav-toggle{display:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--border-soft);background:rgba(255,255,255,.02);align-items:center;justify-content:center;cursor:pointer;color:var(--text);}
   .nav-toggle svg{width:20px;height:20px;}
@@ -74,6 +76,7 @@
   @media (max-width:860px){
     .nav-links{display:none;}
     .nav-right .btn-outline{display:none;}
+    .nav-right .admin-link{display:none;}
     .nav-toggle{display:flex;}
     header.menu-open .mobile-panel{display:flex;}
   }
@@ -148,6 +151,9 @@
     </nav>
     <div class="nav-right">
       <span class="lang">FR</span>
+      <a href="/admin/" class="admin-link hide-mobile" title="Connexion Admin" aria-label="Connexion Admin">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+      </a>
       <a href="espace-client.html" class="btn btn-outline btn-nav">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         Espace client
@@ -163,6 +169,7 @@
     <a href="index.html#cure">La Cure</a>
     <a href="index.html#faq">FAQ</a>
     <a href="espace-client.html" class="btn btn-primary">Espace client</a>
+    <a href="/admin/" style="margin-top:4px;text-align:center;font-size:13px;color:var(--muted);">Connexion Admin</a>
   </div>
 </header>
 <a id="main-content" tabindex="-1"></a>
