@@ -53,23 +53,23 @@
   },
   "testimonials": [
     {
-      "name_line": "omar, 32 ans — Grenoble",
-      "story": "Je suis passé de 108 kg à 100 kg en 8 semaines. J’ai retrouvé un meilleur contrôle de mon appétit, plus d’énergie au quotidien et une vraie motivation pour continuer mes objectifs",
-      "quote": "C'est carré tout est pro, le suivis, l'expédition, l'emballage. Merci OV",
+      "name_line": "Omar, 32 ans — Grenoble",
+      "story": "Je suis passé de 108 kg à 100 kg en 8 semaines. J'ai retrouvé un meilleur contrôle de mon appétit, plus d'énergie au quotidien et une vraie motivation pour continuer mes objectifs.",
+      "quote": "C'est carré tout est pro, le suivi, l'expédition, l'emballage. Merci OV.",
       "photo_before": "/images/uploads/capture-d-écran-2026-07-14-163134.png",
       "photo_after": "/images/uploads/capture-d-écran-2026-07-14-163146.png"
     },
     {
       "name_line": "Amélie, 29 ans — Cassis",
-      "story": "En 11 semaines, j’ai perdu 12 kg. Je me sens vraiment mieux dans mon corps, j’ai retrouvé confiance en moi et surtout j’ai enfin réussi à mieux gérer mes envies au quotidien. Je suis trop contente du chemin parcouru.",
-      "quote": "franchement la cure est au top avec peu d'effet secondaires pour ma part.",
+      "story": "En 11 semaines, j'ai perdu 12 kg. Je me sens vraiment mieux dans mon corps, j'ai retrouvé confiance en moi et surtout j'ai enfin réussi à mieux gérer mes envies au quotidien. Je suis trop contente du chemin parcouru.",
+      "quote": "Franchement la cure est au top avec peu d'effets secondaires pour ma part.",
       "photo_before": "/images/uploads/capture-d-écran-2026-07-14-163202.png",
       "photo_after": "/images/uploads/capture-d-écran-2026-07-14-163213.png"
     },
     {
-      "name_line": "nelson, 34 ans — paris 11",
-      "story": "En l'espace de 4 semaines J'ai perdu 10 kilos Avec beaucoup de rigueur Une Diet propre Et du sport 2 fois par semaine. J'ai surtout arrêté De penser qu'à mon frigo Toute la journée.",
-      "quote": "Franchement j'y croyais pas au début J'étais Sceptique Il faut reconnaître que les résultats sont vraiment là. INCROYABLE.",
+      "name_line": "Nelson, 34 ans — Paris 11",
+      "story": "En l'espace de 4 semaines j'ai perdu 10 kilos, avec beaucoup de rigueur, une diet propre et du sport 2 fois par semaine. J'ai surtout arrêté de penser qu'à mon frigo toute la journée.",
+      "quote": "Franchement j'y croyais pas au début, j'étais sceptique. Il faut reconnaître que les résultats sont vraiment là. Incroyable.",
       "photo_before": "/images/uploads/capture-d-écran-2026-07-14-173709.png",
       "photo_after": "/images/uploads/capture-d-écran-2026-07-14-173724.png"
     }
@@ -113,7 +113,7 @@
     },
     {
       "question": "Comment se déroule la cure au quotidien ?",
-      "answer": "La cure s'administre généralement par une par semaine. Il est recommandé de commencer avec une faible dose, puis d'augmenter progressivement afin de limiter les effets secondaires. Une alimentation équilibrée et une activité physique régulière permettent d'optimiser les résultats."
+      "answer": "La cure s'administre généralement en une prise par semaine. Il est recommandé de commencer avec une faible dose, puis d'augmenter progressivement afin de limiter les effets secondaires. Une alimentation équilibrée et une activité physique régulière permettent d'optimiser les résultats."
     },
     {
       "question": "Est-ce compatible avec ma vie professionnelle ?",
