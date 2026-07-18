@@ -128,6 +128,7 @@ collections:
               - { label: "Avantage 1", name: "feature1", widget: "string" }
               - { label: "Avantage 2", name: "feature2", widget: "string" }
               - { label: "Avantage 3", name: "feature3", widget: "string" }
+              - { label: "Avantage 4", name: "feature4", widget: "string" }
               - { label: "Lien de paiement Stripe", name: "stripe_link", widget: "string" }
 
           - label: "Questions fréquentes (FAQ)"
