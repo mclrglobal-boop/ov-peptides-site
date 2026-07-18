@@ -8,21 +8,21 @@ Peptides de recherche à haute pureté, certificat d'analyse (COA) disponible po
 
 - Prix : 60 € + frais de port
 - Contenu : 1 flacon de recherche
-- Inclus : fiche technique, accès espace client
+- Inclus : fiche technique, accès espace client, matériel de laboratoire (seringue de précision et lingette de désinfection pour la reconstitution)
 - Idéal pour : un premier essai en laboratoire
 
 ## Référence Intermédiaire (la plus populaire)
 
 - Prix : 180 € (frais de port offerts)
 - Contenu : 3 flacons de recherche
-- Inclus : support technique dédié, accès espace client privé
+- Inclus : support technique dédié, accès espace client privé, matériel de laboratoire (seringues de précision et lingettes de désinfection pour la reconstitution)
 - Idéal pour : un usage régulier
 
 ## Référence Pro
 
 - Prix : 300 € (frais de port offerts)
 - Contenu : 5 flacons de recherche
-- Inclus : support technique dédié, support prioritaire
+- Inclus : support technique dédié, support prioritaire, matériel de laboratoire (seringues de précision et lingettes de désinfection pour la reconstitution)
 - Idéal pour : les besoins réguliers de laboratoire
 
 ## Conditions communes
