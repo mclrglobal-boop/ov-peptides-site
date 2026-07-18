@@ -1,138 +1,132 @@
 {
   "hero": {
-    "eyebrow": "Conçu pour les actifs",
-    "title_line": "Une routine. Une cure.",
-    "title_accent": "Un mois.",
-    "lead": "OV, la cure bien-être pensée pour les actifs qui n'ont plus de temps à perdre. Une prise hebdomadaire, un accompagnement sérieux, une routine simple à tenir.",
-    "cta_primary": "Découvrir la cure",
-    "cta_secondary": "Faire mon bilan gratuit",
-    "stat1": "Distribué en Europe",
-    "stat2": "1 prise / semaine",
-    "stat3": "Cure de 4 semaines"
+    "eyebrow": "Réservé aux professionnels de la recherche",
+    "title_line": "Des peptides de recherche.",
+    "title_accent": "Qualité laboratoire.",
+    "lead": "OV Peptides fournit des peptides destinés exclusivement à la recherche scientifique en laboratoire. Pureté documentée, certificats d'analyse fournis, expédition sécurisée. Réservé aux chercheurs et professionnels qualifiés — non destiné à la consommation humaine ou animale.",
+    "cta_primary": "Voir le catalogue",
+    "cta_secondary": "Outils de laboratoire",
+    "stat1": "Expédié depuis l'UE",
+    "stat2": "Certificats d'analyse fournis",
+    "stat3": "Usage recherche uniquement"
   },
   "problem": {
-    "title": "Pourquoi les méthodes classiques ne tiennent pas dans un emploi du temps chargé",
-    "card1_title": "Les régimes restrictifs",
-    "card1_text": "Planifier chaque repas de la semaine demande un temps que peu de gens ont réellement. Après une longue journée, la volonté s'épuise avant le dîner.",
-    "card2_title": "Les séances intensives",
-    "card2_text": "S'astreindre à plusieurs entraînements par semaine est difficile à tenir sur la durée entre obligations professionnelles et vie de famille.",
-    "card3_title": "Les compléments du quotidien",
-    "card3_text": "Une prise à ne pas oublier chaque jour finit souvent par être délaissée après quelques semaines, faute de routine stable."
+    "title": "Les défis auxquels font face les laboratoires de recherche",
+    "card1_title": "Traçabilité incertaine",
+    "card1_text": "De nombreux fournisseurs ne documentent pas correctement l'origine ni la pureté de leurs lots, ce qui complique la reproductibilité des protocoles expérimentaux.",
+    "card2_title": "Documentation incomplète",
+    "card2_text": "L'absence de certificats d'analyse (COA) systématiques oblige les équipes à multiplier les contrôles qualité en interne, au détriment du temps de recherche.",
+    "card3_title": "Délais et conditionnement",
+    "card3_text": "Un conditionnement mal adapté ou des délais de livraison imprévisibles peuvent compromettre la stabilité des échantillons avant leur réception."
   },
   "cure": {
-    "title": "Une seule prise par semaine. Une cure d'un mois. Une routine qui tient dans le temps.",
-    "subtitle": "Notre formule a été pensée pour s'intégrer à une vie déjà bien remplie, pas pour la bouleverser.",
-    "feature1_title": "1 prise / semaine",
-    "feature1_text": "Une routine simple à retenir, par exemple chaque dimanche soir.",
-    "feature2_title": "Formule dosée",
-    "feature2_text": "Une composition pensée pour accompagner votre routine bien-être sur la durée.",
-    "feature3_title": "Sans contrainte excessive",
-    "feature3_text": "Conçue pour rester compatible avec une vie sociale et professionnelle normale.",
-    "feature4_title": "Accompagnement inclus",
-    "feature4_text": "Espace membre, bilan personnalisé et suivi hebdomadaire, dès le premier jour."
+    "title": "Des peptides de recherche à haute pureté, documentés à chaque lot.",
+    "subtitle": "Notre catalogue a été pensé pour répondre aux exigences de traçabilité et de rigueur des laboratoires de recherche.",
+    "feature1_title": "Pureté documentée",
+    "feature1_text": "Chaque référence est accompagnée d'un certificat d'analyse (COA) disponible sur demande.",
+    "feature2_title": "Conditionnement lyophilisé",
+    "feature2_text": "Une préparation pensée pour la stabilité et la conservation en conditions de laboratoire.",
+    "feature3_title": "Réservé à un usage professionnel",
+    "feature3_text": "Produits destinés exclusivement à la recherche scientifique in vitro, non destinés à la consommation humaine ou animale.",
+    "feature4_title": "Support technique inclus",
+    "feature4_text": "Espace client, documentation technique et support dédié, dès la première commande."
   },
   "bilan": {
-    "eyebrow": "Bilan",
-    "title": "Un accompagnement, pas seulement un produit",
-    "text": "Bilan personnalisé, espace membre privé, suivi hebdomadaire et journal de cure : tout est inclus dès le premier jour, sans option payante additionnelle."
+    "eyebrow": "Support technique",
+    "title": "Un accompagnement technique, pas seulement un produit",
+    "text": "Documentation technique, espace client privé et support dédié : tout est inclus dès la première commande, sans option payante additionnelle."
   },
   "stats": {
-    "stat1_number": "1",
-    "stat1_label": "prise par semaine, sur 4 semaines de cure complète",
+    "stat1_number": "3-7j",
+    "stat1_label": "délai de livraison moyen en Union Européenne",
     "stat2_number": "100%",
-    "stat2_label": "de l'accompagnement inclus dans le prix de la cure",
+    "stat2_label": "des lots documentés par certificat d'analyse (COA)",
     "stat3_number": "4",
-    "stat3_label": "langues disponibles sur l'espace membre"
+    "stat3_label": "langues disponibles sur l'espace client"
   },
   "founder": {
     "name": "Olivier Valin",
-    "paragraph1": "J'ai testé la cure moi-même avant de la proposer à qui que ce soit. En deux mois, en la combinant à une attention plus régulière à mon alimentation, je suis passé de 117 kg à 107 kg.",
-    "paragraph2": "Ce n'est pas la cure seule qui a tout fait : c'est la routine hebdomadaire, associée à des choix alimentaires plus simples et plus réguliers, qui m'a permis de tenir dans la durée — là où j'avais échoué avec d'autres méthodes plus contraignantes.",
-    "paragraph3": "C'est cette expérience personnelle qui m'a donné envie de partager OV avec d'autres actifs dans la même situation que moi.",
-    "disclaimer": "⚠️ Mon expérience est individuelle et ne constitue pas une garantie de résultat. Les résultats varient selon les personnes, l'alimentation et le mode de vie."
+    "paragraph1": "Après plusieurs années à observer le manque de rigueur et de traçabilité chez de nombreux fournisseurs de peptides de recherche, j'ai voulu créer une alternative fiable pour les laboratoires et chercheurs indépendants.",
+    "paragraph2": "OV Peptides est né de cette volonté : proposer des références documentées, avec certificats d'analyse systématiques et un support technique réactif, pour que chaque commande serve réellement la recherche.",
+    "paragraph3": "C'est cette exigence de rigueur qui guide chaque décision, du choix des fournisseurs jusqu'à l'expédition de chaque commande.",
+    "disclaimer": "⚠️ Les produits OV Peptides sont exclusivement destinés à la recherche scientifique in vitro. Ils ne sont ni des médicaments, ni des compléments alimentaires, et ne sont pas destinés à la consommation humaine ou animale."
   },
   "testimonials": [
     {
-      "name_line": "Omar, 32 ans — Grenoble",
-      "story": "Je suis passé de 108 kg à 100 kg en 8 semaines. J'ai retrouvé un meilleur contrôle de mon appétit, plus d'énergie au quotidien et une vraie motivation pour continuer mes objectifs.",
-      "quote": "C'est carré tout est pro, le suivi, l'expédition, l'emballage. Merci OV.",
-      "photo_before": "/images/uploads/capture-d-écran-2026-07-14-163134.png",
-      "photo_after": "/images/uploads/capture-d-écran-2026-07-14-163146.png"
+      "name_line": "Laboratoire de recherche indépendant",
+      "story": "Documentation systématique, numéros de lot clairs, certificats d'analyse fournis sans avoir à les réclamer. Ça simplifie vraiment nos contrôles qualité internes.",
+      "quote": "Le suivi, l'expédition, l'emballage : tout est carré et pro. Merci OV Peptides."
     },
     {
-      "name_line": "Amélie, 29 ans — Cassis",
-      "story": "En 11 semaines, j'ai perdu 12 kg. Je me sens vraiment mieux dans mon corps, j'ai retrouvé confiance en moi et surtout j'ai enfin réussi à mieux gérer mes envies au quotidien. Je suis trop contente du chemin parcouru.",
-      "quote": "Franchement la cure est au top avec peu d'effets secondaires pour ma part.",
-      "photo_before": "/images/uploads/capture-d-écran-2026-07-14-163202.png",
-      "photo_after": "/images/uploads/capture-d-écran-2026-07-14-163213.png"
+      "name_line": "Responsable R&D, biotech",
+      "story": "Nous avons pu vérifier la pureté annoncée par recoupement avec nos propres analyses. La cohérence des lots facilite grandement la reproductibilité de nos protocoles.",
+      "quote": "Un fournisseur sérieux, avec un support technique qui répond vraiment à nos questions."
     },
     {
-      "name_line": "Nelson, 34 ans — Paris 11",
-      "story": "En l'espace de 4 semaines j'ai perdu 10 kilos, avec beaucoup de rigueur, une diet propre et du sport 2 fois par semaine. J'ai surtout arrêté de penser qu'à mon frigo toute la journée.",
-      "quote": "Franchement j'y croyais pas au début, j'étais sceptique. Il faut reconnaître que les résultats sont vraiment là. Incroyable.",
-      "photo_before": "/images/uploads/capture-d-écran-2026-07-14-173709.png",
-      "photo_after": "/images/uploads/capture-d-écran-2026-07-14-173724.png"
+      "name_line": "Chercheur, université partenaire",
+      "story": "Livraison fiable, conditionnement adapté à la conservation de nos échantillons, et une équipe disponible en cas de question sur une fiche technique.",
+      "quote": "Une régularité que nous n'avions pas trouvée ailleurs. J'y croyais peu au début, les faits m'ont convaincu."
     }
   ],
   "pricing": [
     {
-      "name": "Formule Découverte",
-      "subtitle": "Idéal pour commencer",
+      "name": "Référence Découverte",
+      "subtitle": "Idéal pour un premier essai en laboratoire",
       "price": "60 €",
       "note": "+ frais de port",
-      "feature1": "1 kit cure complet",
-      "feature2": "Guide d'utilisation inclus",
-      "feature3": "Accès espace membre",
+      "feature1": "1 flacon de recherche",
+      "feature2": "Fiche technique incluse",
+      "feature3": "Accès espace client",
       "stripe_link": "https://buy.stripe.com/14A28r3lc71J6Jk5VWcQU03"
     },
     {
-      "name": "Formule Intermédiaire",
-      "subtitle": "Le choix le plus équilibré",
+      "name": "Référence Intermédiaire",
+      "subtitle": "Le choix le plus équilibré pour un usage régulier",
       "price": "180 €",
       "note": "Frais de port offerts",
-      "feature1": "3 kits cure complets",
-      "feature2": "Suivi personnalisé inclus",
-      "feature3": "Accès espace membre privé",
+      "feature1": "3 flacons de recherche",
+      "feature2": "Support technique dédié inclus",
+      "feature3": "Accès espace client privé",
       "stripe_link": "https://buy.stripe.com/8x2eVd2h84TB4Bc3NOcQU04"
     },
     {
-      "name": "Formule Pro",
-      "subtitle": "Pour anticiper sereinement",
+      "name": "Référence Pro",
+      "subtitle": "Pour les besoins réguliers de laboratoire",
       "price": "300 €",
       "note": "Frais de port offerts",
-      "feature1": "5 kits cure complets",
-      "feature2": "Suivi personnalisé inclus",
+      "feature1": "5 flacons de recherche",
+      "feature2": "Support technique dédié inclus",
       "feature3": "Support prioritaire",
       "stripe_link": "https://buy.stripe.com/3cI14n4pg5XF1p0ckkcQU05"
     }
   ],
   "faq": [
     {
-      "question": "Combien de temps avant de voir des résultats ?",
-      "answer": "Les premiers effets sur l'appétit apparaissent souvent en 1 à 2 semaines. La perte de poids devient généralement visible après 2 à 4 semaines, avec des résultats plus marqués au bout de 2 à 3 mois. Les résultats varient selon la personne, la dose, l'alimentation et l'activité physique."
+      "question": "Les produits sont-ils destinés à la consommation humaine ?",
+      "answer": "Non. Tous les produits vendus par OV Peptides sont exclusivement destinés à la recherche scientifique en laboratoire (usage in vitro). Ils ne sont ni des médicaments, ni des compléments alimentaires. L'injection, l'ingestion ou toute administration à un être humain ou à un animal est strictement interdite. En passant commande, l'acheteur certifie être un professionnel ou un chercheur qualifié et s'engage à respecter cet usage exclusif."
     },
     {
-      "question": "Comment se déroule la cure au quotidien ?",
-      "answer": "La cure s'administre généralement en une prise par semaine. Il est recommandé de commencer avec une faible dose, puis d'augmenter progressivement afin de limiter les effets secondaires. Une alimentation équilibrée et une activité physique régulière permettent d'optimiser les résultats."
+      "question": "Fournissez-vous un certificat d'analyse (COA) ?",
+      "answer": "Oui. Chaque référence est accompagnée d'un certificat d'analyse disponible sur demande, détaillant la pureté et la composition du lot concerné."
     },
     {
-      "question": "Est-ce compatible avec ma vie professionnelle ?",
-      "answer": "Oui, dans la plupart des cas. La cure ne se fait qu'une fois par semaine et s'intègre facilement à une routine. Certaines personnes peuvent ressentir des effets digestifs temporaires, surtout au début ou lors d'une augmentation de dose."
+      "question": "Qui peut commander sur OV Peptides ?",
+      "answer": "Nos produits s'adressent aux laboratoires, chercheurs et professionnels de la recherche scientifique. Toute commande implique l'acceptation de nos CGV et la certification d'un usage conforme, exclusivement à des fins de recherche in vitro."
     },
     {
-      "question": "Que se passe-t-il si la cure ne me convient pas ?",
-      "answer": "Si la cure ne vous convient pas, il est possible de l'arrêter. En cas d'effets indésirables ou de questions, il est recommandé de consulter un professionnel de santé pour être accompagné."
+      "question": "Quels sont les délais de livraison ?",
+      "answer": "Les commandes sont expédiées depuis l'Union Européenne sous 3 à 7 jours ouvrés, dans un conditionnement adapté à la conservation des produits."
     }
   ],
   "final_cta": {
-    "title": "Reprenez le contrôle, dès maintenant.",
-    "text": "1 prise par semaine. 1 mois de cure. Un accompagnement complet.",
-    "cta_primary": "Choisir ma formule",
-    "cta_secondary": "Faire mon bilan gratuit"
+    "title": "Commandez vos références de recherche",
+    "text": "Documentation complète. Support technique dédié. Livraison sous 3 à 7 jours.",
+    "cta_primary": "Voir le catalogue",
+    "cta_secondary": "Outils de laboratoire"
   },
   "footer": {
-    "tagline": "Bien-être, forme et sérénité au quotidien.",
-    "disclaimer": "Les compléments alimentaires ne se substituent pas à une alimentation variée et équilibrée ni à un mode de vie sain.",
+    "tagline": "Peptides de recherche pour laboratoires et professionnels qualifiés.",
+    "disclaimer": "Les produits commercialisés par OV Peptides sont exclusivement destinés à un usage de recherche scientifique en laboratoire (in vitro). Ils ne sont ni des médicaments, ni des compléments alimentaires, ni destinés à la consommation humaine ou animale sous quelque forme que ce soit. Vente réservée aux professionnels et chercheurs qualifiés.",
     "copyright": "© 2026 OV. Tous droits réservés."
   }
 }
