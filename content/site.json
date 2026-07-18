@@ -77,6 +77,7 @@
       "feature1": "1 flacon de recherche",
       "feature2": "Fiche technique incluse",
       "feature3": "Accès espace client",
+      "feature4": "Matériel de laboratoire inclus (seringue de précision et lingette de désinfection pour la reconstitution)",
       "stripe_link": "https://buy.stripe.com/14A28r3lc71J6Jk5VWcQU03"
     },
     {
@@ -87,6 +88,7 @@
       "feature1": "3 flacons de recherche",
       "feature2": "Support technique dédié inclus",
       "feature3": "Accès espace client privé",
+      "feature4": "Matériel de laboratoire inclus (seringues de précision et lingettes de désinfection pour la reconstitution)",
       "stripe_link": "https://buy.stripe.com/8x2eVd2h84TB4Bc3NOcQU04"
     },
     {
@@ -97,6 +99,7 @@
       "feature1": "5 flacons de recherche",
       "feature2": "Support technique dédié inclus",
       "feature3": "Support prioritaire",
+      "feature4": "Matériel de laboratoire inclus (seringues de précision et lingettes de désinfection pour la reconstitution)",
       "stripe_link": "https://buy.stripe.com/3cI14n4pg5XF1p0ckkcQU05"
     }
   ],
