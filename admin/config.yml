@@ -65,7 +65,7 @@ collections:
               - { label: "Carte 3 - titre", name: "card3_title", widget: "string" }
               - { label: "Carte 3 - texte", name: "card3_text", widget: "text" }
 
-          - label: "Section La Cure"
+          - label: "Section Catalogue"
             name: "cure"
             widget: "object"
             fields:
@@ -80,7 +80,7 @@ collections:
               - { label: "Fonction 4 - titre", name: "feature4_title", widget: "string" }
               - { label: "Fonction 4 - texte", name: "feature4_text", widget: "text" }
 
-          - label: "Section Bilan gratuit"
+          - label: "Section Support technique"
             name: "bilan"
             widget: "object"
             fields:
@@ -109,21 +109,19 @@ collections:
               - { label: "Paragraphe 3", name: "paragraph3", widget: "text" }
               - { label: "Avertissement", name: "disclaimer", widget: "text" }
 
-          - label: "Témoignages clients (avant/après)"
+          - label: "Retours de laboratoires / chercheurs"
             name: "testimonials"
             widget: "list"
             fields:
-              - { label: "Prénom, âge et ville (ex: Marie, 34 ans — Lyon)", name: "name_line", widget: "string" }
-              - { label: "Parcours du client", name: "story", widget: "text" }
-              - { label: "Citation du client (sans les guillemets)", name: "quote", widget: "text" }
-              - { label: "Photo AVANT", name: "photo_before", widget: "image", required: false }
-              - { label: "Photo APRÈS", name: "photo_after", widget: "image", required: false }
+              - { label: "Rôle / structure (ex: Responsable R&D, biotech)", name: "name_line", widget: "string" }
+              - { label: "Contexte du retour", name: "story", widget: "text" }
+              - { label: "Citation (sans les guillemets)", name: "quote", widget: "text" }
 
-          - label: "Formules (tarifs)"
+          - label: "Références (tarifs)"
             name: "pricing"
             widget: "list"
             fields:
-              - { label: "Nom de la formule", name: "name", widget: "string" }
+              - { label: "Nom de la référence", name: "name", widget: "string" }
               - { label: "Sous-titre", name: "subtitle", widget: "string" }
               - { label: "Prix affiché", name: "price", widget: "string" }
               - { label: "Note (frais de port...)", name: "note", widget: "string" }
