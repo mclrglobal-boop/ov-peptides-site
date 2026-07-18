@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Outils gratuits — OV Peptides</title>
-<meta name="description" content="7 calculateurs bien-être gratuits : IMC, besoins caloriques, macronutriments, hydratation, poids idéal, estimation d'objectif et calories brûlées. 100% gratuit, sans inscription.">
+<title>Outils de laboratoire — OV Peptides</title>
+<meta name="description" content="6 calculateurs gratuits pour la recherche en laboratoire : reconstitution, dilution en série, molarité, conversion d'unités, volume à prélever. 100% gratuit, sans inscription. Usage recherche uniquement.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -87,6 +87,10 @@
   .hero{padding:56px 0 16px;text-align:center;}
   .hero p.lead{max-width:560px;margin:14px auto 0;font-size:16px;}
 
+  .legal-warning{ display:flex;gap:12px;align-items:flex-start;font-size:12.5px;color:var(--muted-2);background:rgba(239,74,114,.06);border:1px solid rgba(239,74,114,.2);border-radius:var(--radius);padding:18px 20px;margin:20px auto 0;max-width:640px;text-align:left; }
+  .legal-warning svg{width:20px;height:20px;color:var(--accent-red-text);flex-shrink:0;margin-top:1px;}
+  .legal-warning b{color:var(--accent-red-text);}
+
   .tools-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
   @media (max-width:860px){ .tools-grid{grid-template-columns:1fr;} }
   .tool-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;transition:border-color .3s var(--ease), transform .3s var(--ease);}
@@ -105,14 +109,9 @@
   .seg button{ flex:1;padding:9px;border-radius:9px;border:1px solid var(--border);background:var(--bg-alt);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit;transition:border-color .2s ease, color .2s ease, background .2s ease; }
   .seg button.active{border-color:var(--accent);color:var(--text);background:rgba(79,127,255,.12);}
   .result-box{ background:var(--bg-alt);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;margin:16px 0; }
-  .result-num{font-size:30px;font-weight:800;background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .result-num{font-size:26px;font-weight:800;background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
   .result-label{font-size:12px;color:var(--muted);margin-top:4px;}
-  .result-sub{font-size:13px;color:var(--text);margin-top:6px;}
-  .macro-bars{display:flex;flex-direction:column;gap:10px;margin:14px 0;}
-  .macro-row{font-size:13px;}
-  .macro-row .top{display:flex;justify-content:space-between;margin-bottom:4px;}
-  .bar{height:8px;background:var(--border);border-radius:99px;overflow:hidden;}
-  .bar span{display:block;height:100%;background:linear-gradient(120deg,var(--accent),var(--accent-2));}
+  .result-sub{font-size:12.5px;color:var(--text);margin-top:8px;line-height:1.6;}
 
   .pdf-card{ background:linear-gradient(120deg, rgba(79,127,255,.12), rgba(239,74,114,.1));border:1px solid var(--border-soft);border-radius:var(--radius-lg);padding:32px;text-align:center;margin-bottom:32px; }
   .pdf-card .icon-box{margin:0 auto 14px;}
@@ -132,13 +131,13 @@
 <link rel="canonical" href="https://ov-peptides.netlify.app/outils-gratuits">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="OV Peptides">
-<meta property="og:title" content="Outils gratuits — OV Peptides">
-<meta property="og:description" content="7 calculateurs bien-être gratuits : IMC, besoins caloriques, macronutriments, hydratation, poids idéal, estimation d'objectif et calories brûlées. 100% gratuit, sans inscription.">
+<meta property="og:title" content="Outils de laboratoire — OV Peptides">
+<meta property="og:description" content="6 calculateurs gratuits pour la recherche en laboratoire : reconstitution, dilution en série, molarité, conversion d'unités, volume à prélever. Usage recherche uniquement.">
 <meta property="og:url" content="https://ov-peptides.netlify.app/outils-gratuits">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Outils gratuits — OV Peptides">
-<meta name="twitter:description" content="7 calculateurs bien-être gratuits : IMC, besoins caloriques, macronutriments, hydratation, poids idéal, estimation d'objectif et calories brûlées.">
+<meta name="twitter:title" content="Outils de laboratoire — OV Peptides">
+<meta name="twitter:description" content="6 calculateurs gratuits pour la recherche en laboratoire : reconstitution, dilution, molarité, conversion d'unités.">
 </head>
 <body>
 
@@ -155,8 +154,8 @@
     </a>
     <nav class="nav-links">
       <a href="index.html">Accueil</a>
-      <a href="outils-gratuits.html" class="active">Outils gratuits</a>
-      <a href="index.html#cure">La Cure</a>
+      <a href="outils-gratuits.html" class="active">Outils de laboratoire</a>
+      <a href="index.html#cure">Catalogue</a>
       <a href="index.html#faq">FAQ</a>
     </nav>
     <div class="nav-right">
@@ -175,8 +174,8 @@
   </div>
   <div class="mobile-panel" id="mobile-panel">
     <a href="index.html">Accueil</a>
-    <a href="outils-gratuits.html">Outils gratuits</a>
-    <a href="index.html#cure">La Cure</a>
+    <a href="outils-gratuits.html">Outils de laboratoire</a>
+    <a href="index.html#cure">Catalogue</a>
     <a href="index.html#faq">FAQ</a>
     <a href="espace-client.html" class="btn btn-primary">Espace client</a>
     <a href="/admin/" style="margin-top:4px;text-align:center;font-size:13px;color:var(--muted);">Connexion Admin</a>
@@ -190,8 +189,12 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       100% gratuit · sans inscription
     </span>
-    <h1 class="reveal" style="--d:.05s;">Outils bien-être gratuits</h1>
-    <p class="lead reveal" style="--d:.1s;">Calculs instantanés, aucune inscription requise. À titre informatif uniquement — ne remplace pas un avis médical.</p>
+    <h1 class="reveal" style="--d:.05s;">Outils de laboratoire gratuits</h1>
+    <p class="lead reveal" style="--d:.1s;">Calculs instantanés pour vos protocoles de recherche. Ne remplace pas un protocole validé par votre laboratoire.</p>
+    <div class="legal-warning reveal" style="--d:.12s;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span><b>Usage recherche exclusivement.</b> Ces calculateurs sont fournis à titre indicatif pour la préparation de solutions de recherche en laboratoire (in vitro). Ils ne constituent en aucun cas une recommandation de dosage à des fins d'administration humaine ou animale.</span>
+    </div>
   </div>
 </section>
 
@@ -201,172 +204,135 @@
     <div class="pdf-card reveal">
       <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
       <h3>Allez plus loin avec notre guide PDF gratuit</h3>
-      <p>10 pages d'essentiels pour démarrer en douceur.</p>
+      <p>10 pages d'essentiels sur la manipulation et la conservation des peptides de recherche.</p>
       <a href="#" class="btn btn-primary">Recevoir le PDF gratuit</a>
-      <p class="small-note">En téléchargeant, j'accepte de recevoir des emails d'OV. Je peux me désinscrire à tout moment.</p>
+      <p class="small-note">En téléchargeant, j'accepte de recevoir des emails d'OV Peptides. Je peux me désinscrire à tout moment.</p>
     </div>
 
     <div class="tools-grid">
 
-      <!-- IMC -->
+      <!-- Reconstitution -->
       <div class="tool-card reveal">
         <div class="tool-head">
-          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="17" x2="12" y2="17"/></svg></div>
-          <h3>Indice de Masse Corporelle (IMC)</h3>
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6L4 20a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2L15 8V2"/><path d="M9 2h6"/><path d="M8.5 13h7"/></svg></div>
+          <h3>Calculateur de reconstitution</h3>
         </div>
-        <p class="desc">Évaluez votre corpulence en quelques secondes.</p>
+        <p class="desc">Concentration obtenue après reconstitution d'un peptide lyophilisé.</p>
         <div class="row-2">
-          <div class="field"><label>Taille (cm)</label><input type="number" id="bmi-height" value="175"></div>
-          <div class="field"><label>Poids (kg)</label><input type="number" id="bmi-weight" value="74"></div>
+          <div class="field"><label>Quantité de peptide (mg)</label><input type="number" id="recon-mg" value="5"></div>
+          <div class="field"><label>Volume de solvant (mL)</label><input type="number" id="recon-ml" value="2" step="0.1"></div>
         </div>
         <div class="result-box">
-          <div class="result-num" id="bmi-result">—</div>
-          <div class="result-label">IMC</div>
-          <div class="result-sub" id="bmi-category">—</div>
+          <div class="result-num" id="recon-result">—</div>
+          <div class="result-label">concentration obtenue</div>
+          <div class="result-sub" id="recon-sub">—</div>
         </div>
       </div>
 
-      <!-- TDEE -->
+      <!-- Dilution en série -->
       <div class="tool-card reveal" style="--d:.05s;">
         <div class="tool-head">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
+          <h3>Dilution en série</h3>
+        </div>
+        <p class="desc">Concentration après une série de dilutions successives.</p>
+        <div class="row-2">
+          <div class="field"><label>Concentration initiale (mg/mL)</label><input type="number" id="dil-c0" value="10" step="0.1"></div>
+          <div class="field"><label>Facteur de dilution (ex: 10 pour 1:10)</label><input type="number" id="dil-factor" value="10" step="0.1"></div>
+        </div>
+        <div class="field"><label>Nombre d'étapes</label><input type="number" id="dil-steps" value="3" min="1" max="10"></div>
+        <div class="result-box">
+          <div class="result-num" id="dil-result">—</div>
+          <div class="result-label">concentration finale</div>
+          <div class="result-sub" id="dil-sub">—</div>
+        </div>
+      </div>
+
+      <!-- Convertisseur d'unités -->
+      <div class="tool-card reveal" style="--d:.1s;">
+        <div class="tool-head">
           <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/><circle cx="12" cy="12" r="4"/></svg></div>
-          <h3>Besoins caloriques journaliers</h3>
+          <h3>Convertisseur d'unités</h3>
         </div>
-        <p class="desc">Votre TDEE selon la formule de Mifflin-St Jeor.</p>
-        <div class="seg" id="tdee-gender">
-          <button data-val="male" class="active">Homme</button>
-          <button data-val="female">Femme</button>
+        <p class="desc">Masse ou volume, conversion instantanée.</p>
+        <div class="seg" id="conv-type">
+          <button data-val="mass" class="active">Masse</button>
+          <button data-val="volume">Volume</button>
         </div>
-        <div class="row-2">
-          <div class="field"><label>Âge</label><input type="number" id="tdee-age" value="35"></div>
-          <div class="field"><label>Taille (cm)</label><input type="number" id="tdee-height" value="175"></div>
-        </div>
-        <div class="row-2">
-          <div class="field"><label>Poids (kg)</label><input type="number" id="tdee-weight" value="74"></div>
-          <div class="field"><label>Niveau d'activité</label>
-            <select id="tdee-activity">
-              <option value="1.2">Sédentaire</option>
-              <option value="1.375">Léger</option>
-              <option value="1.55" selected>Modéré</option>
-              <option value="1.725">Intense</option>
-              <option value="1.9">Très intense</option>
-            </select>
+        <div class="row-3">
+          <div class="field"><label>Valeur</label><input type="number" id="conv-value" value="1"></div>
+          <div class="field"><label>De</label>
+            <select id="conv-from"></select>
+          </div>
+          <div class="field"><label>Vers</label>
+            <select id="conv-to"></select>
           </div>
         </div>
-        <div class="field"><label>Objectif</label>
-          <select id="tdee-goal">
-            <option value="-500">Perte de poids</option>
-            <option value="0" selected>Maintien</option>
-            <option value="300">Prise de masse</option>
+        <div class="result-box">
+          <div class="result-num" id="conv-result">—</div>
+          <div class="result-label" id="conv-label">résultat</div>
+        </div>
+      </div>
+
+      <!-- Molarité -->
+      <div class="tool-card reveal" style="--d:.15s;">
+        <div class="tool-head">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h3>Calculateur de molarité</h3>
+        </div>
+        <p class="desc">Concentration molaire à partir de la masse et du poids moléculaire.</p>
+        <div class="row-2">
+          <div class="field"><label>Masse (mg)</label><input type="number" id="mol-mg" value="5" step="0.1"></div>
+          <div class="field"><label>Poids moléculaire (g/mol)</label><input type="number" id="mol-mw" value="1000"></div>
+        </div>
+        <div class="field"><label>Volume (mL)</label><input type="number" id="mol-ml" value="1" step="0.1"></div>
+        <div class="result-box">
+          <div class="result-num" id="mol-result">—</div>
+          <div class="result-label">concentration</div>
+          <div class="result-sub" id="mol-sub">—</div>
+        </div>
+      </div>
+
+      <!-- Volume à prélever -->
+      <div class="tool-card reveal" style="--d:.2s;">
+        <div class="tool-head">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5 17.5 17.5"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div>
+          <h3>Volume à prélever</h3>
+        </div>
+        <p class="desc">Volume à prélever d'une solution mère pour obtenir une dose de recherche donnée.</p>
+        <div class="row-2">
+          <div class="field"><label>Concentration solution mère (mg/mL)</label><input type="number" id="draw-conc" value="5" step="0.1"></div>
+          <div class="field"><label>Quantité recherchée (µg)</label><input type="number" id="draw-dose" value="100"></div>
+        </div>
+        <div class="result-box">
+          <div class="result-num" id="draw-result">—</div>
+          <div class="result-label">volume à prélever</div>
+        </div>
+      </div>
+
+      <!-- Stabilité de stockage -->
+      <div class="tool-card reveal" style="--d:.25s;">
+        <div class="tool-head">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69s-6 8.32-6 12.31a6 6 0 0 0 12 0c0-3.99-6-12.31-6-12.31z"/></svg></div>
+          <h3>Stabilité de stockage</h3>
+        </div>
+        <p class="desc">Indications générales de conservation selon l'état du produit.</p>
+        <div class="field"><label>État du produit</label>
+          <select id="stab-state">
+            <option value="lyo">Lyophilisé (non reconstitué)</option>
+            <option value="recon">Reconstitué (en solution)</option>
+          </select>
+        </div>
+        <div class="field"><label>Température de conservation</label>
+          <select id="stab-temp">
+            <option value="-20">-20°C (congélateur)</option>
+            <option value="4" selected>2-8°C (réfrigérateur)</option>
+            <option value="20">Température ambiante</option>
           </select>
         </div>
         <div class="result-box">
-          <div class="result-num" id="tdee-result">—</div>
-          <div class="result-label">TDEE (maintien)</div>
-          <div class="result-sub" id="tdee-goal-result">—</div>
-        </div>
-      </div>
-
-      <!-- Macros -->
-      <div class="tool-card reveal" style="--d:.1s;">
-        <div class="tool-head">
-          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
-          <h3>Répartition des macronutriments</h3>
-        </div>
-        <p class="desc">Protéines, glucides, lipides en grammes et %.</p>
-        <div class="field"><label>Calories journalières</label><input type="number" id="macro-cal" value="2200"></div>
-        <div class="row-3">
-          <div class="field"><label>Protéines %</label><input type="number" id="macro-p" value="30"></div>
-          <div class="field"><label>Glucides %</label><input type="number" id="macro-c" value="40"></div>
-          <div class="field"><label>Lipides %</label><input type="number" id="macro-f" value="30"></div>
-        </div>
-        <div class="macro-bars">
-          <div class="macro-row">
-            <div class="top"><span>Protéines</span><span id="macro-p-val">—</span></div>
-            <div class="bar"><span id="macro-p-bar" style="width:30%;"></span></div>
-          </div>
-          <div class="macro-row">
-            <div class="top"><span>Glucides</span><span id="macro-c-val">—</span></div>
-            <div class="bar"><span id="macro-c-bar" style="width:40%;"></span></div>
-          </div>
-          <div class="macro-row">
-            <div class="top"><span>Lipides</span><span id="macro-f-val">—</span></div>
-            <div class="bar"><span id="macro-f-bar" style="width:30%;"></span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hydratation -->
-      <div class="tool-card reveal" style="--d:.15s;">
-        <div class="tool-head">
-          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69s-6 8.32-6 12.31a6 6 0 0 0 12 0c0-3.99-6-12.31-6-12.31z"/></svg></div>
-          <h3>Hydratation quotidienne</h3>
-        </div>
-        <p class="desc">Combien d'eau boire chaque jour ?</p>
-        <div class="field"><label>Poids (kg)</label><input type="number" id="water-weight" value="74"></div>
-        <div class="result-box">
-          <div class="result-num" id="water-result">—</div>
-          <div class="result-label">par jour</div>
-          <div class="result-sub" id="water-glasses">—</div>
-        </div>
-      </div>
-
-      <!-- Poids idéal -->
-      <div class="tool-card reveal" style="--d:.2s;">
-        <div class="tool-head">
-          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
-          <h3>Plage de poids idéal</h3>
-        </div>
-        <p class="desc">Votre fourchette saine selon votre taille (IMC 18,5 – 24,9).</p>
-        <div class="field"><label>Taille (cm)</label><input type="number" id="ideal-height" value="175"></div>
-        <div class="result-box">
-          <div class="result-num" id="ideal-result" style="font-size:22px;">—</div>
-          <div class="result-label">plage saine</div>
-        </div>
-      </div>
-
-      <!-- Estimation objectif -->
-      <div class="tool-card reveal" style="--d:.25s;">
-        <div class="tool-head">
-          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <h3>Estimation de date d'objectif</h3>
-        </div>
-        <p class="desc">À ce rythme, atteignez votre objectif le…</p>
-        <div class="row-2">
-          <div class="field"><label>Poids actuel (kg)</label><input type="number" id="goal-current" value="82"></div>
-          <div class="field"><label>Poids objectif (kg)</label><input type="number" id="goal-target" value="74"></div>
-        </div>
-        <div class="field"><label>Rythme (kg/semaine)</label><input type="number" id="goal-rate" value="0.5" step="0.1"></div>
-        <div class="result-box">
-          <div class="result-num" id="goal-result" style="font-size:20px;">—</div>
-          <div class="result-label">date estimée</div>
-        </div>
-      </div>
-
-      <!-- Calories brûlées -->
-      <div class="tool-card reveal" style="--d:.3s;">
-        <div class="tool-head">
-          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
-          <h3>Calories brûlées par activité</h3>
-        </div>
-        <p class="desc">Estimez la dépense d'une séance.</p>
-        <div class="row-2">
-          <div class="field"><label>Poids (kg)</label><input type="number" id="burn-weight" value="74"></div>
-          <div class="field"><label>Activité</label>
-            <select id="burn-activity">
-              <option value="3.5">Marche</option>
-              <option value="7" selected>Course à pied</option>
-              <option value="8">Vélo</option>
-              <option value="6">Natation</option>
-              <option value="5">Musculation</option>
-              <option value="4">Yoga</option>
-            </select>
-          </div>
-        </div>
-        <div class="field"><label>Durée (minutes)</label><input type="number" id="burn-minutes" value="30"></div>
-        <div class="result-box">
-          <div class="result-num" id="burn-result">—</div>
-          <div class="result-label">calories brûlées</div>
+          <div class="result-num" id="stab-result" style="font-size:18px;">—</div>
+          <div class="result-label">estimation indicative</div>
         </div>
       </div>
 
@@ -382,19 +348,19 @@
           <img class="logo-mark" src="assets/logo-mark.png" alt="OV Peptides">
           <span class="logo-word">OV</span>
         </a>
-        <p style="margin-top:12px;">Bien-être, forme et sérénité au quotidien.</p>
+        <p style="margin-top:12px;">Peptides de recherche pour laboratoires et professionnels qualifiés.</p>
       </div>
       <div>
         <h4>Liens</h4>
         <ul>
-          <li><a href="outils-gratuits.html">Outils gratuits</a></li>
-          <li><a href="index.html#cure">La Cure</a></li>
+          <li><a href="outils-gratuits.html">Outils de laboratoire</a></li>
+          <li><a href="index.html#cure">Catalogue</a></li>
           <li><a href="index.html#faq">FAQ</a></li>
         </ul>
       </div>
       <div>
         <h4>Espace</h4>
-        <ul><li><a href="index.html#bilan">Bilan gratuit</a></li><li><a href="espace-client.html">Espace Membre</a></li></ul>
+        <ul><li><a href="index.html#bilan">Support technique</a></li><li><a href="espace-client.html">Espace Client</a></li></ul>
       </div>
       <div>
         <h4>Légal</h4>
@@ -407,7 +373,7 @@
       </div>
     </div>
     <div class="disclaimer">
-      <p><b>Usage informatif uniquement.</b> Ces calculateurs sont fournis à titre indicatif et ne remplacent pas un avis médical ou nutritionnel professionnel.</p>
+      <p><b>Usage recherche exclusivement.</b> Ces calculateurs sont fournis à titre indicatif pour la préparation de solutions de recherche en laboratoire et ne remplacent pas un protocole validé. Ils ne constituent pas une recommandation de dosage pour un usage humain ou animal.</p>
       <p style="margin-top:8px;">© 2026 OV. Tous droits réservés.</p>
     </div>
   </div>
@@ -418,120 +384,116 @@
 <script>
   function $(id){ return document.getElementById(id); }
 
-  // IMC
-  function calcBMI(){
-    var h = parseFloat($('bmi-height').value)/100;
-    var w = parseFloat($('bmi-weight').value);
-    if(!h || !w){ return; }
-    var bmi = w/(h*h);
-    $('bmi-result').textContent = bmi.toFixed(1);
-    var cat, msg;
-    if(bmi < 18.5){ cat='Insuffisance pondérale'; msg='Un avis professionnel peut être utile.'; }
-    else if(bmi < 25){ cat='Corpulence normale'; msg='Maintenez vos bonnes habitudes.'; }
-    else if(bmi < 30){ cat='Surpoids'; msg='Un rééquilibrage progressif peut aider.'; }
-    else { cat='Obésité'; msg='Un accompagnement professionnel est recommandé.'; }
-    $('bmi-category').textContent = cat + ' — ' + msg;
+  // Reconstitution
+  function calcRecon(){
+    var mg = parseFloat($('recon-mg').value);
+    var ml = parseFloat($('recon-ml').value);
+    if(!mg || !ml){ return; }
+    var concMgMl = mg/ml;
+    $('recon-result').textContent = concMgMl.toFixed(2) + ' mg/mL';
+    $('recon-sub').textContent = (concMgMl*1000).toFixed(0) + ' µg/mL';
   }
-  ['bmi-height','bmi-weight'].forEach(function(id){ $(id).addEventListener('input', calcBMI); });
+  ['recon-mg','recon-ml'].forEach(function(id){ $(id).addEventListener('input', calcRecon); });
 
-  // TDEE
-  var tdeeGender = 'male';
-  document.querySelectorAll('#tdee-gender button').forEach(function(btn){
+  // Dilution en série
+  function calcDilution(){
+    var c0 = parseFloat($('dil-c0').value);
+    var factor = parseFloat($('dil-factor').value);
+    var steps = parseInt($('dil-steps').value, 10);
+    if(!c0 || !factor || !steps){ return; }
+    var values = [c0];
+    var c = c0;
+    for(var i=0;i<steps;i++){ c = c/factor; values.push(c); }
+    var final = values[values.length-1];
+    $('dil-result').textContent = (final < 0.01 ? final.toExponential(2) : final.toFixed(4)) + ' mg/mL';
+    $('dil-sub').textContent = 'Étapes : ' + values.map(function(v,i){
+      return (i===0?'C0=':'C'+i+'=') + (v < 0.01 ? v.toExponential(1) : v.toFixed(3));
+    }).join(' → ');
+  }
+  ['dil-c0','dil-factor','dil-steps'].forEach(function(id){ $(id).addEventListener('input', calcDilution); });
+
+  // Convertisseur d'unités
+  var UNITS = {
+    mass: { label:'masse', options:['µg','mg','g'], toBase:{ 'µg':0.001, 'mg':1, 'g':1000 } }, // base = mg
+    volume: { label:'volume', options:['µL','mL','L'], toBase:{ 'µL':0.001, 'mL':1, 'L':1000 } } // base = mL
+  };
+  var convType = 'mass';
+  function populateConvUnits(){
+    var opts = UNITS[convType].options;
+    var from = $('conv-from'), to = $('conv-to');
+    from.innerHTML = ''; to.innerHTML = '';
+    opts.forEach(function(u){
+      var o1 = document.createElement('option'); o1.value = u; o1.textContent = u; from.appendChild(o1);
+      var o2 = document.createElement('option'); o2.value = u; o2.textContent = u; to.appendChild(o2);
+    });
+    from.value = opts[1]; to.value = opts[0];
+  }
+  document.querySelectorAll('#conv-type button').forEach(function(btn){
     btn.addEventListener('click', function(){
-      document.querySelectorAll('#tdee-gender button').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('#conv-type button').forEach(function(b){ b.classList.remove('active'); });
       btn.classList.add('active');
-      tdeeGender = btn.dataset.val;
-      calcTDEE();
+      convType = btn.dataset.val;
+      populateConvUnits();
+      calcConv();
     });
   });
-  function calcTDEE(){
-    var age = parseFloat($('tdee-age').value);
-    var h = parseFloat($('tdee-height').value);
-    var w = parseFloat($('tdee-weight').value);
-    var act = parseFloat($('tdee-activity').value);
-    var goalAdj = parseFloat($('tdee-goal').value);
-    if(!age || !h || !w){ return; }
-    var bmr = tdeeGender === 'male'
-      ? (10*w + 6.25*h - 5*age + 5)
-      : (10*w + 6.25*h - 5*age - 161);
-    var tdee = Math.round(bmr * act);
-    $('tdee-result').textContent = tdee + ' kcal';
-    $('tdee-goal-result').textContent = 'Objectif : ' + (tdee + goalAdj) + ' kcal';
+  function calcConv(){
+    var val = parseFloat($('conv-value').value);
+    var from = $('conv-from').value, to = $('conv-to').value;
+    if(isNaN(val)){ return; }
+    var table = UNITS[convType].toBase;
+    var base = val * table[from];
+    var result = base / table[to];
+    $('conv-result').textContent = (Math.abs(result) < 0.001 ? result.toExponential(2) : parseFloat(result.toFixed(6))) + ' ' + to;
+    $('conv-label').textContent = UNITS[convType].label;
   }
-  ['tdee-age','tdee-height','tdee-weight','tdee-activity','tdee-goal'].forEach(function(id){
-    $(id).addEventListener('input', calcTDEE);
-    $(id).addEventListener('change', calcTDEE);
+  populateConvUnits();
+  ['conv-value','conv-from','conv-to'].forEach(function(id){
+    $(id).addEventListener('input', calcConv);
+    $(id).addEventListener('change', calcConv);
   });
 
-  // Macros
-  function calcMacros(){
-    var cal = parseFloat($('macro-cal').value);
-    var p = parseFloat($('macro-p').value);
-    var c = parseFloat($('macro-c').value);
-    var f = parseFloat($('macro-f').value);
-    if(!cal) return;
-    var pG = Math.round(cal*(p/100)/4);
-    var cG = Math.round(cal*(c/100)/4);
-    var fG = Math.round(cal*(f/100)/9);
-    $('macro-p-val').textContent = pG + 'g — ' + p + '%';
-    $('macro-c-val').textContent = cG + 'g — ' + c + '%';
-    $('macro-f-val').textContent = fG + 'g — ' + f + '%';
-    $('macro-p-bar').style.width = p + '%';
-    $('macro-c-bar').style.width = c + '%';
-    $('macro-f-bar').style.width = f + '%';
+  // Molarité
+  function calcMolarity(){
+    var mg = parseFloat($('mol-mg').value);
+    var mw = parseFloat($('mol-mw').value);
+    var ml = parseFloat($('mol-ml').value);
+    if(!mg || !mw || !ml){ return; }
+    var mM = (mg/mw/ml)*1000;
+    $('mol-result').textContent = (mM < 0.01 ? mM.toExponential(2) : mM.toFixed(3)) + ' mM';
+    $('mol-sub').textContent = (mM*1000).toFixed(0) + ' µM';
   }
-  ['macro-cal','macro-p','macro-c','macro-f'].forEach(function(id){ $(id).addEventListener('input', calcMacros); });
+  ['mol-mg','mol-mw','mol-ml'].forEach(function(id){ $(id).addEventListener('input', calcMolarity); });
 
-  // Hydratation
-  function calcWater(){
-    var w = parseFloat($('water-weight').value);
-    if(!w) return;
-    var liters = w*0.033;
-    $('water-result').textContent = liters.toFixed(1) + 'L';
-    $('water-glasses').textContent = Math.round(liters*1000/250) + ' verres (25cl)';
+  // Volume à prélever
+  function calcDraw(){
+    var conc = parseFloat($('draw-conc').value);
+    var dose = parseFloat($('draw-dose').value);
+    if(!conc || !dose){ return; }
+    var volumeUl = dose/conc;
+    $('draw-result').textContent = volumeUl.toFixed(1) + ' µL';
   }
-  $('water-weight').addEventListener('input', calcWater);
+  ['draw-conc','draw-dose'].forEach(function(id){ $(id).addEventListener('input', calcDraw); });
 
-  // Poids idéal
-  function calcIdeal(){
-    var h = parseFloat($('ideal-height').value)/100;
-    if(!h) return;
-    var low = (18.5*h*h).toFixed(1);
-    var high = (24.9*h*h).toFixed(1);
-    $('ideal-result').textContent = low + ' – ' + high + ' kg';
+  // Stabilité de stockage (indicatif, informations générales de manipulation en laboratoire)
+  var STAB = {
+    'lyo_-20': "Lyophilisé, conservé à -20°C : généralement stable jusqu'à 24 mois. Éviter les cycles de gel/dégel répétés.",
+    'lyo_4': "Lyophilisé, conservé à 2-8°C : généralement stable plusieurs mois. Pour une conservation longue durée, privilégier -20°C.",
+    'lyo_20': "Lyophilisé, à température ambiante : stabilité réduite, quelques semaines. Conservation au frais recommandée dès réception.",
+    'recon_-20': "Reconstitué, congelé à -20°C : aliquoter avant congélation, éviter les cycles de gel/dégel répétés.",
+    'recon_4': "Reconstitué, conservé à 2-8°C : généralement à utiliser dans les 2 à 4 semaines selon le solvant utilisé.",
+    'recon_20': "Reconstitué, à température ambiante : dégradation rapide, usage recommandé dans les heures suivant la préparation."
+  };
+  function calcStability(){
+    var state = $('stab-state').value;
+    var temp = $('stab-temp').value === '-20' ? '-20' : ($('stab-temp').value === '4' ? '4' : '20');
+    var key = state + '_' + temp;
+    $('stab-result').textContent = STAB[key] || '—';
   }
-  $('ideal-height').addEventListener('input', calcIdeal);
-
-  // Date objectif
-  function calcGoalDate(){
-    var cur = parseFloat($('goal-current').value);
-    var target = parseFloat($('goal-target').value);
-    var rate = parseFloat($('goal-rate').value);
-    if(!cur || !target || !rate){ return; }
-    var diff = Math.abs(cur-target);
-    var weeks = Math.ceil(diff/rate);
-    var d = new Date();
-    d.setDate(d.getDate() + weeks*7);
-    $('goal-result').textContent = d.toLocaleDateString('fr-FR', {day:'numeric',month:'long',year:'numeric'}) + ' (' + weeks + ' sem.)';
-  }
-  ['goal-current','goal-target','goal-rate'].forEach(function(id){ $(id).addEventListener('input', calcGoalDate); });
-
-  // Calories brûlées
-  function calcBurn(){
-    var w = parseFloat($('burn-weight').value);
-    var met = parseFloat($('burn-activity').value);
-    var min = parseFloat($('burn-minutes').value);
-    if(!w || !min){ return; }
-    var cal = Math.round(met*w*(min/60));
-    $('burn-result').textContent = cal + ' kcal';
-  }
-  ['burn-weight','burn-activity','burn-minutes'].forEach(function(id){
-    $(id).addEventListener('input', calcBurn);
-    $(id).addEventListener('change', calcBurn);
-  });
+  ['stab-state','stab-temp'].forEach(function(id){ $(id).addEventListener('change', calcStability); });
 
   // Init
-  calcBMI(); calcTDEE(); calcMacros(); calcWater(); calcIdeal(); calcGoalDate(); calcBurn();
+  calcRecon(); calcDilution(); calcConv(); calcMolarity(); calcDraw(); calcStability();
 </script>
 
 <!-- Navigation mobile -->

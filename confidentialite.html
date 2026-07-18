@@ -131,7 +131,7 @@
     <nav class="nav-links">
       <a href="index.html">Accueil</a>
       <a href="outils-gratuits.html">Outils gratuits</a>
-      <a href="index.html#cure">La Cure</a>
+      <a href="index.html#cure">Catalogue</a>
       <a href="index.html#faq">FAQ</a>
     </nav>
     <div class="nav-right">
@@ -151,7 +151,7 @@
   <div class="mobile-panel" id="mobile-panel">
     <a href="index.html">Accueil</a>
     <a href="outils-gratuits.html">Outils gratuits</a>
-    <a href="index.html#cure">La Cure</a>
+    <a href="index.html#cure">Catalogue</a>
     <a href="index.html#faq">FAQ</a>
     <a href="espace-client.html" class="btn btn-primary">Espace client</a>
     <a href="/admin/" style="margin-top:4px;text-align:center;font-size:13px;color:var(--muted);">Connexion Admin</a>
@@ -184,9 +184,9 @@
       <h2>2. Données collectées</h2>
       <ul>
         <li><strong>Données de commande :</strong> nom, adresse email, adresse de livraison, transmises lors d'un achat. Les données de paiement (numéro de carte, etc.) sont saisies directement sur la page de paiement sécurisée Stripe et ne transitent jamais par nos serveurs.</li>
-        <li><strong>Données de compte espace membre :</strong> adresse email et mot de passe (géré et chiffré par notre prestataire d'authentification Supabase), utilisés pour créer et sécuriser votre accès à l'espace client.</li>
-        <li><strong>Données de suivi de cure :</strong> les mesures de poids et dates que vous saisissez volontairement dans votre espace membre, stockées de façon isolée par compte utilisateur (chaque client ne peut voir que ses propres données, grâce à des règles de sécurité au niveau base de données).</li>
-        <li><strong>Données techniques :</strong> aucune donnée de navigation à des fins publicitaires n'est collectée. Le Site n'utilise aucun cookie de mesure d'audience tiers ou de publicité à ce jour ; seul un cookie/jeton technique de session est utilisé pour maintenir votre connexion à l'espace membre.</li>
+        <li><strong>Données de compte espace client :</strong> adresse email et mot de passe (géré et chiffré par notre prestataire d'authentification Supabase), utilisés pour créer et sécuriser votre accès à l'espace client.</li>
+        <li><strong>Données de suivi personnel :</strong> les mesures et notes que vous saisissez volontairement dans votre espace client (journal de suivi d'expérimentation), stockées de façon isolée par compte utilisateur (chaque client ne peut voir que ses propres données, grâce à des règles de sécurité au niveau base de données).</li>
+        <li><strong>Données techniques :</strong> aucune donnée de navigation à des fins publicitaires n'est collectée. Le Site n'utilise aucun cookie de mesure d'audience tiers ou de publicité à ce jour ; seul un cookie/jeton technique de session est utilisé pour maintenir votre connexion à l'espace client.</li>
       </ul>
     </div>
 
@@ -194,8 +194,8 @@
       <h2>3. Finalités du traitement</h2>
       <ul>
         <li>Traiter et livrer vos commandes</li>
-        <li>Créer et sécuriser votre compte sur l'espace membre</li>
-        <li>Vous permettre d'enregistrer et consulter votre suivi de cure personnel</li>
+        <li>Créer et sécuriser votre compte sur l'espace client</li>
+        <li>Vous permettre d'enregistrer et consulter votre journal de suivi personnel</li>
         <li>Répondre à vos demandes envoyées à notre adresse de contact</li>
       </ul>
     </div>
@@ -210,7 +210,7 @@
       <p>Vos données sont partagées uniquement avec les prestataires nécessaires au fonctionnement du Site :</p>
       <ul>
         <li><strong>Stripe</strong> (traitement des paiements)</li>
-        <li><strong>Supabase</strong> (hébergement de la base de données et authentification de l'espace membre)</li>
+        <li><strong>Supabase</strong> (hébergement de la base de données et authentification de l'espace client)</li>
         <li><strong>Netlify</strong> (hébergement du Site)</li>
       </ul>
       <p>Ces prestataires sont des sociétés américaines susceptibles de traiter des données en dehors de l'Union européenne. Elles s'appuient sur des mécanismes de transfert encadrés (clauses contractuelles types ou équivalent). Nous ne vendons ni ne louons vos données personnelles à des tiers à des fins commerciales.</p>
@@ -218,12 +218,12 @@
 
     <div class="legal-box reveal">
       <h2>6. Durée de conservation</h2>
-      <p>Les données de commande sont conservées le temps nécessaire à la gestion de la relation commerciale et au respect de nos obligations légales (notamment comptables). Les données de votre compte espace membre et de suivi de cure sont conservées tant que votre compte est actif, et supprimées sur simple demande à <a class="inline" href="mailto:mclr.global@gmail.com">mclr.global@gmail.com</a>.</p>
+      <p>Les données de commande sont conservées le temps nécessaire à la gestion de la relation commerciale et au respect de nos obligations légales (notamment comptables). Les données de votre compte espace client et de suivi personnel sont conservées tant que votre compte est actif, et supprimées sur simple demande à <a class="inline" href="mailto:mclr.global@gmail.com">mclr.global@gmail.com</a>.</p>
     </div>
 
     <div class="legal-box reveal">
       <h2>7. Sécurité</h2>
-      <p>Le Site est servi en HTTPS. Les mots de passe de l'espace membre sont gérés et chiffrés par Supabase Auth. L'accès aux données de suivi de cure est restreint par des règles de sécurité au niveau base de données (Row Level Security), garantissant qu'un client ne peut accéder qu'à ses propres données.</p>
+      <p>Le Site est servi en HTTPS. Les mots de passe de l'espace client sont gérés et chiffrés par Supabase Auth. L'accès aux données de suivi personnel est restreint par des règles de sécurité au niveau base de données (Row Level Security), garantissant qu'un client ne peut accéder qu'à ses propres données.</p>
     </div>
 
     <div class="legal-box reveal">
@@ -253,19 +253,19 @@
           <img class="logo-mark" src="assets/logo-mark.png" alt="OV Peptides">
           <span class="logo-word">OV</span>
         </a>
-        <p style="margin-top:12px;">Bien-être, forme et sérénité au quotidien.</p>
+        <p style="margin-top:12px;">Peptides de recherche pour laboratoires et professionnels qualifiés.</p>
       </div>
       <div>
         <h4>Liens</h4>
         <ul>
-          <li><a href="outils-gratuits.html">Outils gratuits</a></li>
-          <li><a href="index.html#cure">La Cure</a></li>
+          <li><a href="outils-gratuits.html">Outils de laboratoire</a></li>
+          <li><a href="index.html#cure">Catalogue</a></li>
           <li><a href="index.html#faq">FAQ</a></li>
         </ul>
       </div>
       <div>
         <h4>Espace</h4>
-        <ul><li><a href="index.html#bilan">Bilan gratuit</a></li><li><a href="espace-client.html">Espace Membre</a></li></ul>
+        <ul><li><a href="index.html#bilan">Support technique</a></li><li><a href="espace-client.html">Espace Client</a></li></ul>
       </div>
       <div>
         <h4>Légal</h4>
@@ -278,7 +278,7 @@
       </div>
     </div>
     <div class="disclaimer">
-      <p><b>Usage informatif uniquement.</b> Les compléments alimentaires ne se substituent pas à une alimentation variée et équilibrée ni à un mode de vie sain.</p>
+      <p><b>Réservé à un usage de recherche.</b> Les produits commercialisés par OV Peptides sont exclusivement destinés à la recherche scientifique en laboratoire et ne sont ni des médicaments, ni des compléments alimentaires, ni destinés à la consommation humaine ou animale.</p>
       <p style="margin-top:8px;">© 2026 OV. Tous droits réservés.</p>
     </div>
   </div>

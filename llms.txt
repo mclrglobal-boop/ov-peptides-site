@@ -1,24 +1,29 @@
 # OV Peptides
 
-> Cure de bien-être hebdomadaire pensée pour les actifs qui manquent de temps : 1 prise par semaine, 4 semaines de cure, accompagnement personnalisé inclus.
+> Fournisseur de peptides de recherche destinés exclusivement à un usage scientifique en laboratoire (in vitro). Usage recherche uniquement — non destinés à la consommation humaine ou animale. Vente réservée aux professionnels et chercheurs qualifiés.
 
 ## Offre
 
-- 1 prise par semaine, cure complète sur 4 semaines.
-- Accompagnement inclus dès le premier jour : bilan personnalisé, espace membre privé, suivi hebdomadaire.
+- Peptides de recherche à haute pureté, certificat d'analyse (COA) disponible pour chaque lot.
+- Support technique inclus dès la première commande : documentation technique, espace client privé.
 - Livraison discrète depuis l'Union Européenne en 3 à 7 jours ouvrés.
-- Droit de rétractation de 14 jours.
-- 3 formules disponibles : Découverte (60 €, 1 kit), Intermédiaire (180 €, 3 kits), Pro (300 €, 5 kits). Détail complet : /pricing.md
+- Droit de rétractation de 14 jours (produits non descellés uniquement).
+- 3 références disponibles : Découverte (60 €, 1 flacon), Intermédiaire (180 €, 3 flacons), Pro (300 €, 5 flacons). Détail complet : /pricing.md
+- Achat conditionné à la certification par l'acheteur d'un usage exclusivement destiné à la recherche scientifique — voir /cgv (article 3).
 
 ## Pages clés
 
-- [Accueil](https://ov-peptides.netlify.app/) — présentation de la cure, formules, FAQ, témoignages.
+- [Accueil](https://ov-peptides.netlify.app/) — présentation du catalogue, références, FAQ, retours de laboratoires.
 - [Tarifs détaillés](https://ov-peptides.netlify.app/pricing.md) — fichier structuré pour agents IA.
-- [Outils gratuits](https://ov-peptides.netlify.app/outils-gratuits) — calculateurs bien-être (IMC, besoins caloriques, hydratation, etc.), gratuits et sans inscription.
-- [Conditions Générales de Vente](https://ov-peptides.netlify.app/cgv)
+- [Outils de laboratoire](https://ov-peptides.netlify.app/outils-gratuits) — calculateurs de recherche (reconstitution, dilution, molarité, conversion d'unités, volume à prélever), gratuits et sans inscription.
+- [Conditions Générales de Vente](https://ov-peptides.netlify.app/cgv) — inclut l'usage exclusif de recherche et la certification requise de l'acheteur.
 - [Politique de confidentialité](https://ov-peptides.netlify.app/confidentialite)
 - [Mentions légales](https://ov-peptides.netlify.app/mentions-legales)
 
 ## À propos
 
 OV Peptides est édité par MC LR LLC. Fondateur : Olivier Valin.
+
+## Avertissement
+
+Les produits vendus sur ce site ne sont ni des médicaments, ni des compléments alimentaires. Ils sont exclusivement destinés à la recherche scientifique en laboratoire. Toute administration à un être humain ou à un animal est strictement interdite.

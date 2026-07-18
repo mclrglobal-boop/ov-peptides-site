@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Espace Client — OV Peptides</title>
-<meta name="description" content="Connectez-vous à votre espace personnel pour suivre votre cure : poids, évolution et historique.">
+<meta name="description" content="Connectez-vous à votre espace client pour accéder à l'historique de vos commandes et à votre documentation technique.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -158,8 +158,8 @@
     </a>
     <nav class="nav-links">
       <a href="index.html">Accueil</a>
-      <a href="outils-gratuits.html">Outils gratuits</a>
-      <a href="index.html#cure">La Cure</a>
+      <a href="outils-gratuits.html">Outils de laboratoire</a>
+      <a href="index.html#cure">Catalogue</a>
       <a href="index.html#faq">FAQ</a>
     </nav>
     <div class="nav-right">
@@ -178,8 +178,8 @@
   </div>
   <div class="mobile-panel" id="mobile-panel">
     <a href="index.html">Accueil</a>
-    <a href="outils-gratuits.html">Outils gratuits</a>
-    <a href="index.html#cure">La Cure</a>
+    <a href="outils-gratuits.html">Outils de laboratoire</a>
+    <a href="index.html#cure">Catalogue</a>
     <a href="index.html#faq">FAQ</a>
     <a href="/admin/" style="margin-top:4px;text-align:center;font-size:13px;color:var(--muted);">Connexion Admin</a>
   </div>
@@ -192,8 +192,8 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       Espace personnel
     </span>
-    <h2 class="reveal" style="--d:.05s;">Suivez votre cure au fil des semaines</h2>
-    <p class="reveal" style="--d:.1s;">Connectez-vous pour enregistrer votre poids, voir votre évolution et garder un historique complet de votre cure.</p>
+    <h2 class="reveal" style="--d:.05s;">Accédez à votre historique et à vos documents</h2>
+    <p class="reveal" style="--d:.1s;">Connectez-vous pour consulter l'historique de vos commandes, votre documentation technique et votre journal de suivi d'expérimentation.</p>
   </div>
 </section>
 
@@ -262,11 +262,11 @@
   <div class="stat-grid">
     <div class="card stat-card">
       <div class="val" id="stat-start">—</div>
-      <div class="lbl">Poids de départ</div>
+      <div class="lbl">Première mesure</div>
     </div>
     <div class="card stat-card">
       <div class="val" id="stat-current">—</div>
-      <div class="lbl">Poids actuel</div>
+      <div class="lbl">Dernière mesure</div>
     </div>
     <div class="card stat-card">
       <div class="val" id="stat-diff">—</div>
@@ -288,24 +288,24 @@
           <input type="date" id="entry-date" required>
         </div>
         <div class="field">
-          <label for="entry-weight">Poids (kg)</label>
-          <input type="number" id="entry-weight" step="0.1" min="20" max="400" required>
+          <label for="entry-weight">Valeur mesurée</label>
+          <input type="number" id="entry-weight" step="0.1" min="0" max="100000" required>
         </div>
         <div class="field">
           <label for="entry-note">Note (optionnel)</label>
-          <input type="text" id="entry-note" maxlength="140" placeholder="Ex : semaine 3, énergie en hausse">
+          <input type="text" id="entry-note" maxlength="140" placeholder="Ex : lot #A12, contrôle qualité">
         </div>
         <button type="submit" class="btn btn-primary">Enregistrer la mesure</button>
       </form>
     </div>
 
     <div class="card">
-      <h3>Évolution du poids</h3>
+      <h3>Évolution de vos mesures</h3>
       <canvas id="chart-canvas"></canvas>
       <div style="margin-top:24px;max-height:260px;overflow-y:auto;">
         <table>
           <thead>
-            <tr><th>Date</th><th>Poids</th><th>Note</th><th></th></tr>
+            <tr><th>Date</th><th>Valeur</th><th>Note</th><th></th></tr>
           </thead>
           <tbody id="entries-body">
             <tr><td colspan="4" class="empty-row">Aucune mesure enregistrée pour l'instant.</td></tr>
@@ -616,10 +616,10 @@
     var last = entries[entries.length - 1];
     var diff = last.poids - first.poids;
     var days = Math.round((new Date(last.date_mesure) - new Date(first.date_mesure)) / 86400000);
-    $('stat-start').textContent = first.poids.toFixed(1) + ' kg';
-    $('stat-current').textContent = last.poids.toFixed(1) + ' kg';
+    $('stat-start').textContent = first.poids.toFixed(2);
+    $('stat-current').textContent = last.poids.toFixed(2);
     var diffEl = $('stat-diff');
-    diffEl.textContent = (diff > 0 ? '+' : '') + diff.toFixed(1) + ' kg';
+    diffEl.textContent = (diff > 0 ? '+' : '') + diff.toFixed(2);
     diffEl.className = 'val ' + (diff < 0 ? 'down' : (diff > 0 ? 'up' : ''));
     $('stat-days').textContent = days;
   }
@@ -639,7 +639,7 @@
       var tdDate = document.createElement('td');
       tdDate.textContent = dateStr;
       var tdPoids = document.createElement('td');
-      tdPoids.textContent = e.poids.toFixed(1) + ' kg';
+      tdPoids.textContent = e.poids.toFixed(2);
       var tdNote = document.createElement('td');
       tdNote.style.color = 'var(--muted)';
       tdNote.style.fontSize = '13px';

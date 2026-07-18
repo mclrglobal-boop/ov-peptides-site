@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OV Peptides — La cure bien-être pensée pour les actifs</title>
-<meta name="description" content="Une cure bien-être d'un mois pour les actifs. 1 prise par semaine, une routine simple, sans régime ni contrainte quotidienne.">
+<title>OV Peptides — Peptides de recherche pour laboratoires | Usage recherche uniquement</title>
+<meta name="description" content="OV Peptides fournit des peptides de recherche à haute pureté pour laboratoires et chercheurs qualifiés. Produits strictement réservés à un usage de recherche in vitro, non destinés à la consommation humaine ou animale.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -538,18 +538,52 @@
   .foot-grid a:hover{color:var(--text);}
   .disclaimer{font-size:12.5px;border-top:1px solid var(--border-soft);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
   .small-note{font-size:12px;color:var(--muted-2);margin-top:10px;}
+
+  /* --- Bandeau usage recherche uniquement --- */
+  #research-banner{
+    background:linear-gradient(120deg, rgba(239,74,114,.14), rgba(230,169,63,.1));
+    border-bottom:1px solid rgba(239,74,114,.3);
+    padding:11px 24px;
+  }
+  #research-banner .container{display:flex;align-items:center;gap:10px;justify-content:center;text-align:center;flex-wrap:wrap;}
+  #research-banner svg{width:16px;height:16px;color:var(--accent-red-text);flex-shrink:0;}
+  #research-banner p{color:var(--text);font-size:12.5px;font-weight:500;margin:0;}
+  #research-banner strong{color:var(--accent-red-text);}
+
+  /* --- Modal certification chercheur --- */
+  .modal-overlay{
+    position:fixed;inset:0;z-index:500;background:rgba(3,5,10,.72);backdrop-filter:blur(4px);
+    display:none;align-items:center;justify-content:center;padding:20px;
+  }
+  .modal-overlay.is-open{display:flex;}
+  .modal-box{
+    max-width:460px;width:100%;background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-lg);position:relative;
+  }
+  .modal-box h3{font-size:18px;margin-bottom:12px;}
+  .modal-box p{font-size:13.5px;margin-bottom:16px;}
+  .modal-check{
+    display:flex;align-items:flex-start;gap:10px;background:var(--bg-alt);border:1px solid var(--border);
+    border-radius:12px;padding:14px 16px;margin-bottom:18px;cursor:pointer;
+  }
+  .modal-check input{margin-top:3px;flex-shrink:0;width:16px;height:16px;accent-color:var(--accent);}
+  .modal-check span{font-size:13px;color:var(--text);line-height:1.5;}
+  .modal-actions{display:flex;gap:10px;}
+  .modal-actions .btn{flex:1;}
+  .modal-close{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--muted);cursor:pointer;padding:6px;}
+  .modal-close svg{width:18px;height:18px;}
 </style>
 <link rel="canonical" href="https://ov-peptides.netlify.app/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="OV Peptides">
-<meta property="og:title" content="OV Peptides — La cure bien-être pensée pour les actifs">
-<meta property="og:description" content="Une cure bien-être d'un mois pour les actifs. 1 prise par semaine, une routine simple, sans régime ni contrainte quotidienne.">
+<meta property="og:title" content="OV Peptides — Peptides de recherche pour laboratoires">
+<meta property="og:description" content="Peptides de recherche à haute pureté, certificats d'analyse fournis. Usage réservé à la recherche scientifique in vitro — non destiné à la consommation humaine ou animale.">
 <meta property="og:url" content="https://ov-peptides.netlify.app/">
 <meta property="og:image" content="https://ov-peptides.netlify.app/assets/hero-product-poster.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="OV Peptides — La cure bien-être pensée pour les actifs">
-<meta name="twitter:description" content="Une cure bien-être d'un mois pour les actifs. 1 prise par semaine, une routine simple, sans régime ni contrainte quotidienne.">
+<meta name="twitter:title" content="OV Peptides — Peptides de recherche pour laboratoires">
+<meta name="twitter:description" content="Peptides de recherche à haute pureté, certificats d'analyse fournis. Usage réservé à la recherche scientifique in vitro.">
 <meta name="twitter:image" content="https://ov-peptides.netlify.app/assets/hero-product-poster.jpg">
 <script type="application/ld+json">
 {
@@ -561,12 +595,13 @@
       "name": "OV Peptides",
       "url": "https://ov-peptides.netlify.app/",
       "logo": "https://ov-peptides.netlify.app/assets/logo-mark.png",
-      "founder": { "@type": "Person", "name": "Olivier Valin" }
+      "founder": { "@type": "Person", "name": "Olivier Valin" },
+      "description": "Fournisseur de peptides de recherche destinés exclusivement à un usage scientifique en laboratoire (in vitro). Non destinés à la consommation humaine ou animale."
     },
     {
       "@type": "Product",
-      "name": "Formule Découverte - OV Peptides",
-      "description": "1 kit cure complet, guide d'utilisation inclus, accès espace membre.",
+      "name": "Référence Découverte - OV Peptides",
+      "description": "1 flacon de recherche, fiche technique incluse, accès espace client. Réservé à un usage de recherche in vitro.",
       "brand": { "@id": "https://ov-peptides.netlify.app/#organization" },
       "offers": {
         "@type": "Offer",
@@ -577,8 +612,8 @@
     },
     {
       "@type": "Product",
-      "name": "Formule Intermédiaire - OV Peptides",
-      "description": "3 kits cure complets, suivi personnalisé inclus, accès espace membre privé.",
+      "name": "Référence Intermédiaire - OV Peptides",
+      "description": "3 flacons de recherche, support technique dédié inclus, accès espace client privé. Réservé à un usage de recherche in vitro.",
       "brand": { "@id": "https://ov-peptides.netlify.app/#organization" },
       "offers": {
         "@type": "Offer",
@@ -589,8 +624,8 @@
     },
     {
       "@type": "Product",
-      "name": "Formule Pro - OV Peptides",
-      "description": "5 kits cure complets, suivi personnalisé inclus, support prioritaire.",
+      "name": "Référence Pro - OV Peptides",
+      "description": "5 flacons de recherche, support technique dédié inclus, support prioritaire. Réservé à un usage de recherche in vitro.",
       "brand": { "@id": "https://ov-peptides.netlify.app/#organization" },
       "offers": {
         "@type": "Offer",
@@ -604,23 +639,23 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Combien de temps avant de voir des résultats ?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Les premiers effets sur l'appétit apparaissent souvent en 1 à 2 semaines. La perte de poids devient généralement visible après 2 à 4 semaines, avec des résultats plus marqués au bout de 2 à 3 mois. Les résultats varient selon la personne, la dose, l'alimentation et l'activité physique." }
+          "name": "Les produits sont-ils destinés à la consommation humaine ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Tous les produits vendus par OV Peptides sont exclusivement destinés à la recherche scientifique en laboratoire (usage in vitro). Ils ne sont ni des médicaments, ni des compléments alimentaires. L'injection, l'ingestion ou toute administration à un être humain ou à un animal est strictement interdite. En passant commande, l'acheteur certifie être un professionnel ou un chercheur qualifié et s'engage à respecter cet usage exclusif." }
         },
         {
           "@type": "Question",
-          "name": "Comment se déroule la cure au quotidien ?",
-          "acceptedAnswer": { "@type": "Answer", "text": "La cure s'administre généralement en une prise par semaine. Il est recommandé de commencer avec une faible dose, puis d'augmenter progressivement afin de limiter les effets secondaires. Une alimentation équilibrée et une activité physique régulière permettent d'optimiser les résultats." }
+          "name": "Fournissez-vous un certificat d'analyse (COA) ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. Chaque référence est accompagnée d'un certificat d'analyse disponible sur demande, détaillant la pureté et la composition du lot concerné." }
         },
         {
           "@type": "Question",
-          "name": "Est-ce compatible avec ma vie professionnelle ?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Oui, dans la plupart des cas. La cure ne se fait qu'une fois par semaine et s'intègre facilement à une routine. Certaines personnes peuvent ressentir des effets digestifs temporaires, surtout au début ou lors d'une augmentation de dose." }
+          "name": "Qui peut commander sur OV Peptides ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nos produits s'adressent aux laboratoires, chercheurs et professionnels de la recherche scientifique. Toute commande implique l'acceptation de nos CGV et la certification d'un usage conforme, exclusivement à des fins de recherche in vitro." }
         },
         {
           "@type": "Question",
-          "name": "Que se passe-t-il si la cure ne me convient pas ?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Si la cure ne vous convient pas, il est possible de l'arrêter. En cas d'effets indésirables ou de questions, il est recommandé de consulter un professionnel de santé pour être accompagné." }
+          "name": "Quels sont les délais de livraison ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les commandes sont expédiées depuis l'Union Européenne sous 3 à 7 jours ouvrés, dans un conditionnement adapté à la conservation des produits." }
         }
       ]
     }
@@ -679,6 +714,13 @@
   </div>
 </header>
 
+<div id="research-banner">
+  <div class="container">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <p><strong>Usage recherche exclusivement.</strong> Produits réservés à la recherche scientifique en laboratoire (in vitro) — non destinés à la consommation humaine ou animale. Vente réservée aux professionnels et chercheurs qualifiés.</p>
+  </div>
+</div>
+
 <div id="sticky-cta" aria-hidden="true">
   <div class="sticky-cta-info">
     <strong>OV Peptides</strong>
@@ -694,18 +736,18 @@
     <div class="hero-copy reveal">
       <span class="eyebrow">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 5.8L20 9.5l-5.8 1.9L12 17l-1.9-5.6L4 9.5l6.1-1.7L12 2z"/></svg>
-        <span data-field="hero.eyebrow">Conçu pour les actifs</span>
+        <span data-field="hero.eyebrow">Réservé aux professionnels de la recherche</span>
       </span>
-      <h1><span data-field="hero.title_line">Une routine. Une cure.</span> <span class="accent-text" data-field="hero.title_accent">Un mois.</span></h1>
-      <p class="lead" data-field="hero.lead">OV, la cure bien-être pensée pour les actifs qui n'ont plus de temps à perdre. Une prise hebdomadaire, un accompagnement sérieux, une routine simple à tenir.</p>
+      <h1><span data-field="hero.title_line">Des peptides de recherche.</span> <span class="accent-text" data-field="hero.title_accent">Qualité laboratoire.</span></h1>
+      <p class="lead" data-field="hero.lead">OV Peptides fournit des peptides destinés exclusivement à la recherche scientifique en laboratoire. Pureté documentée, certificats d'analyse fournis, expédition sécurisée. Réservé aux chercheurs et professionnels qualifiés — non destiné à la consommation humaine ou animale.</p>
       <div class="hero-ctas">
-        <a href="#formules" class="btn btn-primary magnetic" data-field="hero.cta_primary">Découvrir la cure</a>
-        <a href="outils-gratuits.html" class="btn btn-outline magnetic" data-field="hero.cta_secondary">Faire mon bilan gratuit</a>
+        <a href="#formules" class="btn btn-primary magnetic" data-field="hero.cta_primary">Voir le catalogue</a>
+        <a href="outils-gratuits.html" class="btn btn-outline magnetic" data-field="hero.cta_secondary">Outils de laboratoire</a>
       </div>
       <div class="hero-stats">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span data-field="hero.stat1">Distribué en Europe</span></span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span data-field="hero.stat2">1 prise / semaine</span></span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-field="hero.stat3">Cure de 4 semaines</span></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span data-field="hero.stat1">Expédié depuis l'UE</span></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span data-field="hero.stat2">Certificats d'analyse fournis</span></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-field="hero.stat3">Usage recherche uniquement</span></span>
       </div>
     </div>
     <div class="hero-visual reveal" style="--d:.15s;">
@@ -727,23 +769,23 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
         Pourquoi nous
       </span>
-      <h2 data-field="problem.title">Pourquoi les méthodes classiques ne tiennent pas dans un emploi du temps chargé</h2>
+      <h2 data-field="problem.title">Les défis auxquels font face les laboratoires de recherche</h2>
     </div>
     <div class="grid-3">
       <div class="card reveal" style="--d:0s;">
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></div>
-        <h3 data-field="problem.card1_title">Les régimes restrictifs</h3>
-        <p data-field="problem.card1_text">Planifier chaque repas de la semaine demande un temps que peu de gens ont réellement. Après une longue journée, la volonté s'épuise avant le dîner.</p>
+        <h3 data-field="problem.card1_title">Traçabilité incertaine</h3>
+        <p data-field="problem.card1_text">De nombreux fournisseurs ne documentent pas correctement l'origine ni la pureté de leurs lots, ce qui complique la reproductibilité des protocoles expérimentaux.</p>
       </div>
       <div class="card reveal" style="--d:.1s;">
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5 17.5 17.5"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div>
-        <h3 data-field="problem.card2_title">Les séances intensives</h3>
-        <p data-field="problem.card2_text">S'astreindre à plusieurs entraînements par semaine est difficile à tenir sur la durée entre obligations professionnelles et vie de famille.</p>
+        <h3 data-field="problem.card2_title">Documentation incomplète</h3>
+        <p data-field="problem.card2_text">L'absence de certificats d'analyse (COA) systématiques oblige les équipes à multiplier les contrôles qualité en interne, au détriment du temps de recherche.</p>
       </div>
       <div class="card reveal" style="--d:.2s;">
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="10" y1="16" x2="10.01" y2="16"/></svg></div>
-        <h3 data-field="problem.card3_title">Les compléments du quotidien</h3>
-        <p data-field="problem.card3_text">Une prise à ne pas oublier chaque jour finit souvent par être délaissée après quelques semaines, faute de routine stable.</p>
+        <h3 data-field="problem.card3_title">Délais et conditionnement</h3>
+        <p data-field="problem.card3_text">Un conditionnement mal adapté ou des délais de livraison imprévisibles peuvent compromettre la stabilité des échantillons avant leur réception.</p>
       </div>
     </div>
   </div>
@@ -756,44 +798,44 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="13" width="3" height="5"/><rect x="12" y="9" width="3" height="9"/><rect x="17" y="5" width="3" height="13"/></svg>
         Comparatif
       </span>
-      <h2>OV face aux méthodes classiques</h2>
-      <p>Même objectif, une routine radicalement plus simple à tenir dans la durée.</p>
+      <h2>OV face aux fournisseurs classiques</h2>
+      <p>Même exigence de recherche, une documentation radicalement plus rigoureuse.</p>
     </div>
     <div class="compare-card reveal">
       <div class="compare-row compare-head">
         <div class="compare-label"></div>
-        <div class="compare-col">Méthodes classiques</div>
+        <div class="compare-col">Fournisseurs classiques</div>
         <div class="compare-col compare-col-ov">OV Peptides</div>
       </div>
       <div class="compare-row">
-        <div class="compare-label">Fréquence de prise</div>
-        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Quotidienne</div>
-        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>1x / semaine</div>
+        <div class="compare-label">Certificat d'analyse (COA)</div>
+        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Rarement systématique</div>
+        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Fourni par lot</div>
       </div>
       <div class="compare-row">
-        <div class="compare-label">Planification des repas</div>
-        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Nécessaire</div>
-        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Aucune</div>
+        <div class="compare-label">Traçabilité des lots</div>
+        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Limitée</div>
+        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Numéro de lot documenté</div>
       </div>
       <div class="compare-row">
-        <div class="compare-label">Séances sportives imposées</div>
-        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Plusieurs / semaine</div>
-        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Aucune</div>
+        <div class="compare-label">Pureté annoncée vs vérifiée</div>
+        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Difficilement vérifiable</div>
+        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Analyses tierces sur demande</div>
       </div>
       <div class="compare-row">
-        <div class="compare-label">Accompagnement personnalisé</div>
+        <div class="compare-label">Support technique</div>
         <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Rarement inclus</div>
-        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Inclus dès le 1er jour</div>
+        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Inclus dès le 1er contact</div>
       </div>
       <div class="compare-row">
-        <div class="compare-label">Compatible vie professionnelle chargée</div>
-        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Difficilement</div>
-        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Oui</div>
+        <div class="compare-label">Usage recherche encadré</div>
+        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Variable</div>
+        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Certification acheteur requise</div>
       </div>
       <div class="compare-row">
-        <div class="compare-label">Durée avant abandon (moyenne observée)</div>
-        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Quelques semaines</div>
-        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Routine tenue sur la cure</div>
+        <div class="compare-label">Délai de livraison moyen</div>
+        <div class="compare-col compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Variable, souvent long</div>
+        <div class="compare-col compare-col-ov compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>3 à 7 jours ouvrés</div>
       </div>
     </div>
   </div>
@@ -807,32 +849,32 @@
         Comment ça marche
       </span>
       <h2>Quatre étapes, aucune complexité</h2>
-      <p>De la commande au suivi, tout est pensé pour être simple.</p>
+      <p>De la commande à la documentation, tout est pensé pour être simple.</p>
     </div>
     <div class="steps">
       <div class="step card reveal" style="--d:0s;">
         <div class="step-num">01<span class="line"></span></div>
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
-        <h3>Choisissez votre formule</h3>
-        <p>Découverte, Intermédiaire ou Pro selon la durée de cure souhaitée.</p>
+        <h3>Choisissez votre référence</h3>
+        <p>Découverte, Intermédiaire ou Pro selon vos besoins expérimentaux.</p>
       </div>
       <div class="step card reveal" style="--d:.1s;">
         <div class="step-num">02<span class="line"></span></div>
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-        <h3>Recevez votre kit</h3>
+        <h3>Recevez votre commande</h3>
         <p>Livraison discrète en 3 à 7 jours ouvrés partout en Union Européenne.</p>
       </div>
       <div class="step card reveal" style="--d:.2s;">
         <div class="step-num">03<span class="line"></span></div>
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg></div>
-        <h3>1 prise chaque semaine</h3>
-        <p>Une routine simple à retenir, par exemple chaque dimanche soir.</p>
+        <h3>Consultez la documentation</h3>
+        <p>Certificat d'analyse et fiche technique disponibles pour chaque lot.</p>
       </div>
       <div class="step card reveal" style="--d:.3s;">
         <div class="step-num">04<span class="line"></span></div>
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
-        <h3>Suivez votre évolution</h3>
-        <p>Espace membre privé avec bilan personnalisé et suivi hebdomadaire.</p>
+        <h3>Accédez à votre espace</h3>
+        <p>Espace client privé avec historique de commandes et support technique.</p>
       </div>
     </div>
   </div>
@@ -873,9 +915,9 @@
             </svg>
           </div>
           <div class="slide-copy">
-            <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>La formule</span>
-            <h3>Une formule dosée avec soin</h3>
-            <p>Chaque kit de cure est préparé selon un dosage précis, pensé pour accompagner votre routine bien-être sans complexité, semaine après semaine.</p>
+            <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>Pureté</span>
+            <h3>Une pureté documentée</h3>
+            <p>Chaque lot de recherche est accompagné d'un certificat d'analyse détaillant sa pureté et sa composition, pour des protocoles expérimentaux fiables.</p>
           </div>
         </div>
 
@@ -895,9 +937,9 @@
             </svg>
           </div>
           <div class="slide-copy">
-            <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>Suivi</span>
-            <h3>Votre progression, visualisée</h3>
-            <p>Espace membre privé avec bilan personnalisé, courbe d'évolution et suivi hebdomadaire pour garder le cap sur votre objectif.</p>
+            <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>Documentation</span>
+            <h3>Documentation &amp; support</h3>
+            <p>Espace client privé avec historique de vos commandes et accès à la documentation technique de chaque référence.</p>
           </div>
         </div>
 
@@ -937,9 +979,9 @@
             </svg>
           </div>
           <div class="slide-copy">
-            <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>Routine</span>
-            <h3>1 prise, chaque semaine</h3>
-            <p>Une routine simple à retenir — par exemple chaque dimanche soir — pensée pour tenir dans la durée sans y penser.</p>
+            <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>Conditionnement</span>
+            <h3>Conditionnement lyophilisé</h3>
+            <p>Une préparation adaptée à la stabilité et à la conservation en conditions de laboratoire, avec instructions de stockage recommandées.</p>
           </div>
         </div>
 
@@ -954,31 +996,31 @@
     <div class="section-head reveal">
       <span class="eyebrow">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
-        La formule
+        Le catalogue
       </span>
-      <h2 data-field="cure.title">Une seule prise par semaine. Une cure d'un mois. Une routine qui tient dans le temps.</h2>
-      <p data-field="cure.subtitle">Notre formule a été pensée pour s'intégrer à une vie déjà bien remplie, pas pour la bouleverser.</p>
+      <h2 data-field="cure.title">Des peptides de recherche à haute pureté, documentés à chaque lot.</h2>
+      <p data-field="cure.subtitle">Notre catalogue a été pensé pour répondre aux exigences de traçabilité et de rigueur des laboratoires de recherche.</p>
     </div>
     <div class="grid-4">
       <div class="card reveal" style="--d:0s;">
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h3 data-field="cure.feature1_title">1 prise / semaine</h3>
-        <p data-field="cure.feature1_text">Une routine simple à retenir, par exemple chaque dimanche soir.</p>
+        <h3 data-field="cure.feature1_title">Pureté documentée</h3>
+        <p data-field="cure.feature1_text">Chaque référence est accompagnée d'un certificat d'analyse (COA) disponible sur demande.</p>
       </div>
       <div class="card reveal" style="--d:.1s;">
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg></div>
-        <h3 data-field="cure.feature2_title">Formule dosée</h3>
-        <p data-field="cure.feature2_text">Une composition pensée pour accompagner votre routine bien-être sur la durée.</p>
+        <h3 data-field="cure.feature2_title">Conditionnement lyophilisé</h3>
+        <p data-field="cure.feature2_text">Une préparation pensée pour la stabilité et la conservation en conditions de laboratoire.</p>
       </div>
       <div class="card reveal" style="--d:.2s;">
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
-        <h3 data-field="cure.feature3_title">Sans contrainte excessive</h3>
-        <p data-field="cure.feature3_text">Conçue pour rester compatible avec une vie sociale et professionnelle normale.</p>
+        <h3 data-field="cure.feature3_title">Réservé à un usage professionnel</h3>
+        <p data-field="cure.feature3_text">Produits destinés exclusivement à la recherche scientifique in vitro, non destinés à la consommation humaine ou animale.</p>
       </div>
       <div class="card reveal" style="--d:.3s;">
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3 data-field="cure.feature4_title">Accompagnement inclus</h3>
-        <p data-field="cure.feature4_text">Espace membre, bilan personnalisé et suivi hebdomadaire, dès le premier jour.</p>
+        <h3 data-field="cure.feature4_title">Support technique inclus</h3>
+        <p data-field="cure.feature4_text">Espace client, documentation technique et support dédié, dès la première commande.</p>
       </div>
     </div>
   </div>
@@ -989,26 +1031,26 @@
     <div class="reveal">
       <span class="eyebrow">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        <span data-field="bilan.eyebrow">Bilan</span>
+        <span data-field="bilan.eyebrow">Support technique</span>
       </span>
-      <h2 data-field="bilan.title">Un accompagnement, pas seulement un produit</h2>
-      <p data-field="bilan.text">Bilan personnalisé, espace membre privé, suivi hebdomadaire et journal de cure : tout est inclus dès le premier jour, sans option payante additionnelle.</p>
+      <h2 data-field="bilan.title">Un accompagnement technique, pas seulement un produit</h2>
+      <p data-field="bilan.text">Documentation technique, espace client privé et support dédié : tout est inclus dès la première commande, sans option payante additionnelle.</p>
     </div>
     <div class="mock reveal" style="--d:.15s;">
-      <h3 style="font-size:15px;">Votre bilan personnalisé</h3>
-      <p class="small-note">Exemple d'aperçu — espace membre</p>
-      <div class="mock-row" style="margin-top:14px;"><span>Objectif</span><b>Vitalité &amp; tonus</b></div>
-      <div class="mock-row"><span>Suivi</span><b>Hebdomadaire</b></div>
+      <h3 style="font-size:15px;">Votre espace client</h3>
+      <p class="small-note">Exemple d'aperçu — espace client</p>
+      <div class="mock-row" style="margin-top:14px;"><span>Statut documentation</span><b>À jour</b></div>
+      <div class="mock-row"><span>Support</span><b>Sous 24h ouvrées</b></div>
       <div>
-        <div class="mock-row" style="border:none;padding-bottom:0;"><span>Régularité</span><b>82%</b></div>
-        <div class="bar"><span style="width:82%;"></span></div>
+        <div class="mock-row" style="border:none;padding-bottom:0;"><span>Lots documentés (COA)</span><b>100%</b></div>
+        <div class="bar"><span style="width:100%;"></span></div>
       </div>
       <div style="margin-top:16px;">
-        <div class="mock-row" style="border:none;padding-bottom:0;"><span>Hydratation</span><b>2,5L/j</b></div>
-        <div class="bar"><span style="width:60%;"></span></div>
+        <div class="mock-row" style="border:none;padding-bottom:0;"><span>Commandes livrées à temps</span><b>96%</b></div>
+        <div class="bar"><span style="width:96%;"></span></div>
       </div>
       <div style="margin-top:16px;">
-        <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Bilan gratuit</span>
+        <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Fiche technique incluse</span>
         <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Sans engagement</span>
       </div>
     </div>
@@ -1026,16 +1068,16 @@
     </div>
     <div class="stats">
       <div class="reveal" style="--d:0s;">
-        <div class="stat-num" data-countup data-field="stats.stat1_number">1</div>
-        <p class="stat-label" data-field="stats.stat1_label">prise par semaine, sur 4 semaines de cure complète</p>
+        <div class="stat-num" data-countup data-field="stats.stat1_number">3-7j</div>
+        <p class="stat-label" data-field="stats.stat1_label">délai de livraison moyen en Union Européenne</p>
       </div>
       <div class="reveal" style="--d:.1s;">
         <div class="stat-num" data-countup data-suffix="%" data-field="stats.stat2_number">100%</div>
-        <p class="stat-label" data-field="stats.stat2_label">de l'accompagnement inclus dans le prix de la cure</p>
+        <p class="stat-label" data-field="stats.stat2_label">des lots documentés par certificat d'analyse (COA)</p>
       </div>
       <div class="reveal" style="--d:.2s;">
         <div class="stat-num" data-countup data-field="stats.stat3_number">4</div>
-        <p class="stat-label" data-field="stats.stat3_label">langues disponibles sur l'espace membre</p>
+        <p class="stat-label" data-field="stats.stat3_label">langues disponibles sur l'espace client</p>
       </div>
     </div>
   </div>
@@ -1046,55 +1088,31 @@
     <div class="section-head reveal">
       <span class="eyebrow">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
-        Avis clients
+        Retours de laboratoires
       </span>
-      <h2>Ils ont testé OV</h2>
-      <p>Témoignages clients</p>
+      <h2>Ils font confiance à OV Peptides</h2>
+      <p>Retours de laboratoires et chercheurs partenaires</p>
     </div>
     <div class="grid-3">
       <div class="testi-card reveal" style="--d:0s;">
-        <div class="testi-photos">
-          <div class="testi-photo" data-photo-slot="testimonials.0.photo_before">
-            <img class="testi-photo-img" src="/images/uploads/capture-d-écran-2026-07-14-163134.png" alt="Photo avant - Omar" loading="lazy">
-          </div>
-          <div class="testi-photo" data-photo-slot="testimonials.0.photo_after">
-            <img class="testi-photo-img" src="/images/uploads/capture-d-écran-2026-07-14-163146.png" alt="Photo après - Omar" loading="lazy">
-          </div>
-        </div>
-        <div class="testi-body">
-          <h3 data-field="testimonials.0.name_line">Omar, 32 ans — Grenoble</h3>
-          <p data-field="testimonials.0.story">Je suis passé de 108 kg à 100 kg en 8 semaines. J'ai retrouvé un meilleur contrôle de mon appétit, plus d'énergie au quotidien et une vraie motivation pour continuer mes objectifs.</p>
-          <p class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg><span data-field="testimonials.0.quote">C'est carré tout est pro, le suivi, l'expédition, l'emballage. Merci OV.</span></p>
+        <div class="testi-body" style="padding-top:26px;">
+          <h3 data-field="testimonials.0.name_line">Laboratoire de recherche indépendant</h3>
+          <p data-field="testimonials.0.story">Documentation systématique, numéros de lot clairs, certificats d'analyse fournis sans avoir à les réclamer. Ça simplifie vraiment nos contrôles qualité internes.</p>
+          <p class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg><span data-field="testimonials.0.quote">Le suivi, l'expédition, l'emballage : tout est carré et pro. Merci OV Peptides.</span></p>
         </div>
       </div>
       <div class="testi-card reveal" style="--d:.1s;">
-        <div class="testi-photos">
-          <div class="testi-photo" data-photo-slot="testimonials.1.photo_before">
-            <img class="testi-photo-img" src="/images/uploads/capture-d-écran-2026-07-14-163202.png" alt="Photo avant - Amélie" loading="lazy">
-          </div>
-          <div class="testi-photo" data-photo-slot="testimonials.1.photo_after">
-            <img class="testi-photo-img" src="/images/uploads/capture-d-écran-2026-07-14-163213.png" alt="Photo après - Amélie" loading="lazy">
-          </div>
-        </div>
-        <div class="testi-body">
-          <h3 data-field="testimonials.1.name_line">Amélie, 29 ans — Cassis</h3>
-          <p data-field="testimonials.1.story">En 11 semaines, j'ai perdu 12 kg. Je me sens vraiment mieux dans mon corps, j'ai retrouvé confiance en moi et surtout j'ai enfin réussi à mieux gérer mes envies au quotidien. Je suis trop contente du chemin parcouru.</p>
-          <p class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg><span data-field="testimonials.1.quote">Franchement la cure est au top avec peu d'effets secondaires pour ma part.</span></p>
+        <div class="testi-body" style="padding-top:26px;">
+          <h3 data-field="testimonials.1.name_line">Responsable R&amp;D, biotech</h3>
+          <p data-field="testimonials.1.story">Nous avons pu vérifier la pureté annoncée par recoupement avec nos propres analyses. La cohérence des lots facilite grandement la reproductibilité de nos protocoles.</p>
+          <p class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg><span data-field="testimonials.1.quote">Un fournisseur sérieux, avec un support technique qui répond vraiment à nos questions.</span></p>
         </div>
       </div>
       <div class="testi-card reveal" style="--d:.2s;">
-        <div class="testi-photos">
-          <div class="testi-photo" data-photo-slot="testimonials.2.photo_before">
-            <img class="testi-photo-img" src="/images/uploads/capture-d-écran-2026-07-14-173709.png" alt="Photo avant - Nelson" loading="lazy">
-          </div>
-          <div class="testi-photo" data-photo-slot="testimonials.2.photo_after">
-            <img class="testi-photo-img" src="/images/uploads/capture-d-écran-2026-07-14-173724.png" alt="Photo après - Nelson" loading="lazy">
-          </div>
-        </div>
-        <div class="testi-body">
-          <h3 data-field="testimonials.2.name_line">Nelson, 34 ans — Paris 11</h3>
-          <p data-field="testimonials.2.story">En l'espace de 4 semaines j'ai perdu 10 kilos, avec beaucoup de rigueur, une diet propre et du sport 2 fois par semaine. J'ai surtout arrêté de penser qu'à mon frigo toute la journée.</p>
-          <p class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg><span data-field="testimonials.2.quote">Franchement j'y croyais pas au début, j'étais sceptique. Il faut reconnaître que les résultats sont vraiment là. Incroyable.</span></p>
+        <div class="testi-body" style="padding-top:26px;">
+          <h3 data-field="testimonials.2.name_line">Chercheur, université partenaire</h3>
+          <p data-field="testimonials.2.story">Livraison fiable, conditionnement adapté à la conservation de nos échantillons, et une équipe disponible en cas de question sur une fiche technique.</p>
+          <p class="testi-quote"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg><span data-field="testimonials.2.quote">Une régularité que nous n'avions pas trouvée ailleurs. J'y croyais peu au début, les faits m'ont convaincu.</span></p>
         </div>
       </div>
     </div>
@@ -1105,12 +1123,12 @@
   <div class="container founder reveal">
     <div class="founder-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
     <span class="eyebrow">Le mot du fondateur</span>
-    <h2 style="margin-bottom:24px;">Pourquoi OV existe</h2>
-    <p data-field="founder.paragraph1">J'ai testé la cure moi-même avant de la proposer à qui que ce soit. En deux mois, en la combinant à une attention plus régulière à mon alimentation, je suis passé de 117 kg à 107 kg.</p>
-    <p data-field="founder.paragraph2">Ce n'est pas la cure seule qui a tout fait : c'est la routine hebdomadaire, associée à des choix alimentaires plus simples et plus réguliers, qui m'a permis de tenir dans la durée — là où j'avais échoué avec d'autres méthodes plus contraignantes.</p>
-    <p data-field="founder.paragraph3">C'est cette expérience personnelle qui m'a donné envie de partager OV avec d'autres actifs dans la même situation que moi.</p>
-    <p class="small-note" data-field="founder.disclaimer">⚠️ Mon expérience est individuelle et ne constitue pas une garantie de résultat. Les résultats varient selon les personnes, l'alimentation et le mode de vie.</p>
-    <p class="signature">— <span data-field="founder.name">Olivier Valin</span>, Fondateur d'OV</p>
+    <h2 style="margin-bottom:24px;">Pourquoi OV Peptides existe</h2>
+    <p data-field="founder.paragraph1">Après plusieurs années à observer le manque de rigueur et de traçabilité chez de nombreux fournisseurs de peptides de recherche, j'ai voulu créer une alternative fiable pour les laboratoires et chercheurs indépendants.</p>
+    <p data-field="founder.paragraph2">OV Peptides est né de cette volonté : proposer des références documentées, avec certificats d'analyse systématiques et un support technique réactif, pour que chaque commande serve réellement la recherche.</p>
+    <p data-field="founder.paragraph3">C'est cette exigence de rigueur qui guide chaque décision, du choix des fournisseurs jusqu'à l'expédition de chaque commande.</p>
+    <p class="small-note" data-field="founder.disclaimer">⚠️ Les produits OV Peptides sont exclusivement destinés à la recherche scientifique in vitro. Ils ne sont ni des médicaments, ni des compléments alimentaires, et ne sont pas destinés à la consommation humaine ou animale.</p>
+    <p class="signature">— <span data-field="founder.name">Olivier Valin</span>, Fondateur d'OV Peptides</p>
   </div>
 </section>
 
@@ -1128,12 +1146,12 @@
       <div class="card trust-card reveal" style="--d:0s;--card-accent:var(--accent-cyan);">
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6L4 20a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2L15 8V2"/><path d="M9 2h6"/><path d="M8.5 13h7"/></svg></div>
         <h3>Fabrication contrôlée</h3>
-        <p>Formules élaborées et conditionnées dans des installations respectant les normes en vigueur.</p>
+        <p>Formules élaborées et conditionnées dans des installations respectant les normes en vigueur pour un usage de recherche.</p>
       </div>
       <div class="card trust-card reveal" style="--d:.1s;--card-accent:var(--accent);">
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h3>Ingrédients tracés</h3>
-        <p>Chaque lot est documenté afin d'assurer une traçabilité complète, du fournisseur au kit final.</p>
+        <h3>Matières premières tracées</h3>
+        <p>Chaque lot est documenté afin d'assurer une traçabilité complète, du fournisseur à l'expédition.</p>
       </div>
       <div class="card trust-card reveal" style="--d:.2s;--card-accent:var(--accent-2);">
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
@@ -1143,7 +1161,7 @@
       <div class="card trust-card reveal" style="--d:.3s;--card-accent:var(--accent-red);">
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         <h3>Support réactif</h3>
-        <p>Une équipe joignable pour répondre à vos questions avant, pendant et après votre cure.</p>
+        <p>Une équipe joignable pour répondre à vos questions techniques avant, pendant et après votre commande.</p>
       </div>
     </div>
   </div>
@@ -1160,40 +1178,40 @@
     </div>
     <div class="grid-3">
       <div class="price-card reveal" style="--d:0s;">
-        <h3 data-field="pricing.0.name">Formule Découverte</h3>
-        <p class="price-sub" data-field="pricing.0.subtitle">Idéal pour commencer</p>
+        <h3 data-field="pricing.0.name">Référence Découverte</h3>
+        <p class="price-sub" data-field="pricing.0.subtitle">Idéal pour un premier essai en laboratoire</p>
         <div class="price" data-field="pricing.0.price">60 €</div>
         <p class="price-sub" data-field="pricing.0.note">+ frais de port</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.0.feature1">1 kit cure complet</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.0.feature2">Guide d'utilisation inclus</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.0.feature3">Accès espace membre</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.0.feature1">1 flacon de recherche</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.0.feature2">Fiche technique incluse</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.0.feature3">Accès espace client</span></li>
         </ul>
         <p class="stock-badge" data-stock-id="decouverte">Vérification du stock…</p>
         <a id="buy-decouverte" href="https://buy.stripe.com/14A28r3lc71J6Jk5VWcQU03" data-field-href="pricing.0.stripe_link" target="_blank" rel="noopener" class="btn btn-outline btn-block magnetic">Je choisis cette formule</a>
       </div>
       <div class="price-card featured reveal" style="--d:.1s;">
         <span class="badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26L21 9.27l-4.5 4.39L17.8 21 12 17.77 6.2 21l1.3-7.34L3 9.27l6.1-1.01z"/></svg>Le plus populaire</span>
-        <h3 data-field="pricing.1.name">Formule Intermédiaire</h3>
-        <p class="price-sub" data-field="pricing.1.subtitle">Le choix le plus équilibré</p>
+        <h3 data-field="pricing.1.name">Référence Intermédiaire</h3>
+        <p class="price-sub" data-field="pricing.1.subtitle">Le choix le plus équilibré pour un usage régulier</p>
         <div class="price" data-field="pricing.1.price">180 €</div>
         <p class="price-sub" data-field="pricing.1.note">Frais de port offerts</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.1.feature1">3 kits cure complets</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.1.feature2">Suivi personnalisé inclus</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.1.feature3">Accès espace membre privé</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.1.feature1">3 flacons de recherche</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.1.feature2">Support technique dédié inclus</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.1.feature3">Accès espace client privé</span></li>
         </ul>
         <p class="stock-badge" data-stock-id="intermediaire">Vérification du stock…</p>
         <a id="buy-intermediaire" href="https://buy.stripe.com/8x2eVd2h84TB4Bc3NOcQU04" data-field-href="pricing.1.stripe_link" target="_blank" rel="noopener" class="btn btn-primary btn-block magnetic">Je choisis cette formule</a>
       </div>
       <div class="price-card reveal" style="--d:.2s;">
-        <h3 data-field="pricing.2.name">Formule Pro</h3>
-        <p class="price-sub" data-field="pricing.2.subtitle">Pour anticiper sereinement</p>
+        <h3 data-field="pricing.2.name">Référence Pro</h3>
+        <p class="price-sub" data-field="pricing.2.subtitle">Pour les besoins réguliers de laboratoire</p>
         <div class="price" data-field="pricing.2.price">300 €</div>
         <p class="price-sub" data-field="pricing.2.note">Frais de port offerts</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.2.feature1">5 kits cure complets</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.2.feature2">Suivi personnalisé inclus</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.2.feature1">5 flacons de recherche</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.2.feature2">Support technique dédié inclus</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-field="pricing.2.feature3">Support prioritaire</span></li>
         </ul>
         <p class="stock-badge" data-stock-id="pro">Vérification du stock…</p>
@@ -1220,20 +1238,20 @@
     </div>
     <div class="faq reveal">
       <div class="faq-item">
-        <div class="faq-q"><span data-field="faq.0.question">Combien de temps avant de voir des résultats ?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="faq-a" data-field="faq.0.answer">Les premiers effets sur l'appétit apparaissent souvent en 1 à 2 semaines. La perte de poids devient généralement visible après 2 à 4 semaines, avec des résultats plus marqués au bout de 2 à 3 mois. Les résultats varient selon la personne, la dose, l'alimentation et l'activité physique.</div>
+        <div class="faq-q"><span data-field="faq.0.question">Les produits sont-ils destinés à la consommation humaine ?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a" data-field="faq.0.answer">Non. Tous les produits vendus par OV Peptides sont exclusivement destinés à la recherche scientifique en laboratoire (usage in vitro). Ils ne sont ni des médicaments, ni des compléments alimentaires. L'injection, l'ingestion ou toute administration à un être humain ou à un animal est strictement interdite. En passant commande, l'acheteur certifie être un professionnel ou un chercheur qualifié et s'engage à respecter cet usage exclusif.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span data-field="faq.1.question">Comment se déroule la cure au quotidien ?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="faq-a" data-field="faq.1.answer">La cure s'administre généralement en une prise par semaine. Il est recommandé de commencer avec une faible dose, puis d'augmenter progressivement afin de limiter les effets secondaires. Une alimentation équilibrée et une activité physique régulière permettent d'optimiser les résultats.</div>
+        <div class="faq-q"><span data-field="faq.1.question">Fournissez-vous un certificat d'analyse (COA) ?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a" data-field="faq.1.answer">Oui. Chaque référence est accompagnée d'un certificat d'analyse disponible sur demande, détaillant la pureté et la composition du lot concerné.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span data-field="faq.2.question">Est-ce compatible avec ma vie professionnelle ?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="faq-a" data-field="faq.2.answer">Oui, dans la plupart des cas. La cure ne se fait qu'une fois par semaine et s'intègre facilement à une routine. Certaines personnes peuvent ressentir des effets digestifs temporaires, surtout au début ou lors d'une augmentation de dose.</div>
+        <div class="faq-q"><span data-field="faq.2.question">Qui peut commander sur OV Peptides ?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a" data-field="faq.2.answer">Nos produits s'adressent aux laboratoires, chercheurs et professionnels de la recherche scientifique. Toute commande implique l'acceptation de nos CGV et la certification d'un usage conforme, exclusivement à des fins de recherche in vitro.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span data-field="faq.3.question">Que se passe-t-il si la cure ne me convient pas ?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="faq-a" data-field="faq.3.answer">Si la cure ne vous convient pas, il est possible de l'arrêter. En cas d'effets indésirables ou de questions, il est recommandé de consulter un professionnel de santé pour être accompagné.</div>
+        <div class="faq-q"><span data-field="faq.3.question">Quels sont les délais de livraison ?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a" data-field="faq.3.answer">Les commandes sont expédiées depuis l'Union Européenne sous 3 à 7 jours ouvrés, dans un conditionnement adapté à la conservation des produits.</div>
       </div>
     </div>
   </div>
@@ -1241,11 +1259,11 @@
 
 <section class="bg-alt final-cta">
   <div class="container reveal">
-    <h2 data-field="final_cta.title">Reprenez le contrôle, dès maintenant.</h2>
-    <p style="max-width:480px;margin:0 auto 28px;" data-field="final_cta.text">1 prise par semaine. 1 mois de cure. Un accompagnement complet.</p>
+    <h2 data-field="final_cta.title">Commandez vos références de recherche</h2>
+    <p style="max-width:480px;margin:0 auto 28px;" data-field="final_cta.text">Documentation complète. Support technique dédié. Livraison sous 3 à 7 jours.</p>
     <div class="hero-ctas">
-      <a href="#formules" class="btn btn-primary magnetic" data-field="final_cta.cta_primary">Choisir ma formule</a>
-      <a href="outils-gratuits.html" class="btn btn-outline magnetic" data-field="final_cta.cta_secondary">Faire mon bilan gratuit</a>
+      <a href="#formules" class="btn btn-primary magnetic" data-field="final_cta.cta_primary">Voir le catalogue</a>
+      <a href="outils-gratuits.html" class="btn btn-outline magnetic" data-field="final_cta.cta_secondary">Outils de laboratoire</a>
     </div>
   </div>
 </section>
@@ -1258,21 +1276,21 @@
           <img class="logo-mark" src="assets/logo-mark.png" alt="OV Peptides">
           <span class="logo-word">OV</span>
         </a>
-        <p style="margin-top:12px;" data-field="footer.tagline">Bien-être, forme et sérénité au quotidien.</p>
+        <p style="margin-top:12px;" data-field="footer.tagline">Peptides de recherche pour laboratoires et professionnels qualifiés.</p>
       </div>
       <div>
         <h4>Liens</h4>
         <ul>
           <li><a href="outils-gratuits.html">Outils gratuits</a></li>
-          <li><a href="#cure">La Cure</a></li>
+          <li><a href="#cure">Le Catalogue</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
       <div>
         <h4>Espace</h4>
         <ul>
-          <li><a href="outils-gratuits.html">Bilan gratuit</a></li>
-          <li><a href="espace-client.html">Espace Membre</a></li>
+          <li><a href="outils-gratuits.html">Outils de laboratoire</a></li>
+          <li><a href="espace-client.html">Espace Client</a></li>
           <li><a href="/admin/">Administration</a></li>
         </ul>
       </div>
@@ -1287,12 +1305,30 @@
       </div>
     </div>
     <div class="disclaimer">
-      <p data-field="footer.disclaimer">Les compléments alimentaires ne se substituent pas à une alimentation variée et équilibrée ni à un mode de vie sain.</p>
+      <p data-field="footer.disclaimer">Les produits commercialisés par OV Peptides sont exclusivement destinés à un usage de recherche scientifique en laboratoire (in vitro). Ils ne sont ni des médicaments, ni des compléments alimentaires, ni destinés à la consommation humaine ou animale sous quelque forme que ce soit. Vente réservée aux professionnels et chercheurs qualifiés.</p>
       <p data-field="footer.copyright">© 2026 OV. Tous droits réservés.</p>
     </div>
   </div>
 </footer>
 
+</div>
+
+<!-- Modal de certification usage recherche -->
+<div class="modal-overlay" id="research-modal">
+  <div class="modal-box">
+    <button type="button" class="modal-close" id="research-modal-close" aria-label="Fermer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h3>Certification requise</h3>
+    <p>Avant de continuer vers le paiement, merci de confirmer les points suivants.</p>
+    <label class="modal-check">
+      <input type="checkbox" id="research-cert-check">
+      <span>Je certifie être un professionnel ou un chercheur qualifié, et je m'engage à utiliser ce produit exclusivement à des fins de recherche scientifique en laboratoire (in vitro). Je reconnais que ce produit n'est ni un médicament, ni un complément alimentaire, et qu'il est strictement interdit de l'administrer à un être humain ou à un animal, par quelque voie que ce soit.</span>
+    </label>
+    <div class="modal-actions">
+      <a href="#" id="research-modal-continue" class="btn btn-primary" target="_blank" rel="noopener" style="opacity:.45;pointer-events:none;">Continuer vers le paiement</a>
+    </div>
+  </div>
 </div>
 
 <!-- Contenu editable (CMS) -->
@@ -1335,6 +1371,60 @@
       // Si le fichier n'est pas accessible (ouverture locale du fichier sans serveur),
       // le site garde simplement son contenu par defaut ecrit dans le HTML.
     });
+})();
+</script>
+
+<!-- Certification usage recherche avant paiement -->
+<script>
+(function(){
+  var overlay = document.getElementById('research-modal');
+  var closeBtn = document.getElementById('research-modal-close');
+  var check = document.getElementById('research-cert-check');
+  var continueLink = document.getElementById('research-modal-continue');
+  if(!overlay || !check || !continueLink) return;
+
+  var buyLinks = document.querySelectorAll('#buy-decouverte, #buy-intermediaire, #buy-pro');
+  var pendingHref = '';
+
+  function openModal(href){
+    pendingHref = href;
+    check.checked = false;
+    continueLink.style.opacity = '.45';
+    continueLink.style.pointerEvents = 'none';
+    continueLink.removeAttribute('href');
+    overlay.classList.add('is-open');
+  }
+  function closeModal(){
+    overlay.classList.remove('is-open');
+  }
+
+  buyLinks.forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      openModal(a.getAttribute('href'));
+    });
+  });
+
+  check.addEventListener('change', function(){
+    if(check.checked){
+      continueLink.style.opacity = '1';
+      continueLink.style.pointerEvents = 'auto';
+      continueLink.setAttribute('href', pendingHref);
+    } else {
+      continueLink.style.opacity = '.45';
+      continueLink.style.pointerEvents = 'none';
+      continueLink.removeAttribute('href');
+    }
+  });
+
+  continueLink.addEventListener('click', function(e){
+    if(!check.checked){ e.preventDefault(); return; }
+    closeModal();
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
 })();
 </script>
 
