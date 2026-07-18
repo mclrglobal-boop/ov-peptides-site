@@ -1,26 +1,26 @@
 # Tarifs — OV Peptides
 
-Peptides de recherche à haute pureté, certificat d'analyse (COA) disponible pour chaque lot. Support technique inclus (documentation technique + espace client privé). Livraison discrète depuis l'UE en 3 à 7 jours ouvrés. Droit de rétractation de 14 jours sur les produits non descellés.
+Peptides de recherche à haute pureté, certificat d'analyse (COA) disponible pour chaque lot. Support technique inclus (documentation technique + espace client privé). Frais de port : 4,99 € sur toutes les références. Livraison discrète depuis l'UE en 3 à 7 jours ouvrés. Droit de rétractation de 14 jours sur les produits non descellés.
 
 **Usage recherche exclusivement.** Vente réservée aux professionnels et chercheurs qualifiés, à des fins de recherche scientifique in vitro. Ces produits ne sont ni des médicaments, ni des compléments alimentaires, et ne sont pas destinés à la consommation humaine ou animale. Voir /cgv (article 3) pour les engagements requis de l'acheteur.
 
 ## Référence Découverte
 
-- Prix : 60 € + frais de port
+- Prix : 60 € + 4,99 € de frais de port
 - Contenu : 1 flacon de recherche
 - Inclus : fiche technique, accès espace client, matériel de laboratoire (seringue de précision et lingette de désinfection pour la reconstitution)
 - Idéal pour : un premier essai en laboratoire
 
 ## Référence Intermédiaire (la plus populaire)
 
-- Prix : 180 € (frais de port offerts)
+- Prix : 180 € + 4,99 € de frais de port
 - Contenu : 3 flacons de recherche
 - Inclus : support technique dédié, accès espace client privé, matériel de laboratoire (seringues de précision et lingettes de désinfection pour la reconstitution)
 - Idéal pour : un usage régulier
 
 ## Référence Pro
 
-- Prix : 300 € (frais de port offerts)
+- Prix : 300 € + 4,99 € de frais de port
 - Contenu : 5 flacons de recherche
 - Inclus : support technique dédié, support prioritaire, matériel de laboratoire (seringues de précision et lingettes de désinfection pour la reconstitution)
 - Idéal pour : les besoins réguliers de laboratoire
