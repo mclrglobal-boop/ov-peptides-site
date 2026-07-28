@@ -135,15 +135,6 @@
   .del-btn:hover{border-color:var(--accent-red);color:var(--accent-red-text);}
   .empty-row{text-align:center;color:var(--muted);padding:20px 8px;font-size:13px;}
 
-  /* --- Calculateur de reconstitution --- */
-  .recon-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-  @media (max-width:560px){ .recon-grid{grid-template-columns:1fr;} }
-  .recon-result{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px;padding:20px;border-radius:14px;background:rgba(79,127,255,.06);border:1px solid rgba(79,127,255,.2);}
-  @media (max-width:560px){ .recon-result{grid-template-columns:1fr;} }
-  .recon-result-item{text-align:center;}
-  .recon-result-val{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--accent-cyan);}
-  .recon-result-lbl{font-size:12px;color:var(--muted);margin-top:2px;}
-
   footer{border-top:1px solid var(--border-soft);padding:32px 0;text-align:center;}
   footer p{font-size:13px;color:var(--muted);}
 </style>
@@ -322,32 +313,6 @@
         </table>
       </div>
     </div>
-  </div>
-
-  <div class="card" id="reconstitution-card" style="margin-top:22px;">
-    <h3>Calculateur de reconstitution</h3>
-    <p style="font-size:13.5px;margin-bottom:18px;">Calcule la concentration obtenue après reconstitution d'un flacon lyophilisé. Outil de calcul de concentration uniquement — il n'indique ni dose, ni fréquence, ni mode d'administration, et ne constitue pas un protocole.</p>
-    <div class="recon-grid">
-      <div class="field">
-        <label for="recon-mg">Quantité du flacon (mg)</label>
-        <input type="number" id="recon-mg" step="0.01" min="0" placeholder="Ex : 10">
-      </div>
-      <div class="field">
-        <label for="recon-ml">Volume de solvant ajouté (ml)</label>
-        <input type="number" id="recon-ml" step="0.01" min="0" placeholder="Ex : 2">
-      </div>
-    </div>
-    <div class="recon-result" id="recon-result">
-      <div class="recon-result-item">
-        <div class="recon-result-val" id="recon-mgml">—</div>
-        <div class="recon-result-lbl">mg / ml</div>
-      </div>
-      <div class="recon-result-item">
-        <div class="recon-result-val" id="recon-mcgml">—</div>
-        <div class="recon-result-lbl">mcg (µg) / ml</div>
-      </div>
-    </div>
-    <p style="font-size:12px;margin-top:14px;color:var(--muted-2);">Résultat indicatif à visée de calcul de laboratoire. Ne remplace pas les indications du certificat d'analyse (COA) ni un avis professionnel.</p>
   </div>
 </section>
 
@@ -747,29 +712,6 @@
 })();
 </script>
 
-<!-- Calculateur de reconstitution (lab, aucun dosage) -->
-<script>
-(function(){
-  function $(id){ return document.getElementById(id); }
-  var mgInput = $('recon-mg'), mlInput = $('recon-ml');
-  var mgmlOut = $('recon-mgml'), mcgmlOut = $('recon-mcgml');
-  if(!mgInput || !mlInput) return;
-  function update(){
-    var mg = parseFloat(mgInput.value);
-    var ml = parseFloat(mlInput.value);
-    if(!mg || !ml || mg <= 0 || ml <= 0){
-      mgmlOut.textContent = '—';
-      mcgmlOut.textContent = '—';
-      return;
-    }
-    var mgPerMl = mg / ml;
-    mgmlOut.textContent = mgPerMl.toFixed(2);
-    mcgmlOut.textContent = Math.round(mgPerMl * 1000).toLocaleString('fr-FR');
-  }
-  mgInput.addEventListener('input', update);
-  mlInput.addEventListener('input', update);
-})();
-</script>
 
 <!-- Halo curseur ambiant (desktop uniquement) -->
 <script>
