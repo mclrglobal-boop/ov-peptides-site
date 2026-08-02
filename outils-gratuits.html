@@ -118,6 +118,20 @@
   .pdf-card .btn-primary{width:auto;padding:13px 28px;margin-top:16px;display:inline-flex;}
   .small-note{font-size:11px;color:var(--muted-2);margin-top:10px;}
 
+  /* Calculateur de reconstitution — carte vedette */
+  .recon-feature{grid-column:1 / -1;background:linear-gradient(160deg, rgba(79,127,255,.10), rgba(46,230,214,.05));border:1px solid rgba(79,127,255,.25);border-radius:var(--radius-lg);padding:34px;display:grid;grid-template-columns:190px 1fr;gap:38px;align-items:center;}
+  @media (max-width:760px){ .recon-feature{grid-template-columns:1fr;padding:24px;} }
+  .recon-feature .tool-head{margin-bottom:10px;}
+  .recon-feature p.desc{margin-bottom:22px;}
+  .vial-visual{display:flex;flex-direction:column;align-items:center;gap:12px;}
+  .vial-conc-tag{font-size:11.5px;color:var(--accent-cyan);background:rgba(46,230,214,.08);border:1px solid rgba(46,230,214,.25);padding:5px 13px;border-radius:999px;font-weight:700;white-space:nowrap;}
+  .recon-range{display:flex;align-items:center;gap:12px;}
+  .recon-range input[type=range]{flex:1;accent-color:var(--accent);height:4px;}
+  .recon-range input[type=number]{width:80px;flex:0 0 auto;text-align:center;}
+  .recon-result-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+  .recon-result-row .result-box{margin:0;}
+  .recon-note{font-size:11.5px;color:var(--muted-2);margin-top:14px;line-height:1.6;}
+
   footer{border-top:1px solid var(--border-soft);padding:60px 0 32px;color:var(--muted);font-size:14px;}
   .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
   @media (max-width:860px){ .foot-grid{grid-template-columns:1fr 1fr;} }
@@ -213,21 +227,73 @@
 
     <div class="tools-grid">
 
-      <!-- Reconstitution -->
-      <div class="tool-card reveal">
-        <div class="tool-head">
-          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6L4 20a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2L15 8V2"/><path d="M9 2h6"/><path d="M8.5 13h7"/></svg></div>
-          <h3>Calculateur de reconstitution</h3>
+      <!-- Reconstitution (carte vedette, plus visuelle) -->
+      <div class="tool-card recon-feature reveal">
+        <div class="vial-visual">
+          <svg viewBox="0 0 120 210" width="120" height="210" aria-hidden="true">
+            <defs>
+              <linearGradient id="liquidGrad" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#4f7fff"/>
+                <stop offset="100%" stop-color="#2ee6d6"/>
+              </linearGradient>
+              <clipPath id="vialClip"><rect x="18" y="42" width="84" height="158" rx="20"/></clipPath>
+            </defs>
+            <rect x="38" y="6" width="44" height="14" rx="4" fill="#8b93a8" opacity=".5"/>
+            <rect x="32" y="18" width="56" height="26" rx="8" fill="#cbd5ff" opacity=".28"/>
+            <g clip-path="url(#vialClip)">
+              <rect x="18" y="42" width="84" height="158" fill="rgba(255,255,255,.03)"/>
+              <rect id="vial-liquid" x="18" y="190" width="84" height="10" fill="url(#liquidGrad)" opacity=".7"/>
+            </g>
+            <rect x="18" y="42" width="84" height="158" rx="20" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+          </svg>
+          <span class="vial-conc-tag" id="vial-tag">— mg/mL</span>
         </div>
-        <p class="desc">Concentration obtenue après reconstitution d'un peptide lyophilisé.</p>
-        <div class="row-2">
-          <div class="field"><label>Quantité de peptide (mg)</label><input type="number" id="recon-mg" value="5"></div>
-          <div class="field"><label>Volume de solvant (mL)</label><input type="number" id="recon-ml" value="2" step="0.1"></div>
-        </div>
-        <div class="result-box">
-          <div class="result-num" id="recon-result">—</div>
-          <div class="result-label">concentration obtenue</div>
-          <div class="result-sub" id="recon-sub">—</div>
+        <div class="recon-controls">
+          <div class="tool-head">
+            <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6L4 20a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2L15 8V2"/><path d="M9 2h6"/><path d="M8.5 13h7"/></svg></div>
+            <h3>Calculateur de reconstitution</h3>
+          </div>
+          <p class="desc">Concentration obtenue après reconstitution d'un peptide lyophilisé — pour la préparation de solutions de recherche en laboratoire.</p>
+          <div class="field">
+            <label>Peptide (préréglage taille de flacon)</label>
+            <select id="recon-peptide">
+              <option value="custom" data-mg="5">Personnalisé</option>
+              <option value="bpc157" data-mg="5">BPC-157 (5 mg)</option>
+              <option value="tb500" data-mg="5">TB-500 (5 mg)</option>
+              <option value="blend" data-mg="10">Blend BPC-157 / TB-500 (10 mg)</option>
+              <option value="retatrutide" data-mg="10">Rétatrutide (10 mg)</option>
+              <option value="mots-c" data-mg="10">MOTS-c (10 mg)</option>
+              <option value="ghk-cu" data-mg="50">GHK-Cu (50 mg)</option>
+              <option value="snap-8" data-mg="10">SNAP-8 (10 mg)</option>
+              <option value="mt1" data-mg="10">MT-1 / MT-2 (10 mg)</option>
+              <option value="glow" data-mg="10">GLOW (10 mg)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Quantité de peptide dans le flacon (mg)</label>
+            <div class="recon-range">
+              <input type="range" id="recon-mg-range" min="0.5" max="100" step="0.5" value="5">
+              <input type="number" id="recon-mg" min="0.1" step="0.1" value="5">
+            </div>
+          </div>
+          <div class="field">
+            <label>Volume de solvant bactériostatique ajouté (mL)</label>
+            <div class="recon-range">
+              <input type="range" id="recon-ml-range" min="0.5" max="10" step="0.1" value="2">
+              <input type="number" id="recon-ml" min="0.1" step="0.1" value="2">
+            </div>
+          </div>
+          <div class="recon-result-row">
+            <div class="result-box">
+              <div class="result-num" id="recon-result">—</div>
+              <div class="result-label">concentration (mg/mL)</div>
+            </div>
+            <div class="result-box">
+              <div class="result-num" id="recon-sub">—</div>
+              <div class="result-label">concentration (µg/mL)</div>
+            </div>
+          </div>
+          <p class="recon-note">Valeur informative pour la préparation de solutions de recherche en laboratoire (in vitro). Ne constitue pas une indication de dose, de fréquence ou de mode d'administration.</p>
         </div>
       </div>
 
@@ -387,16 +453,51 @@
 <script>
   function $(id){ return document.getElementById(id); }
 
-  // Reconstitution
+  // Reconstitution (carte vedette avec fiole animée)
+  function updateVial(mg, ml){
+    var CONC_MAX = 50;   // mg/mL au-delà duquel la couleur est à saturation max
+    var VOL_MAX = 10;    // mL au-delà duquel la fiole est visuellement pleine
+    var conc = (mg && ml) ? mg/ml : 0;
+    var volRatio = Math.max(0, Math.min(ml / VOL_MAX, 1));
+    var bodyTop = 42, bodyBottom = 200, bodyH = bodyBottom - bodyTop;
+    var liquidH = Math.max(8, volRatio * bodyH);
+    var liquid = $('vial-liquid');
+    liquid.setAttribute('y', bodyBottom - liquidH);
+    liquid.setAttribute('height', liquidH);
+    var concRatio = Math.max(0, Math.min(conc / CONC_MAX, 1));
+    liquid.setAttribute('opacity', (0.35 + concRatio * 0.65).toFixed(2));
+    $('vial-tag').textContent = (conc ? (conc < 0.01 ? conc.toExponential(2) : conc.toFixed(2)) : '—') + ' mg/mL';
+  }
   function calcRecon(){
     var mg = parseFloat($('recon-mg').value);
     var ml = parseFloat($('recon-ml').value);
+    updateVial(mg, ml);
     if(!mg || !ml){ return; }
     var concMgMl = mg/ml;
-    $('recon-result').textContent = concMgMl.toFixed(2) + ' mg/mL';
-    $('recon-sub').textContent = (concMgMl*1000).toFixed(0) + ' µg/mL';
+    $('recon-result').textContent = concMgMl < 0.01 ? concMgMl.toExponential(2) : concMgMl.toFixed(2);
+    $('recon-sub').textContent = (concMgMl*1000).toFixed(0);
   }
-  ['recon-mg','recon-ml'].forEach(function(id){ $(id).addEventListener('input', calcRecon); });
+  // Synchronise les paires slider <-> champ numérique
+  function syncPair(rangeId, numberId, onChange){
+    var range = $(rangeId), number = $(numberId);
+    range.addEventListener('input', function(){ number.value = range.value; onChange(); });
+    number.addEventListener('input', function(){
+      var v = parseFloat(number.value);
+      if(!isNaN(v)){ range.value = Math.max(parseFloat(range.min), Math.min(parseFloat(range.max), v)); }
+      onChange();
+    });
+  }
+  syncPair('recon-mg-range', 'recon-mg', calcRecon);
+  syncPair('recon-ml-range', 'recon-ml', calcRecon);
+  $('recon-peptide').addEventListener('change', function(){
+    var opt = this.options[this.selectedIndex];
+    var mg = opt.getAttribute('data-mg');
+    if(mg){
+      $('recon-mg').value = mg;
+      $('recon-mg-range').value = mg;
+      calcRecon();
+    }
+  });
 
   // Dilution en série
   function calcDilution(){
