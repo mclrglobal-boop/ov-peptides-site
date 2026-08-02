@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catalogue de peptides de recherche — OV Peptides</title>
+<meta name="description" content="Catalogue de peptides de recherche par catégorie : réparation tissulaire, métabolisme, peau et pigmentation. Fiches informatives, usage recherche en laboratoire uniquement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050810; --bg-alt:#080b15; --card:#0d1220; --card-2:#111827;
+    --text:#f5f7fb; --muted:#8b93a8; --muted-2:#5b6478;
+    --accent:#4f7fff; --accent-2:#8b6bff; --accent-cyan:#2ee6d6; --accent-red:#ef4a72; --accent-red-text:#ff7fa0;
+    --green:#3ddc84; --amber:#e6a93f;
+    --border:#1b2333; --border-soft:rgba(255,255,255,.07);
+    --radius-sm:10px; --radius:16px; --radius-lg:26px;
+    --shadow-md:0 16px 40px -12px rgba(0,0,0,.5);
+    --ease:cubic-bezier(.16,1,.3,1); --font-display:'Space Grotesk',Inter,system-ui,sans-serif; --maxw:1180px;
+  }
+  #cursor-glow{position:fixed;top:0;left:0;width:640px;height:640px;border-radius:50%;pointer-events:none;z-index:0;opacity:0;transition:opacity .5s ease;background:radial-gradient(circle, rgba(46,230,214,.10), rgba(79,127,255,.07) 38%, transparent 70%);transform:translate(-50%,-50%);will-change:transform;mix-blend-mode:screen;}
+  @media (hover:none), (max-width:860px){ #cursor-glow{display:none;} }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible,
+  select:focus-visible, [tabindex]:focus-visible{ outline:2px solid var(--accent);outline-offset:2px;border-radius:4px; }
+  .skip-link{ position:absolute;left:-9999px;top:0;z-index:9999;background:var(--accent);color:#fff;padding:10px 18px;border-radius:0 0 8px 0;font-size:14px;font-weight:600; }
+  .skip-link:focus{left:0;}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{ animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important; }
+    .reveal{opacity:1 !important;transform:none !important;}
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{ font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden; }
+  a{color:inherit;text-decoration:none;}
+  img,svg{max-width:100%;display:block;}
+  #dna-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.5;}
+  .page{position:relative;z-index:1;}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  section{padding:72px 0;}
+  h1,h2,h3{font-family:var(--font-display);line-height:1.2;font-weight:700;letter-spacing:-.02em;}
+  h1{font-size:clamp(32px,5vw,46px);}
+  h2{font-size:clamp(24px,3.2vw,30px);margin-bottom:6px;}
+  h3{font-size:18px;margin-bottom:6px;font-weight:600;}
+  p{color:var(--muted);}
+  .eyebrow{ display:inline-flex;align-items:center;gap:7px;font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--accent-cyan);background:rgba(46,230,214,.08);border:1px solid rgba(46,230,214,.28);padding:7px 16px 7px 12px;border-radius:999px;margin-bottom:20px; }
+  .eyebrow svg{width:14px;height:14px;}
+  .btn{ position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:12px;font-weight:600;font-size:14px;cursor:pointer;border:1px solid transparent;transition:transform .3s var(--ease), box-shadow .3s var(--ease), filter .25s ease, border-color .25s ease; }
+  .btn svg{width:16px;height:16px;}
+  .btn-primary{ background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#fff;text-align:center;border:none;box-shadow:0 12px 28px -10px rgba(79,127,255,.5); }
+  .btn-primary:hover{filter:brightness(1.1);}
+  .btn-outline{border-color:var(--border-soft);color:var(--text);background:rgba(255,255,255,.02);}
+  .btn-outline:hover{border-color:rgba(79,127,255,.5);background:rgba(79,127,255,.06);}
+
+  .logo-mark{height:34px;width:auto;flex-shrink:0;display:block;}
+  .logo-wrap{display:flex;align-items:center;gap:10px;}
+  .logo-word{font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--text);}
+  .logo-word span{background:linear-gradient(120deg,var(--accent),var(--accent-red));-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  header{position:sticky;top:0;z-index:100;background:rgba(5,8,16,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-soft);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:15px 24px;max-width:var(--maxw);margin:0 auto;}
+  .nav-links{display:flex;gap:8px;font-size:14px;color:var(--muted);}
+  .nav-links a{padding:8px 14px;border-radius:8px;transition:color .2s ease, background .2s ease;}
+  .nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,.04);}
+  .nav-right{display:flex;align-items:center;gap:10px;font-size:14px;}
+  .nav-right .lang{color:var(--muted);font-size:13px;}
+  .admin-link{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;color:var(--muted);opacity:.5;transition:opacity .25s ease,color .25s ease,background .25s ease;flex:0 0 auto;}
+  .admin-link:hover{opacity:1;color:var(--accent-cyan);background:rgba(255,255,255,.06);}
+  .btn-nav{padding:9px 18px;font-size:14px;}
+  .nav-toggle{display:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--border-soft);background:rgba(255,255,255,.02);align-items:center;justify-content:center;cursor:pointer;color:var(--text);}
+  .nav-toggle svg{width:20px;height:20px;}
+  .mobile-panel{display:none;flex-direction:column;gap:4px;padding:12px 24px 20px;border-top:1px solid var(--border-soft);}
+  .mobile-panel a{padding:12px 8px;font-size:15px;color:var(--muted);border-radius:8px;}
+  .mobile-panel a:hover{color:var(--text);background:rgba(255,255,255,.04);}
+  .mobile-panel .btn{margin-top:8px;}
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .nav-right .btn-outline{display:none;}
+    .nav-right .admin-link{display:none;}
+    .nav-toggle{display:flex;}
+    header.menu-open .mobile-panel{display:flex;}
+  }
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease), transform .7s var(--ease);transition-delay:var(--d,0s);}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  .hero{padding:56px 0 16px;text-align:center;}
+  .hero p.lead{max-width:600px;margin:14px auto 0;font-size:16px;}
+
+  .legal-warning{ display:flex;gap:12px;align-items:flex-start;font-size:12.5px;color:var(--muted-2);background:rgba(239,74,114,.06);border:1px solid rgba(239,74,114,.2);border-radius:var(--radius);padding:18px 20px;margin:20px auto 0;max-width:680px;text-align:left; }
+  .legal-warning svg{width:20px;height:20px;color:var(--accent-red-text);flex-shrink:0;margin-top:1px;}
+  .legal-warning b{color:var(--accent-red-text);}
+
+  .cat-block{margin-bottom:56px;}
+  .cat-head{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+  .cat-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,rgba(79,127,255,.16),rgba(139,107,255,.1));border:1px solid rgba(79,127,255,.22);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .cat-icon svg{width:21px;height:21px;}
+  .cat-head p{margin-top:2px;font-size:13.5px;}
+
+  .pep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media (max-width:960px){ .pep-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:640px){ .pep-grid{grid-template-columns:1fr;} }
+  .pep-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:border-color .3s var(--ease), transform .3s var(--ease);}
+  .pep-card:hover{border-color:rgba(79,127,255,.3);transform:translateY(-3px);}
+  .pep-card h3{font-size:16.5px;}
+  .pep-sub{font-size:12px;color:var(--accent-cyan);font-weight:600;margin-bottom:10px;}
+  .pep-desc{font-size:13.5px;line-height:1.65;}
+  .pep-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+  .pep-tags span{font-size:11px;color:var(--muted);background:rgba(255,255,255,.03);border:1px solid var(--border-soft);padding:5px 10px;border-radius:999px;}
+
+  .cta-card{ background:linear-gradient(120deg, rgba(79,127,255,.12), rgba(239,74,114,.1));border:1px solid var(--border-soft);border-radius:var(--radius-lg);padding:32px;text-align:center;margin-top:8px; }
+  .cta-card .btn-primary{display:inline-flex;margin-top:14px;}
+
+  footer{border-top:1px solid var(--border-soft);padding:60px 0 32px;color:var(--muted);font-size:14px;}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+  @media (max-width:860px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+  .foot-grid h4{color:var(--text);font-size:13.5px;margin-bottom:14px;}
+  .foot-grid ul{list-style:none;}
+  .foot-grid li{margin-bottom:8px;}
+  .foot-grid a:hover{color:var(--text);}
+  .disclaimer{font-size:12.5px;border-top:1px solid var(--border-soft);padding-top:24px;}
+  .disclaimer b{color:var(--accent-red-text);}
+</style>
+<link rel="canonical" href="https://ov-peptides.netlify.app/peptides">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OV Peptides">
+<meta property="og:title" content="Catalogue de peptides de recherche — OV Peptides">
+<meta property="og:description" content="Catalogue de peptides de recherche par catégorie. Usage recherche en laboratoire uniquement.">
+<meta property="og:url" content="https://ov-peptides.netlify.app/peptides">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Catalogue de peptides de recherche — OV Peptides">
+<meta name="twitter:description" content="Fiches informatives par catégorie : réparation tissulaire, métabolisme, peau et pigmentation.">
+</head>
+<body>
+
+<canvas id="dna-bg"></canvas>
+<div id="cursor-glow" aria-hidden="true"></div>
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<div class="page">
+
+<header id="site-header">
+  <div class="nav">
+    <a class="logo-wrap" href="index.html">
+      <img class="logo-mark" src="assets/logo-mark.png" alt="OV Peptides">
+      <span class="logo-word">OV <span>Peptides</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="peptides.html" class="active">Peptides</a>
+      <a href="outils-gratuits.html">Outils de laboratoire</a>
+      <a href="index.html#formules">Formules</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <span class="lang">FR</span>
+      <a href="/admin/" class="admin-link hide-mobile" title="Connexion Admin" aria-label="Connexion Admin">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+      </a>
+      <a href="espace-client.html" class="btn btn-outline btn-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Espace client
+      </a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-panel" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-panel" id="mobile-panel">
+    <a href="index.html">Accueil</a>
+    <a href="peptides.html">Peptides</a>
+    <a href="outils-gratuits.html">Outils de laboratoire</a>
+    <a href="index.html#formules">Formules</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="espace-client.html" class="btn btn-primary">Espace client</a>
+    <a href="/admin/" style="margin-top:4px;text-align:center;font-size:13px;color:var(--muted);">Connexion Admin</a>
+  </div>
+</header>
+<a id="main-content" tabindex="-1"></a>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      Catalogue de recherche
+    </span>
+    <h1 class="reveal" style="--d:.05s;">Peptides de recherche par catégorie</h1>
+    <p class="lead reveal" style="--d:.1s;">Fiches informatives sur les composés étudiés en laboratoire, classées par domaine de recherche. Contenu à visée documentaire, ne remplace pas la littérature scientifique primaire.</p>
+    <div class="legal-warning reveal" style="--d:.12s;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span><b>Usage recherche exclusivement.</b> Ces fiches décrivent des mécanismes étudiés en laboratoire (in vitro). Elles ne contiennent aucune indication de dose, de fréquence ou de mode d'administration, et ne constituent en aucun cas une recommandation à des fins de consommation humaine ou animale. Vente réservée aux professionnels et chercheurs qualifiés.</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+
+    <!-- Réparation & récupération tissulaire -->
+    <div class="cat-block">
+      <div class="cat-head reveal">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg></div>
+        <div>
+          <h2>Réparation &amp; récupération tissulaire</h2>
+          <p>Composés étudiés pour leur rôle dans les mécanismes cellulaires de réparation et de régénération.</p>
+        </div>
+      </div>
+      <div class="pep-grid">
+
+        <div class="pep-card reveal">
+          <h3>BPC-157</h3>
+          <div class="pep-sub">Body Protection Compound-157</div>
+          <p class="pep-desc">Peptide de recherche largement documenté dans la littérature préclinique pour son interaction avec les voies de signalisation cellulaire impliquées dans la réparation tissulaire et la modulation de l'inflammation, étudiées en modèle in vitro.</p>
+          <div class="pep-tags"><span>Réparation cellulaire</span><span>Voies inflammatoires</span><span>Modèle in vitro</span></div>
+        </div>
+
+        <div class="pep-card reveal" style="--d:.05s;">
+          <h3>TB-500</h3>
+          <div class="pep-sub">Fragment synthétique de la Thymosine Bêta-4</div>
+          <p class="pep-desc">Fragment peptidique étudié pour son rôle dans la migration cellulaire et les mécanismes de régénération à l'échelle systémique. Sujet de recherche fréquent en biologie cellulaire expérimentale.</p>
+          <div class="pep-tags"><span>Migration cellulaire</span><span>Régénération</span><span>Modèle in vitro</span></div>
+        </div>
+
+        <div class="pep-card reveal" style="--d:.1s;">
+          <h3>Blend BPC-157 / TB-500</h3>
+          <div class="pep-sub">Préparation combinée (ratio 1:1)</div>
+          <p class="pep-desc">Préparation associant les deux composés dans un même flacon, utilisée en recherche pour étudier conjointement les mécanismes de réparation localisée et de régénération systémique.</p>
+          <div class="pep-tags"><span>Étude combinée</span><span>Réparation &amp; régénération</span><span>Modèle in vitro</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Métabolisme & composition corporelle -->
+    <div class="cat-block">
+      <div class="cat-head reveal">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
+        <div>
+          <h2>Métabolisme &amp; composition corporelle</h2>
+          <p>Composés étudiés pour leur interaction avec les voies de régulation métabolique.</p>
+        </div>
+      </div>
+      <div class="pep-grid">
+
+        <div class="pep-card reveal">
+          <h3>Rétatrutide</h3>
+          <div class="pep-sub">Triple agoniste GLP-1 / GIP / Glucagon (étude)</div>
+          <p class="pep-desc">Composé de recherche étudié comme agoniste triple des récepteurs GLP-1, GIP et glucagon — trois voies impliquées dans la régulation de l'homéostasie énergétique. Sujet d'intérêt en pharmacologie métabolique expérimentale.</p>
+          <div class="pep-tags"><span>Voie incrétine</span><span>Homéostasie énergétique</span><span>Modèle in vitro</span></div>
+        </div>
+
+        <div class="pep-card reveal" style="--d:.05s;">
+          <h3>MOTS-c</h3>
+          <div class="pep-sub">Mitochondrial Open Reading Frame of the 12S rRNA type-c</div>
+          <p class="pep-desc">Peptide mitochondrial étudié en recherche comme capteur métabolique, notamment pour son interaction avec la voie de signalisation AMPK impliquée dans la régulation énergétique cellulaire.</p>
+          <div class="pep-tags"><span>Voie AMPK</span><span>Biologie mitochondriale</span><span>Modèle in vitro</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Peau, esthétique & pigmentation -->
+    <div class="cat-block">
+      <div class="cat-head reveal">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
+        <div>
+          <h2>Peau, esthétique &amp; pigmentation</h2>
+          <p>Composés étudiés pour leurs interactions cellulaires au niveau cutané.</p>
+        </div>
+      </div>
+      <div class="pep-grid">
+
+        <div class="pep-card reveal">
+          <h3>GHK-Cu</h3>
+          <div class="pep-sub">Glycyl-L-Histidyl-L-Lysine Copper</div>
+          <p class="pep-desc">Peptide de signalisation lié au cuivre, étudié in vitro pour son rôle dans les processus cellulaires de réparation tissulaire et la stimulation de la synthèse de collagène et d'élastine.</p>
+          <div class="pep-tags"><span>Signalisation cellulaire</span><span>Synthèse de collagène</span><span>Modèle in vitro</span></div>
+        </div>
+
+        <div class="pep-card reveal" style="--d:.05s;">
+          <h3>SNAP-8</h3>
+          <div class="pep-sub">Acétyl Octapeptide-3</div>
+          <p class="pep-desc">Peptide de recherche cosmétique dérivé de l'Argireline, étudié pour son interaction avec le complexe SNARE au niveau de la jonction neuromusculaire, en application topique de laboratoire uniquement.</p>
+          <div class="pep-tags"><span>Complexe SNARE</span><span>Application topique</span><span>Modèle in vitro</span></div>
+        </div>
+
+        <div class="pep-card reveal" style="--d:.1s;">
+          <h3>MT-1 / MT-2</h3>
+          <div class="pep-sub">Melanotan I / Melanotan II</div>
+          <p class="pep-desc">Peptides analogues de l'hormone alpha-MSH, étudiés en modèle cellulaire pour leur interaction avec les récepteurs MC1R impliqués dans la voie de mélanogenèse.</p>
+          <div class="pep-tags"><span>Récepteurs MC1R</span><span>Voie de mélanogenèse</span><span>Modèle in vitro</span></div>
+        </div>
+
+        <div class="pep-card reveal" style="--d:.15s;">
+          <h3>GLOW</h3>
+          <div class="pep-sub">Blend GHK-Cu + BPC-157 + TB-500</div>
+          <p class="pep-desc">Préparation combinée destinée à l'étude conjointe des voies de réparation tissulaire, de régénération cutanée et de récupération cellulaire au sein d'un même modèle de recherche.</p>
+          <div class="pep-tags"><span>Étude combinée</span><span>Régénération cutanée</span><span>Modèle in vitro</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="cta-card reveal">
+      <h3>Vous cherchez une référence non listée ?</h3>
+      <p>Contactez-nous pour toute question sur une référence de recherche spécifique ou pour vérifier la disponibilité d'un lot.</p>
+      <a href="mailto:mclr.global@gmail.com" class="btn btn-primary">Nous contacter</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="logo-wrap" href="index.html">
+          <img class="logo-mark" src="assets/logo-mark.png" alt="OV Peptides">
+          <span class="logo-word">OV</span>
+        </a>
+        <p style="margin-top:12px;">Peptides de recherche pour laboratoires et professionnels qualifiés.</p>
+      </div>
+      <div>
+        <h4>Liens</h4>
+        <ul>
+          <li><a href="peptides.html">Peptides</a></li>
+          <li><a href="outils-gratuits.html">Outils de laboratoire</a></li>
+          <li><a href="index.html#formules">Formules</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Espace</h4>
+        <ul><li><a href="index.html#bilan">Support technique</a></li><li><a href="espace-client.html">Espace Client</a></li></ul>
+      </div>
+      <div>
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="cgv.html">CGV</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="cgv.html#retours">Retours &amp; remboursements</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <p><b>Usage recherche exclusivement.</b> Les composés présentés sur cette page sont exclusivement destinés à la recherche scientifique en laboratoire (in vitro). Ils ne sont ni des médicaments, ni des compléments alimentaires, et ne sont pas destinés à la consommation humaine ou animale. Vente réservée aux professionnels et chercheurs qualifiés.</p>
+      <p style="margin-top:8px;">© 2026 OV. Tous droits réservés.</p>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<!-- Navigation mobile -->
+<script>
+(function(){
+  var header = document.getElementById('site-header');
+  var toggle = document.getElementById('nav-toggle');
+  var panel = document.getElementById('mobile-panel');
+  if(!toggle || !panel) return;
+  function close(){ header.classList.remove('menu-open'); toggle.setAttribute('aria-expanded','false'); }
+  toggle.addEventListener('click', function(){
+    var open = header.classList.toggle('menu-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 860) close(); });
+})();
+</script>
+
+<!-- Reveal au scroll -->
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if(reduced || !('IntersectionObserver' in window)){ els.forEach(function(el){ el.classList.add('in-view'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<!-- Fond ADN animé -->
+<script>
+(function(){
+  var canvas = document.getElementById('dna-bg');
+  if(!canvas) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ctx = canvas.getContext('2d');
+  var W, H;
+  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  function colorFor(depth, alpha){
+    var m = (depth+1)/2;
+    var r = Math.round(79 + (239-79)*m);
+    var g = Math.round(127 + (74-127)*m);
+    var b = Math.round(255 + (114-255)*m);
+    return 'rgba('+r+','+g+','+b+','+alpha.toFixed(2)+')';
+  }
+  function drawHelix(cx, phase){
+    var amp = 34, freqY = 0.045, step = 10, rungEvery = 3;
+    var pts1 = [], pts2 = [];
+    for(var y=-step; y<H+step*2; y+=step){
+      var angle = y*freqY + phase;
+      var depth = Math.cos(angle);
+      pts1.push({x: cx + Math.sin(angle)*amp, y:y, d: depth});
+      pts2.push({x: cx + Math.sin(angle+Math.PI)*amp, y:y, d: -depth});
+    }
+    for(var i=0;i<pts1.length;i+=rungEvery){
+      var a = pts1[i], b = pts2[i];
+      var alpha = 0.05 + 0.09*((a.d+1)/2);
+      ctx.strokeStyle = colorFor(a.d, alpha);
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,a.y); ctx.stroke();
+    }
+    function drawStrand(pts){
+      for(var i=0;i<pts.length-1;i++){
+        var p = pts[i], q = pts[i+1];
+        var alpha = 0.08 + 0.13*((p.d+1)/2);
+        ctx.strokeStyle = colorFor(p.d, alpha);
+        ctx.lineWidth = 1.4;
+        ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke();
+      }
+    }
+    drawStrand(pts1);
+    drawStrand(pts2);
+    [pts1,pts2].forEach(function(pts){
+      pts.forEach(function(p,i){
+        if(i % rungEvery !== 0) return;
+        var r = 1 + 1.3*((p.d+1)/2);
+        ctx.fillStyle = colorFor(p.d, 0.16 + 0.2*((p.d+1)/2));
+        ctx.beginPath(); ctx.arc(p.x,p.y,r,0,Math.PI*2); ctx.fill();
+      });
+    });
+  }
+  var t = 0;
+  var colGap = 240;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var cx = colGap/2; cx < W + colGap; cx += colGap){ drawHelix(cx, t + cx*0.008); }
+  }
+  function frame(){ t += 0.01; draw(); requestAnimationFrame(frame); }
+  if(reduced){ draw(); } else { requestAnimationFrame(frame); }
+})();
+</script>
+
+<!-- Halo curseur ambiant (desktop uniquement) -->
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canHover = window.matchMedia('(hover:hover)').matches;
+  var glow = document.getElementById('cursor-glow');
+  if(reduced || !canHover || !glow) return;
+  var tx = 0, ty = 0, cx = 0, cy = 0, raf = null, shown = false;
+  function loop(){
+    cx += (tx - cx) * 0.14;
+    cy += (ty - cy) * 0.14;
+    glow.style.transform = 'translate(' + cx + 'px,' + cy + 'px)';
+    raf = requestAnimationFrame(loop);
+  }
+  window.addEventListener('mousemove', function(e){
+    tx = e.clientX; ty = e.clientY;
+    if(!shown){ shown = true; glow.style.opacity = '1'; cx = tx; cy = ty; loop(); }
+  }, { passive:true });
+  document.addEventListener('mouseleave', function(){ glow.style.opacity = '0'; });
+})();
+</script>
+
+</body>
+</html>
