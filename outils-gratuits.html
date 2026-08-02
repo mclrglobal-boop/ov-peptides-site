@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Outils de laboratoire — OV Peptides</title>
-<meta name="description" content="6 calculateurs gratuits pour la recherche en laboratoire : reconstitution, dilution en série, molarité, conversion d'unités, volume à prélever. 100% gratuit, sans inscription. Usage recherche uniquement.">
+<title>Calculateur de dilution en série — OV Peptides</title>
+<meta name="description" content="Calculateur de dilution en série gratuit pour la recherche en laboratoire. 100% gratuit, sans inscription. Usage recherche uniquement.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -145,13 +145,13 @@
 <link rel="canonical" href="https://ov-peptides.netlify.app/outils-gratuits">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="OV Peptides">
-<meta property="og:title" content="Outils de laboratoire — OV Peptides">
-<meta property="og:description" content="6 calculateurs gratuits pour la recherche en laboratoire : reconstitution, dilution en série, molarité, conversion d'unités, volume à prélever. Usage recherche uniquement.">
+<meta property="og:title" content="Calculateur de dilution en série — OV Peptides">
+<meta property="og:description" content="Calculateur de dilution en série gratuit pour la recherche en laboratoire. Usage recherche uniquement.">
 <meta property="og:url" content="https://ov-peptides.netlify.app/outils-gratuits">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Outils de laboratoire — OV Peptides">
-<meta name="twitter:description" content="6 calculateurs gratuits pour la recherche en laboratoire : reconstitution, dilution, molarité, conversion d'unités.">
+<meta name="twitter:title" content="Calculateur de dilution en série — OV Peptides">
+<meta name="twitter:description" content="Calculateur de dilution en série gratuit pour la recherche en laboratoire.">
 </head>
 <body>
 
@@ -205,11 +205,11 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       100% gratuit · sans inscription
     </span>
-    <h1 class="reveal" style="--d:.05s;">Outils de laboratoire gratuits</h1>
-    <p class="lead reveal" style="--d:.1s;">Calculs instantanés pour vos protocoles de recherche. Ne remplace pas un protocole validé par votre laboratoire.</p>
+    <h1 class="reveal" style="--d:.05s;">Calculateur de dilution en série</h1>
+    <p class="lead reveal" style="--d:.1s;">Calcul instantané pour vos protocoles de recherche. Ne remplace pas un protocole validé par votre laboratoire.</p>
     <div class="legal-warning reveal" style="--d:.12s;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <span><b>Usage recherche exclusivement.</b> Ces calculateurs sont fournis à titre indicatif pour la préparation de solutions de recherche en laboratoire (in vitro). Ils ne constituent en aucun cas une recommandation de dosage à des fins d'administration humaine ou animale.</span>
+      <span><b>Usage recherche exclusivement.</b> Ce calculateur est fourni à titre indicatif pour la préparation de solutions de recherche en laboratoire (in vitro). Il ne constitue en aucun cas une recommandation de dosage à des fins d'administration humaine ou animale.</span>
     </div>
   </div>
 </section>
@@ -225,80 +225,10 @@
       <p class="small-note">En téléchargeant, j'accepte de recevoir des emails d'OV Peptides. Je peux me désinscrire à tout moment.</p>
     </div>
 
-    <div class="tools-grid">
-
-      <!-- Reconstitution (carte vedette, plus visuelle) -->
-      <div class="tool-card recon-feature reveal">
-        <div class="vial-visual">
-          <svg viewBox="0 0 120 210" width="120" height="210" aria-hidden="true">
-            <defs>
-              <linearGradient id="liquidGrad" x1="0" y1="1" x2="0" y2="0">
-                <stop offset="0%" stop-color="#4f7fff"/>
-                <stop offset="100%" stop-color="#2ee6d6"/>
-              </linearGradient>
-              <clipPath id="vialClip"><rect x="18" y="42" width="84" height="158" rx="20"/></clipPath>
-            </defs>
-            <rect x="38" y="6" width="44" height="14" rx="4" fill="#8b93a8" opacity=".5"/>
-            <rect x="32" y="18" width="56" height="26" rx="8" fill="#cbd5ff" opacity=".28"/>
-            <g clip-path="url(#vialClip)">
-              <rect x="18" y="42" width="84" height="158" fill="rgba(255,255,255,.03)"/>
-              <rect id="vial-liquid" x="18" y="190" width="84" height="10" fill="url(#liquidGrad)" opacity=".7"/>
-            </g>
-            <rect x="18" y="42" width="84" height="158" rx="20" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
-          </svg>
-          <span class="vial-conc-tag" id="vial-tag">— mg/mL</span>
-        </div>
-        <div class="recon-controls">
-          <div class="tool-head">
-            <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6L4 20a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2L15 8V2"/><path d="M9 2h6"/><path d="M8.5 13h7"/></svg></div>
-            <h3>Calculateur de reconstitution</h3>
-          </div>
-          <p class="desc">Concentration obtenue après reconstitution d'un peptide lyophilisé — pour la préparation de solutions de recherche en laboratoire.</p>
-          <div class="field">
-            <label>Peptide (préréglage taille de flacon)</label>
-            <select id="recon-peptide">
-              <option value="custom" data-mg="5">Personnalisé</option>
-              <option value="bpc157" data-mg="5">BPC-157 (5 mg)</option>
-              <option value="tb500" data-mg="5">TB-500 (5 mg)</option>
-              <option value="blend" data-mg="10">Blend BPC-157 / TB-500 (10 mg)</option>
-              <option value="retatrutide" data-mg="10">Rétatrutide (10 mg)</option>
-              <option value="mots-c" data-mg="10">MOTS-c (10 mg)</option>
-              <option value="ghk-cu" data-mg="50">GHK-Cu (50 mg)</option>
-              <option value="snap-8" data-mg="10">SNAP-8 (10 mg)</option>
-              <option value="mt1" data-mg="10">MT-1 / MT-2 (10 mg)</option>
-              <option value="glow" data-mg="10">GLOW (10 mg)</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Quantité de peptide dans le flacon (mg)</label>
-            <div class="recon-range">
-              <input type="range" id="recon-mg-range" min="0.5" max="100" step="0.5" value="5">
-              <input type="number" id="recon-mg" min="0.1" step="0.1" value="5">
-            </div>
-          </div>
-          <div class="field">
-            <label>Volume de solvant bactériostatique ajouté (mL)</label>
-            <div class="recon-range">
-              <input type="range" id="recon-ml-range" min="0.5" max="10" step="0.1" value="2">
-              <input type="number" id="recon-ml" min="0.1" step="0.1" value="2">
-            </div>
-          </div>
-          <div class="recon-result-row">
-            <div class="result-box">
-              <div class="result-num" id="recon-result">—</div>
-              <div class="result-label">concentration (mg/mL)</div>
-            </div>
-            <div class="result-box">
-              <div class="result-num" id="recon-sub">—</div>
-              <div class="result-label">concentration (µg/mL)</div>
-            </div>
-          </div>
-          <p class="recon-note">Valeur informative pour la préparation de solutions de recherche en laboratoire (in vitro). Ne constitue pas une indication de dose, de fréquence ou de mode d'administration.</p>
-        </div>
-      </div>
+    <div class="tools-grid" style="max-width:520px;margin:0 auto;">
 
       <!-- Dilution en série -->
-      <div class="tool-card reveal" style="--d:.05s;">
+      <div class="tool-card reveal">
         <div class="tool-head">
           <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
           <h3>Dilution en série</h3>
@@ -313,94 +243,6 @@
           <div class="result-num" id="dil-result">—</div>
           <div class="result-label">concentration finale</div>
           <div class="result-sub" id="dil-sub">—</div>
-        </div>
-      </div>
-
-      <!-- Convertisseur d'unités -->
-      <div class="tool-card reveal" style="--d:.1s;">
-        <div class="tool-head">
-          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/><circle cx="12" cy="12" r="4"/></svg></div>
-          <h3>Convertisseur d'unités</h3>
-        </div>
-        <p class="desc">Masse ou volume, conversion instantanée.</p>
-        <div class="seg" id="conv-type">
-          <button data-val="mass" class="active">Masse</button>
-          <button data-val="volume">Volume</button>
-        </div>
-        <div class="row-3">
-          <div class="field"><label>Valeur</label><input type="number" id="conv-value" value="1"></div>
-          <div class="field"><label>De</label>
-            <select id="conv-from"></select>
-          </div>
-          <div class="field"><label>Vers</label>
-            <select id="conv-to"></select>
-          </div>
-        </div>
-        <div class="result-box">
-          <div class="result-num" id="conv-result">—</div>
-          <div class="result-label" id="conv-label">résultat</div>
-        </div>
-      </div>
-
-      <!-- Molarité -->
-      <div class="tool-card reveal" style="--d:.15s;">
-        <div class="tool-head">
-          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-          <h3>Calculateur de molarité</h3>
-        </div>
-        <p class="desc">Concentration molaire à partir de la masse et du poids moléculaire.</p>
-        <div class="row-2">
-          <div class="field"><label>Masse (mg)</label><input type="number" id="mol-mg" value="5" step="0.1"></div>
-          <div class="field"><label>Poids moléculaire (g/mol)</label><input type="number" id="mol-mw" value="1000"></div>
-        </div>
-        <div class="field"><label>Volume (mL)</label><input type="number" id="mol-ml" value="1" step="0.1"></div>
-        <div class="result-box">
-          <div class="result-num" id="mol-result">—</div>
-          <div class="result-label">concentration</div>
-          <div class="result-sub" id="mol-sub">—</div>
-        </div>
-      </div>
-
-      <!-- Volume à prélever -->
-      <div class="tool-card reveal" style="--d:.2s;">
-        <div class="tool-head">
-          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5 17.5 17.5"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div>
-          <h3>Volume à prélever</h3>
-        </div>
-        <p class="desc">Volume à prélever d'une solution mère pour obtenir une dose de recherche donnée.</p>
-        <div class="row-2">
-          <div class="field"><label>Concentration solution mère (mg/mL)</label><input type="number" id="draw-conc" value="5" step="0.1"></div>
-          <div class="field"><label>Quantité recherchée (µg)</label><input type="number" id="draw-dose" value="100"></div>
-        </div>
-        <div class="result-box">
-          <div class="result-num" id="draw-result">—</div>
-          <div class="result-label">volume à prélever</div>
-        </div>
-      </div>
-
-      <!-- Stabilité de stockage -->
-      <div class="tool-card reveal" style="--d:.25s;">
-        <div class="tool-head">
-          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69s-6 8.32-6 12.31a6 6 0 0 0 12 0c0-3.99-6-12.31-6-12.31z"/></svg></div>
-          <h3>Stabilité de stockage</h3>
-        </div>
-        <p class="desc">Indications générales de conservation selon l'état du produit.</p>
-        <div class="field"><label>État du produit</label>
-          <select id="stab-state">
-            <option value="lyo">Lyophilisé (non reconstitué)</option>
-            <option value="recon">Reconstitué (en solution)</option>
-          </select>
-        </div>
-        <div class="field"><label>Température de conservation</label>
-          <select id="stab-temp">
-            <option value="-20">-20°C (congélateur)</option>
-            <option value="4" selected>2-8°C (réfrigérateur)</option>
-            <option value="20">Température ambiante</option>
-          </select>
-        </div>
-        <div class="result-box">
-          <div class="result-num" id="stab-result" style="font-size:18px;">—</div>
-          <div class="result-label">estimation indicative</div>
         </div>
       </div>
 
@@ -442,7 +284,7 @@
       </div>
     </div>
     <div class="disclaimer">
-      <p><b>Usage recherche exclusivement.</b> Ces calculateurs sont fournis à titre indicatif pour la préparation de solutions de recherche en laboratoire et ne remplacent pas un protocole validé. Ils ne constituent pas une recommandation de dosage pour un usage humain ou animal.</p>
+      <p><b>Usage recherche exclusivement.</b> Ce calculateur est fourni à titre indicatif pour la préparation de solutions de recherche en laboratoire et ne remplace pas un protocole validé. Il ne constitue pas une recommandation de dosage pour un usage humain ou animal.</p>
       <p style="margin-top:8px;">© 2026 OV. Tous droits réservés.</p>
     </div>
   </div>
@@ -452,52 +294,6 @@
 
 <script>
   function $(id){ return document.getElementById(id); }
-
-  // Reconstitution (carte vedette avec fiole animée)
-  function updateVial(mg, ml){
-    var CONC_MAX = 50;   // mg/mL au-delà duquel la couleur est à saturation max
-    var VOL_MAX = 10;    // mL au-delà duquel la fiole est visuellement pleine
-    var conc = (mg && ml) ? mg/ml : 0;
-    var volRatio = Math.max(0, Math.min(ml / VOL_MAX, 1));
-    var bodyTop = 42, bodyBottom = 200, bodyH = bodyBottom - bodyTop;
-    var liquidH = Math.max(8, volRatio * bodyH);
-    var liquid = $('vial-liquid');
-    liquid.setAttribute('y', bodyBottom - liquidH);
-    liquid.setAttribute('height', liquidH);
-    var concRatio = Math.max(0, Math.min(conc / CONC_MAX, 1));
-    liquid.setAttribute('opacity', (0.35 + concRatio * 0.65).toFixed(2));
-    $('vial-tag').textContent = (conc ? (conc < 0.01 ? conc.toExponential(2) : conc.toFixed(2)) : '—') + ' mg/mL';
-  }
-  function calcRecon(){
-    var mg = parseFloat($('recon-mg').value);
-    var ml = parseFloat($('recon-ml').value);
-    updateVial(mg, ml);
-    if(!mg || !ml){ return; }
-    var concMgMl = mg/ml;
-    $('recon-result').textContent = concMgMl < 0.01 ? concMgMl.toExponential(2) : concMgMl.toFixed(2);
-    $('recon-sub').textContent = (concMgMl*1000).toFixed(0);
-  }
-  // Synchronise les paires slider <-> champ numérique
-  function syncPair(rangeId, numberId, onChange){
-    var range = $(rangeId), number = $(numberId);
-    range.addEventListener('input', function(){ number.value = range.value; onChange(); });
-    number.addEventListener('input', function(){
-      var v = parseFloat(number.value);
-      if(!isNaN(v)){ range.value = Math.max(parseFloat(range.min), Math.min(parseFloat(range.max), v)); }
-      onChange();
-    });
-  }
-  syncPair('recon-mg-range', 'recon-mg', calcRecon);
-  syncPair('recon-ml-range', 'recon-ml', calcRecon);
-  $('recon-peptide').addEventListener('change', function(){
-    var opt = this.options[this.selectedIndex];
-    var mg = opt.getAttribute('data-mg');
-    if(mg){
-      $('recon-mg').value = mg;
-      $('recon-mg-range').value = mg;
-      calcRecon();
-    }
-  });
 
   // Dilution en série
   function calcDilution(){
@@ -516,88 +312,8 @@
   }
   ['dil-c0','dil-factor','dil-steps'].forEach(function(id){ $(id).addEventListener('input', calcDilution); });
 
-  // Convertisseur d'unités
-  var UNITS = {
-    mass: { label:'masse', options:['µg','mg','g'], toBase:{ 'µg':0.001, 'mg':1, 'g':1000 } }, // base = mg
-    volume: { label:'volume', options:['µL','mL','L'], toBase:{ 'µL':0.001, 'mL':1, 'L':1000 } } // base = mL
-  };
-  var convType = 'mass';
-  function populateConvUnits(){
-    var opts = UNITS[convType].options;
-    var from = $('conv-from'), to = $('conv-to');
-    from.innerHTML = ''; to.innerHTML = '';
-    opts.forEach(function(u){
-      var o1 = document.createElement('option'); o1.value = u; o1.textContent = u; from.appendChild(o1);
-      var o2 = document.createElement('option'); o2.value = u; o2.textContent = u; to.appendChild(o2);
-    });
-    from.value = opts[1]; to.value = opts[0];
-  }
-  document.querySelectorAll('#conv-type button').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      document.querySelectorAll('#conv-type button').forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      convType = btn.dataset.val;
-      populateConvUnits();
-      calcConv();
-    });
-  });
-  function calcConv(){
-    var val = parseFloat($('conv-value').value);
-    var from = $('conv-from').value, to = $('conv-to').value;
-    if(isNaN(val)){ return; }
-    var table = UNITS[convType].toBase;
-    var base = val * table[from];
-    var result = base / table[to];
-    $('conv-result').textContent = (Math.abs(result) < 0.001 ? result.toExponential(2) : parseFloat(result.toFixed(6))) + ' ' + to;
-    $('conv-label').textContent = UNITS[convType].label;
-  }
-  populateConvUnits();
-  ['conv-value','conv-from','conv-to'].forEach(function(id){
-    $(id).addEventListener('input', calcConv);
-    $(id).addEventListener('change', calcConv);
-  });
-
-  // Molarité
-  function calcMolarity(){
-    var mg = parseFloat($('mol-mg').value);
-    var mw = parseFloat($('mol-mw').value);
-    var ml = parseFloat($('mol-ml').value);
-    if(!mg || !mw || !ml){ return; }
-    var mM = (mg/mw/ml)*1000;
-    $('mol-result').textContent = (mM < 0.01 ? mM.toExponential(2) : mM.toFixed(3)) + ' mM';
-    $('mol-sub').textContent = (mM*1000).toFixed(0) + ' µM';
-  }
-  ['mol-mg','mol-mw','mol-ml'].forEach(function(id){ $(id).addEventListener('input', calcMolarity); });
-
-  // Volume à prélever
-  function calcDraw(){
-    var conc = parseFloat($('draw-conc').value);
-    var dose = parseFloat($('draw-dose').value);
-    if(!conc || !dose){ return; }
-    var volumeUl = dose/conc;
-    $('draw-result').textContent = volumeUl.toFixed(1) + ' µL';
-  }
-  ['draw-conc','draw-dose'].forEach(function(id){ $(id).addEventListener('input', calcDraw); });
-
-  // Stabilité de stockage (indicatif, informations générales de manipulation en laboratoire)
-  var STAB = {
-    'lyo_-20': "Lyophilisé, conservé à -20°C : généralement stable jusqu'à 24 mois. Éviter les cycles de gel/dégel répétés.",
-    'lyo_4': "Lyophilisé, conservé à 2-8°C : généralement stable plusieurs mois. Pour une conservation longue durée, privilégier -20°C.",
-    'lyo_20': "Lyophilisé, à température ambiante : stabilité réduite, quelques semaines. Conservation au frais recommandée dès réception.",
-    'recon_-20': "Reconstitué, congelé à -20°C : aliquoter avant congélation, éviter les cycles de gel/dégel répétés.",
-    'recon_4': "Reconstitué, conservé à 2-8°C : généralement à utiliser dans les 2 à 4 semaines selon le solvant utilisé.",
-    'recon_20': "Reconstitué, à température ambiante : dégradation rapide, usage recommandé dans les heures suivant la préparation."
-  };
-  function calcStability(){
-    var state = $('stab-state').value;
-    var temp = $('stab-temp').value === '-20' ? '-20' : ($('stab-temp').value === '4' ? '4' : '20');
-    var key = state + '_' + temp;
-    $('stab-result').textContent = STAB[key] || '—';
-  }
-  ['stab-state','stab-temp'].forEach(function(id){ $(id).addEventListener('change', calcStability); });
-
   // Init
-  calcRecon(); calcDilution(); calcConv(); calcMolarity(); calcDraw(); calcStability();
+  calcDilution();
 </script>
 
 <!-- Navigation mobile -->
