@@ -262,7 +262,7 @@
   var sessionId = params.get('session_id');
 
   if(!sessionId){
-    showError("Aucune commande trouvée dans le lien. Si vous venez de payer, retournez dans votre boîte de réception Stripe/votre historique de commande, ou contactez-nous à mclr.global@gmail.com avec votre email de commande.");
+    showError("Aucune commande trouvée dans le lien. Si vous venez de payer, retournez dans votre boîte de réception Stripe/votre historique de commande, ou contactez-nous à contact@ov-peptides.com avec votre email de commande.");
     return;
   }
 
@@ -270,7 +270,7 @@
     && SUPABASE_URL.indexOf('VOTRE_') !== 0 && SUPABASE_ANON_KEY.indexOf('VOTRE_') !== 0;
 
   if(!configReady){
-    showError("Configuration indisponible pour le moment. Contactez-nous à mclr.global@gmail.com avec votre email de commande pour récupérer votre code.");
+    showError("Configuration indisponible pour le moment. Contactez-nous à contact@ov-peptides.com avec votre email de commande pour récupérer votre code.");
     return;
   }
 
@@ -279,7 +279,7 @@
   function attempt(triesLeft){
     supabase.rpc('get_code_by_session', { p_session_id: sessionId }).then(function(res){
       if(res.error){
-        showError("Impossible de récupérer votre code pour le moment. Rafraîchissez cette page dans quelques instants, ou contactez-nous à mclr.global@gmail.com avec votre email de commande.");
+        showError("Impossible de récupérer votre code pour le moment. Rafraîchissez cette page dans quelques instants, ou contactez-nous à contact@ov-peptides.com avec votre email de commande.");
         return;
       }
       var code = res.data;
@@ -293,7 +293,7 @@
         // Le webhook Stripe peut mettre quelques secondes à traiter le paiement.
         setTimeout(function(){ attempt(triesLeft - 1); }, 2000);
       } else {
-        showError("Votre commande est confirmée mais le code met un peu plus de temps que prévu à s'afficher. Rafraîchissez cette page dans une minute, ou contactez-nous à mclr.global@gmail.com avec votre email de commande.");
+        showError("Votre commande est confirmée mais le code met un peu plus de temps que prévu à s'afficher. Rafraîchissez cette page dans une minute, ou contactez-nous à contact@ov-peptides.com avec votre email de commande.");
       }
     });
   }
@@ -312,7 +312,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 OV Peptides. Besoin d'aide ? Écrivez-nous à mclr.global@gmail.com</p>
+    <p>© 2026 OV Peptides. Besoin d'aide ? Écrivez-nous à contact@ov-peptides.com</p>
   </div>
 </footer>
 
