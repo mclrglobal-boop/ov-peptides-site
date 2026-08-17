@@ -107,6 +107,18 @@
   .pep-desc{font-size:13.5px;line-height:1.65;}
   .pep-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
   .pep-tags span{font-size:11px;color:var(--muted);background:rgba(255,255,255,.03);border:1px solid var(--border-soft);padding:5px 10px;border-radius:999px;}
+  .pep-details{margin-top:14px;border-top:1px solid var(--border-soft);padding-top:12px;}
+  .pep-details summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--accent-cyan);user-select:none;}
+  .pep-details summary::-webkit-details-marker{display:none;}
+  .pep-details summary::before{content:"";width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(-45deg);transition:transform .25s var(--ease);flex-shrink:0;}
+  .pep-details[open] summary::before{transform:rotate(45deg);}
+  .pep-details .pep-mech{font-size:12.5px;line-height:1.65;color:var(--muted);margin-top:10px;}
+  .pep-details .pep-stab{font-size:12px;line-height:1.6;color:var(--muted-2);margin-top:10px;padding:10px 12px;background:rgba(255,255,255,.02);border:1px solid var(--border-soft);border-radius:10px;}
+  .pep-details .pep-stab b{color:var(--muted);}
+  .pep-refs{margin-top:10px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:5px;}
+  .pep-refs li{font-size:11.5px;color:var(--muted-2);}
+  .pep-refs a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;}
+  .pep-refs a:hover{color:var(--accent-cyan);}
   .pep-photo{width:100%;height:220px;border-radius:12px;overflow:hidden;margin-bottom:16px;background:var(--bg-alt);border:1px solid var(--border-soft);padding:10px;}
   .pep-photo img{width:100%;height:100%;object-fit:contain;display:block;}
   .pep-photo-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--muted-2);font-size:11.5px;text-align:center;padding:10px;background:repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 10px, transparent 10px 20px), linear-gradient(135deg,#10141f,#0a0c14);border:1px dashed var(--border);}
@@ -224,6 +236,15 @@
           <div class="pep-sub">Body Protection Compound-157</div>
           <p class="pep-desc">Peptide de recherche largement documenté dans la littérature préclinique pour son interaction avec les voies de signalisation cellulaire impliquées dans la réparation tissulaire et la modulation de l'inflammation, étudiées en modèle in vitro.</p>
           <div class="pep-tags"><span>Réparation cellulaire</span><span>Voies inflammatoires</span><span>Modèle in vitro</span></div>
+          <details class="pep-details">
+            <summary>Détails scientifiques</summary>
+            <p class="pep-mech">Dans les modèles précliniques, BPC-157 active des voies dépendantes et indépendantes du VEGF (VEGFR2–PI3K–Akt–eNOS ; Src–cavéoline-1–eNOS) conduisant à la production de monoxyde d'azote, ce qui soutient l'angiogenèse et la stabilité vasculaire dans les tissus peu vascularisés comme les tendons. Des études sur tendon d'Achille lésé ont rapporté une augmentation notable de l'expression de VEGFR2 après exposition, ainsi qu'une régulation à la hausse du récepteur de l'hormone de croissance dans les fibroblastes tendineux.</p>
+            <ul class="pep-refs">
+              <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12313605/" target="_blank" rel="noopener">Emerging Use of BPC-157 in Orthopaedic Sports Medicine — Systematic Review, PMC</a></li>
+              <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6271067/" target="_blank" rel="noopener">BPC 157 Enhances Growth Hormone Receptor Expression in Tendon Fibroblasts, PMC</a></li>
+            </ul>
+            <p class="pep-stab"><b>Stabilité :</b> forme lyophilisée stable à -20°C à l'abri de la lumière et de l'humidité. Une fois reconstitué en conditions de laboratoire, conserver au réfrigérateur (2–8°C) et utiliser dans les meilleurs délais pour préserver l'intégrité du peptide.</p>
+          </details>
           <a href="mailto:contact@ov-peptides.com?subject=Commande%20-%20BPC-157" id="buy-bpc-157" class="btn btn-primary pep-buy">Acheter</a>
           <p class="stock-badge" data-stock-id="bpc-157">Vérification du stock…</p>
         </div>
@@ -234,6 +255,14 @@
           <div class="pep-sub">Fragment synthétique de la Thymosine Bêta-4</div>
           <p class="pep-desc">Fragment peptidique étudié pour son rôle dans la migration cellulaire et les mécanismes de régénération à l'échelle systémique. Sujet de recherche fréquent en biologie cellulaire expérimentale.</p>
           <div class="pep-tags"><span>Migration cellulaire</span><span>Régénération</span><span>Modèle in vitro</span></div>
+          <details class="pep-details">
+            <summary>Détails scientifiques</summary>
+            <p class="pep-mech">TB-500 est le fragment synthétique actif de la thymosine bêta-4, une protéine intracellulaire séquestrant la G-actine. Son motif fonctionnel LKKTETQ régule la polymérisation de l'actine, un mécanisme étudié en biologie cellulaire pour son implication dans la motilité et la migration cellulaires lors de processus de réparation tissulaire in vitro.</p>
+            <ul class="pep-refs">
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/14500546/" target="_blank" rel="noopener">Thymosin beta 4: a ubiquitous peptide implicated in cell motility and repair, PubMed</a></li>
+            </ul>
+            <p class="pep-stab"><b>Stabilité :</b> forme lyophilisée stable à -20°C à l'abri de la lumière et de l'humidité. Une fois reconstitué en conditions de laboratoire, conserver au réfrigérateur (2–8°C) et utiliser dans les meilleurs délais pour préserver l'intégrité du peptide.</p>
+          </details>
           <a href="mailto:contact@ov-peptides.com?subject=Commande%20-%20TB-500" id="buy-tb-500" class="btn btn-primary pep-buy">Acheter</a>
           <p class="stock-badge" data-stock-id="tb-500">Vérification du stock…</p>
         </div>
@@ -244,6 +273,15 @@
           <div class="pep-sub">Préparation combinée (ratio 1:1)</div>
           <p class="pep-desc">Préparation associant les deux composés dans un même flacon, utilisée en recherche pour étudier conjointement les mécanismes de réparation localisée et de régénération systémique.</p>
           <div class="pep-tags"><span>Étude combinée</span><span>Réparation &amp; régénération</span><span>Modèle in vitro</span></div>
+          <details class="pep-details">
+            <summary>Détails scientifiques</summary>
+            <p class="pep-mech">Cette préparation associe BPC-157, étudié pour son activation des voies VEGFR2–PI3K–Akt–eNOS soutenant l'angiogenèse locale, et TB-500, étudié pour sa régulation de la polymérisation de l'actine via son motif LKKTETQ. En recherche, l'intérêt de cette association réside dans l'étude conjointe d'un mécanisme de réparation localisée (BPC-157) et d'un mécanisme de migration cellulaire à portée plus systémique (TB-500).</p>
+            <ul class="pep-refs">
+              <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12313605/" target="_blank" rel="noopener">Emerging Use of BPC-157 in Orthopaedic Sports Medicine — Systematic Review, PMC</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/14500546/" target="_blank" rel="noopener">Thymosin beta 4: a ubiquitous peptide implicated in cell motility and repair, PubMed</a></li>
+            </ul>
+            <p class="pep-stab"><b>Stabilité :</b> forme lyophilisée stable à -20°C à l'abri de la lumière et de l'humidité. Une fois reconstitué en conditions de laboratoire, conserver au réfrigérateur (2–8°C) et utiliser dans les meilleurs délais.</p>
+          </details>
           <a href="mailto:contact@ov-peptides.com?subject=Commande%20-%20Blend%20BPC-157%20/%20TB-500" id="buy-blend-bpc157-tb500" class="btn btn-primary pep-buy">Acheter</a>
           <p class="stock-badge" data-stock-id="blend-bpc157-tb500">Vérification du stock…</p>
         </div>
@@ -268,6 +306,15 @@
           <div class="pep-sub">Triple agoniste GLP-1 / GIP / Glucagon (étude)</div>
           <p class="pep-desc">Composé de recherche étudié comme agoniste triple des récepteurs GLP-1, GIP et glucagon — trois voies impliquées dans la régulation de l'homéostasie énergétique. Sujet d'intérêt en pharmacologie métabolique expérimentale.</p>
           <div class="pep-tags"><span>Voie incrétine</span><span>Homéostasie énergétique</span><span>Modèle in vitro</span></div>
+          <details class="pep-details">
+            <summary>Détails scientifiques</summary>
+            <p class="pep-mech">La rétatrutide est un peptide de 39 acides aminés conçu comme agoniste unimoléculaire des trois récepteurs GLP-1, GIP et glucagon. Les données de pharmacologie moléculaire publiées décrivent sa puissance et sa sélectivité relative sur chacun des trois récepteurs, un profil étudié pour comprendre l'intégration de ces voies incrétines et glucagonergiques dans la régulation de l'homéostasie énergétique cellulaire.</p>
+            <ul class="pep-refs">
+              <li><a href="https://www.nature.com/articles/s41591-024-03018-2" target="_blank" rel="noopener">Retatrutide, a GIP, GLP-1 and glucagon receptor agonist — Nature Medicine</a></li>
+              <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11255275/" target="_blank" rel="noopener">Pharmacological characterization of triple receptor agonism, PMC</a></li>
+            </ul>
+            <p class="pep-stab"><b>Stabilité :</b> forme lyophilisée stable à -20°C à l'abri de la lumière et de l'humidité. Une fois reconstitué en conditions de laboratoire, conserver au réfrigérateur (2–8°C) et utiliser dans les meilleurs délais.</p>
+          </details>
           <a href="mailto:contact@ov-peptides.com?subject=Commande%20-%20Retatrutide" id="buy-retatrutide" class="btn btn-primary pep-buy">Acheter</a>
           <p class="stock-badge" data-stock-id="retatrutide">Vérification du stock…</p>
         </div>
@@ -278,6 +325,15 @@
           <div class="pep-sub">Mitochondrial Open Reading Frame of the 12S rRNA type-c</div>
           <p class="pep-desc">Peptide mitochondrial étudié en recherche comme capteur métabolique, notamment pour son interaction avec la voie de signalisation AMPK impliquée dans la régulation énergétique cellulaire.</p>
           <div class="pep-tags"><span>Voie AMPK</span><span>Biologie mitochondriale</span><span>Modèle in vitro</span></div>
+          <details class="pep-details">
+            <summary>Détails scientifiques</summary>
+            <p class="pep-mech">MOTS-c est un peptide de 16 acides aminés codé par l'ADN mitochondrial. Il est étudié pour son rôle de capteur métabolique via la voie folate–AICAR–AMPK, avec une translocation nucléaire en réponse au stress métabolique observée en modèle cellulaire, ainsi qu'une interaction avec le transporteur de glucose GLUT4 dans les études sur le métabolisme énergétique musculaire.</p>
+            <ul class="pep-refs">
+              <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9854231/" target="_blank" rel="noopener">MOTS-c: A Mitochondrial-Derived Peptide and Metabolic Regulator, PMC</a></li>
+              <li><a href="https://www.sciencedirect.com/science/article/pii/S1550413115000613" target="_blank" rel="noopener">MOTS-c: A Mitochondrial-Derived Peptide Regulating Metabolism — Cell Metabolism</a></li>
+            </ul>
+            <p class="pep-stab"><b>Stabilité :</b> forme lyophilisée stable à -20°C à l'abri de la lumière et de l'humidité. Une fois reconstitué en conditions de laboratoire, conserver au réfrigérateur (2–8°C) et utiliser dans les meilleurs délais.</p>
+          </details>
           <a href="mailto:contact@ov-peptides.com?subject=Commande%20-%20MOTS-c" id="buy-mots-c" class="btn btn-primary pep-buy">Acheter</a>
           <p class="stock-badge" data-stock-id="mots-c">Vérification du stock…</p>
         </div>
@@ -302,6 +358,14 @@
           <div class="pep-sub">Glycyl-L-Histidyl-L-Lysine Copper</div>
           <p class="pep-desc">Peptide de signalisation lié au cuivre, étudié in vitro pour son rôle dans les processus cellulaires de réparation tissulaire et la stimulation de la synthèse de collagène et d'élastine.</p>
           <div class="pep-tags"><span>Signalisation cellulaire</span><span>Synthèse de collagène</span><span>Modèle in vitro</span></div>
+          <details class="pep-details">
+            <summary>Détails scientifiques</summary>
+            <p class="pep-mech">Le complexe GHK-Cu est un tripeptide naturel à forte affinité pour le cuivre(II). La littérature de recherche décrit son implication dans la modulation de l'expression de gènes liés au remodelage tissulaire, ainsi que son interaction avec des enzymes comme la lysyl oxydase, impliquée dans la maturation du collagène et de l'élastine en modèle cellulaire.</p>
+            <ul class="pep-refs">
+              <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3448653/" target="_blank" rel="noopener">The Human Tri-peptide GHK and Tissue Remodeling, PMC</a></li>
+            </ul>
+            <p class="pep-stab"><b>Stabilité :</b> forme lyophilisée stable à -20°C à l'abri de la lumière et de l'humidité. Une fois reconstitué en conditions de laboratoire, conserver au réfrigérateur (2–8°C) et utiliser dans les meilleurs délais.</p>
+          </details>
           <a href="mailto:contact@ov-peptides.com?subject=Commande%20-%20GHK-Cu" id="buy-ghk-cu" class="btn btn-primary pep-buy">Acheter</a>
           <p class="stock-badge" data-stock-id="ghk-cu">Vérification du stock…</p>
         </div>
@@ -312,6 +376,11 @@
           <div class="pep-sub">Acétyl Octapeptide-3</div>
           <p class="pep-desc">Peptide de recherche cosmétique dérivé de l'Argireline, étudié pour son interaction avec le complexe SNARE au niveau de la jonction neuromusculaire, en application topique de laboratoire uniquement.</p>
           <div class="pep-tags"><span>Complexe SNARE</span><span>Application topique</span><span>Modèle in vitro</span></div>
+          <details class="pep-details">
+            <summary>Détails scientifiques</summary>
+            <p class="pep-mech">SNAP-8 est un octapeptide de synthèse dérivé de la famille des inhibiteurs du complexe SNARE (dont fait partie l'Argireline), étudié en recherche cosmétique pour son interaction compétitive avec les protéines impliquées dans la fusion vésiculaire au niveau de la jonction neuromusculaire. Ce mécanisme en fait un sujet d'étude fréquent en biologie cellulaire de la contraction musculaire, en application topique de laboratoire.</p>
+            <p class="pep-stab"><b>Stabilité :</b> forme lyophilisée stable à -20°C à l'abri de la lumière et de l'humidité. Une fois reconstitué en conditions de laboratoire, conserver au réfrigérateur (2–8°C) et utiliser dans les meilleurs délais.</p>
+          </details>
           <a href="mailto:contact@ov-peptides.com?subject=Commande%20-%20SNAP-8" id="buy-snap-8" class="btn btn-primary pep-buy">Acheter</a>
           <p class="stock-badge" data-stock-id="snap-8">Vérification du stock…</p>
         </div>
@@ -322,6 +391,14 @@
           <div class="pep-sub">Melanotan I</div>
           <p class="pep-desc">Peptide analogue de l'hormone alpha-MSH, étudié en modèle cellulaire pour son interaction avec les récepteurs MC1R impliqués dans la voie de mélanogenèse.</p>
           <div class="pep-tags"><span>Récepteurs MC1R</span><span>Voie de mélanogenèse</span><span>Modèle in vitro</span></div>
+          <details class="pep-details">
+            <summary>Détails scientifiques</summary>
+            <p class="pep-mech">Le MT-1 (Melanotan I) est un analogue synthétique de l'hormone alpha-mélanotrope (α-MSH), étudié pour son activité agoniste sur le récepteur MC1R. Cette liaison active la voie de signalisation cAMP–PKA–CREB, régulant l'expression du facteur de transcription MITF et, en aval, l'activité de la tyrosinase impliquée dans la synthèse de mélanine en modèle cellulaire.</p>
+            <ul class="pep-refs">
+              <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0196978105004511" target="_blank" rel="noopener">Melanocortin receptor agonists and the melanogenic pathway — peer-reviewed literature</a></li>
+            </ul>
+            <p class="pep-stab"><b>Stabilité :</b> forme lyophilisée stable à -20°C à l'abri de la lumière et de l'humidité. Une fois reconstitué en conditions de laboratoire, conserver au réfrigérateur (2–8°C) et utiliser dans les meilleurs délais.</p>
+          </details>
           <a href="mailto:contact@ov-peptides.com?subject=Commande%20-%20MT-1" id="buy-mt1" class="btn btn-primary pep-buy">Acheter</a>
           <p class="stock-badge" data-stock-id="mt1">Vérification du stock…</p>
         </div>
@@ -332,6 +409,15 @@
           <div class="pep-sub">Blend GHK-Cu + BPC-157 + TB-500</div>
           <p class="pep-desc">Préparation combinée destinée à l'étude conjointe des voies de réparation tissulaire, de régénération cutanée et de récupération cellulaire au sein d'un même modèle de recherche.</p>
           <div class="pep-tags"><span>Étude combinée</span><span>Régénération cutanée</span><span>Modèle in vitro</span></div>
+          <details class="pep-details">
+            <summary>Détails scientifiques</summary>
+            <p class="pep-mech">Ce blend associe trois composés aux mécanismes complémentaires étudiés en recherche : le GHK-Cu pour son interaction avec les enzymes du remodelage du collagène et de l'élastine, le BPC-157 pour son activation des voies angiogéniques VEGFR2–PI3K–Akt–eNOS, et le TB-500 pour sa régulation de la polymérisation de l'actine via le motif LKKTETQ. L'intérêt en recherche est l'étude conjointe de ces trois axes — remodelage cutané, réparation localisée et migration cellulaire — dans un même modèle expérimental.</p>
+            <ul class="pep-refs">
+              <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3448653/" target="_blank" rel="noopener">The Human Tri-peptide GHK and Tissue Remodeling, PMC</a></li>
+              <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12313605/" target="_blank" rel="noopener">Emerging Use of BPC-157 in Orthopaedic Sports Medicine, PMC</a></li>
+            </ul>
+            <p class="pep-stab"><b>Stabilité :</b> forme lyophilisée stable à -20°C à l'abri de la lumière et de l'humidité. Une fois reconstitué en conditions de laboratoire, conserver au réfrigérateur (2–8°C) et utiliser dans les meilleurs délais.</p>
+          </details>
           <a href="mailto:contact@ov-peptides.com?subject=Commande%20-%20GLOW" id="buy-glow" class="btn btn-primary pep-buy">Acheter</a>
           <p class="stock-badge" data-stock-id="glow">Vérification du stock…</p>
         </div>
