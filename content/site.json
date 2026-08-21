@@ -3,7 +3,7 @@
     "eyebrow": "Réservé aux professionnels de la recherche",
     "title_line": "Des peptides de recherche.",
     "title_accent": "Qualité laboratoire.",
-    "lead": "OV Peptides fournit des peptides destinés exclusivement à la recherche scientifique en laboratoire. Pureté documentée, certificats d'analyse fournis, expédition sécurisée. Réservé aux chercheurs et professionnels qualifiés — non destiné à la consommation humaine ou animale.",
+    "lead": "Pep-Trust fournit des peptides destinés exclusivement à la recherche scientifique en laboratoire. Pureté documentée, certificats d'analyse fournis, expédition sécurisée. Réservé aux chercheurs et professionnels qualifiés — non destiné à la consommation humaine ou animale.",
     "cta_primary": "Voir le catalogue",
     "cta_secondary": "Outils de laboratoire",
     "stat1": "Expédié depuis l'UE",
@@ -47,15 +47,15 @@
   "founder": {
     "name": "Olivier Valin",
     "paragraph1": "Après plusieurs années à observer le manque de rigueur et de traçabilité chez de nombreux fournisseurs de peptides de recherche, j'ai voulu créer une alternative fiable pour les laboratoires et chercheurs indépendants.",
-    "paragraph2": "OV Peptides est né de cette volonté : proposer des références documentées, avec certificats d'analyse systématiques et un support technique réactif, pour que chaque commande serve réellement la recherche.",
+    "paragraph2": "Pep-Trust est né de cette volonté : proposer des références documentées, avec certificats d'analyse systématiques et un support technique réactif, pour que chaque commande serve réellement la recherche.",
     "paragraph3": "C'est cette exigence de rigueur qui guide chaque décision, du choix des fournisseurs jusqu'à l'expédition de chaque commande.",
-    "disclaimer": "⚠️ Les produits OV Peptides sont exclusivement destinés à la recherche scientifique in vitro. Ils ne sont ni des médicaments, ni des compléments alimentaires, et ne sont pas destinés à la consommation humaine ou animale."
+    "disclaimer": "⚠️ Les produits Pep-Trust sont exclusivement destinés à la recherche scientifique in vitro. Ils ne sont ni des médicaments, ni des compléments alimentaires, et ne sont pas destinés à la consommation humaine ou animale."
   },
   "testimonials": [
     {
       "name_line": "Laboratoire de recherche indépendant",
       "story": "Documentation systématique, numéros de lot clairs, certificats d'analyse fournis sans avoir à les réclamer. Ça simplifie vraiment nos contrôles qualité internes.",
-      "quote": "Le suivi, l'expédition, l'emballage : tout est carré et pro. Merci OV Peptides."
+      "quote": "Le suivi, l'expédition, l'emballage : tout est carré et pro. Merci Pep-Trust."
     },
     {
       "name_line": "Responsable R&D, biotech",
@@ -106,14 +106,14 @@
   "faq": [
     {
       "question": "Les produits sont-ils destinés à la consommation humaine ?",
-      "answer": "Non. Tous les produits vendus par OV Peptides sont exclusivement destinés à la recherche scientifique en laboratoire (usage in vitro). Ils ne sont ni des médicaments, ni des compléments alimentaires. L'injection, l'ingestion ou toute administration à un être humain ou à un animal est strictement interdite. En passant commande, l'acheteur certifie être un professionnel ou un chercheur qualifié et s'engage à respecter cet usage exclusif."
+      "answer": "Non. Tous les produits vendus par Pep-Trust sont exclusivement destinés à la recherche scientifique en laboratoire (usage in vitro). Ils ne sont ni des médicaments, ni des compléments alimentaires. L'injection, l'ingestion ou toute administration à un être humain ou à un animal est strictement interdite. En passant commande, l'acheteur certifie être un professionnel ou un chercheur qualifié et s'engage à respecter cet usage exclusif."
     },
     {
       "question": "Fournissez-vous un certificat d'analyse (COA) ?",
       "answer": "Oui. Chaque référence est accompagnée d'un certificat d'analyse disponible sur demande, détaillant la pureté et la composition du lot concerné."
     },
     {
-      "question": "Qui peut commander sur OV Peptides ?",
+      "question": "Qui peut commander sur Pep-Trust ?",
       "answer": "Nos produits s'adressent aux laboratoires, chercheurs et professionnels de la recherche scientifique. Toute commande implique l'acceptation de nos CGV et la certification d'un usage conforme, exclusivement à des fins de recherche in vitro."
     },
     {
@@ -129,7 +129,7 @@
   },
   "footer": {
     "tagline": "Peptides de recherche pour laboratoires et professionnels qualifiés.",
-    "disclaimer": "Les produits commercialisés par OV Peptides sont exclusivement destinés à un usage de recherche scientifique en laboratoire (in vitro). Ils ne sont ni des médicaments, ni des compléments alimentaires, ni destinés à la consommation humaine ou animale sous quelque forme que ce soit. Vente réservée aux professionnels et chercheurs qualifiés.",
-    "copyright": "© 2026 OV. Tous droits réservés."
+    "disclaimer": "Les produits commercialisés par Pep-Trust sont exclusivement destinés à un usage de recherche scientifique en laboratoire (in vitro). Ils ne sont ni des médicaments, ni des compléments alimentaires, ni destinés à la consommation humaine ou animale sous quelque forme que ce soit. Vente réservée aux professionnels et chercheurs qualifiés.",
+    "copyright": "© 2026 Pep-Trust. Tous droits réservés."
   }
 }
