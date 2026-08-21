@@ -1,4 +1,4 @@
-# OV Peptides
+# Pep-Trust
 
 > Fournisseur de peptides de recherche destinés exclusivement à un usage scientifique en laboratoire (in vitro). Usage recherche uniquement — non destinés à la consommation humaine ou animale. Vente réservée aux professionnels et chercheurs qualifiés.
 
@@ -13,16 +13,16 @@
 
 ## Pages clés
 
-- [Accueil](https://ov-peptides.netlify.app/) — présentation du catalogue, références, FAQ, retours de laboratoires.
-- [Tarifs détaillés](https://ov-peptides.netlify.app/pricing.md) — fichier structuré pour agents IA.
-- [Outils de laboratoire](https://ov-peptides.netlify.app/outils-gratuits) — calculateurs de recherche (reconstitution, dilution, molarité, conversion d'unités, volume à prélever), gratuits et sans inscription.
-- [Conditions Générales de Vente](https://ov-peptides.netlify.app/cgv) — inclut l'usage exclusif de recherche et la certification requise de l'acheteur.
-- [Politique de confidentialité](https://ov-peptides.netlify.app/confidentialite)
-- [Mentions légales](https://ov-peptides.netlify.app/mentions-legales)
+- [Accueil](https://pep-trust.com/) — présentation du catalogue, références, FAQ, retours de laboratoires.
+- [Tarifs détaillés](https://pep-trust.com/pricing.md) — fichier structuré pour agents IA.
+- [Outils de laboratoire](https://pep-trust.com/outils-gratuits) — calculateurs de recherche (reconstitution, dilution, molarité, conversion d'unités, volume à prélever), gratuits et sans inscription.
+- [Conditions Générales de Vente](https://pep-trust.com/cgv) — inclut l'usage exclusif de recherche et la certification requise de l'acheteur.
+- [Politique de confidentialité](https://pep-trust.com/confidentialite)
+- [Mentions légales](https://pep-trust.com/mentions-legales)
 
 ## À propos
 
-OV Peptides est édité par MC LR LLC. Fondateur : Olivier Valin.
+Pep-Trust est édité par MC LR LLC. Fondateur : Olivier Valin.
 
 ## Avertissement
 

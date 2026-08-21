@@ -1,4 +1,4 @@
-# Tarifs — OV Peptides
+# Tarifs — Pep-Trust
 
 Peptides de recherche à haute pureté, certificat d'analyse (COA) disponible pour chaque lot. Support technique inclus (documentation technique + espace client privé). Frais de port : 4,99 € sur la Référence Découverte, offerts sur les Références Intermédiaire et Pro. Livraison discrète depuis l'UE en 3 à 7 jours ouvrés. Droit de rétractation de 14 jours sur les produits non descellés.
 
