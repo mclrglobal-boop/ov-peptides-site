@@ -375,7 +375,7 @@
                radial-gradient(circle at 75% 80%, rgba(239,74,114,.16), transparent 55%);
   }
   .hero-visual canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
-  .hero-product-video{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:cover;display:block;}
+  .hero-logo-showcase{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;}.hero-logo-mark{width:60%;max-width:320px;filter:drop-shadow(0 25px 70px rgba(79,127,255,.4));animation:logoFloat 6s ease-in-out infinite;}@keyframes logoFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-14px) scale(1.04);}}.hero-product-video{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:cover;display:block;}
   .float-chip{
     position:absolute;z-index:3;display:flex;align-items:center;gap:8px;
     padding:10px 14px;border-radius:12px;font-size:12.5px;font-weight:600;color:var(--text);
@@ -754,7 +754,7 @@
     </div>
     <div class="hero-visual reveal" style="--d:.15s;">
       <canvas id="chain-bg"></canvas>
-      <video class="hero-product-video" autoplay muted loop playsinline poster="assets/hero-product-poster.jpg" aria-hidden="true">
+      <div class="hero-logo-showcase" aria-hidden="true"><img src="assets/logo-mark.svg" alt="Pep-Trust" class="hero-logo-mark"></div><video class="hero-product-video" style="display:none" autoplay muted loop playsinline poster="assets/hero-product-poster.jpg" aria-hidden="true">
         <source src="assets/hero-product.mp4" type="video/mp4">
       </video>
       <div class="float-chip chip-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Livraison 3-7 jours</div>
