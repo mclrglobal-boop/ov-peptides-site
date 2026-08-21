@@ -24,7 +24,7 @@ auth:
   avatar_url_claim: avatar_url
 
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
-site_url: https://ov-peptides.netlify.app
+site_url: https://pep-trust.com
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
@@ -33,7 +33,7 @@ locale: "fr"
 
 collections:
   - name: "site"
-    label: "Site OV Peptides"
+    label: "Site Pep-Trust"
     files:
       - file: "content/site.json"
         label: "Contenu du site"
